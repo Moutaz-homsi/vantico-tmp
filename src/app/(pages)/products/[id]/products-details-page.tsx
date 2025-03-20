@@ -1,5 +1,3 @@
-import { useRouter } from "next/router"
-
 const products = [
   {
     id: 1,
@@ -24,9 +22,8 @@ const products = [
   },
 ]
 
-export default function ProductDetails() {
-  const router = useRouter()
-  const { id } = router.query
+export default function ProductDetailsPage({ params }) {
+  const { id } = params
   const product = products.find((p) => p.id === parseInt(id as string))
 
   if (!product) {
