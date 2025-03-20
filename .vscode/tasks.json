@@ -1,0 +1,62 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Create Component File",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/createComponent.js", "${input:filename}"],
+      "problemMatcher": []
+      // "group": {
+      //   "kind": "build",
+      //   "isDefault": true
+      // }
+    },
+    {
+      "label": "Create list Page",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/create-list-page.js", "${input:filename}"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Create Form",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "scripts/create-form.js",
+        "${input:singularName}",
+        "${input:pluralName}",
+        "${input:shouldCreatePages}"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "filename",
+      "type": "promptString",
+      "description": "Enter the filename",
+      "default": ""
+    },
+    {
+      "id": "singularName",
+      "type": "promptString",
+      "description": "Enter the singular name"
+    },
+    {
+      "id": "pluralName",
+      "type": "promptString",
+      "description": "Enter the plural name"
+    },
+    {
+      "id": "shouldCreatePages",
+      "type": "pickString",
+      "description": "Do you want to create pages?",
+      "options": ["Yes", "No"],
+      "default": "Yes"
+    }
+  ]
+}
