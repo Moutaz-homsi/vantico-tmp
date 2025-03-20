@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils/style-utils"
 import Link from "next/link"
 import React from "react"
 import Container from "./container"
