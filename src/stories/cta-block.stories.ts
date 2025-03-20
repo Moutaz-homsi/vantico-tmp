@@ -2,7 +2,7 @@ import CtaBlock from "@/components/page-builder/blocks/cta-block"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
-  title: "Blocks/cta",
+  title: "Builder/cta",
   component: CtaBlock,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
@@ -45,5 +45,12 @@ export const TwoColumns: Story = {
   args: {
     ...baseData,
     variation: "two_columns",
+  },
+}
+
+export const NoImage: Story = {
+  args: {
+    ...baseData,
+    image: null,
   },
 }
