@@ -1,3 +1,22 @@
 {
-  "i18n-ally.localesPaths": ["localization/messages"]
+	"i18n-ally.localesPaths": ["localization/messages"],
+
+	"github.copilot.chat.codeGeneration.instructions": [
+		{
+			"file": "./docs/code-style.md"
+		},
+		{
+			"text": "page.jsx or page.tsx should import component and export it in one line."
+		}
+	],
+	"github.copilot.chat.reviewSelection.instructions": [
+		{
+			"text": "Make sure no logs or todos exist in the code. Make sure the code is well-formatted and easy to read."
+		}
+	],
+	"github.copilot.chat.testGeneration.instructions": [
+		{
+			"text": "Use the AAA pattern for test cases. Arrange, Act, Assert."
+		}
+	]
 }
