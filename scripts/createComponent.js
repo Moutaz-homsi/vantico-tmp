@@ -5,7 +5,7 @@ const { cwd } = require("process");
 
 const filename = process.argv[2]; // Get the filename from the command-line arguments
 if (filename) {
-  const filePath = path.join(cwd(), "components", filename + ".jsx");
+  const filePath = path.join(cwd(), "src/components", filename + ".jsx")
 
   const componentName = filename[0].toUpperCase() + filename.slice(1);
   fs.writeFileSync(
