@@ -1,0 +1,12 @@
+{
+	"Typography": {
+		"prefix": "typo",
+		"body": ["<Typography variant=\"${1|h1,h2,h3,h4,body|}\">${2:text}</Typography>"],
+		"description": "Creates a Typography component"
+	},
+	"Button": {
+		"prefix": "btn",
+		"body": ["<Button onClick={async()=>{}} variant=\"${1|default,destructive,outline|}\">${2:text}</Button>"],
+		"description": "Creates a Button component"
+	}
+}
