@@ -12,3 +12,6 @@
   - [ ] grid div
 
 document them in readme file
+
+## readme & documentation
+- [ ] glossary
