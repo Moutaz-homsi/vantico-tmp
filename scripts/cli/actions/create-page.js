@@ -1,12 +1,27 @@
 const path = require("path")
 const fs = require("fs")
 const { toCamelCase } = require("../../helpers/strings")
+const inquirer = require("inquirer")
+const { exec } = require("child_process")
 
 module.exports = (program) => {
 	program
 		.command("create-page")
 		.argument("[name]", "page name in kebab-case format")
 		.action(async (name) => {
+			if (!name) {
+				do {
+					const { answer } = await inquirer.prompt([
+						{
+							type: "input",
+							name: "answer",
+							message: "Please enter the name of the file in kebab-case format (e.g. about-us)"
+						}
+					])
+					name = answer
+				} while (!name || name.trim() === "")
+			}
+
 			const component_file_name = `${name}-page`
 			const CamelCaseName = toCamelCase(name)
 			// paths
@@ -27,6 +42,8 @@ module.exports = (program) => {
 
 			console.log(`we should create ${component_file_name} file inside path`, index_file_path)
 			fs.writeFileSync(page_file_path, page_file_content)
+
+			exec(`code "${page_file_path}"`)
 		})
 }
 
