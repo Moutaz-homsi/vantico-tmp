@@ -5,11 +5,15 @@ import Typography from "@/components/ui/typography"
 import Link from "next/link"
 import PortfolioItem from "./(pages)/portfolios/_components/portfolio-item"
 import ContactForm from "@/components/contact-form/contact-form"
+import ROICalculator from "@/components/roi-calculator/roi-calculator-block"
 
 export default function Home() {
 	return (
 		<div>
 			<Container className="flex flex-col gap-8 py-8">
+				<section>
+					<ROICalculator />
+				</section>
 				<section>
 					<ContactForm />
 				</section>
