@@ -5,19 +5,19 @@ import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { DollarSign, TrendingUp } from "lucide-react"
-import { Line, LineChart, ResponsiveContainer, Area, XAxis, YAxis } from "recharts"
+import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
 import { Switch } from "@/components/ui/switch"
 import { cn } from "@/utils"
 
 export default function ROICalculator() {
-	const [monthlyDeposit, setMonthlyDeposit] = useState(0)
+	const [monthlyDeposit, setMonthlyDeposit] = useState(1000)
 	const [years, setYears] = useState("5")
 	const [yield_, setYield] = useState("10")
 	const [chartData, setChartData] = useState<any[]>([])
 	const [portfolioValue, setPortfolioValue] = useState(0)
 	const [monthlyRental, setMonthlyRental] = useState(0)
-	const [isCompound, setIsCompound] = useState(true)
-	const [depositFrequency, setDepositFrequency] = useState<"monthly" | "yearly">("monthly")
+	const [isCompound, setIsCompound] = useState(false)
+	const [depositFrequency, setDepositFrequency] = useState<"monthly" | "yearly">("yearly")
 
 	useEffect(() => {
 		// Calculate portfolio value based on deposits, years, and yield
@@ -46,15 +46,10 @@ export default function ROICalculator() {
 				total = initialInvestment + yieldAmount
 			}
 
-			// Calculate monthly rental as a percentage of total value
-			const monthlyRentalValue = (total * 0.043) / 12
-
 			// Add data point for chart
 			data.push({
 				year: `Y${i}`,
-				value: total,
-				lowerBound: total * 0.85,
-				upperBound: total * 1.15
+				value: total
 			})
 		}
 
@@ -113,9 +108,9 @@ export default function ROICalculator() {
 						<p className="text-gray-600 ml-10">Watch your investment grow as the property value appreciates.</p>
 					</div>
 
-					<Button className="bg-gray-900 hover:bg-gray-800 text-white rounded-md py-6 px-8 w-full sm:w-auto">
+					{/* <Button className="bg-gray-900 hover:bg-gray-800 text-white rounded-md py-6 px-8 w-full sm:w-auto">
 						Sign up
-					</Button>
+					</Button> */}
 				</div>
 
 				{/* Right Column */}
@@ -205,28 +200,15 @@ export default function ROICalculator() {
 											return value
 										}}
 									/>
-									<Area
-										type="monotone"
-										dataKey="upperBound"
-										stroke="transparent"
-										fill="#d1fae5"
-										fillOpacity={0.5}
-										activeDot={false}
-									/>
-									<Area
-										type="monotone"
-										dataKey="lowerBound"
-										stroke="transparent"
-										fill="#d1fae5"
-										fillOpacity={0.5}
-										activeDot={false}
-									/>
+
+									<Tooltip />
+
 									<Line
 										type="monotone"
 										dataKey="value"
 										stroke="#10b981"
 										strokeWidth={2}
-										dot={{ r: 0 }}
+										dot={{ r: 3 }}
 										activeDot={{ r: 6, fill: "#10b981", stroke: "white", strokeWidth: 2 }}
 									/>
 								</LineChart>
