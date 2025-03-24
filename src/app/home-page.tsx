@@ -6,10 +6,15 @@ import Link from "next/link"
 import PortfolioItem from "./(pages)/portfolios/_components/portfolio-item"
 import ContactForm from "@/components/contact-form/contact-form"
 import ROICalculator from "@/components/roi-calculator/roi-calculator-block"
+import VideoBanner from "@/components/video-banner"
+import WhyVintecoSection from "./_components/why-vinteco-section"
 
 export default function Home() {
 	return (
 		<div>
+			<VideoBanner videoId={"1017406920"} />
+
+			<WhyVintecoSection />
 			<Container className="flex flex-col gap-8 py-8">
 				<section>
 					<ROICalculator />
@@ -17,9 +22,7 @@ export default function Home() {
 				<section>
 					<ContactForm />
 				</section>
-				<section>
-					<Typography variant="h2">What distinguishes Vantico / Why Vantico</Typography>
-				</section>
+
 				<section>
 					<Typography variant="h2">Our Achievements / Previous Records</Typography>
 					<Typography variant="body">
