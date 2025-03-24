@@ -1,2 +1,5 @@
 export { Button } from "./button"
 export { default as Typography } from "./typography"
+export { Input } from "./input"
+export { Label } from "./label"
+export { Textarea } from "./textarea"

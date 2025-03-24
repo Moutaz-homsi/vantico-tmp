@@ -4,11 +4,15 @@ import { Button } from "@/components/ui/button"
 import Typography from "@/components/ui/typography"
 import Link from "next/link"
 import PortfolioItem from "./(pages)/portfolios/_components/portfolio-item"
+import ContactForm from "@/components/contact-form/contact-form"
 
 export default function Home() {
 	return (
 		<div>
 			<Container className="flex flex-col gap-8 py-8">
+				<section>
+					<ContactForm />
+				</section>
 				<section>
 					<Typography variant="h2">What distinguishes Vantico / Why Vantico</Typography>
 				</section>
