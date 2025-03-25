@@ -17,7 +17,7 @@ export function strapiImageLoader({ src, width, quality, imageTypeFormat }, stra
 
   const strapiImage = simplifyStrapiResponse(strapiImageObject)
 
-  let imageSrc = src.slice("https://ritzy-do-spaces.nyc3.digitaloceanspaces.com/".length)
+  let imageSrc = src.slice("https://do-spaces.nyc3.digitaloceanspaces.com/".length)
   let imageFormat = imageSrc.split("_")[0]
 
   if (!Object.keys(breakpoints).includes(imageFormat)) {
