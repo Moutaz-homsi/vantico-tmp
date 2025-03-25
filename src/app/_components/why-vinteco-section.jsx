@@ -1,7 +1,7 @@
 import { ArrowUpRight, BarChart3, Building, Scale, Shield, Target, Users } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
-export default function InvestmentOverview() {
+export default function WhyVintecoSection() {
 	return (
 		<section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
 			{/* Background gradient with animated effect */}

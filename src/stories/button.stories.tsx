@@ -1,8 +1,8 @@
 import React from "react"
-import { Meta, Story } from "@storybook/react"
-import { Button } from "./button"
+import { Meta, StoryObj } from "@storybook/react"
+import { Button } from "../components/ui/button"
 
-export default {
+const meta = {
 	title: "UI/Button",
 	component: Button,
 	args: {
@@ -20,7 +20,10 @@ export default {
 		asChild: { control: "boolean" },
 		disabled: { control: "boolean" }
 	}
-} as Meta
+} satisfies Meta<typeof Button>
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
 	args: {
