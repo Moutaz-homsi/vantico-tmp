@@ -17,7 +17,6 @@ export default async function Page({ params }) {
 // reference: https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 // SSG
 export async function generateStaticParams() {
-	console.log("🚀 ~ generateStaticParams ~ generateStaticParams:")
 	const response = await fetchData({ route: `pages/slugs` })
 
 	return response.results
