@@ -45,24 +45,35 @@ function Content({ data }) {
   const textAlign = `text-${alignment}`
 
   return (
-    <div className={cn(`relative h-full flex flex-col gap-4 px-6 lg:px-[3.75rem] z-20`, getFlexAlignmentClasses(alignment))}>
-      <h2
-        className={cn(
-          `text-white font-secondary text-2xl lg:text-4xl leading-normal font-bold  `,
-          variation != "two_columns" && "lg:w-1/2",
-          textAlign
-        )}
-      >
-        {title}
-      </h2>
-      <p className={cn(`text-gray-300 text-base md:text-xl font-normal leading-normal `, variation != "two_columns" && "lg:w-1/2", textAlign)}>
-        {description}
-      </p>
-      <Button onClick={() => {}} className="!text-base mt-4 lg:!text-xl !font-bold !leading-normal">
-        Arrange a Consultation
-      </Button>
-    </div>
-  )
+		<div
+			className={cn(
+				`relative h-full flex flex-col gap-4 px-6 lg:px-[3.75rem] z-20`,
+				getFlexAlignmentClasses(alignment)
+			)}
+		>
+			<h2
+				className={cn(
+					`font-secondary text-2xl lg:text-4xl leading-normal font-bold  `,
+					variation != "two_columns" && "lg:w-1/2",
+					textAlign
+				)}
+			>
+				{title}
+			</h2>
+			<p
+				className={cn(
+					`text-gray-300 text-base md:text-xl font-normal leading-normal `,
+					variation != "two_columns" && "lg:w-1/2",
+					textAlign
+				)}
+			>
+				{description}
+			</p>
+			<Button onClick={() => {}} className="!text-base mt-4 lg:!text-xl !font-bold !leading-normal">
+				Call to action
+			</Button>
+		</div>
+	)
 }
 
 const getFlexAlignmentClasses = (alignment) => {

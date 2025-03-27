@@ -1,4 +1,5 @@
 // log only in the development
+export const inDevelopment = process.env.NODE_ENV === "development"
 export const devLog = (...args) => {
 	if (process.env.NODE_ENV !== "development") return
 	console.log(...args)

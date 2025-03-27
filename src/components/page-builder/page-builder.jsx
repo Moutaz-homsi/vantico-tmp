@@ -8,7 +8,7 @@ export default function PageBuilder({ data }) {
 				{data?.blocks?.length > 0 &&
 					data?.blocks.map(({ __component, ...rest }, index) => {
 						switch (__component) {
-							case "cta":
+							case "pages.cta":
 								return <CtaBlock key={index} {...rest} />
 							case "pages.lists":
 								return <ListBlock key={index} {...rest} />
