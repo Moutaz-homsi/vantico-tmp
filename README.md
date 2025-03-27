@@ -17,6 +17,9 @@ npm run storybook
 ```
 
 styling: taliwendcss with shadcn components
+note we are using tailwend v4 
+https://tailwindcss.com/blog/tailwindcss-v4
+
 guide:
 docs/code-style
 - page builder
