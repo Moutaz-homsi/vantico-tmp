@@ -71,14 +71,14 @@ export default function ROICalculator() {
 				{/* Left Column */}
 				<div className="space-y-8">
 					<div>
-						<h3 className="text-emerald-600 font-medium mb-2">How will I make money?</h3>
+						<h3 className="text-primary font-medium mb-2">How will I make money?</h3>
 						<h1 className="text-4xl font-bold text-gray-900 mb-8">Calculate your potential returns</h1>
 					</div>
 
 					<div className="space-y-2">
 						<div className="flex items-center gap-3">
 							<div className="bg-white p-2 rounded-md">
-								<DollarSign className="h-5 w-5 text-emerald-500" />
+								<DollarSign className="h-5 w-5 text-primary" />
 							</div>
 							<h2 className="text-xl font-semibold">Annual Rental Yield</h2>
 						</div>
@@ -91,9 +91,7 @@ export default function ROICalculator() {
 						</div>
 						<div className="relative flex justify-center">
 							<span className="bg-white border border-gray-300 rounded-full p-2">
-								<span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white">
-									+
-								</span>
+								<span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">+</span>
 							</span>
 						</div>
 					</div>
@@ -101,7 +99,7 @@ export default function ROICalculator() {
 					<div className="space-y-2">
 						<div className="flex items-center gap-3">
 							<div className="bg-white p-2 rounded-md">
-								<TrendingUp className="h-5 w-5 text-emerald-500" />
+								<TrendingUp className="h-5 w-5 text-primary" />
 							</div>
 							<h2 className="text-xl font-semibold">Annual Appreciation</h2>
 						</div>
@@ -128,7 +126,7 @@ export default function ROICalculator() {
 								className={cn(
 									"px-4 py-2 text-sm font-medium rounded-md transition-all",
 									depositFrequency === "monthly"
-										? "bg-emerald-500 text-white shadow-sm"
+										? "bg-primary text-white shadow-sm"
 										: "text-gray-600 hover:text-gray-900"
 								)}
 							>
@@ -139,7 +137,7 @@ export default function ROICalculator() {
 								className={cn(
 									"px-4 py-2 text-sm font-medium rounded-md transition-all",
 									depositFrequency === "yearly"
-										? "bg-emerald-500 text-white shadow-sm"
+										? "bg-primary text-white shadow-sm"
 										: "text-gray-600 hover:text-gray-900"
 								)}
 							>
@@ -154,8 +152,8 @@ export default function ROICalculator() {
 							step={depositFrequency === "monthly" ? 100 : 1000}
 							onValueChange={(value) => setMonthlyDeposit(value[0])}
 							className="py-4"
-							thumbClassName="bg-emerald-500 border-4 border-white"
-							trackClassName="bg-emerald-500"
+							thumbClassName="bg-primary border-4 border-white"
+							trackClassName="bg-primary"
 						/>
 
 						<div className="flex items-center justify-between">
@@ -164,25 +162,25 @@ export default function ROICalculator() {
 									id="compound-mode"
 									checked={isCompound}
 									onCheckedChange={setIsCompound}
-									className="data-[state=checked]:bg-emerald-500"
+									className="data-[state=checked]:bg-primary"
 								/>
 								<label htmlFor="compound-mode" className="text-sm font-medium">
 									{isCompound ? "Compound Interest" : "Simple Interest"}
 								</label>
 							</div>
-							<span className="text-xs text-emerald-600 font-medium">
+							<span className="text-xs text-primary font-medium">
 								{isCompound ? "Returns reinvested" : "Returns not reinvested"}
 							</span>
 						</div>
 
 						<div className="grid grid-cols-2 gap-4">
-							<div className="bg-emerald-50 p-4 rounded-lg">
-								<h3 className="text-2xl font-bold text-emerald-700">${formatCurrency(portfolioValue)}</h3>
-								<p className="text-sm text-emerald-700">Projected Portfolio value by year {years}</p>
+							<div className="bg-primary-foreground p-4 rounded-lg">
+								<h3 className="text-2xl font-bold text-primary">${formatCurrency(portfolioValue)}</h3>
+								<p className="text-sm text-primary">Projected Portfolio value by year {years}</p>
 							</div>
-							<div className="bg-emerald-50 p-4 rounded-lg">
-								<h3 className="text-2xl font-bold text-emerald-700">${formatCurrency(monthlyRental)}</h3>
-								<p className="text-sm text-emerald-700">Monthly rental income by year {years}</p>
+							<div className="bg-primary-foreground p-4 rounded-lg">
+								<h3 className="text-2xl font-bold text-primary">${formatCurrency(monthlyRental)}</h3>
+								<p className="text-sm text-primary">Monthly rental income by year {years}</p>
 							</div>
 						</div>
 
@@ -206,7 +204,7 @@ export default function ROICalculator() {
 									<Line
 										type="monotone"
 										dataKey="value"
-										stroke="#10b981"
+										stroke="gray"
 										strokeWidth={2}
 										dot={{ r: 3 }}
 										activeDot={{ r: 6, fill: "#10b981", stroke: "white", strokeWidth: 2 }}
@@ -217,11 +215,11 @@ export default function ROICalculator() {
 
 						<div className="flex items-center gap-2 text-sm">
 							<div className="flex items-center gap-1">
-								<span className="h-3 w-3 rounded-full bg-emerald-500"></span>
+								<span className="h-3 w-3 rounded-full bg-primary"></span>
 								<span>Projection</span>
 							</div>
 							<div className="flex items-center gap-1 ml-4">
-								<span className="h-3 w-3 rounded-full bg-emerald-100"></span>
+								<span className="h-3 w-3 rounded-full bg-primary/40"></span>
 								<span>Likely Range</span>
 							</div>
 						</div>

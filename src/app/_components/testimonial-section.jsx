@@ -2,10 +2,19 @@
 
 import { useState } from "react"
 import { Button, Card, CardContent } from "@/components/ui"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, PersonStanding } from "lucide-react"
 import Image from "next/image"
 import getNotfoundImaUrl from "@/components/not-found-img"
 
+/**
+ * @typedef {Object} Testimonial
+ * @property {string} id - Unique identifier for the testimonial.
+ * @property {string} comment - The comment or feedback provided by the user.
+ * @property {Object} image - The image object containing the user's profile picture.
+ * @property {string} image.url - The URL of the user's profile picture.
+ * @property {string} user_name - The name of the user providing the testimonial.
+ * @property {number} rating - The rating given by the user (out of 5).
+ */
 export default function TestimonialSection({ testimonials = [] }) {
 	const [activeIndex, setActiveIndex] = useState(0)
 	const itemsPerPage = 3
@@ -22,9 +31,9 @@ export default function TestimonialSection({ testimonials = [] }) {
 	const visibleTestimonials = testimonials.slice(activeIndex * itemsPerPage, (activeIndex + 1) * itemsPerPage)
 
 	return (
-		<section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
+		<section className="w-full relative overflow-hidden">
 			{/* Background gradient */}
-			<div className="absolute inset-0 bg-gradient-to-b from-muted to-background"></div>
+			<div className="absolute inset-0"></div>
 
 			{/* Decorative elements */}
 			<div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-primary/5 blur-[100px]"></div>
@@ -35,11 +44,8 @@ export default function TestimonialSection({ testimonials = [] }) {
 				style={{ animationDelay: "1.5s" }}
 			></div>
 
-			<div className="container px-4 md:px-6 relative z-10">
+			<div className=" px-4 md:px-6 relative z-10">
 				<div className="mx-auto max-w-[800px] space-y-4 text-center mb-12 md:mb-16">
-					<div className="inline-flex items-center justify-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20 mb-4">
-						Client Success Stories
-					</div>
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What Our Investors Say</h2>
 					<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
 						Hear from our satisfied investors about their experience with Blue Ridge Capital Fund.
@@ -107,12 +113,14 @@ function TestimonialCard({ testimonial }) {
 
 				<div className="flex items-center gap-4">
 					<div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-primary/20">
-						<Image
-							src={testimonial.image?.url || getNotfoundImaUrl()}
-							alt={testimonial.user_name}
-							fill
-							className="object-cover"
-						/>
+						{testimonial.image && (
+							<Image
+								src={testimonial.image?.url || getNotfoundImaUrl()}
+								alt={testimonial.user_name}
+								fill
+								className="object-cover"
+							/>
+						)}
 					</div>
 					<div>
 						<h4 className="font-semibold">{testimonial.user_name}</h4>

@@ -17,46 +17,13 @@ export default function ContactForm() {
 
 	return (
 		<div className="mx-auto max-w-4xl py-12 px-4">
-			<div className="grid gap-8 md:grid-cols-2">
-				{/* Details Grid Column */}
-				<div>
-					<h1 className="text-3xl font-bold tracking-tight">Contact Us</h1>
-					<p className="mt-4 text-muted-foreground">
-						We'd love to hear from you. Please fill out the form and we'll get back to you as soon as possible.
-					</p>
-
-					<div className="mt-8 space-y-6">
-						<div className="flex items-start gap-4">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-								<Phone className="h-5 w-5 text-primary" />
-							</div>
-							<div>
-								<h3 className="font-semibold">Phone</h3>
-								<p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
-							</div>
-						</div>
-
-						<div className="flex items-start gap-4">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-								<Mail className="h-5 w-5 text-primary" />
-							</div>
-							<div>
-								<h3 className="font-semibold">Email</h3>
-								<p className="text-sm text-muted-foreground">contact@example.com</p>
-							</div>
-						</div>
-
-						<div className="flex items-start gap-4">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-								<MapPin className="h-5 w-5 text-primary" />
-							</div>
-							<div>
-								<h3 className="font-semibold">Address</h3>
-								<p className="text-sm text-muted-foreground">123 Main St, San Francisco, CA 94105</p>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div className="mx-auto max-w-[800px] space-y-4 text-center">
+				<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Us</h1>
+				<p className="mt-4 text-muted-foreground">
+					We'd love to hear from you. Please fill out the form and we'll get back to you as soon as possible.
+				</p>
+			</div>
+			<div className="grid gap-16 md:grid-cols-2 mt-9">
 				{/* Form Grid Column */}
 				<div className="rounded-lg border bg-card p-6 shadow-sm">
 					{formStatus === "success" && (
@@ -102,6 +69,38 @@ export default function ContactForm() {
 							{isSubmitting ? "Sending..." : "Send Message"}
 						</Button>
 					</form>
+				</div>
+				{/* Details Grid Column */}
+				<div className="mt-8 space-y-6">
+					<div className="flex items-start gap-4">
+						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+							<Phone className="h-5 w-5 text-primary" />
+						</div>
+						<div>
+							<h3 className="font-semibold">Phone</h3>
+							<p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+						</div>
+					</div>
+
+					<div className="flex items-start gap-4">
+						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+							<Mail className="h-5 w-5 text-primary" />
+						</div>
+						<div>
+							<h3 className="font-semibold">Email</h3>
+							<p className="text-sm text-muted-foreground">contact@example.com</p>
+						</div>
+					</div>
+
+					<div className="flex items-start gap-4">
+						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+							<MapPin className="h-5 w-5 text-primary" />
+						</div>
+						<div>
+							<h3 className="font-semibold">Address</h3>
+							<p className="text-sm text-muted-foreground">123 Main St, San Francisco, CA 94105</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

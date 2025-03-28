@@ -6,6 +6,20 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Mail } from "lucide-react"
 import Link from "next/link"
 
+/**
+ * @typedef {Object} TeamMember
+ * @property {string} id - Unique identifier for the team member.
+ * @property {string} first_name - The first name of the team member.
+ * @property {string} last_name - The last name of the team member.
+ * @property {string} role - The role or position of the team member.
+ * @property {string} email - The email address of the team member.
+ * @property {string} image - The URL of the team member's profile picture.
+ */
+
+/**
+ * @param {Object} props
+ * @param {TeamMember[]} props.teamMembers - Array of team members to display in the section.
+ */
 export default function TeamSection({ teamMembers = [] }) {
 	const [startIndex, setStartIndex] = useState(0)
 	const visibleCount = 4
@@ -22,13 +36,13 @@ export default function TeamSection({ teamMembers = [] }) {
 	const visibleTeamMembers = teamMembers.slice(startIndex, startIndex + visibleCount)
 
 	return (
-		<section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
+		<section className="w-full relative overflow-hidden">
 			{/* Background gradient */}
-			<div className="absolute inset-0 bg-gradient-to-b from-background to-muted"></div>
+			<div className="absolute inset-0  to-muted"></div>
 
-			<div className="container px-4 md:px-6 relative z-10">
+			<div className=" px-4 md:px-6 relative z-10">
 				<div className="mx-auto max-w-[800px] space-y-4 text-center mb-12 md:mb-16">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Leadership Team</h2>
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Team</h2>
 					<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
 						Meet the experienced professionals behind Blue Ridge Capital Fund's success.
 					</p>
@@ -82,7 +96,9 @@ function TeamMemberCard({ member }) {
 	return (
 		<div className="flex flex-col items-center max-w-[250px]">
 			<div className="relative mb-4 rounded-full border-4 border-primary overflow-hidden w-[140px] h-[140px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px]">
-				<Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+				{member.image && (
+					<Image src={member.image.url || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+				)}
 			</div>
 			<h3 className="text-xl font-bold text-center">{member.name}</h3>
 			<p className="text-sm text-muted-foreground text-center mb-2">{member.role}</p>

@@ -39,7 +39,7 @@ export default function ContactForm() {
 	})
 
 	return (
-		<div className="mx-auto max-w-4xl py-12 px-4">
+		<div className="">
 			<div className="grid gap-8 md:grid-cols-2">
 				<div>
 					<h1 className="text-3xl font-bold tracking-tight">Contact Us</h1>

@@ -27,7 +27,7 @@ export default function VideoBanner({ videoId }) {
 			{/* Overlay with play button */}
 			<div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white">
 				<div className="container mx-auto px-4 text-center">
-					<h1 className="text-4xl md:text-6xl font-bold mb-6">Discover Our Amazing Product</h1>
+					<h1 className="text-4xl md:text-6xl font-bold mb-6">EXCLUSIVE Co-Investment OPPORTUNITY</h1>
 					<p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
 						Watch our video to learn more about what we offer
 					</p>
@@ -41,9 +41,9 @@ export default function VideoBanner({ videoId }) {
 			{/* Video Modal */}
 			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
 				<DialogContent className="max-w-5xl p-0 overflow-hidden bg-black border-none">
-					<DialogHeader className="px-6 pt-6 pb-2">
+					{/* <DialogHeader className="px-6 pt-6 pb-2">
 						<DialogTitle className="text-white text-xl">Our Product Video</DialogTitle>
-					</DialogHeader>
+					</DialogHeader> */}
 					<div className="aspect-video w-full">
 						<iframe
 							src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`}
