@@ -1,8 +1,8 @@
 import { Container } from "@/components/layout"
 import { Typography } from "@/components/ui"
+import { Link } from "@/i18n/navigation"
 import { useTranslations } from "next-intl"
 import { getTranslations } from "next-intl/server"
-import Link from "next/link"
 import React from "react"
 
 export default async function Lang({ params, metadata }) {
@@ -15,7 +15,9 @@ export default async function Lang({ params, metadata }) {
 			<Typography variant="h3">Lang: {locale}</Typography>
 			<Typography variant="h3">message: {t("welcome")}</Typography>
 
-			<Link href={`/${s}/lang/server`}>switch to {s}</Link>
+			<Link locale={s} href={`/lang/server`}>
+				switch to {s}
+			</Link>
 		</Container>
 	)
 }
