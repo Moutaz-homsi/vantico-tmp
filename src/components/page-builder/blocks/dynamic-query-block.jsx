@@ -1,6 +1,6 @@
-import ProjectItem from "@/app/_components/project-item"
-import TeamSection from "@/app/_components/team-section"
-import TestimonialSection from "@/app/_components/testimonial-section"
+import ProjectItem from "@/app/[locale]/_components/project-item"
+import TeamSection from "@/app/[locale]/_components/team-section"
+import TestimonialSection from "@/app/[locale]/_components/testimonial-section"
 import { Typography } from "@/components/ui"
 import React from "react"
 
