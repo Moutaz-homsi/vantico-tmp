@@ -27,3 +27,7 @@ docs/code-style
 - dynamic pages
   - [link](src/app/(pages)/[slug]/dynamic-slug-page.jsx)
 - other features
+
+localization:
+we followed this guide to setup localization
+https://next-intl.dev/docs/getting-started/app-router/with-i18n-routing
