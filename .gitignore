@@ -41,3 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+
+# code extraction
+extract-code.js
+project_code.json
+extract-structure.js
+project-structure.json

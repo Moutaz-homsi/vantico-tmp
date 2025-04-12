@@ -17,3 +17,10 @@ export default async function fetchData({ route, debug = inDevelopment }) {
 		}
 	}
 }
+
+export function getHomepage() {
+	return fetchData({
+		route: "homepage?populate[sections][populate]=*",
+		debug: true
+	})
+}

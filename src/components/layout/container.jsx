@@ -1,6 +1,27 @@
-import { cn } from "@/utils/style-utils"
-import React from "react"
+"use client"
 
-export default function Container({ children, className = "" }) {
-  return <div className={cn("container mx-auto md:max-w-5xl", className)}>{children}</div>
+import React from "react"
+import { cn } from "@/utils/style-utils"
+
+export default function Container({
+	children,
+	className,
+	as: Component = "div",
+	fluid = false,
+	noGutters = false,
+	...props
+}) {
+	return (
+		<Component
+			className={cn(
+				"mx-auto",
+				!fluid && "max-w-[90rem]", // 1440px
+				!noGutters && "px-4 md:px-6 lg:px-[7.5rem]", // 120px at lg breakpoint
+				className
+			)}
+			{...props}
+		>
+			{children}
+		</Component>
+	)
 }

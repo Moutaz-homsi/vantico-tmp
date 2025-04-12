@@ -1,3 +1,5 @@
 export { default as CtaBlock } from "./cta-block"
 export { default as ListBlock } from "./list-block"
 export { default as DynamicQueryBlock } from "./dynamic-query-block"
+export { default as HeroSection } from "./hero-section"
+export { default as AboutUsSection } from "./about-us-section"

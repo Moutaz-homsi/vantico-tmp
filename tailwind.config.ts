@@ -8,6 +8,23 @@ module.exports = {
 		"./src/app/**/*.{js,ts,jsx,tsx}",
 		"./stories/**/*.{js,ts,jsx,tsx}" // Here!
 	],
-	theme: {},
+	theme: {
+		extend: {
+			fontFamily: {
+				sans: ["var(--font-gantari)"]
+			},
+			colors: {
+				title: {
+					DEFAULT: "var(--title-primary)"
+				},
+				text: {
+					500: "var(--text-500)"
+				},
+				background: {
+					900: "var(--bg-900)"
+				}
+			}
+		}
+	},
 	plugins: []
 }
