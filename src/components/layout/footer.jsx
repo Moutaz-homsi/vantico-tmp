@@ -1,23 +1,90 @@
+"use client"
+
+import React from "react"
+import Container from "@/components/layout/container"
+import Image from "@/components/ui/image"
+import Link from "next/link"
+
 export default function Footer() {
+	const currentYear = new Date().getFullYear()
+
+	// These would normally come from a global site settings API call
+	const quickLinks = [{ label: "Schedule consultation", url: "/consultation" }]
+
+	const siteMapLinks = [
+		{ label: "Services", url: "/services" },
+		{ label: "About Us", url: "/about" },
+		{ label: "Contact", url: "/contact" }
+	]
+
+	const legalLinks = [
+		{ label: "Privacy Policy", url: "/privacy" },
+		{ label: "Terms and Conditions", url: "/terms" },
+		{ label: "Security", url: "/security" }
+	]
+
 	return (
-		<footer
-			// grid grid-cols-2 lg:grid-cols-3
-			className={`min-h-[60px] py-6 pb-20 lg:pb-6 px-4 md:px-11 bg-[#20282C] flex justify-between lg:grid lg:grid-cols-3 text-white items-center`}
-		>
-			<div className="lg:order-1 justify-self-start lg:justify-self-center">{/* <SocialIcons color="white" /> */}</div>
-			<a
-				href="tel:+234234234234"
-				className="justify-self-end lg:justify-self-start flex items-center whitespace-nowrap"
-			>
-				<svg className=" w-[16px] h-auto align-[-.125em] mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-					<path
-						fill="currentColor"
-						d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
-					></path>
-				</svg>
-				+1 (342) 228-23423
-			</a>
-			{/* <div className="hidden md:block" ></div> */}
+		<footer className="bg-[#101010] text-white py-16">
+			<Container>
+				<div className="flex justify-between mb-12">
+					{/* Logo */}
+					<div>
+						<Image src="/logo.png" alt="Logo" height={100} width={200} />
+					</div>
+					<div className="flex gap-20 mr-18">
+						{/* Quick Links */}
+						<div>
+							<h4 className="text-[1rem] uppercase mb-6 font-medium text-[#AAAAAA]">Quick Links</h4>
+							<ul className="space-y-2">
+								{quickLinks.map((link, index) => (
+									<li key={index}>
+										<Link
+											href={link.url}
+											className="text-[1rem] font-normal text-[#AAAAAA] hover:text-white transition-colors"
+										>
+											{link.label}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						{/* Site Map */}
+						<div>
+							<h4 className="text-[1rem] uppercase mb-6 font-medium text-[#AAAAAA]">Site Map</h4>
+							<ul className="space-y-2">
+								{siteMapLinks.map((link, index) => (
+									<li key={index}>
+										<Link
+											href={link.url}
+											className="text-[1rem] font-normal text-[#AAAAAA] hover:text-white transition-colors"
+										>
+											{link.label}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				{/* Bottom Section */}
+				<div className=" pt-12 border-t border-[#2D2D2D] flex flex-col md:flex-row justify-between items-center">
+					<p className="text-[#AAAAAA] font-normal text-sm">© Vantico {currentYear}</p>
+
+					<div className="flex gap-10 mt-4 md:mt-0">
+						{legalLinks.map((link, index) => (
+							<Link
+								key={index}
+								href={link.url}
+								className="text-[#AAAAAA] font-normal text-sm hover:text-white transition-colors"
+							>
+								{link.label}
+							</Link>
+						))}
+					</div>
+				</div>
+			</Container>
 		</footer>
 	)
 }

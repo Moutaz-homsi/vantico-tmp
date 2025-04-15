@@ -13,12 +13,7 @@ export default function Container({
 }) {
 	return (
 		<Component
-			className={cn(
-				"mx-auto",
-				!fluid && "max-w-[90rem]", // 1440px
-				!noGutters && "px-4 md:px-6 lg:px-[7.5rem]", // 120px at lg breakpoint
-				className
-			)}
+			className={cn("mx-auto", !fluid && "max-w-[80rem]", !noGutters && "px-4 md:px-6 lg:px-[7.5rem]", className)}
 			{...props}
 		>
 			{children}

@@ -1,5 +1,7 @@
 import HeroSection from "./blocks/hero-section"
 import AboutUsSection from "./blocks/about-us-section"
+import ConsultationSection from "./blocks/consultation-section"
+import FaqSection from "./blocks/faq-section"
 
 export default function PageBuilder({ data }) {
 	return (
@@ -13,6 +15,10 @@ export default function PageBuilder({ data }) {
 								return <HeroSection key={index} {...section} />
 							case "about-us":
 								return <AboutUsSection key={index} {...section} />
+							case "consultation":
+								return <ConsultationSection key={index} {...section} />
+							case "faq":
+								return <FaqSection key={index} {...section} />
 							default:
 								return <p key={index}>Unrecognized component: {componentType}</p>
 						}
