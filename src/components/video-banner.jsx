@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { AspectRatio } from "./ui/aspect-ratio"
 
-export default function VideoBanner({ videoId }) {
+export default function VideoBanner({ videoId = "1017406920" }) {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	// Vimeo video ID

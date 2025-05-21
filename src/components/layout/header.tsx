@@ -3,7 +3,8 @@ import Link from "next/link"
 import React from "react"
 import Container from "./container"
 import Image from "@/components/ui/image"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, Ham, Menu } from "lucide-react"
+import { Button } from "@/components/ui"
 
 const links = [
 	{ href: "/services", label: "Services" },
@@ -21,8 +22,14 @@ export default function Header({}) {
 							<Image src="/logo.png" alt="Logo" height={100} width={200} />
 						</Link>
 					</div>
+
+					<Menu className="text-white" />
+
+					<Button size="lg" variant="outline" className="!py-6">
+						<p className="text-white">Book a consultation</p>
+					</Button>
 					{/* Navigation */}
-					<nav>
+					{/* <nav>
 						<ul className="flex gap-8 items-center">
 							{links.map((link) => (
 								<li key={link.label}>
@@ -37,7 +44,7 @@ export default function Header({}) {
 								<ChevronRight className="stroke-white stroke-1 size-8 border-[1.5px] border-white m-auto rounded-full" />
 							</Link>
 						</ul>
-					</nav>
+					</nav> */}
 					{/* User actions */}
 				</Container>
 			</div>

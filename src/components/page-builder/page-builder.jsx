@@ -13,8 +13,8 @@ export default function PageBuilder({ data }) {
 						switch (componentType) {
 							case "hero":
 								return <HeroSection key={index} {...section} />
-							case "about-us":
-								return <AboutUsSection key={index} {...section} />
+							// case "about-us":
+							// 	return <AboutUsSection key={index} {...section} />
 							case "consultation":
 								return <ConsultationSection key={index} {...section} />
 							case "faq":
