@@ -2,6 +2,7 @@
 import React from "react"
 import { ChevronDown, ChevronUp, Target, TrendingUp, Users, ChartBar, Handshake, FileText } from "lucide-react"
 import { cn } from "@/utils"
+import SectionLabel from "@/components/section-label"
 
 export type StrategyAccordionItem = {
 	icon: "target" | "trendingUp" | "users" | "chartBar" | "handshake" | "fileText"
@@ -26,13 +27,7 @@ const IconMap = {
 	fileText: FileText
 }
 
-const StrategyAccordion: React.FC<StrategyAccordionProps> = ({
-	heading = "WHY CHOOSE US?",
-	subheading = "PRECISION-DRIVEN",
-	title = "INVESTMENT STRATEGY",
-	items,
-	className
-}) => {
+const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className }) => {
 	const [openItemIndex, setOpenItemIndex] = React.useState<number | null>(0)
 
 	const toggleItem = (index: number) => {
@@ -41,14 +36,17 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({
 
 	return (
 		<div className={cn("max-w-5xl mx-auto px-4 py-16", className)}>
-			{heading && <p className="text-center text-amber-700 font-medium mb-4">{heading}</p>}
-			{subheading && (
-				<h2 className="text-4xl md:text-5xl font-light text-center uppercase tracking-wider mb-1">{subheading}</h2>
-			)}
-			{title && <h3 className="text-4xl md:text-5xl font-light text-center uppercase tracking-wider mb-10">{title}</h3>}
+			<div className="flex flex-col justify-center items-center gap-4">
+				<SectionLabel label={"Why Vantico"} />
+				<h2 className="text-4xl md:text-5xl  text-center uppercase  mb-1">
+					PRECISION-DRIVEN <br />
+					INVESTMENT STRATEGY
+				</h2>
+			</div>
+
 			<p className="text-xl text-center text-gray-600 mb-14">The Surgeon's Scalpel Approach</p>
 
-			<div className="space-y-4">
+			<div className="space-y-4 max-w-3xl mx-auto">
 				{items.map((item, index) => {
 					const Icon = IconMap[item.icon]
 					const isOpen = openItemIndex === index
@@ -57,8 +55,8 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({
 						<div
 							key={index}
 							className={cn(
-								"border rounded-md overflow-hidden transition-all duration-200",
-								isOpen ? "bg-gray-50" : "bg-white"
+								"rounded-md overflow-hidden transition-all duration-200"
+								// isOpen ? "bg-gray-50" : "bg-white"
 							)}
 						>
 							<button
@@ -67,7 +65,7 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({
 								aria-expanded={isOpen}
 							>
 								<div className="flex items-center gap-4">
-									<div className="p-2 bg-gray-100 rounded-full">
+									<div className="p-3 rounded-sm bg-gray-100 ">
 										<Icon className="w-5 h-5" />
 									</div>
 									<h4 className="text-xl font-medium">{item.title}</h4>

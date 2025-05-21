@@ -3,6 +3,7 @@ import React from "react"
 import { ArrowRight, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import SectionLabel from "@/components/section-label"
 
 interface AboutUsProps {
 	onCtaClick?: () => void
@@ -43,7 +44,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 					{/* Left side content */}
 					<div className="lg:col-span-9 px-16 py-18  bg-white">
 						<div className="mb-6">
-							<span className="bg-[#FAF6F2] text-[#AB804A] rounded-xs font-medium px-4 py-2">ABOUT US</span>
+							<SectionLabel label={"About Us"} />
 						</div>
 
 						<h2 className="text-5xl  font-secondary  tracking-tighter uppercase mb-8">

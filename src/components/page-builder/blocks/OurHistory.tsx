@@ -1,4 +1,5 @@
 "use client"
+import SectionLabel from "@/components/section-label"
 import { Separator } from "@/components/ui/separator"
 import React from "react"
 
@@ -20,8 +21,8 @@ const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 			<div className="max-w-7xl mx-auto">
 				{/* Section header */}
 				<div className="text-center mb-16">
-					<span className="uppercase text-amber-400 text-sm font-medium tracking-wider">OUR HISTORY</span>
-					<h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase mt-4">A SUCCESS STORY</h2>
+					<SectionLabel label={"Our History"} variant="dark" />
+					<h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight uppercase mt-4">A SUCCESS STORY</h2>
 				</div>
 
 				{/* Timeline items */}
