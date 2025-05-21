@@ -34,52 +34,57 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 			<div className="max-w-7xl mx-auto">
 				{/* Section header */}
 				<div className="text-center mb-20">
-					<h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase">
-						What's in it for investors?
-					</h2>
+					<h2 className="text-4xl md:text-5xl lg:text-6xl  tracking-tight uppercase">What's in it for investors?</h2>
 				</div>
 
 				{/* Stats grid */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5  mb-20">
 					{stats.map((stat, index) => (
-						<Card key={index} className="bg-gray-900 border-0 overflow-hidden">
-							<CardContent className="py-8 px-6 text-center">
-								<p className="text-3xl md:text-4xl lg:text-5xl font-light mb-3">{stat.value}</p>
-								<p className="text-gray-300 mb-1">{stat.label}</p>
-								{stat.sublabel && <p className="text-sm text-gray-400">{stat.sublabel}</p>}
+						<Card key={index} className="rounded-sm bg-neutral-900 border-0 overflow-hidden">
+							<CardContent className="py-8 px-20 text-center flex flex-col justify-center  h-full ">
+								<p className="text-3xl md:text-4xl lg:text-5xl text-white font-secondary font-light mb-3">
+									{stat.value}
+								</p>
+								<p className="text-neutral-400 mb-1">{stat.label}</p>
+								<p className="text-neutral-400 mb-1">{stat.sublabel}</p>
 							</CardContent>
 						</Card>
 					))}
 				</div>
 
 				{/* Funding progress */}
-				<div className="mb-24">
-					<Progress value={fundingProgress.raisedPercent + fundingProgress.committedPercent} className="h-10 mb-3" />
-					<div className="flex justify-between text-sm">
+				<div className="mb-24 w-full">
+					{/* <Progress value={fundingProgress.raisedPercent + fundingProgress.committedPercent} className="h-10 mb-3" /> */}
+					{/* <div className="grid grid-cols-3 w-full h-5 rounded-md overflow-hidden">
+						<div className="bg-white"></div>
+						<div className="bg-amber-100"></div>
+						<div className="bg-neutral-400"></div>
+					</div> */}
+					<div className="grid grid-cols-4 w-full text-end ">
 						<div>
-							<p className="font-semibold">{fundingProgress.raised}</p>
-							<p className="text-gray-400">Raised</p>
+							<div className="bg-white h-5 w-full rounded-l-md"></div>
+							<p className="mt-2">$18M Raised</p>
+						</div>
+						<div className="col-span-2">
+							<div className="bg-[#AB804A] h-5 w-full"></div>
+							<p className="mt-2">68M Committed</p>
 						</div>
 						<div>
-							<p className="font-semibold">{fundingProgress.committed}</p>
-							<p className="text-gray-400">Committed</p>
-						</div>
-						<div>
-							<p className="font-semibold">{fundingProgress.toGo}</p>
-							<p className="text-gray-400">To Go</p>
+							<div className="bg-neutral-400 h-5 w-full rounded-r-md"></div>
+							<p className="mt-2">$17M To Go</p>
 						</div>
 					</div>
 				</div>
 
 				{/* Investment details */}
-				<div className="max-w-2xl mx-auto">
+				<div className="flex flex-col gap-8 max-w-2xl mx-auto">
 					{investmentDetails.map((detail, index) => (
 						<div key={index}>
-							<div className="flex justify-between items-center py-5">
+							<div className="flex justify-between items-center mb-2 ">
 								<p className="text-gray-300">{detail.label}</p>
-								<p className="text-2xl md:text-3xl font-light">{detail.value}</p>
+								<p className="text-2xl md:text-3xl font-semibold">{detail.value}</p>
 							</div>
-							{index < investmentDetails.length - 1 && <Separator className="bg-gray-800" />}
+							{index < investmentDetails.length - 1 && <Separator className="bg-neutral-700" />}
 						</div>
 					))}
 				</div>
