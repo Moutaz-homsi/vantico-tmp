@@ -46,13 +46,13 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 							<span className="bg-[#FAF6F2] text-[#AB804A] rounded-xs font-medium px-4 py-2">ABOUT US</span>
 						</div>
 
-						<h2 className="text-5xl font-secondary  tracking-tighter uppercase mb-8">
+						<h2 className="text-5xl  font-secondary  tracking-tighter uppercase mb-8">
 							STEP INTO A PROVEN, <br />
 							RECESSION-RESISTANT <br />
 							MODEL
 						</h2>
 
-						<p className="text-lg text-gray-600 mb-10">
+						<p className="text-lg text-gray-600 leading-relaxed mb-10">
 							Vantico specializes in high-end dental and underutilized commercial property investments in the
 							Mid-Atlantic market. We create high-yield investment by merging real estate ownership with the booming
 							healthcare sector, giving investors stability and long-term growth.
