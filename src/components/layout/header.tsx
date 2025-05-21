@@ -25,8 +25,8 @@ export default function Header({}) {
 
 					<Menu className="text-white" />
 
-					<Button size="lg" variant="outline" className="!py-6">
-						<p className="text-white">Book a consultation</p>
+					<Button size="lg" variant="outline" className="!py-6 border-neutral-600">
+						<p className="text-white">Book consultation</p>
 					</Button>
 					{/* Navigation */}
 					{/* <nav>

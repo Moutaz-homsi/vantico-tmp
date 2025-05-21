@@ -27,13 +27,13 @@ const Hero: React.FC<HeroProps> = ({
 
 			<div className="w-full max-w-7xl flex flex-col gap-6 ">
 				<div className="relative z-10 text-center  ">
-					<h1 className="text-5xl md:text-7xl font-light  text-white uppercase tracking-wider mb-6">
+					<h1 className="text-7xl font-secondary tracking-tighter text-white uppercase  mb-6">
 						BUILD WEALTH <br /> WITH VANTICO
 					</h1>
 
 					<p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">{subtitle}</p>
 
-					<Button onClick={onCtaClick} size="lg">
+					<Button onClick={onCtaClick}>
 						{ctaText} <ChevronRight className="ml-2" size={20} />
 					</Button>
 				</div>

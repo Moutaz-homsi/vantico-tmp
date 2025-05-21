@@ -60,8 +60,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 
 						<Button
 							onClick={onCtaClick}
-							variant="default"
-							className="bg-black hover:bg-gray-800 text-white py-6 px-8 text-lg rounded-none"
+							variant="dark"
+							// className="bg-black hover:bg-gray-800 text-white py-6 px-8 text-lg rounded-none"
 						>
 							Get started <ChevronRight className="ml-2" size={20} />
 						</Button>
