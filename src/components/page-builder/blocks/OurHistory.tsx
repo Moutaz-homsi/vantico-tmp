@@ -39,7 +39,7 @@ const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 							{/* Content */}
 							<div className="lg:col-span-8 lg:col-start-3 flex flex-col sm:flex-row gap-6">
 								<div className="w-full sm:w-24 flex-shrink-0">
-									<span className="text-2xl font-medium text-amber-400">{item.year}</span>
+									<span className="text-2xl font-medium text-neutral-400">{item.year}</span>
 								</div>
 								<div className="flex-grow">
 									<p className="text-gray-300 text-lg">{item.description}</p>

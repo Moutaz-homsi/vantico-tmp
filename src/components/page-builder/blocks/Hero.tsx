@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({
 					{/* <div className="w-full h-[600px] relative"> */}
 					{/* <Image isFill alt="Video Background" src="/images/video-background.png" /> */}
 					{/* </div> */}
-					<div className="h-full w-full bg-red-400 absolute top-16">
+					<div className="h-full w-full absolute top-16">
 						{/* test */}
 						<Image isFill alt="Video Background" src="/images/video-background.png" />
 					</div>

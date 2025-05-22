@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui"
+import { Button, Image } from "@/components/ui"
 import { Separator } from "@/components/ui/separator"
-import { Instagram, Linkedin, Youtube, X } from "lucide-react"
-import Image from "next/image"
+import { Instagram, Linkedin, Youtube, X, ChevronRight } from "lucide-react"
 import Link from "next/link"
+import { AspectRatio } from "../ui/aspect-ratio"
 
 /* Site Map Section */
 const siteMapLinks = [
@@ -91,16 +91,13 @@ const Footer = () => {
 	return (
 		<footer className="bg-black text-white py-16">
 			<div className="container mx-auto px-4 md:px-6 lg:px-8">
-				<div className="flex justify-between">
-					<div className="flex items-center mb-16">
-						<Image src="/logo.png" alt="Logo" height={100} width={200} />
+				<div className="flex justify-between mb-16">
+					<div className="flex items-center ">
+						<Image src="/logo.svg" alt="Logo" height={100} width={200} />
 					</div>
-					<Button
-						variant="outline"
-						className=" text-white bg-transparent border-white hover:bg-white hover:text-black transition-colors p-6"
-					>
+					<Button className="font-semibold">
 						Schedule free consultation
-						<span className="ml-2">→</span>
+						<ChevronRight className="ml-2" size={16} />
 					</Button>
 				</div>
 				<div className="flex flex-col lg:flex-row justify-between items-start mb-12">
@@ -138,14 +135,15 @@ const Footer = () => {
 					</div>
 
 					{/* Map and CTA */}
-					<div className="w-full lg:w-1/3">
-						<div className="rounded-lg overflow-hidden mb-6">
-							<img
-								src="https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-78.85,35.81,13,0/600x400?access_token=pk.eyJ1IjoiZXhhbXBsZXVzZXIiLCJhIjoiY2xmeWh6aHZmMDdteDNlcGRsdnU3ZnN0NiJ9.6YmLDqDlGHFnyGJQkz9tjw"
+					<div className="w-full lg:w-[40%]">
+						<AspectRatio ratio={7 / 4} className="relative   rounded-sm overflow-hidden mb-6">
+							<Image
+								isFill
+								src="/images/map.png"
 								alt="Map showing the office location"
 								className="w-full h-64 object-cover"
 							/>
-						</div>
+						</AspectRatio>
 					</div>
 				</div>
 

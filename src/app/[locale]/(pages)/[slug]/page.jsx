@@ -1,1 +1,2 @@
-export { default, generateStaticParams, revalidate } from "./dynamic-slug-page"
+// temporary disabled
+// export { default, generateStaticParams, revalidate } from "./dynamic-slug-page"

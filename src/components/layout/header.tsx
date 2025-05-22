@@ -19,7 +19,7 @@ export default function Header({}) {
 					{/* Logo */}
 					<div>
 						<Link href="/" className="h-full">
-							<Image src="/logo.png" alt="Logo" height={100} width={200} />
+							<Image src="/logo.svg" alt="Logo" height={100} width={200} />
 						</Link>
 					</div>
 

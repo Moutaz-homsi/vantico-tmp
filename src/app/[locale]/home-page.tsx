@@ -10,6 +10,7 @@ import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
 import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
 import NewsSection from "@/components/page-builder/blocks/news-section"
 import OurHistory from "@/components/page-builder/blocks/OurHistory"
+import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
 import Renamelater from "@/components/page-builder/blocks/renamelater"
 import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
 import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
@@ -97,7 +98,7 @@ export const historyItems = [
 	}
 ]
 
-export default async function HomePage() {
+export default function HomePage() {
 	return (
 		<main>
 			{/* Calendly */}
@@ -140,6 +141,31 @@ export default async function HomePage() {
 			<MeetTheTeam members={teamMembers} />
 
 			<Testimonials />
+
+			<PropertyTour
+				images={[
+					{
+						id: 1,
+						url: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
+						alt: "Triangle Family Dentistry building with courtyard view"
+					},
+					{
+						id: 2,
+						url: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
+						alt: "Modern dental clinic building facade"
+					},
+					{
+						id: 3,
+						url: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
+						alt: "Prime commercial real estate property"
+					},
+					{
+						id: 4,
+						url: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
+						alt: "Modern dental clinic building facade"
+					}
+				]}
+			/>
 			<NewsSection
 				items={[
 					{
@@ -147,24 +173,24 @@ export default async function HomePage() {
 						excerpt:
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
 						date: "February 6, 2025",
-						image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-xKxG2mcCpM0NkH8qyjEMnR0pUAJQaQ.png",
-						url: "/news/property-acquisition"
+						image: "/images/calendly-background.png",
+						url: "#"
 					},
 					{
 						title: "Triangle Family Dentistry Opens New Location",
 						excerpt:
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
 						date: "February 6, 2025",
-						image: "/placeholder.svg?height=400&width=600",
-						url: "/news/new-location"
+						image: "/images/calendly-background.png",
+						url: "#"
 					},
 					{
 						title: "Expansion of Commercial Real Estate Portfolio",
 						excerpt:
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
 						date: "February 6, 2025",
-						image: "/placeholder.svg?height=400&width=600",
-						url: "/news/portfolio-expansion"
+						image: "/images/calendly-background.png",
+						url: "#"
 					}
 				]}
 			/>

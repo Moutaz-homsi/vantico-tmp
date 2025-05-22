@@ -1,6 +1,9 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/utils"
+import { Image } from "@/components/ui"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { ChevronRight } from "lucide-react"
 
 export interface NewsItem {
 	title: string
@@ -27,9 +30,9 @@ export default function NewsSection({
 }: NewsSectionProps) {
 	return (
 		<section className={cn("w-full py-20 bg-gray-50", className)}>
-			<div className="container mx-auto px-4">
+			<div className="max-w-7xl mx-auto px-4">
 				{/* Header */}
-				<h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-wider uppercase mb-16">{title}</h2>
+				<h2 className="text-6xl uppercase mb-16">{title}</h2>
 
 				{/* News grid */}
 				{items.length > 0 && (
@@ -37,16 +40,21 @@ export default function NewsSection({
 						{items.map((item, index) => (
 							<div key={index} className="flex flex-col">
 								<Link href={item.url} className="group">
-									<div className="mb-6 overflow-hidden">
-										<img
+									<AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden">
+										<Image
+											isFill
 											src={item.image || "/placeholder.svg"}
 											alt={item.title}
 											className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 										/>
+									</AspectRatio>
+									<div className="flex flex-col gap-2 pt-3">
+										<div className="text-gray-500">{item.date}</div>
+										{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
+											{item.title}
+										</h3> */}
+										<p className="text-gray-600">{item.excerpt}</p>
 									</div>
-									<div className="text-gray-500 mb-2">{item.date}</div>
-									<h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">{item.title}</h3>
-									<p className="text-gray-600">{item.excerpt}</p>
 								</Link>
 							</div>
 						))}
@@ -55,10 +63,10 @@ export default function NewsSection({
 
 				{/* See more button */}
 				{seeMoreUrl && (
-					<div className="flex justify-center">
-						<Button asChild className="bg-black hover:bg-gray-800 text-white rounded-none px-8 py-6">
+					<div className="flex justify-center mt-2">
+						<Button asChild variant="dark">
 							<Link href={seeMoreUrl}>
-								{seeMoreText} <span className="ml-2">→</span>
+								{seeMoreText} <ChevronRight className="ml-2" size={16} />
 							</Link>
 						</Button>
 					</div>
