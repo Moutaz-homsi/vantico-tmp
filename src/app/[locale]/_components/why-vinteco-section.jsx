@@ -1,12 +1,13 @@
 import { ArrowUpRight, BarChart3, Building, Scale, Shield, Target, Users } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import SectionLabel from "@/components/section-label"
 
 export default function WhyVintecoSection() {
 	return (
 		<section className="w-full relative overflow-hidden">
 			<div className=" px-4 md:px-6 relative z-10">
 				<div className="mx-auto max-w-[800px] space-y-4 text-center">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ">Our Investment Approach</h2>
+					<SectionLabel label="Our Investment Approach" />
 					<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
 						Blue Ridge Capital Fund specializes in high-end dental and underutilized commercial property investments in
 						the thriving Mid-Atlantic market. With a 12-year track record, our principals manage Triangle Family
