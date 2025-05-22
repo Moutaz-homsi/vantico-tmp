@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { ArrowRight, ChevronRight } from "lucide-react"
+import { ArrowRight, ChevronRight, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import AboutUs from "./AboutUs"
@@ -45,6 +45,11 @@ const Hero: React.FC<HeroProps> = ({
 					<div className="h-full w-full absolute top-16">
 						{/* test */}
 						<Image isFill alt="Video Background" src="/images/video-background.png" />
+					</div>
+					<div className="absolute top-16 left-0 w-full h-full flex items-center justify-center">
+						<div className="bg-black/80 shadow-lg p-8 rounded-full hover:bg-black/60 transition-all duration-300 cursor-pointer">
+							<Play className="text-white text-3xl" fill="white" size={52} />
+						</div>
 					</div>
 				</AspectRatio>
 			</div>
