@@ -1,9 +1,11 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/utils"
+import { Button, Image } from "@/components/ui"
+import { Percent, LogIn } from "lucide-react"
 
 interface InvestorStat {
 	value: string
@@ -85,13 +87,54 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 								<p className="text-gray-300 flex-1">{detail.label}</p>
 								<p className={cn("text-3xl flex-1 text-end font-semibold", detail.className ?? "")}>{detail.value}</p>
 							</div>
-							{index < investmentDetails.length - 1 && <Separator className="bg-neutral-700" />}
+							<Separator className="bg-neutral-700" />
 						</div>
 					))}
 				</div>
+
+				<Tab />
 			</div>
 		</section>
 	)
 }
 
+const content = {
+	returns: `Any distributions below an annualized PRR of 8% will be accrued by the fund and paid on a preferential basis
+					at property exit or fund exit, before waterfall.`,
+	exit: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's`
+}
+function Tab() {
+	const [activeTab, setActiveTab] = useState("returns")
+
+	return (
+		<div className="bg-neutral-800 mt-16 max-w-6xl mx-auto px-16 py-16 rounded-sm">
+			<div className="grid grid-cols-5 gap-4 items-baseline">
+				<div className="col-span-2 flex flex-col gap-4 text-start items-start ">
+					<Button
+						onClick={() => {
+							setActiveTab("returns")
+						}}
+						className={cn(activeTab != "returns" && "text-neutral-500")}
+						variant="text"
+					>
+						<Image alt="percent icon" src="/icons/percent-icon.png" width={36} height={36} /> Returns
+					</Button>
+					<Button
+						onClick={() => {
+							setActiveTab("exit")
+						}}
+						className={cn(activeTab != "exit" && "text-neutral-500")}
+						variant="text"
+					>
+						<Image alt="percent icon" src="/icons/exit-icon.png" width={36} height={36} />
+						Exit
+					</Button>
+				</div>
+				<div className="col-span-3">
+					<p className="col-span-2 text-[#ABABAB]">{content[activeTab]}</p>
+				</div>
+			</div>
+		</div>
+	)
+}
 export default InvestorsSection
