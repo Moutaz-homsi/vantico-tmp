@@ -18,28 +18,17 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 	}, [])
 
 	return (
-		<div className="relative">
-			{backgroundImage && (
-				<div className="absolute inset-0 w-full h-full">
-					<Image
-						src={backgroundImage.url}
-						strapiImage={backgroundImage}
-						isFill
-						sizes="100vw"
-						className="object-cover"
-						alt="Consultation background"
-					/>
-					<div className="absolute inset-0 bg-black/30" />
-				</div>
-			)}
-
-			<Container className="relative z-20 py-44">
-				<div className="bg-white size-fit mx-auto p-20 max-w-[800px] ">
-					{title && (
-						<h2 className="text-[4rem] font-extralight leading-[110%] mb-6">
-							{title} <span className="font-normal">{boldTitle}</span>
-						</h2>
-					)}
+		<div className="relative bg-black py-30">
+			<div
+				className="max-w-7xl min-h-80 mx-auto p-32"
+				style={{
+					background: `url(${backgroundImage?.url})`
+				}}
+			>
+				<div className="bg-white  p-16  ">
+					<h2 className="text-5xl font-secondary leading-tight mb-6">
+						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
+					</h2>
 					<div
 						className="calendly-inline-widget"
 						data-url={`${calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1&text_color=000000&primary_color=000000`}
@@ -50,7 +39,19 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 						}}
 					/>
 				</div>
-			</Container>
+			</div>
+			{/* {backgroundImage && (
+				<div className="absolute inset-0 w-full h-full">
+					<Image
+						src={backgroundImage.url}
+						strapiImage={backgroundImage}
+						isFill
+						sizes="100vw"
+						className="object-cover"
+						alt="Consultation background"
+					/>
+				</div>
+			)} */}
 		</div>
 	)
 }
