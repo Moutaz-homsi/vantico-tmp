@@ -3,6 +3,7 @@ import React from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/utils"
 
 interface InvestorStat {
 	value: string
@@ -81,8 +82,8 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 					{investmentDetails.map((detail, index) => (
 						<div key={index}>
 							<div className="flex justify-between items-center mb-2 ">
-								<p className="text-gray-300">{detail.label}</p>
-								<p className="text-2xl md:text-3xl font-semibold">{detail.value}</p>
+								<p className="text-gray-300 flex-1">{detail.label}</p>
+								<p className={cn("text-3xl flex-1 text-end font-semibold", detail.className ?? "")}>{detail.value}</p>
 							</div>
 							{index < investmentDetails.length - 1 && <Separator className="bg-neutral-700" />}
 						</div>

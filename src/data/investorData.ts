@@ -54,5 +54,31 @@ export const investmentDetails = [
 	{
 		label: "Forecast Annual Net IRR to Investors",
 		value: "20%"
+	},
+	{
+		label: "Forecast 5 year Net MOIC to Investors",
+		value: "2.22 - 3.37x"
+	},
+	{
+		label: "Capital Raise Target",
+		value: "$98 Million"
+	},
+	{
+		label: "Raise Period",
+		value: "12 Months"
+	},
+	{
+		label: "Investment Period",
+		value: "5 Years"
+	},
+	{
+		label: "Geographical Coverage",
+		value: "Mid Atlantic - United States (principally North Carolina)",
+		className: "text-lg"
+	},
+	{
+		label: "Property Type",
+		value: "Dental / Select Underutilized Commercial, Retail, Office",
+		className: "text-lg"
 	}
 ]
