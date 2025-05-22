@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import { ChevronDown, ChevronUp, ChevronRight } from "lucide-react"
 import { cn } from "@/utils"
+import { Button } from "@/components/ui"
 
 export type FAQItem = {
 	question: string
@@ -23,8 +24,8 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 	}
 
 	return (
-		<section id="faq" className="w-full max-w-4xl mx-auto py-16 px-4">
-			<h2 className="text-4xl font-light tracking-wider text-white text-center mb-12">{title}</h2>
+		<section id="faq" className="w-full max-w-3xl mx-auto py-16 px-4">
+			<h2 className="text-5xl  tracking-wider text-white mb-12">{title}</h2>
 
 			<div className="space-y-4">
 				{items.map((item, index) => (
@@ -56,12 +57,9 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 			{ctaText && (
 				<div className="mt-16 flex justify-between items-center">
 					<p className="text-2xl text-white">Couldn't find an answer?</p>
-					<button
-						onClick={onCtaClick}
-						className="bg-white text-black px-8 py-4 rounded flex items-center hover:bg-gray-200 transition-colors"
-					>
+					<Button className="font-semibold" onClick={onCtaClick}>
 						{ctaText} <ChevronRight className="ml-2" />
-					</button>
+					</Button>
 				</div>
 			)}
 		</section>
