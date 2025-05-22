@@ -57,7 +57,7 @@ const contactDetails = [
 			</svg>
 		),
 		content: (
-			<a href="tel:+19296764692" className="hover:text-amber-400 transition-colors">
+			<a href="tel:+19296764692" className="hover:text-primary transition-colors">
 				+1 (929) 676-4692
 			</a>
 		)
@@ -80,7 +80,7 @@ const contactDetails = [
 			</svg>
 		),
 		content: (
-			<a href="mailto:contact@vantico.com" className="hover:text-amber-400 transition-colors">
+			<a href="mailto:contact@vantico.com" className="hover:text-primary transition-colors">
 				contact@vantico.com
 			</a>
 		)
@@ -89,8 +89,23 @@ const contactDetails = [
 
 const Footer = () => {
 	return (
-		<footer className="bg-black text-white py-16">
-			<div className="container mx-auto px-4 md:px-6 lg:px-8">
+		<footer className="bg-[#1E1E1E] text-white ">
+			{/* background image */}
+			<div className="relative inset-0 pointer-events-none select-none">
+				<div className="size-96 opacity-15 absolute left-0 top-0  z-0">
+					<Image
+						src="/bg-logo.png"
+						alt="Background logo"
+						isFill
+						styles={{}}
+						quality={80}
+						fetchPriority="auto"
+						className="object-contain object-right h-full w-full opacity-80"
+					/>
+				</div>
+			</div>
+
+			<div className="container mx-auto px-16 py-16">
 				<div className="flex justify-between mb-16">
 					<div className="flex items-center ">
 						<Image src="/logo.svg" alt="Logo" height={100} width={200} />
@@ -106,12 +121,12 @@ const Footer = () => {
 					<div className="mb-8 lg:mb-0">
 						{/* Site Map Section */}
 						<div className="mb-10">
-							<h3 className="text-gray-400 uppercase text-sm mb-6">Site Map</h3>
+							<h3 className="text-neutral-300 uppercase text-sm mb-6">Site Map</h3>
 							<nav>
 								<ul className="space-y-4">
 									{siteMapLinks.map((link, index) => (
 										<li key={index}>
-											<Link href={link.href} className="hover:text-amber-400 transition-colors">
+											<Link href={link.href} className="hover:text-primary text-neutral-300 transition-colors">
 												{link.label}
 											</Link>
 										</li>
@@ -123,10 +138,10 @@ const Footer = () => {
 
 					{/* Contact Section */}
 					<div className="lg:mx-auto mb-8 lg:mb-0">
-						<h3 className="text-gray-400 uppercase text-sm mb-6">Contact</h3>
+						<h3 className="text-neutral-300 uppercase text-sm mb-6">Contact</h3>
 						<div className="space-y-6">
 							{contactDetails.map((detail, index) => (
-								<div className="flex items-start" key={index}>
+								<div className="flex items-start text-neutral-300" key={index}>
 									<div className="min-w-8 mt-1">{detail.icon}</div>
 									<div>{detail.content}</div>
 								</div>
@@ -147,36 +162,36 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<Separator className="bg-gray-800 my-10" />
+				<Separator className="bg-neutral-700 my-10" />
 
 				{/* bottom links */}
 				<div className="flex flex-col md:flex-row justify-between items-center">
 					<div className="flex items-center mb-6 md:mb-0">
-						<p className="text-sm text-gray-400">© Vantico 2025</p>
+						<p className="text-sm text-neutral-300">© Vantico 2025</p>
 						<div className="flex space-x-4 ml-8">
-							<a href="#" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">
+							<a href="#" aria-label="Instagram" className="text-neutral-300 hover:text-white transition-colors">
 								<Instagram size={20} />
 							</a>
-							<a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+							<a href="#" aria-label="Twitter" className="text-neutral-300 hover:text-white transition-colors">
 								<X size={20} />
 							</a>
-							<a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+							<a href="#" aria-label="LinkedIn" className="text-neutral-300 hover:text-white transition-colors">
 								<Linkedin size={20} />
 							</a>
-							<a href="#" aria-label="YouTube" className="text-gray-400 hover:text-white transition-colors">
+							<a href="#" aria-label="YouTube" className="text-neutral-300 hover:text-white transition-colors">
 								<Youtube size={20} />
 							</a>
 						</div>
 					</div>
 
 					<div className="flex space-x-8">
-						<a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
+						<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
 							Privacy Policy
 						</a>
-						<a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
+						<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
 							Terms and Conditions
 						</a>
-						<a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
+						<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
 							Security
 						</a>
 					</div>
