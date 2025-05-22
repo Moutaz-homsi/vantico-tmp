@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({
 	className
 }) => {
 	return (
-		<div className="w-full  pt-20  bg-black flex  justify-center">
+		<section id="hero" className="w-full  pt-20  bg-black flex  justify-center">
 			{/* Background overlay for video/image */}
 
 			<div className="w-full max-w-7xl flex flex-col gap-6 ">
@@ -48,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({
 					</div>
 				</AspectRatio>
 			</div>
-		</div>
+		</section>
 	)
 }
 

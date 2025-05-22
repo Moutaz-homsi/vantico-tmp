@@ -17,7 +17,7 @@ interface OurHistoryProps {
 
 const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 	return (
-		<div className="w-full py-24 px-4 md:px-8 lg:px-16 bg-black text-white">
+		<section id="history" className="w-full py-24 px-4 md:px-8 lg:px-16 bg-black text-white">
 			<div className="max-w-7xl mx-auto">
 				{/* Section header */}
 				<div className="text-center mb-16">
@@ -50,7 +50,7 @@ const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

@@ -11,7 +11,7 @@ export default function ROICalculator() {
 	const annualROI = (roi / (investmentPeriod / 12)).toFixed(1)
 
 	return (
-		<div className="bg-black text-white p-10 rounded-lg max-w-[800px] mx-auto">
+		<section id="roi" className="bg-black text-white p-10 rounded-lg max-w-[800px] mx-auto">
 			<h2 className="text-4xl font-light text-center mb-10 tracking-widest">ROI CALCULATOR</h2>
 			<div className="grid grid-cols-3 gap-6 mb-10">
 				<div>
@@ -65,6 +65,6 @@ export default function ROICalculator() {
 					<p className="text-white font-normal text-3xl">{annualROI}%</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }

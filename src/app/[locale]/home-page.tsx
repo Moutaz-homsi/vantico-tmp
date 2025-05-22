@@ -129,19 +129,6 @@ export default function HomePage() {
 
 			<InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} />
 
-			<TenantsSection tenants={tenants} />
-
-			{/* Add ROI Calculator */}
-			<div className="bg-black py-20">
-				<ROICalculator />
-			</div>
-
-			<InvestmentApproach steps={investmentSteps} />
-
-			<MeetTheTeam members={teamMembers} />
-
-			<Testimonials />
-
 			<PropertyTour
 				images={[
 					{
@@ -166,6 +153,21 @@ export default function HomePage() {
 					}
 				]}
 			/>
+
+			<TenantsSection tenants={tenants} />
+
+			<div className="bg-black py-20">
+				<ROICalculator />
+			</div>
+
+			<Renamelater />
+			<MeetTheTeam members={teamMembers} />
+
+			<InvestmentApproach steps={investmentSteps} />
+
+			{/* calendly */}
+			<Testimonials />
+
 			<NewsSection
 				items={[
 					{
@@ -194,8 +196,6 @@ export default function HomePage() {
 					}
 				]}
 			/>
-
-			<Renamelater />
 			<div className="bg-black">
 				<FAQ
 					items={[

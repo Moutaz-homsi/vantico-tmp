@@ -23,7 +23,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 	}
 
 	return (
-		<div className="w-full max-w-4xl mx-auto py-16 px-4">
+		<section id="faq" className="w-full max-w-4xl mx-auto py-16 px-4">
 			<h2 className="text-4xl font-light tracking-wider text-white text-center mb-12">{title}</h2>
 
 			<div className="space-y-4">
@@ -64,7 +64,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 					</button>
 				</div>
 			)}
-		</div>
+		</section>
 	)
 }
 

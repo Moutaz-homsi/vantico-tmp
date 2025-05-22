@@ -29,7 +29,7 @@ export default function NewsSection({
 	className
 }: NewsSectionProps) {
 	return (
-		<section className={cn("w-full py-20 bg-gray-50", className)}>
+		<section id="news" className={cn("w-full py-20 bg-gray-50", className)}>
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Header */}
 				<h2 className="text-6xl uppercase mb-16">{title}</h2>

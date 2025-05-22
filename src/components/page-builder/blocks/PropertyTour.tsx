@@ -18,7 +18,7 @@ interface PropertyTourProps {
 
 const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 	return (
-		<section className="bg-black text-white py-16 px-4">
+		<section id="tour" className="bg-black text-white py-16 px-4">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center mb-4">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />

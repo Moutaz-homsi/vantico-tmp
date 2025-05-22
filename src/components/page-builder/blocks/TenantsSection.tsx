@@ -26,7 +26,7 @@ export default function TenantsSection({
 	className
 }: TenantsSectionProps) {
 	return (
-		<section className={cn("w-full py-20 bg-white", className)}>
+		<section id="tenants" className={cn("w-full py-20 bg-white", className)}>
 			<div className="  px-4">
 				{/* Header */}
 				<div className="mb-16 max-w-6xl mx-auto">

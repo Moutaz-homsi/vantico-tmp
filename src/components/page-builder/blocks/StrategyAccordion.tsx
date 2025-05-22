@@ -35,7 +35,7 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 	}
 
 	return (
-		<div className={cn("max-w-5xl mx-auto px-4 py-16", className)}>
+		<section id="strategy" className={cn("max-w-5xl mx-auto px-4 py-16", className)}>
 			<div className="flex flex-col justify-center items-center gap-4">
 				<SectionLabel label={"Why Vantico"} />
 				<h2 className="text-4xl md:text-5xl  text-center uppercase  mb-1">
@@ -84,7 +84,7 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 					)
 				})}
 			</div>
-		</div>
+		</section>
 	)
 }
 

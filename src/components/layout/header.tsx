@@ -11,6 +11,23 @@ const links = [
 	{ href: "/about-us", label: "About Us" },
 	{ href: "/contact", label: "Contact" }
 ]
+
+const dev_links = [
+	{ href: "#hero", label: "hero" },
+	{ href: "#about", label: "about" },
+	{ href: "#history", label: "history" },
+	{ href: "#strategy", label: "strategy" },
+	{ href: "#investors", label: "investors" },
+	{ href: "#tour", label: "tour" },
+	{ href: "#tenants", label: "tenants" },
+	{ href: "#roi", label: "roi" },
+	{ href: "#renamelater", label: "renamelater" },
+	{ href: "#team", label: "team" },
+	{ href: "#approach", label: "approach" },
+	{ href: "#testimonials", label: "testimonials" },
+	{ href: "#news", label: "news" },
+	{ href: "#faq", label: "faq" }
+]
 export default function Header({}) {
 	return (
 		<header className="sticky top-0 z-50 ">
@@ -47,6 +64,15 @@ export default function Header({}) {
 					</nav> */}
 					{/* User actions */}
 				</Container>
+				<div className="flex gap-4 justify-center py-2 ">
+					{dev_links.map((item) => {
+						return (
+							<Link className="text-white hover:text-primary uppercase" href={item.href} key={item.href}>
+								{item.label}
+							</Link>
+						)
+					})}
+				</div>
 			</div>
 		</header>
 	)

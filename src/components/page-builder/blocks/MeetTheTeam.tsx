@@ -19,7 +19,7 @@ const MeetTheTeam = ({ members, onReadMoreClick }: MeetTheTeamProps) => {
 	}
 
 	return (
-		<section className="bg-black text-white py-16 px-4">
+		<section id="team" className="bg-black text-white py-16 px-4">
 			<div className="container mx-auto max-w-6xl">
 				<h2 className="text-5xl lg:text-6xl font-bold mb-4 tracking-wider">MEET THE TEAM</h2>
 				<p className="text-gray-300 mb-12 max-w-2xl">

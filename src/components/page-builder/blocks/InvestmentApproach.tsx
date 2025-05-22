@@ -28,7 +28,7 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 	className
 }) => {
 	return (
-		<div className={cn("w-full py-16 px-4 bg-white", className)}>
+		<section id="approach" className={cn("w-full py-16 px-4 bg-white", className)}>
 			<div className="max-w-6xl mx-auto">
 				{subtitle && <h3 className="text-center text-lg font-medium tracking-wider text-amber-700 mb-4">{subtitle}</h3>}
 
@@ -58,7 +58,7 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 					</div>
 				)}
 			</div>
-		</div>
+		</section>
 	)
 }
 

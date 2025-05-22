@@ -5,7 +5,10 @@ import React from "react"
 
 export default function Renamelater() {
 	return (
-		<section className="relative w-full min-h-[400px] flex items-center justify-start py-40 overflow-hidden">
+		<section
+			id="renamelater"
+			className="relative w-full min-h-[400px] flex items-center justify-start py-40 overflow-hidden"
+		>
 			{/* Background image on the right */}
 			<div className="absolute inset-0 pointer-events-none select-none">
 				<div className="hidden md:block absolute right-0 top-0 h-full w-1/2 z-0">
