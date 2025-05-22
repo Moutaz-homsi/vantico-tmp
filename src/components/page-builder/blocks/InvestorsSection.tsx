@@ -103,30 +103,33 @@ const content = {
 					at property exit or fund exit, before waterfall.`,
 	exit: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's`
 }
+
+const size = 40
+const imageSizeProps = {
+	width: size,
+	height: size
+}
 function Tab() {
 	const [activeTab, setActiveTab] = useState("returns")
 
+	function buildButtonProps(tab) {
+		return {
+			className: cn("text-xl", activeTab != tab && "text-neutral-500 text-lg"),
+			variant: "text",
+			onClick: () => {
+				setActiveTab(tab)
+			}
+		}
+	}
 	return (
 		<div className="bg-neutral-800 mt-16 max-w-6xl mx-auto px-16 py-16 rounded-sm">
 			<div className="grid grid-cols-5 gap-4 items-baseline">
 				<div className="col-span-2 flex flex-col gap-4 text-start items-start ">
-					<Button
-						onClick={() => {
-							setActiveTab("returns")
-						}}
-						className={cn(activeTab != "returns" && "text-neutral-500")}
-						variant="text"
-					>
-						<Image alt="percent icon" src="/icons/percent-icon.png" width={36} height={36} /> Returns
+					<Button {...buildButtonProps("returns")}>
+						<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} /> Returns
 					</Button>
-					<Button
-						onClick={() => {
-							setActiveTab("exit")
-						}}
-						className={cn(activeTab != "exit" && "text-neutral-500")}
-						variant="text"
-					>
-						<Image alt="percent icon" src="/icons/exit-icon.png" width={36} height={36} />
+					<Button {...buildButtonProps("exit")}>
+						<ExitIcon color={activeTab !== "exit" ? "#ABABAB" : "white"} />
 						Exit
 					</Button>
 				</div>
@@ -135,6 +138,63 @@ function Tab() {
 				</div>
 			</div>
 		</div>
+	)
+}
+
+function ExitIcon({ color = "white" }) {
+	return (
+		<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M9 25H3.66667C2.95942 25 2.28115 24.719 1.78105 24.219C1.28095 23.7189 1 23.0406 1 22.3333V3.66667C1 2.95942 1.28095 2.28115 1.78105 1.78105C2.28115 1.28095 2.95942 1 3.66667 1H9"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M18.3333 19.6663L24.9999 12.9997L18.3333 6.33301"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path d="M25 13H8.99997" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	)
+}
+
+function PercentIcon({ color = "white" }) {
+	return (
+		<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M12.9999 25C19.6273 25 24.9999 19.6274 24.9999 13C24.9999 6.37258 19.6273 1 12.9999 1C6.37251 1 0.999924 6.37258 0.999924 13C0.999924 19.6274 6.37251 25 12.9999 25Z"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M16.5999 9.40039L9.39989 16.6004"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M9.39989 9.40039H9.41189"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M16.5999 16.5996H16.6119"
+				stroke={color}
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
 	)
 }
 export default InvestorsSection
