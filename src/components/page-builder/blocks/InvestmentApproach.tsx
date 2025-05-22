@@ -30,10 +30,10 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 	className
 }) => {
 	return (
-		<section id="approach" className={cn("w-full py-16 px-4 bg-white", className)}>
+		<section id="approach" className={cn("w-full py-40 px-4 bg-white", className)}>
 			<div className="flex flex-col items-center max-w-6xl mx-auto">
 				<SectionLabel label="Our Investment Approach" />
-				<h2 className="text-4xl md:text-5xl text-center uppercase mb-6">
+				<h2 className="text-4xl md:text-5xl text-center uppercase  my-6">
 					OUR INVESTMENT <br />
 					APPROACH
 				</h2>

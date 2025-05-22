@@ -4,6 +4,7 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import SectionLabel from "@/components/section-label"
+import { Image } from "@/components/ui"
 
 interface AboutUsProps {
 	onCtaClick?: () => void
@@ -83,11 +84,13 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 					</div>
 				</div>
 
+				<div className="w-full h-20 mt-8 relative ">
+					<Image isFill src={"/images/trusted-by.png"} alt="Trusted by" />
+				</div>
 				{/* Partners section */}
-				<div className="mt-12">
+				{/* <div className="mt-12">
 					<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
-						{/* <h4 className="text-gray-600 mb-6">Trusted by</h4> */}
-						<div className="flex items-center grayscale opacity-60">
+ 						<div className="flex items-center grayscale opacity-60">
 							<span className="text-2xl font-light text-gray-400">brownrudnick</span>
 						</div>
 						<div className="flex items-center grayscale opacity-60">
@@ -99,11 +102,9 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 						<div className="flex items-center grayscale opacity-60">
 							<span className="text-2xl font-light text-gray-400">LIG</span>
 						</div>
-						<div className="hidden lg:flex items-center grayscale opacity-60">
-							{/* Empty space for logo alignment on larger screens */}
-						</div>
+
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	)
