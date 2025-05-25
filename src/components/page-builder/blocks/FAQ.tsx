@@ -25,16 +25,20 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 
 	return (
 		<section id="faq" className="w-full max-w-3xl mx-auto py-16 px-4">
-			<h2 className="text-5xl  tracking-wider text-white mb-12">{title}</h2>
+			<h2 className="text-5xl font-secondary  tracking-wider text-white mb-12">{title}</h2>
 
-			<div className="space-y-4">
+			<div className="space-y-6">
+				{/* Questions */}
 				{items.map((item, index) => (
-					<div key={index} className="bg-[#222222] rounded-md overflow-hidden transition-all duration-300">
+					<div
+						key={index}
+						className="bg-[#1E1E1E] p-10 hover:bg-[#2a2a2a]  rounded-md overflow-hidden transition-all duration-300"
+					>
 						<button
 							onClick={() => toggleQuestion(index)}
-							className="w-full px-6 py-6 flex justify-between items-center text-left text-white hover:bg-[#2a2a2a] transition-colors"
+							className="w-full flex justify-between items-center text-left text-white  transition-colors"
 						>
-							<h3 className="text-xl font-normal">{item.question}</h3>
+							<h3 className="text-2xl font-semibold">{item.question}</h3>
 							{openIndex === index ? (
 								<ChevronUp className="flex-shrink-0 ml-4" />
 							) : (
@@ -44,11 +48,11 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 
 						<div
 							className={cn(
-								"px-6 overflow-hidden text-gray-300 transition-all duration-300",
-								openIndex === index ? "max-h-96 pb-6" : "max-h-0"
+								"overflow-hidden text-[#ABABAB]  transition-all duration-300",
+								openIndex === index ? "max-h-96 pb-6 mt-6" : "max-h-0"
 							)}
 						>
-							<p className="leading-relaxed">{item.answer}</p>
+							<p className="leading-relaxed text-lg">{item.answer}</p>
 						</div>
 					</div>
 				))}
