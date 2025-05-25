@@ -30,27 +30,28 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 	className
 }) => {
 	return (
-		<section id="approach" className={cn("w-full py-40 px-4 bg-white", className)}>
-			<div className="flex flex-col items-center max-w-6xl mx-auto">
-				<SectionLabel label="Our Investment Approach" />
-				<h2 className="text-4xl md:text-5xl text-center uppercase  my-6">
-					OUR INVESTMENT <br />
-					APPROACH
-				</h2>
+		<section id="approach" className={cn("w-full py-30 px-4 bg-white", className)}>
+			<div className="flex flex-col mx-auto">
+				<div className="flex flex-col items-center max-w-5xl mx-auto gap-6">
+					<SectionLabel label="Business Model" />
+					<h2 className="text-[56px] font-secondary leading-[100%] tracking-[-4%] text-center uppercase">
+						OUR INVESTMENT <br />
+						APPROACH
+					</h2>
+					{description && <p className="text-center text-2xl text-[#535353] leading-[140%]">{description}</p>}
+				</div>
 
-				{description && <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">{description}</p>}
-
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 ">
+				<div className="w-full xl:px-30 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-20">
 					{steps.map((step) => (
 						<div key={step.number} className="bg-gray-50 flex items-center">
-							<span className="text-[250px] leading-[100%]  text-neutral-200 ">{step.number}</span>
-							<p className="text-lg text-gray-700 px-10">{step.description}</p>
+							<span className="text-[270px] leading-[100%] min-w-50 text-neutral-200 ">{step.number}</span>
+							<p className="text-lg text-[#151515] leading-[160%] max-w-85 mx-auto ">{step.description}</p>
 						</div>
 					))}
 				</div>
 
 				{ctaText && (
-					<div className="flex justify-center">
+					<div className="flex justify-center mt-10">
 						<Button onClick={onCtaClick} variant="dark">
 							{ctaText} <ChevronRight className="ml-1" size={20} />
 						</Button>
