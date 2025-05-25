@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/utils"
@@ -73,5 +74,30 @@ export default function NewsSection({
 				)}
 			</div>
 		</section>
+	)
+}
+
+export function NewsItem({ item }) {
+	return (
+		<div className="flex flex-col">
+			<Link href={`/news/${item.slug}`} className="group">
+				<AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden">
+					<Image
+						isFill
+						strapiImage={item.image}
+						src={item.image?.url || "/placeholder.svg"}
+						alt={item.title}
+						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+					/>
+				</AspectRatio>
+				<div className="flex flex-col gap-2 pt-3">
+					<div className="text-gray-500">{item.date}</div>
+					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
+											{item.title}
+										</h3> */}
+					<p className="text-gray-600">{item.excerpt}</p>
+				</div>
+			</Link>
+		</div>
 	)
 }

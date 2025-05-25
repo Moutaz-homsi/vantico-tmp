@@ -3,6 +3,7 @@ import TeamSection from "@/app/[locale]/_components/team-section"
 import TestimonialSection from "@/app/[locale]/_components/testimonial-section"
 import { Typography } from "@/components/ui"
 import React from "react"
+import { NewsItem } from "./news-section"
 
 export default function DynamicQueryBlock({ __component, type, title, description, results = [] }) {
 	return (
@@ -30,6 +31,14 @@ function renderList(type, results) {
 				<div className="grid grid-cols-3 gap-4">
 					{results.map((project, index) => (
 						<ProjectItem key={index} {...project} />
+					))}
+				</div>
+			)
+		case "new":
+			return (
+				<div className="grid grid-cols-3 gap-4">
+					{results.map((item, index) => (
+						<NewsItem key={index} item={item} />
 					))}
 				</div>
 			)

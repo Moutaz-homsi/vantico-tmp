@@ -1,26 +1,21 @@
-import HeroSection from "./blocks/hero-section"
-import AboutUsSection from "./blocks/about-us-section"
-import ConsultationSection from "./blocks/consultation-section"
-import FaqSection from "./blocks/faq-section"
+import React from "react"
+import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
 
 export default function PageBuilder({ data }) {
 	return (
 		<div>
-			<div className="flex flex-col">
-				{data?.sections?.length > 0 &&
-					data.sections.map((section, index) => {
-						const componentType = section.__component.split(".")[1]
-						switch (componentType) {
-							case "hero":
-								return <HeroSection key={index} {...section} />
-							// case "about-us":
-							// 	return <AboutUsSection key={index} {...section} />
-							case "consultation":
-								return <ConsultationSection key={index} {...section} />
-							case "faq":
-								return <FaqSection key={index} {...section} />
+			<div style={{}} className="flex flex-col gap-8">
+				{data?.blocks?.length > 0 &&
+					data?.blocks.map(({ __component, ...rest }, index) => {
+						switch (__component) {
+							case "pages.cta":
+								return <CtaBlock key={index} {...rest} />
+							case "pages.lists":
+								return <ListBlock key={index} {...rest} />
+							case "pages.query":
+								return <DynamicQueryBlock key={index} {...rest} />
 							default:
-								return <p key={index}>Unrecognized component: {componentType}</p>
+								return <p key={index}>Unrecognized component</p>
 						}
 					})}
 			</div>
