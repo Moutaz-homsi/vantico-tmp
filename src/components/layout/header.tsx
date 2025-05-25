@@ -28,7 +28,9 @@ const dev_links = [
 	{ href: "#news", label: "news" },
 	{ href: "#faq", label: "faq" }
 ]
+
 export default function Header({}) {
+	const show_dev_header = process.env.NODE_ENV === "development" || localStorage.getItem("dev_mode") === "true"
 	return (
 		<header className="sticky top-0 z-50 ">
 			<div className={cn(" bg-[#101010]")}>
@@ -64,15 +66,18 @@ export default function Header({}) {
 					</nav> */}
 					{/* User actions */}
 				</Container>
-				<div className="flex gap-4 justify-center py-2 ">
-					{dev_links.map((item) => {
-						return (
-							<Link className="text-white hover:text-primary uppercase" href={item.href} key={item.href}>
-								{item.label}
-							</Link>
-						)
-					})}
-				</div>
+
+				{show_dev_header && (
+					<div className="flex gap-4 justify-center py-2 ">
+						{dev_links.map((item) => {
+							return (
+								<Link className="text-white hover:text-primary uppercase" href={item.href} key={item.href}>
+									{item.label}
+								</Link>
+							)
+						})}
+					</div>
+				)}
 			</div>
 		</header>
 	)
