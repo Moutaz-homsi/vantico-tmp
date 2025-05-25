@@ -147,18 +147,18 @@ function ExitIcon({ color = "white" }) {
 			<path
 				d="M9 25H3.66667C2.95942 25 2.28115 24.719 1.78105 24.219C1.28095 23.7189 1 23.0406 1 22.3333V3.66667C1 2.95942 1.28095 2.28115 1.78105 1.78105C2.28115 1.28095 2.95942 1 3.66667 1H9"
 				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M18.3333 19.6663L24.9999 12.9997L18.3333 6.33301"
 				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
-			<path d="M25 13H8.99997" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M25 13H8.99997" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	)
 }
@@ -169,31 +169,19 @@ function PercentIcon({ color = "white" }) {
 			<path
 				d="M12.9999 25C19.6273 25 24.9999 19.6274 24.9999 13C24.9999 6.37258 19.6273 1 12.9999 1C6.37251 1 0.999924 6.37258 0.999924 13C0.999924 19.6274 6.37251 25 12.9999 25Z"
 				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M16.5999 9.40039L9.39989 16.6004"
 				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
-			<path
-				d="M9.39989 9.40039H9.41189"
-				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			/>
-			<path
-				d="M16.5999 16.5996H16.6119"
-				stroke={color}
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			/>
+			<path d="M9.39989 9.40039H9.41189" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M16.5999 16.5996H16.6119" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	)
 }
