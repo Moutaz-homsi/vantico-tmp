@@ -61,7 +61,7 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 						>
 							<button
 								onClick={() => toggleItem(index)}
-								className="flex items-center justify-between w-full p-5 text-left"
+								className="flex items-center justify-between w-full p-5 text-left hover:cursor-pointer "
 								aria-expanded={isOpen}
 							>
 								<div className="flex items-center gap-4">
@@ -73,13 +73,17 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 								<div>{isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}</div>
 							</button>
 
-							{isOpen && (
-								<div className="px-5 pb-5 pt-0">
-									<div className="pl-11">
-										<p className="text-gray-600">{item.content}</p>
-									</div>
-								</div>
-							)}
+							<div
+								className={cn(
+									"px-5 pt-0 pb-5 pl-11 overflow-hidden transition-all duration-300",
+									isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+								)}
+								style={{
+									transitionProperty: "opacity"
+								}}
+							>
+								<p className="text-neutral-400">{item.content}</p>
+							</div>
 						</div>
 					)
 				})}

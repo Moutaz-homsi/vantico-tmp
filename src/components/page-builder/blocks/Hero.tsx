@@ -1,10 +1,10 @@
 "use client"
-import React from "react"
-import { ArrowRight, ChevronRight, Play } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import AboutUs from "./AboutUs"
 import { Image } from "@/components/ui"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { ChevronRight, Play } from "lucide-react"
+import React, { useState } from "react"
 
 interface HeroProps {
 	title?: string
@@ -14,6 +14,8 @@ interface HeroProps {
 	className?: string
 }
 
+const videoId = "1017406920" // Replace with your actual Vimeo video ID
+
 const Hero: React.FC<HeroProps> = ({
 	title = "BUILD WEALTH WITH VANTICO",
 	subtitle = "Prime investments in the Mid-Atlantic in high-end dental and underutilized commercial properties",
@@ -21,6 +23,8 @@ const Hero: React.FC<HeroProps> = ({
 	onCtaClick,
 	className
 }) => {
+	const [isModalOpen, setIsModalOpen] = useState(false)
+
 	return (
 		<section id="hero" className="w-full  pt-20  bg-black flex  justify-center">
 			{/* Background overlay for video/image */}
@@ -47,12 +51,36 @@ const Hero: React.FC<HeroProps> = ({
 						<Image isFill alt="Video Background" src="/images/video-background.png" />
 					</div>
 					<div className="absolute top-16 left-0 w-full h-full flex items-center justify-center">
-						<div className="bg-black/80 shadow-lg p-8 rounded-full hover:bg-black/60 transition-all duration-300 cursor-pointer">
+						<div
+							onClick={() => {
+								setIsModalOpen(true)
+							}}
+							className="bg-black/80 shadow-lg p-8 rounded-full hover:bg-black/60 transition-all duration-300 cursor-pointer"
+						>
 							<Play className="text-white text-3xl" fill="white" size={52} />
 						</div>
 					</div>
 				</AspectRatio>
 			</div>
+
+			{/* Video Modal */}
+			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+				<DialogContent className="max-w-5xl p-0 overflow-hidden bg-black border-none">
+					{/* <DialogHeader className="px-6 pt-6 pb-2">
+									<DialogTitle className="text-white text-xl">Our Product Video</DialogTitle>
+								</DialogHeader> */}
+					<div className="aspect-video w-full">
+						<iframe
+							src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`}
+							className="w-full h-full"
+							frameBorder="0"
+							allow="autoplay; fullscreen; picture-in-picture"
+							allowFullScreen
+							title="Featured video"
+						></iframe>
+					</div>
+				</DialogContent>
+			</Dialog>
 		</section>
 	)
 }
