@@ -24,10 +24,10 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 	}
 
 	return (
-		<section id="faq" className="w-full max-w-3xl mx-auto py-16 px-4">
-			<h2 className="text-5xl font-secondary  tracking-wider text-white mb-12">{title}</h2>
+		<section id="faq" className="w-full max-w-3xl mx-auto py-40 px-4">
+			<h2 className="text-5xl font-secondary  tracking-tighter text-white mb-12">{title}</h2>
 
-			<div className="space-y-6">
+			<div className="space-y-6 my-20">
 				{/* Questions */}
 				{items.map((item, index) => (
 					<div
@@ -59,7 +59,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your ow
 			</div>
 
 			{ctaText && (
-				<div className="mt-16 flex justify-between items-center">
+				<div className="flex justify-between items-center">
 					<p className="text-2xl text-white">Couldn't find an answer?</p>
 					<Button className="font-semibold" onClick={onCtaClick}>
 						{ctaText} <ChevronRight className="ml-2" />
