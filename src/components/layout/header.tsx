@@ -42,7 +42,12 @@ export default function Header({}) {
 						</Link>
 					</div>
 
-					<Menu className="text-white" />
+					{/* <Menu className="text-white" /> */}
+					<svg width="57" height="17" viewBox="0 0 57 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="-4.37114e-08" y1="0.499996" x2="57" y2="0.499991" stroke="white" />
+						<line x1="-4.37114e-08" y1="8.5" x2="57" y2="8.5" stroke="white" />
+						<line x1="-4.37114e-08" y1="16.5" x2="57" y2="16.5" stroke="white" />
+					</svg>
 
 					<Button size="lg" variant="outline" className="!py-6 border-neutral-600">
 						<p className="text-white">Book consultation</p>
