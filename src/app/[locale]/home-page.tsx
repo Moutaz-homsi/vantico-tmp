@@ -156,9 +156,7 @@ export default function HomePage() {
 
 			<TenantsSection tenants={tenants} />
 
-			<div className="bg-black py-20">
-				<ROICalculator />
-			</div>
+			<ROICalculator />
 
 			<Renamelater />
 			<MeetTheTeam members={teamMembers} />
