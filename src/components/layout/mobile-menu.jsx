@@ -21,9 +21,14 @@ const dev_links = [
 	{ href: "#faq", label: "faq" }
 ]
 
-export default function MobileMenu({ isOpen = false }) {
+export default function MobileMenu({ isOpen = false, setIsOpen }) {
 	return (
-		<div className={cn(isOpen ? "hidden" : "block", "absolute bg-black h-screen w-screen z-1000")}>
+		<div
+			className={cn(
+				isOpen ? "block" : "hidden",
+				"fixed left-0 w-full pb-40   transition-all duration-300  bg-black  h-screen   z-[9999999999] overflow-y-scroll overscroll-none hide-scrollbar"
+			)}
+		>
 			{/* Logo */}
 			{/* <div>
 				<Link href="/" className="h-full">
@@ -35,7 +40,14 @@ export default function MobileMenu({ isOpen = false }) {
 				{dev_links.map((item) => {
 					return (
 						<Fragment key={item.href}>
-							<Link className="text-white hover:text-primary uppercase" href={item.href}>
+							<Link
+								onClick={(even) => {
+									event.preventDefault()
+									setIsOpen(false)
+								}}
+								className="text-white hover:text-primary uppercase"
+								href={item.href}
+							>
 								{item.label}
 							</Link>
 							<Separator className="w-3/4 bg-neutral-800" />
