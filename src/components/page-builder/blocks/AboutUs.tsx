@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
+import Title from "@/components/ui/title"
 
 interface AboutUsProps {
 	onCtaClick?: () => void
@@ -38,23 +39,19 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 	]
 
 	return (
-		<section id="about" className="w-full py-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
+		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
 			<div className="max-w-7xl mx-auto">
 				{/* Grid container */}
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 					{/* Left side content */}
-					<div className="lg:col-span-9 px-16 py-18  bg-white">
-						<div className="mb-6">
-							<SectionLabel label={"About Us"} />
-						</div>
+					<div className="lg:col-span-9 p-20  bg-white">
+						<SectionLabel label={"About Us"} />
 
-						<h2 className="text-5xl  font-secondary  tracking-tighter uppercase mb-8">
-							STEP INTO A PROVEN, <br />
-							RECESSION-RESISTANT <br />
-							MODEL
-						</h2>
+						<Title className="my-6">
+							Step into a proven, <br /> recession-resistant <br /> model
+						</Title>
 
-						<p className="text-lg text-gray-600 leading-relaxed mb-10">
+						<p className="text-lg text-[#535353] leading-[160%] mb-10">
 							Vantico specializes in high-end dental and underutilized commercial property investments in the
 							Mid-Atlantic market. We create high-yield investment by merging real estate ownership with the booming
 							healthcare sector, giving investors stability and long-term growth.
@@ -73,18 +70,16 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 					<div className="lg:col-span-3">
 						<div className="grid h-full grid-cols-1 gap-6">
 							{stats.map((stat, idx) => (
-								<Card key={idx} className="bg-neutral-800 border-none py-9  text-center">
-									<div className="space-y-4">
-										<h3 className="text-5xl tracking-tighter font-secondary text-white">{stat.value}</h3>
-										<p className="text-sm text-muted-foreground">{stat.label}</p>
-									</div>
+								<Card key={idx} className="flex flex-col justify-center gap-2 bg-neutral-800 border-none   text-center">
+									<h3 className="text-[48px] tracking-[-4%] font-secondary text-white">{stat.value}</h3>
+									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>
 							))}
 						</div>
 					</div>
 				</div>
-
-				<div className="w-full h-20 mt-8 relative ">
+				{/* trusted by */}
+				<div className="w-full h-20 mt-16 relative ">
 					<Image isFill src={"/images/trusted-by.png"} alt="Trusted by" />
 				</div>
 				{/* Partners section */}
