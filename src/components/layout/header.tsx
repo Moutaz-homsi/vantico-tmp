@@ -50,8 +50,8 @@ export default function Header({}) {
 						<line x1="-4.37114e-08" y1="16.5" x2="57" y2="16.5" stroke="white" />
 					</svg>
 
-					<Button size="lg" variant="outline" className="hidden md:block !py-6 border-neutral-600">
-						<p className="text-white">Book consultation</p>
+					<Button variant="outline" className="hidden md:block text-white text-lg font-semibold border-neutral-600">
+						Book consultation
 					</Button>
 					{/* Navigation */}
 					{/* <nav>
