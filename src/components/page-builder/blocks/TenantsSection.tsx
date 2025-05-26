@@ -26,21 +26,22 @@ export default function TenantsSection({
 	className
 }: TenantsSectionProps) {
 	return (
-		<section id="tenants" className={cn("w-full py-20 bg-white", className)}>
+		<section id="tenants" className={cn("w-full py-30 bg-white", className)}>
 			<div className="  px-4">
 				{/* Header */}
-				<div className="mb-16 max-w-6xl mx-auto">
+				<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
 					<SectionLabel label={"TENANTS"} />
-					<h2 className="text-5xl font-medium tracking-wider uppercase mb-6 leading-tight">
-						A PORTFOLIO OF HIGH-QUALITY <br /> RECESSION-RESISTANT <br /> 216+ TENANTS
+					<h2 className="text-4xl lg:text-[56px] font-secondary tracking-[-4%] leading-[100%] text-[#151515]">
+						A portfolio of high-quality,
+						<br /> recession-resistant <br /> 216+ tenants
 					</h2>
-					<p className="text-gray-600 text-lg max-w-2xl">
+					<p className="text-[#535353] text-lg leading-[160%]  max-w-xl">
 						Our properties attract top-tier tenants, ensuring stability, high occupancy rates, and long-term revenue
 						growth.
 					</p>
 				</div>
 
-				<div className="relative w-full   h-[400px]">
+				<div className="relative w-full mt-20  h-[400px]">
 					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="px-20" />
 				</div>
 				{/* we may need it */}
