@@ -21,7 +21,7 @@ const dev_links = [
 	{ href: "#tour", label: "tour" },
 	{ href: "#tenants", label: "tenants" },
 	{ href: "#roi", label: "roi" },
-	{ href: "#renamelater", label: "renamelater" },
+	{ href: "#ready", label: "ready" },
 	{ href: "#team", label: "team" },
 	{ href: "#approach", label: "approach" },
 	{ href: "#testimonials", label: "testimonials" },

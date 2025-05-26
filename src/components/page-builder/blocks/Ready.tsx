@@ -3,9 +3,9 @@ import { ChevronRight } from "lucide-react"
 import Image from "@/components/ui/image"
 import React from "react"
 
-export default function Renamelater() {
+export default function Ready() {
 	return (
-		<section id="renamelater" className="relative w-full flex items-center justify-start p-30 overflow-hidden">
+		<section id="ready" className="relative w-full flex items-center justify-start p-30 overflow-hidden">
 			{/* Background image on the right */}
 			<div className="absolute inset-0 pointer-events-none select-none">
 				<div className="hidden md:block absolute right-0 top-0 h-full w-1/2 z-0">

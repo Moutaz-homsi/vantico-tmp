@@ -11,7 +11,7 @@ import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
 import NewsSection from "@/components/page-builder/blocks/news-section"
 import OurHistory from "@/components/page-builder/blocks/OurHistory"
 import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
-import Renamelater from "@/components/page-builder/blocks/renamelater"
+import Ready from "@/components/page-builder/blocks/Ready"
 import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
 import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
@@ -158,7 +158,7 @@ export default function HomePage() {
 
 			<ROICalculator />
 
-			<Renamelater />
+			<Ready />
 			<MeetTheTeam members={teamMembers} />
 
 			<InvestmentApproach steps={investmentSteps} />
