@@ -105,8 +105,9 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div className="container mx-auto px-30 py-20">
-				<div className="flex justify-between mb-16">
+			<div className="container mx-auto p-8 md:px-30 md:py-20">
+				{/* logo and button div */}
+				<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-16">
 					<div className="flex items-center">
 						<Image src="/logo.svg" alt="Logo" height={30} width={260} />
 					</div>
@@ -115,17 +116,15 @@ const Footer = () => {
 						<ChevronRight className="ml-2" size={16} />
 					</Button>
 				</div>
-				<div className="flex flex-col lg:flex-row justify-between items-start mb-12">
-					{/* Logo */}
-
+				<div className="flex flex-col lg:flex-row justify-between md:items-start mb-12">
 					<div className="mb-8 lg:mb-0">
 						{/* Site Map Section */}
 						<div className="mb-10">
-							<h3 className="text-neutral-300 uppercase text-sm mb-10">Site Map</h3>
-							<nav>
+							<h3 className="text-neutral-300 text-center md:text-start uppercase text-sm mb-10">Site Map</h3>
+							<nav className="">
 								<ul className="space-y-8">
 									{siteMapLinks.map((link, index) => (
-										<li key={index}>
+										<li className="w-full text-center md:text-start " key={index}>
 											<Link href={link.href} className="hover:text-primary text-neutral-300 transition-colors">
 												{link.label}
 											</Link>
@@ -138,10 +137,13 @@ const Footer = () => {
 
 					{/* Contact Section */}
 					<div className="lg:mx-auto mb-8 lg:mb-0">
-						<h3 className="text-neutral-300 uppercase text-sm mb-10">Contact</h3>
-						<div className="space-y-8">
+						<h3 className="text-neutral-300 text-center md:text-start uppercase text-sm mb-10">Contact</h3>
+						<div className="space-y-8 w-full  ">
 							{contactDetails.map((detail, index) => (
-								<div className="flex items-start text-neutral-300" key={index}>
+								<div
+									className="flex justify-center md:justify-start items-center md:items-start text-center md:text-start    text-neutral-300"
+									key={index}
+								>
 									<div className="min-w-8 mt-1">{detail.icon}</div>
 									<div>{detail.content}</div>
 								</div>
