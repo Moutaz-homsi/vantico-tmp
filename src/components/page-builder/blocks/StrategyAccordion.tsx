@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/utils"
 import SectionLabel from "@/components/section-label"
+import Title from "@/components/ui/title"
 
 export type StrategyAccordionItem = {
 	icon: "target" | "trendingUp" | "users" | "chartBar" | "handshake" | "fileText"
@@ -48,10 +49,11 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 		<section id="strategy" className={cn("max-w-5xl mx-auto py-30", className)}>
 			<div className="flex flex-col justify-center items-center">
 				<SectionLabel label={"Why Vantico"} />
-				<h2 className="text-4xl md:text-5xl font-secondary text-[#151515] text-[56px] tracking-[4%] leading-[100%]  text-center  mt-6 mb-4">
+				<Title className="text-center  mt-6 mb-4">
 					Precision-driven <br />
 					investment strategy
-				</h2>
+				</Title>
+
 				<p className="text-xl text-center text-gray-600">The Surgeon's Scalpel Approach</p>
 			</div>
 
@@ -64,7 +66,7 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 						<div
 							key={index}
 							className={cn(
-								"rounded-md overflow-hidden transition-all duration-200"
+								"rounded-md px-4 overflow-hidden transition-all duration-200"
 								// isOpen ? "bg-gray-50" : "bg-white"
 							)}
 						>
@@ -75,22 +77,23 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 							>
 								<div className="flex items-center gap-8">
 									<div className="p-3 rounded-sm bg-gray-100 ">
-										<Icon className="size-10" strokeWidth={1} />
+										<Icon className="size-8 md:size-10" strokeWidth={1} />
 									</div>
-									<h4 className="text-[32px]">{item.title}</h4>
+									<h4 className="text-2xl md:text-[32px]">{item.title}</h4>
 								</div>
 								<div>
 									{isOpen ? (
-										<ChevronUp strokeWidth={1} className="size-10" />
+										<ChevronUp strokeWidth={1} className="size-8 md:size-10" />
 									) : (
-										<ChevronDown strokeWidth={1} className="size-10" />
+										<ChevronDown strokeWidth={1} className="size-8 md:size-10" />
 									)}
 								</div>
 							</button>
 
 							<div
 								className={cn(
-									"mt-4 pl-24 pr-10  overflow-hidden transition-all duration-300",
+									// padding calculated based on icon size and gap between icon and text
+									"mt-4 pl-22 md:pl-24 pr-10  overflow-hidden transition-all duration-300",
 									isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
 								)}
 								style={{
