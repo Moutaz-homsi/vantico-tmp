@@ -29,8 +29,9 @@ const dev_links = [
 	{ href: "#faq", label: "faq" }
 ]
 
+const storage = typeof window !== "undefined" ? localStorage : null
 export default function Header({}) {
-	const show_dev_header = process.env.NODE_ENV === "development" || localStorage.getItem("dev_mode") === "true"
+	const show_dev_header = process.env.NODE_ENV === "development" || storage?.getItem("dev_mode") === "true"
 	return (
 		<header className="sticky top-0 z-50 ">
 			<div className={cn("bg-black ")}>
