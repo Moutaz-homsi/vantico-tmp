@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { addCommas } from "@/utils/numberUtils"
+import Title from "@/components/ui/title"
 
 export default function ROICalculator() {
 	const [amountInvested, setAmountInvested] = useState(33000)
@@ -13,12 +14,13 @@ export default function ROICalculator() {
 	const annualROI = investmentPeriod > 0 ? roi / (investmentPeriod / 12) : 0
 
 	return (
-		<section id="roi" className="bg-black px-30  py-40">
-			<div className="bg-[#1E1E1E] text-white rounded-md p-20">
+		<section id="roi" className="bg-black px-4 md:px-30  py-10 md:py-40">
+			<div className="bg-[#1E1E1E] text-white rounded-md p-8 md:p-20">
 				{/* title */}
-				<h2 className="text-5xl font-secondary text-center mb-12 leading-[100%] tracking-[-4%]">ROI Calculator</h2>
+				<Title className="text-white text-center mb-12 ">ROI Calculator</Title>
 				{/* inputs */}
-				<div className="grid grid-cols-3 gap-6 mb-12">
+				<div className="grid md:grid-cols-3 gap-6 mb-12">
+					{/* first input: invested */}
 					<div>
 						<label className="block text-sm font-light mb-3 text-neutral-300">Amount invested</label>
 						<div className="flex items-center bg-[#161616] rounded-sm px-8 py-6">
@@ -32,6 +34,7 @@ export default function ROICalculator() {
 							/>
 						</div>
 					</div>
+					{/* second input: returned */}
 					<div>
 						<label className="block text-sm font-light mb-3 text-neutral-300">Amount returned</label>
 						<div className="flex items-center bg-[#161616] rounded-sm px-8 py-6">
@@ -45,6 +48,7 @@ export default function ROICalculator() {
 							/>
 						</div>
 					</div>
+					{/* third input: months */}
 					<div>
 						<label className="block text-sm font-light mb-3 text-neutral-300">Investment period (in months)</label>
 						<div className="flex items-center justify-between bg-[#161616] rounded-sm px-8 py-6">

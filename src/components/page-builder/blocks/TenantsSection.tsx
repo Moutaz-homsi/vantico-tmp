@@ -1,6 +1,7 @@
 "use client"
 import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
+import Title from "@/components/ui/title"
 import { cn } from "@/utils"
 
 export interface Tenant {
@@ -31,18 +32,18 @@ export default function TenantsSection({
 				{/* Header */}
 				<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
 					<SectionLabel label={"TENANTS"} />
-					<h2 className="text-4xl lg:text-[56px] font-secondary tracking-[-4%] leading-[100%] text-[#151515]">
+					<Title className="">
 						A portfolio of high-quality,
 						<br /> recession-resistant <br /> 216+ tenants
-					</h2>
+					</Title>
 					<p className="text-[#535353] text-lg leading-[160%]  max-w-xl">
 						Our properties attract top-tier tenants, ensuring stability, high occupancy rates, and long-term revenue
 						growth.
 					</p>
 				</div>
 
-				<div className="relative w-full mt-20  h-[400px]">
-					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="px-20" />
+				<div className="relative w-full mt-10 md:mt-20  h-[250px] md:h-[400px]">
+					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="md:px-20" />
 				</div>
 				{/* we may need it */}
 				{/* Tenant logos grid */}
