@@ -105,10 +105,10 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div className="container mx-auto px-16 py-16">
+			<div className="container mx-auto px-30 py-20">
 				<div className="flex justify-between mb-16">
-					<div className="flex items-center ">
-						<Image src="/logo.svg" alt="Logo" height={100} width={200} />
+					<div className="flex items-center">
+						<Image src="/logo.svg" alt="Logo" height={30} width={260} />
 					</div>
 					<Button className="font-semibold">
 						Schedule free consultation
@@ -121,9 +121,9 @@ const Footer = () => {
 					<div className="mb-8 lg:mb-0">
 						{/* Site Map Section */}
 						<div className="mb-10">
-							<h3 className="text-neutral-300 uppercase text-sm mb-6">Site Map</h3>
+							<h3 className="text-neutral-300 uppercase text-sm mb-10">Site Map</h3>
 							<nav>
-								<ul className="space-y-4">
+								<ul className="space-y-8">
 									{siteMapLinks.map((link, index) => (
 										<li key={index}>
 											<Link href={link.href} className="hover:text-primary text-neutral-300 transition-colors">
@@ -138,8 +138,8 @@ const Footer = () => {
 
 					{/* Contact Section */}
 					<div className="lg:mx-auto mb-8 lg:mb-0">
-						<h3 className="text-neutral-300 uppercase text-sm mb-6">Contact</h3>
-						<div className="space-y-6">
+						<h3 className="text-neutral-300 uppercase text-sm mb-10">Contact</h3>
+						<div className="space-y-8">
 							{contactDetails.map((detail, index) => (
 								<div className="flex items-start text-neutral-300" key={index}>
 									<div className="min-w-8 mt-1">{detail.icon}</div>
