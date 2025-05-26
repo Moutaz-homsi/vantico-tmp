@@ -122,9 +122,9 @@ function Tab() {
 		}
 	}
 	return (
-		<div className="bg-neutral-800 mt-16 max-w-6xl mx-auto px-16 py-16 rounded-sm">
-			<div className="grid grid-cols-5 gap-4 items-baseline">
-				<div className="col-span-2 flex flex-col gap-4 text-start items-start ">
+		<div className="bg-neutral-800 mt-16 max-w-6xl mx-auto p-8 md:p-16 rounded-sm">
+			<div className="grid md:grid-cols-5 gap-4 items-baseline">
+				<div className="md:col-span-2 flex md:flex-col gap-4 text-start items-start ">
 					<Button {...buildButtonProps("returns")}>
 						<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} /> Returns
 					</Button>
@@ -133,7 +133,7 @@ function Tab() {
 						Exit
 					</Button>
 				</div>
-				<div className="col-span-3">
+				<div className="md:col-span-3">
 					<p className="col-span-2 text-[#ABABAB]">{content[activeTab]}</p>
 				</div>
 			</div>

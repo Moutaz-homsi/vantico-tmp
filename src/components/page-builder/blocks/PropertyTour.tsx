@@ -34,7 +34,7 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 				</h2>
 
 				<div className="mb-12 relative">
-					<div className="flex gap-4 w-full" style={{ height: 500 }}>
+					<div className="hidden md:block flex gap-4 w-full" style={{ height: 500 }}>
 						{images.slice(0, 3).map((image, index) => {
 							const isSelected = index === selected
 							// 66% for selected, 17% for others (total 100%)
@@ -60,12 +60,12 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 						})}
 					</div>
 					{/* WE MAY NEED THIS FOR MOBILE */}
-					{/* <Carousel
+					<Carousel
 						opts={{
 							align: "start",
 							loop: true
 						}}
-						className="w-full"
+						className="w-full md:hidden"
 					>
 						<CarouselContent>
 							{images.map((image) => (
@@ -76,11 +76,11 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<div className="hidden md:block">
-							<CarouselPrevious className="left-0" />
-							<CarouselNext className="right-0" />
-						</div>
-					</Carousel> */}
+						{/* <div className="md:hidden ">
+							<CarouselPrevious className="left-0 bg-black/30" />
+							<CarouselNext className="right-0 " />
+						</div> */}
+					</Carousel>
 				</div>
 
 				<div className="flex justify-center">
