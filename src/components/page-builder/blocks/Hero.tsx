@@ -26,23 +26,23 @@ const Hero: React.FC<HeroProps> = ({
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	return (
-		<section id="hero" className="w-full  pt-20  bg-black flex  justify-center">
+		<section id="hero" className="w-full bg-black flex  justify-center">
 			{/* Background overlay for video/image */}
 
 			<div className="w-full max-w-7xl flex flex-col gap-6 ">
-				<div className="relative z-10 text-center  ">
-					<h1 className="text-7xl font-secondary tracking-tighter text-white uppercase  mb-6">
-						BUILD WEALTH <br /> WITH VANTICO
+				<div className="relative z-10 text-center pt-24 pb-8 ">
+					<h1 className="text-[80px] font-secondary tracking-[-5%] leading-[100%] text-white   mb-6">
+						Build wealth <br /> with Vantico
 					</h1>
 
-					<p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">{subtitle}</p>
+					<p className="text-2xl text-[#ABABAB] mt-6 mb-10 max-w-3xl mx-auto">{subtitle}</p>
 
 					<Button onClick={onCtaClick}>
 						{ctaText} <ChevronRight className="ml-2" size={20} />
 					</Button>
 				</div>
 
-				<AspectRatio className=" mt-10 relative" ratio={16 / 9}>
+				<AspectRatio className="relative" ratio={16 / 9}>
 					{/* <div className="w-full h-[600px] relative"> */}
 					{/* <Image isFill alt="Video Background" src="/images/video-background.png" /> */}
 					{/* </div> */}

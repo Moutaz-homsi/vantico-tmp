@@ -33,7 +33,7 @@ export default function Header({}) {
 	const show_dev_header = process.env.NODE_ENV === "development" || localStorage.getItem("dev_mode") === "true"
 	return (
 		<header className="sticky top-0 z-50 ">
-			<div className={cn(" bg-[#101010]")}>
+			<div className={cn("bg-black ")}>
 				<Container className="flex items-center justify-between py-4 px-4 md:flex-row md:items-center md:justify-between h-[5rem]">
 					{/* Logo */}
 					<div>
