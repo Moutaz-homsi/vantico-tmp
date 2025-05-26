@@ -1,37 +1,14 @@
+"use client"
+import { Button } from "@/components/ui"
+import Image from "@/components/ui/image"
 import { cn } from "@/utils/style-utils"
 import Link from "next/link"
-import React from "react"
 import Container from "./container"
-import Image from "@/components/ui/image"
-import { ChevronRight, Ham, Menu } from "lucide-react"
-import { Button } from "@/components/ui"
+import MobileMenu from "./mobile-menu"
+import { useState } from "react"
 
-const links = [
-	{ href: "/services", label: "Services" },
-	{ href: "/about-us", label: "About Us" },
-	{ href: "/contact", label: "Contact" }
-]
-
-const dev_links = [
-	{ href: "#hero", label: "hero" },
-	{ href: "#about", label: "about" },
-	{ href: "#history", label: "history" },
-	{ href: "#strategy", label: "strategy" },
-	{ href: "#investors", label: "investors" },
-	{ href: "#tour", label: "tour" },
-	{ href: "#tenants", label: "tenants" },
-	{ href: "#roi", label: "roi" },
-	{ href: "#ready", label: "ready" },
-	{ href: "#team", label: "team" },
-	{ href: "#approach", label: "approach" },
-	{ href: "#testimonials", label: "testimonials" },
-	{ href: "#news", label: "news" },
-	{ href: "#faq", label: "faq" }
-]
-
-const storage = typeof window !== "undefined" ? localStorage : null
 export default function Header({}) {
-	const show_dev_header = false // process.env.NODE_ENV === "development" || storage?.getItem("dev_mode") === "true"
+	const [isOpen, setisOpen] = useState(false)
 	return (
 		<header className="sticky top-0 z-50 ">
 			<div className={cn("bg-black ")}>
@@ -44,7 +21,16 @@ export default function Header({}) {
 					</div>
 
 					{/* <Menu className="text-white" /> */}
-					<svg width="57" height="17" viewBox="0 0 57 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg
+						onClick={() => {
+							setisOpen(!isOpen)
+						}}
+						width="57"
+						height="17"
+						viewBox="0 0 57 17"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
 						<line x1="-4.37114e-08" y1="0.499996" x2="57" y2="0.499991" stroke="white" />
 						<line x1="-4.37114e-08" y1="8.5" x2="57" y2="8.5" stroke="white" />
 						<line x1="-4.37114e-08" y1="16.5" x2="57" y2="16.5" stroke="white" />
@@ -53,37 +39,9 @@ export default function Header({}) {
 					<Button variant="outline" className="hidden md:block text-white text-lg font-semibold border-neutral-600">
 						Book consultation
 					</Button>
-					{/* Navigation */}
-					{/* <nav>
-						<ul className="flex gap-8 items-center">
-							{links.map((link) => (
-								<li key={link.label}>
-									<Link href={link.href} className="text-[1rem] font-normal text-white">
-										{link.label}
-									</Link>
-								</li>
-							))}
-							<div className="w-[1px] h-[24px] bg-gray-500"></div>
-							<Link href={"/book"} className="flex items-center gap-4">
-								<p className="text-white">Book a consultation</p>
-								<ChevronRight className="stroke-white stroke-1 size-8 border-[1.5px] border-white m-auto rounded-full" />
-							</Link>
-						</ul>
-					</nav> */}
-					{/* User actions */}
 				</Container>
 
-				{show_dev_header && (
-					<div className="flex gap-4 justify-center py-2 ">
-						{dev_links.map((item) => {
-							return (
-								<Link className="text-white hover:text-primary uppercase" href={item.href} key={item.href}>
-									{item.label}
-								</Link>
-							)
-						})}
-					</div>
-				)}
+				<MobileMenu isOpen={isOpen} />
 			</div>
 		</header>
 	)
