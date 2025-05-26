@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import SectionLabel from "@/components/section-label"
 import { cn } from "@/utils"
 import { Image } from "@/components/ui"
+import Title from "@/components/ui/title"
 
 interface PropertyImage {
 	id: number
@@ -27,14 +28,14 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
 				</div>
 
-				<h2 className="text-4xl md:text-5xl lg:text-6xl  text-center mb-16 uppercase">
-					A GLIMPSE INTO SOME
+				<Title className="text-2xl text-white text-center mb-16">
+					A glimpse into some
 					<br />
-					OF OUR PRIME ASSETS
-				</h2>
+					of our prime assets
+				</Title>
 
 				<div className="mb-12 relative">
-					<div className="hidden md:block flex gap-4 w-full" style={{ height: 500 }}>
+					<div className="hidden md:flex gap-4 w-full" style={{ height: 500 }}>
 						{images.slice(0, 3).map((image, index) => {
 							const isSelected = index === selected
 							// 66% for selected, 17% for others (total 100%)
@@ -63,13 +64,17 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 					<Carousel
 						opts={{
 							align: "start",
-							loop: true
+							loop: false // Prevent scrolling from last to first
 						}}
 						className="w-full md:hidden"
 					>
-						<CarouselContent>
-							{images.map((image) => (
-								<CarouselItem key={image.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-0 md:pl-4">
+						<CarouselContent className="pr-8">
+							{/* Add right padding to show next item */}
+							{images.map((image, idx) => (
+								<CarouselItem
+									key={image.id}
+									className={`basis-[95%] pl-0 md:pl-4 ${idx !== images.length - 1 ? " mr-3" : ""}`} // Add spacing except last
+								>
 									<div className="aspect-square md:aspect-[4/5] h-full">
 										<img src={image.url} alt={image.alt} className="w-full h-full object-cover rounded-md" />
 									</div>
