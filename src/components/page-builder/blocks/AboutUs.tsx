@@ -44,14 +44,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 				{/* Grid container */}
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 					{/* Left side content */}
-					<div className="lg:col-span-9 p-20  bg-white">
+					<div className="lg:col-span-9 p-8 md:p-20  bg-white">
 						<SectionLabel label={"About Us"} />
 
-						<Title className="my-6">
+						<Title className=" my-6">
 							Step into a proven, <br /> recession-resistant <br /> model
 						</Title>
 
-						<p className="text-lg text-[#535353] leading-[160%] mb-10">
+						<p className="text-md md:text-lg text-[#535353] leading-[160%] mb-10">
 							Vantico specializes in high-end dental and underutilized commercial property investments in the
 							Mid-Atlantic market. We create high-yield investment by merging real estate ownership with the booming
 							healthcare sector, giving investors stability and long-term growth.
@@ -70,7 +70,10 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 					<div className="lg:col-span-3">
 						<div className="grid h-full grid-cols-1 gap-6">
 							{stats.map((stat, idx) => (
-								<Card key={idx} className="flex flex-col justify-center gap-2 bg-neutral-800 border-none   text-center">
+								<Card
+									key={idx}
+									className="flex flex-col justify-center gap-2 py-8 bg-neutral-800 border-none   text-center"
+								>
 									<h3 className="text-[48px] tracking-[-4%] font-secondary text-white">{stat.value}</h3>
 									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>

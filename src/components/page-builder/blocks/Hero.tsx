@@ -31,11 +31,11 @@ const Hero: React.FC<HeroProps> = ({
 
 			<div className="w-full max-w-7xl flex flex-col gap-6 ">
 				<div className="relative z-10 text-center pt-24 pb-8 ">
-					<h1 className="text-[80px] font-secondary tracking-[-5%] leading-[100%] text-white   mb-6">
+					<h1 className="text-4xl md:text-[80px] font-secondary tracking-[-5%] leading-[100%] text-white   mb-6">
 						Build wealth <br /> with Vantico
 					</h1>
 
-					<p className="text-2xl text-[#ABABAB] mt-6 mb-10 max-w-3xl mx-auto">{subtitle}</p>
+					<p className="text-lg md:text-2xl text-[#ABABAB] mt-6 mb-10  max-w-3xl mx-auto">{subtitle}</p>
 
 					<Button onClick={onCtaClick}>
 						{ctaText} <ChevronRight className="ml-2" size={20} />

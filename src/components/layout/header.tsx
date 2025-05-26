@@ -31,7 +31,7 @@ const dev_links = [
 
 const storage = typeof window !== "undefined" ? localStorage : null
 export default function Header({}) {
-	const show_dev_header = process.env.NODE_ENV === "development" || storage?.getItem("dev_mode") === "true"
+	const show_dev_header = false // process.env.NODE_ENV === "development" || storage?.getItem("dev_mode") === "true"
 	return (
 		<header className="sticky top-0 z-50 ">
 			<div className={cn("bg-black ")}>
@@ -50,7 +50,7 @@ export default function Header({}) {
 						<line x1="-4.37114e-08" y1="16.5" x2="57" y2="16.5" stroke="white" />
 					</svg>
 
-					<Button size="lg" variant="outline" className="!py-6 border-neutral-600">
+					<Button size="lg" variant="outline" className="hidden md:block !py-6 border-neutral-600">
 						<p className="text-white">Book consultation</p>
 					</Button>
 					{/* Navigation */}
