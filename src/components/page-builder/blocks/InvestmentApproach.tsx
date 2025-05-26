@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "@/utils"
 import SectionLabel from "@/components/section-label"
 import { Button } from "@/components/ui"
+import Title from "@/components/ui/title"
 
 export type InvestmentStep = {
 	number: number
@@ -34,11 +35,13 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 			<div className="flex flex-col mx-auto">
 				<div className="flex flex-col items-center max-w-5xl mx-auto gap-6">
 					<SectionLabel label="Business Model" />
-					<h2 className="text-[56px] font-secondary leading-[100%] tracking-[-4%] text-center uppercase">
+					<Title className="text-center">
 						OUR INVESTMENT <br />
 						APPROACH
-					</h2>
-					{description && <p className="text-center text-2xl text-[#535353] leading-[140%]">{description}</p>}
+					</Title>
+					{description && (
+						<p className="text-center text-lg md:text-2xl text-[#535353] leading-[140%]">{description}</p>
+					)}
 				</div>
 
 				<div className="w-full xl:px-30 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-20">
