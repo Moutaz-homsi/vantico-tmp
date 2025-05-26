@@ -1,6 +1,16 @@
 "use client"
 import React from "react"
-import { ChevronDown, ChevronUp, Target, TrendingUp, Users, ChartBar, Handshake, FileText } from "lucide-react"
+import {
+	ChevronDown,
+	ChevronUp,
+	ChartColumn,
+	Target,
+	TrendingUp,
+	Users,
+	ChartBar,
+	Handshake,
+	FileText
+} from "lucide-react"
 import { cn } from "@/utils"
 import SectionLabel from "@/components/section-label"
 
@@ -22,7 +32,7 @@ const IconMap = {
 	target: Target,
 	trendingUp: TrendingUp,
 	users: Users,
-	chartBar: ChartBar,
+	chartBar: ChartColumn,
 	handshake: Handshake,
 	fileText: FileText
 }
@@ -35,18 +45,17 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 	}
 
 	return (
-		<section id="strategy" className={cn("max-w-5xl mx-auto px-4 py-16", className)}>
-			<div className="flex flex-col justify-center items-center gap-4">
+		<section id="strategy" className={cn("max-w-5xl mx-auto py-30", className)}>
+			<div className="flex flex-col justify-center items-center">
 				<SectionLabel label={"Why Vantico"} />
-				<h2 className="text-4xl md:text-5xl  text-center uppercase  mb-1">
-					PRECISION-DRIVEN <br />
-					INVESTMENT STRATEGY
+				<h2 className="text-4xl md:text-5xl font-secondary text-[#151515] text-[56px] tracking-[4%] leading-[100%]  text-center  mt-6 mb-4">
+					Precision-driven <br />
+					investment strategy
 				</h2>
+				<p className="text-xl text-center text-gray-600">The Surgeon's Scalpel Approach</p>
 			</div>
 
-			<p className="text-xl text-center text-gray-600 mb-14">The Surgeon's Scalpel Approach</p>
-
-			<div className="space-y-4 max-w-3xl mx-auto">
+			<div className="space-y-14 max-w-3xl mx-auto mt-20">
 				{items.map((item, index) => {
 					const Icon = IconMap[item.icon]
 					const isOpen = openItemIndex === index
@@ -61,28 +70,34 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 						>
 							<button
 								onClick={() => toggleItem(index)}
-								className="flex items-center justify-between w-full p-5 text-left hover:cursor-pointer "
+								className="flex items-center justify-between w-full text-left hover:cursor-pointer "
 								aria-expanded={isOpen}
 							>
-								<div className="flex items-center gap-4">
+								<div className="flex items-center gap-8">
 									<div className="p-3 rounded-sm bg-gray-100 ">
-										<Icon className="w-5 h-5" />
+										<Icon className="size-10" strokeWidth={1} />
 									</div>
-									<h4 className="text-xl font-medium">{item.title}</h4>
+									<h4 className="text-[32px]">{item.title}</h4>
 								</div>
-								<div>{isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}</div>
+								<div>
+									{isOpen ? (
+										<ChevronUp strokeWidth={1} className="size-10" />
+									) : (
+										<ChevronDown strokeWidth={1} className="size-10" />
+									)}
+								</div>
 							</button>
 
 							<div
 								className={cn(
-									"px-5 pt-0 pb-5 pl-11 overflow-hidden transition-all duration-300",
+									"mt-4 pl-24 pr-10  overflow-hidden transition-all duration-300",
 									isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
 								)}
 								style={{
 									transitionProperty: "opacity"
 								}}
 							>
-								<p className="text-neutral-400">{item.content}</p>
+								<p className="text-[18px] text-[#535353]">{item.content}</p>
 							</div>
 						</div>
 					)
