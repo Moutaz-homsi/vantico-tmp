@@ -180,24 +180,21 @@ export default function HomePage() {
 				items={[
 					{
 						title: "New Commercial Property Acquisition in Raleigh",
-						excerpt:
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
+						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
 						date: "February 6, 2025",
 						image: "/images/calendly-background.png",
 						url: "#"
 					},
 					{
 						title: "Triangle Family Dentistry Opens New Location",
-						excerpt:
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
+						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
 						date: "February 6, 2025",
 						image: "/images/calendly-background.png",
 						url: "#"
 					},
 					{
 						title: "Expansion of Commercial Real Estate Portfolio",
-						excerpt:
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue ac magna hendrerit commodo.",
+						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
 						date: "February 6, 2025",
 						image: "/images/calendly-background.png",
 						url: "#"

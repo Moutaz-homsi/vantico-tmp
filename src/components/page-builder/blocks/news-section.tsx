@@ -5,6 +5,7 @@ import { cn } from "@/utils"
 import { Image } from "@/components/ui"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { ChevronRight } from "lucide-react"
+import Title from "@/components/ui/title"
 
 export interface NewsItem {
 	title: string
@@ -23,21 +24,21 @@ interface NewsSectionProps {
 }
 
 export default function NewsSection({
-	title = "NEWS & EVENTS",
+	title = "News & Events",
 	items = [],
 	seeMoreText = "See more",
 	seeMoreUrl = "/news",
 	className
 }: NewsSectionProps) {
 	return (
-		<section id="news" className={cn("w-full py-20 bg-gray-50", className)}>
+		<section id="news" className={cn("w-full py-30 bg-gray-50", className)}>
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Header */}
-				<h2 className="text-6xl uppercase mb-16">{title}</h2>
+				<Title text={title} />
 
 				{/* News grid */}
 				{items.length > 0 && (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
 						{items.map((item, index) => (
 							<div key={index} className="flex flex-col">
 								<Link href={item.url} className="group">
@@ -49,12 +50,12 @@ export default function NewsSection({
 											className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 										/>
 									</AspectRatio>
-									<div className="flex flex-col gap-2 pt-3">
-										<div className="text-gray-500">{item.date}</div>
+									<div className="flex flex-col gap-4 pt-8">
+										<div className="text-[#535353] text-lg ">{item.date}</div>
 										{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
 											{item.title}
 										</h3> */}
-										<p className="text-gray-600">{item.excerpt}</p>
+										<p className="text-[#151515] leading-[140%] text-2xl line-clamp-3">{item.excerpt}</p>
 									</div>
 								</Link>
 							</div>
