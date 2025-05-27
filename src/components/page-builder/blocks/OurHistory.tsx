@@ -1,6 +1,7 @@
 "use client"
 import SectionLabel from "@/components/section-label"
 import { Separator } from "@/components/ui/separator"
+import Title from "@/components/ui/title"
 import React from "react"
 
 export interface HistoryItem {
@@ -17,16 +18,16 @@ interface OurHistoryProps {
 
 const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 	return (
-		<section id="history" className="w-full py-24 px-4 md:px-8 lg:px-16 bg-black text-white">
+		<section id="history" className="w-full py-10 md:py-40 px-4 md:px-8 lg:px-16 bg-black text-white">
 			<div className="max-w-7xl mx-auto">
 				{/* Section header */}
-				<div className="text-center mb-16">
+				<div className="text-center">
 					<SectionLabel label={"Our History"} variant="dark" />
-					<h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight uppercase mt-4">A SUCCESS STORY</h2>
+					<Title className="text-white mt-6">A SUCCESS STORY</Title>
 				</div>
 
 				{/* Timeline items */}
-				<div className="space-y-20">
+				<div className="space-y-8 md:space-y-20 mt-8 md:mt-20">
 					{items.map((item, index) => (
 						<div key={index} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 							{/* Image */}
