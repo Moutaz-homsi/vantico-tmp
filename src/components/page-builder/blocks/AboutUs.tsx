@@ -81,31 +81,31 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 						</div>
 					</div>
 				</div>
-				{/* trusted by */}
-				<div className="w-full h-20 mt-16 relative ">
-					<Image isFill src={"/images/trusted-by.png"} alt="Trusted by" />
-				</div>
-				{/* Partners section */}
-				{/* <div className="mt-12">
-					<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
- 						<div className="flex items-center grayscale opacity-60">
-							<span className="text-2xl font-light text-gray-400">brownrudnick</span>
-						</div>
-						<div className="flex items-center grayscale opacity-60">
-							<span className="text-2xl font-light text-gray-400">CohnReznick</span>
-						</div>
-						<div className="flex items-center grayscale opacity-60">
-							<span className="text-2xl font-light text-gray-400">Lightwave</span>
-						</div>
-						<div className="flex items-center grayscale opacity-60">
-							<span className="text-2xl font-light text-gray-400">LIG</span>
-						</div>
 
+				{/* Partners section */}
+				<div className="w-full h-20 mt-16 ">
+					<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 h-12 gap-8">
+						<div className="flex items-center grayscale opacity-60">
+							<span className="text-2xl font-light text-gray-300">Trusted by</span>
+						</div>
+						{logos.map((item) => {
+							return (
+								<div key={item.id} className="relative">
+									<Image isFill src={item.src} alt={item.alt} className="object-contain grayscale opacity-40" />
+								</div>
+							)
+						})}
 					</div>
-				</div> */}
+				</div>
 			</div>
 		</section>
 	)
 }
 
+const logos = [
+	{ id: 1, src: "/images/trusted-by/brownrudnick 1.png", alt: "Brown Rudnick" },
+	{ id: 2, src: "/images/trusted-by/cohnreznick 1.png", alt: "cohnreznick" },
+	{ id: 3, src: "/images/trusted-by/lightwave 1.png", alt: "lightwave" },
+	{ id: 4, src: "/images/trusted-by/lindsaygoldberg 1.png", alt: "lindsaygoldberg" }
+]
 export default AboutUs
