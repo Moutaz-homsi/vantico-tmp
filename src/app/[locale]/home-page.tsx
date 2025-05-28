@@ -148,17 +148,7 @@ export default function HomePage() {
 
 			<InvestmentApproach steps={investmentSteps} />
 
-			<ConsultationSection
-				title="Let’s Talk"
-				boldTitle="Growth Strategy"
-				calendlyUrl="https://calendly.com/hatem-a-abushaala/15min"
-				backgroundImage={{
-					url: "/images/calendly-background.png",
-					width: 1920,
-					height: 1080
-				}}
-				minHeight="700px"
-			/>
+			<ConsultationSection />
 			<Testimonials />
 
 			<NewsSection

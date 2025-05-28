@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Gantari } from "next/font/google"
 import "../globals.css"
 import { Header, Footer } from "@/components/layout"
 import { NextIntlClientProvider } from "next-intl"
+import { ModalProvider } from "@/hooks/use-model"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -43,11 +44,13 @@ export default async function RootLayout({
 			<NextIntlClientProvider locale={locale}>
 				<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
 					<div className="">
-						<Header />
+						<ModalProvider>
+							<Header />
 
-						{children}
+							{children}
 
-						<Footer />
+							<Footer />
+						</ModalProvider>
 					</div>
 				</body>
 			</NextIntlClientProvider>

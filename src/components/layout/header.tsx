@@ -6,9 +6,13 @@ import Link from "next/link"
 import Container from "./container"
 import MobileMenu from "./mobile-menu"
 import { useState } from "react"
+import { useModal } from "@/hooks/use-model"
+import ConsultationSection from "../page-builder/blocks/consultation-section"
+import Calendly from "../calendly"
 
 export default function Header({}) {
 	const [isOpen, setIsOpen] = useState(false)
+	const { open, close } = useModal()
 	return (
 		<>
 			<header className="sticky top-0 z-50 ">
@@ -59,7 +63,16 @@ export default function Header({}) {
 							/>
 						</svg>
 
-						<Button variant="outline" className="hidden md:block text-white text-lg font-semibold border-neutral-600">
+						<Button
+							onClick={() => {
+								open({
+									title: "BOOK A 15-MIN INVESTOR CONSULTATION",
+									children: <Calendly />
+								})
+							}}
+							variant="outline"
+							className="hidden md:block text-white text-lg font-semibold border-neutral-600"
+						>
 							Book consultation
 						</Button>
 					</Container>

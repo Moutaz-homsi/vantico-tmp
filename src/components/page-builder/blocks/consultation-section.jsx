@@ -4,8 +4,15 @@ import React, { useEffect } from "react"
 import Image from "@/components/ui/image"
 import { Container } from "@/components/layout"
 import Title from "@/components/ui/title"
+import Calendly from "@/components/calendly"
 
-export default function ConsultationSection({ title, boldTitle, calendlyUrl, backgroundImage, minHeight = "630px" }) {
+const backgroundImage = {
+	url: "/images/calendly-background.png",
+	width: 1920,
+	height: 1080
+}
+const calendlyUrl = "https://calendly.com/hatem-a-abushaala/15min"
+export default function ConsultationSection({}) {
 	useEffect(() => {
 		// Load Calendly widget script
 		const script = document.createElement("script")
@@ -30,16 +37,7 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 					<Title className="text-2xl">
 						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
 					</Title>
-					<div
-						className="calendly-inline-widget"
-						data-url={`${calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1&text_color=000000&primary_color=000000`}
-						data-resize="true"
-						style={
-							{
-								// height: minHeight
-							}
-						}
-					/>
+					<Calendly />
 				</div>
 			</div>
 		</div>
