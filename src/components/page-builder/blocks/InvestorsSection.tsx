@@ -109,17 +109,18 @@ const content = {
 	exit: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's`
 }
 
-const size = 40
-const imageSizeProps = {
-	width: size,
-	height: size
-}
 function Tab() {
 	const [activeTab, setActiveTab] = useState("returns")
 
 	function buildButtonProps(tab) {
 		return {
-			className: cn("text-2xl", activeTab != tab && "text-neutral-500 font-normal"),
+			className: cn(
+				"text-2xl flex font-medium items-center gap-3",
+				// common button behavior styles
+				" hover:cursor-pointer hover:text-white transition-colors duration-200",
+				// class for inactive tab
+				activeTab != tab && "text-neutral-500 font-normal"
+			),
 			variant: "text",
 			onClick: () => {
 				setActiveTab(tab)
@@ -128,14 +129,16 @@ function Tab() {
 	}
 	return (
 		<div className="grid md:grid-cols-5 gap-4 items-baseline">
-			<div className="md:col-span-2 flex md:flex-col gap-4 text-start items-start ">
-				<Button {...buildButtonProps("returns")}>
-					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} /> Returns
-				</Button>
-				<Button {...buildButtonProps("exit")}>
+			{/* <PercentIcon /> */}
+			<div className="md:col-span-2 flex md:flex-col gap-10 text-start items-start ">
+				<button {...buildButtonProps("returns")}>
+					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} />
+					Returns
+				</button>
+				<button {...buildButtonProps("exit")}>
 					<ExitIcon color={activeTab !== "exit" ? "#ABABAB" : "white"} />
 					Exit
-				</Button>
+				</button>
 			</div>
 			<div className="md:col-span-3">
 				<p className="col-span-2 text-lg leading-[160%] text-[#ABABAB]">{content[activeTab]}</p>
@@ -168,7 +171,7 @@ function ExitIcon({ color = "white" }) {
 
 function PercentIcon({ color = "white" }) {
 	return (
-		<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg width="26" height="26" viewBox="0 0 26 26" className="" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M12.9999 25C19.6273 25 24.9999 19.6274 24.9999 13C24.9999 6.37258 19.6273 1 12.9999 1C6.37251 1 0.999924 6.37258 0.999924 13C0.999924 19.6274 6.37251 25 12.9999 25Z"
 				stroke={color}
