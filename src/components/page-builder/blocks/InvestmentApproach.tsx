@@ -47,7 +47,9 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 				<div className="w-full xl:px-30 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-20">
 					{steps.map((step) => (
 						<div key={step.number} className="bg-gray-50 flex items-center">
-							<span className="text-[270px] leading-[100%] min-w-50 text-neutral-200 ">{step.number}</span>
+							<span className="text-[160px] md:text-[270px] leading-[100%] md:min-w-50 text-neutral-200 ">
+								{step.number}
+							</span>
 							<p className="text-lg text-[#151515] leading-[160%] max-w-85 mx-auto ">{step.description}</p>
 						</div>
 					))}

@@ -21,13 +21,13 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 	return (
 		<div className="relative bg-black py-10 md:py-30">
 			<div
-				className="max-w-7xl min-h-80 mx-auto p-8 md:p-32"
+				className="max-w-7xl min-h-80 mx-auto p-4 md:p-32"
 				style={{
 					background: `url(${backgroundImage?.url})`
 				}}
 			>
-				<div className="bg-white  p-8 md:p-16  ">
-					<Title className="mb-6">
+				<div className="bg-white  p-4 md:p-16  ">
+					<Title className="text-2xl mb-6">
 						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
 					</Title>
 					<div
@@ -35,24 +35,11 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 						data-url={`${calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1&text_color=000000&primary_color=000000`}
 						data-resize="true"
 						style={{
-							minWidth: "320px",
 							height: minHeight
 						}}
 					/>
 				</div>
 			</div>
-			{/* {backgroundImage && (
-				<div className="absolute inset-0 w-full h-full">
-					<Image
-						src={backgroundImage.url}
-						strapiImage={backgroundImage}
-						isFill
-						sizes="100vw"
-						className="object-cover"
-						alt="Consultation background"
-					/>
-				</div>
-			)} */}
 		</div>
 	)
 }

@@ -89,7 +89,7 @@ const contactDetails = [
 
 const Footer = () => {
 	return (
-		<footer className="bg-[#1E1E1E] text-white ">
+		<footer className="bg-[#1E1E1E] text-white overflow-hidden ">
 			{/* background image */}
 			<div className="relative inset-0 pointer-events-none select-none">
 				<div className="size-96 opacity-15 absolute left-0 top-0  z-0">
