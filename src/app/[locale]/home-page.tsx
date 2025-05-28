@@ -101,21 +101,6 @@ export const historyItems = [
 export default function HomePage() {
 	return (
 		<main>
-			{/* Calendly */}
-			{/* <ConsultationSection
-				title="Let’s Talk"
-				boldTitle="Growth Strategy"
-				calendlyUrl="https://calendly.com/your-team/strategy-call"
-				backgroundImage={{
-					url: "/images/consult-bg.jpg",
-					width: 1920,
-					height: 1080
-				}}
-				minHeight="700px"
-			/>
-			
-			*/}
-
 			<Hero />
 			<AboutUs />
 
@@ -166,7 +151,7 @@ export default function HomePage() {
 			<ConsultationSection
 				title="Let’s Talk"
 				boldTitle="Growth Strategy"
-				calendlyUrl="https://calendly.com/your-team/strategy-call"
+				calendlyUrl="https://calendly.com/hatem-a-abushaala/15min"
 				backgroundImage={{
 					url: "/images/calendly-background.png",
 					width: 1920,

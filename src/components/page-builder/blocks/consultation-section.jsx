@@ -27,16 +27,18 @@ export default function ConsultationSection({ title, boldTitle, calendlyUrl, bac
 				}}
 			>
 				<div className="bg-white  p-4 md:p-16  ">
-					<Title className="text-2xl mb-6">
+					<Title className="text-2xl">
 						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
 					</Title>
 					<div
 						className="calendly-inline-widget"
 						data-url={`${calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1&text_color=000000&primary_color=000000`}
 						data-resize="true"
-						style={{
-							height: minHeight
-						}}
+						style={
+							{
+								// height: minHeight
+							}
+						}
 					/>
 				</div>
 			</div>
