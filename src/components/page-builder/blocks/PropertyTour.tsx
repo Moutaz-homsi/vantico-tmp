@@ -22,19 +22,19 @@ interface PropertyTourProps {
 const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 	const [selected, setSelected] = useState(0)
 	return (
-		<section id="tour" className="bg-black text-white py-16 px-4">
+		<section id="tour" className="bg-black text-white pb-20 md:pb-40 px-4">
 			<div className="container mx-auto max-w-6xl">
-				<div className="text-center mb-4">
+				<div className="text-center">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
 				</div>
 
-				<Title className="text-2xl text-white text-center mb-16">
+				<Title className="text-2xl text-white text-center mt-6 leading-[100%] ">
 					A glimpse into some
 					<br />
 					of our prime assets
 				</Title>
 
-				<div className="mb-12 relative">
+				<div className="mt-10 md:mt-20 relative">
 					<div className="hidden md:flex gap-4 w-full" style={{ height: 500 }}>
 						{images.slice(0, 3).map((image, index) => {
 							const isSelected = index === selected
@@ -88,7 +88,7 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 					</Carousel>
 				</div>
 
-				<div className="flex justify-center">
+				<div className="flex justify-center mt-6 md:mt-10">
 					<Button onClick={onCtaClick}>
 						Explore more opportunities <ChevronRight className="ml-2" />
 					</Button>

@@ -74,11 +74,11 @@ export const investmentDetails = [
 	{
 		label: "Geographical Coverage",
 		value: "Mid Atlantic - United States (principally North Carolina)",
-		className: "text-lg"
+		className: "text-md md:text-2xl"
 	},
 	{
 		label: "Property Type",
 		value: "Dental / Select Underutilized Commercial, Retail, Office",
-		className: "text-lg"
+		className: "text-md md:text-2xl"
 	}
 ]

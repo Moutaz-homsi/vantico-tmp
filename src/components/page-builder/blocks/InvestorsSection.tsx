@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { cn } from "@/utils"
 import { Button, Image } from "@/components/ui"
 import { Percent, LogIn } from "lucide-react"
+import Title from "@/components/ui/title"
 
 interface InvestorStat {
 	value: string
@@ -33,30 +34,26 @@ interface InvestorsSectionProps {
 
 const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgress, investmentDetails }) => {
 	return (
-		<section id="investor" className="w-full py-24 px-4 md:px-8 lg:px-16 bg-black text-white">
+		<section id="investors" className="w-full py-10 md:py-40 px-4 md:px-8 lg:px-16 bg-black text-white">
 			<div className="max-w-7xl mx-auto">
 				{/* Section header */}
-				<div className="text-center mb-20">
-					<h2 className="text-4xl md:text-5xl lg:text-6xl  tracking-tight uppercase">What's in it for investors?</h2>
-				</div>
+				<Title className="text-white text-center">What’s in it for investors?</Title>
 
 				{/* Stats grid */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5  mb-20">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20 gap-4 md:gap-6">
 					{stats.map((stat, index) => (
 						<Card key={index} className="rounded-sm bg-neutral-900 border-0 overflow-hidden">
-							<CardContent className="py-8 px-20 text-center flex flex-col justify-center  h-full ">
-								<p className="text-3xl md:text-4xl lg:text-5xl text-white font-secondary font-light mb-3">
-									{stat.value}
-								</p>
-								<p className="text-neutral-400 mb-1">{stat.label}</p>
-								<p className="text-neutral-400 mb-1">{stat.sublabel}</p>
+							<CardContent className="py-10 px-20 text-center flex flex-col justify-center  h-full ">
+								<p className="text-5xl text-white font-secondary font-light mb-3">{stat.value}</p>
+								<p className="text-lg text-[#ABABAB] mb-1">{stat.label}</p>
+								<p className="text-lg text-[#ABABAB] mb-1">{stat.sublabel}</p>
 							</CardContent>
 						</Card>
 					))}
 				</div>
 
 				{/* Funding progress */}
-				<div className="mb-24 w-full">
+				<div className="w-full mt-16 md:mt-36">
 					{/* <Progress value={fundingProgress.raisedPercent + fundingProgress.committedPercent} className="h-10 mb-3" /> */}
 					{/* <div className="grid grid-cols-3 w-full h-5 rounded-md overflow-hidden">
 						<div className="bg-white"></div>
@@ -64,15 +61,15 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 						<div className="bg-neutral-400"></div>
 					</div> */}
 					<div className="grid grid-cols-4 w-full text-end ">
-						<div>
+						<div className="space-y-4">
 							<div className="bg-white h-5 w-full rounded-l-md"></div>
 							<p className="mt-2">$18M Raised</p>
 						</div>
-						<div className="col-span-2">
+						<div className="col-span-2 space-y-4">
 							<div className="bg-[#AB804A] h-5 w-full"></div>
 							<p className="mt-2">68M Committed</p>
 						</div>
-						<div>
+						<div className="space-y-4">
 							<div className="bg-neutral-400 h-5 w-full rounded-r-md"></div>
 							<p className="mt-2">$17M To Go</p>
 						</div>
@@ -80,19 +77,27 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 				</div>
 
 				{/* Investment details */}
-				<div className="flex flex-col gap-8 max-w-2xl mx-auto">
+				<div className="flex flex-col gap-8 md:gap-16 max-w-2xl mx-auto mt-16 md:mt-36">
 					{investmentDetails.map((detail, index) => (
 						<div key={index}>
-							<div className="flex justify-between items-center mb-2 ">
-								<p className="text-gray-300 flex-1">{detail.label}</p>
-								<p className={cn("text-3xl flex-1 text-end font-semibold", detail.className ?? "")}>{detail.value}</p>
+							<div className="flex justify-between items-center gap-4 py-2 mb-2 ">
+								<p className="text-[#ABABAB] text-lg md:text-2xl font-medium flex-1">{detail.label}</p>
+								<p
+									className={cn(
+										"text-xl md:text-4xl flex-1 text-end font-medium tracking-tighter leading-[140%]",
+										detail.className ?? ""
+									)}
+								>
+									{detail.value}
+								</p>
 							</div>
 							<Separator className="bg-neutral-700" />
 						</div>
 					))}
 				</div>
-
-				<Tab />
+				<div className="bg-[#1E1E1E] mt-16 md:mt-36  p-8 md:p-20 rounded-sm">
+					<Tab />
+				</div>
 			</div>
 		</section>
 	)
@@ -114,7 +119,7 @@ function Tab() {
 
 	function buildButtonProps(tab) {
 		return {
-			className: cn("text-xl", activeTab != tab && "text-neutral-500 text-lg"),
+			className: cn("text-2xl", activeTab != tab && "text-neutral-500 font-normal"),
 			variant: "text",
 			onClick: () => {
 				setActiveTab(tab)
@@ -122,20 +127,18 @@ function Tab() {
 		}
 	}
 	return (
-		<div className="bg-neutral-800 mt-16 max-w-6xl mx-auto p-8 md:p-16 rounded-sm">
-			<div className="grid md:grid-cols-5 gap-4 items-baseline">
-				<div className="md:col-span-2 flex md:flex-col gap-4 text-start items-start ">
-					<Button {...buildButtonProps("returns")}>
-						<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} /> Returns
-					</Button>
-					<Button {...buildButtonProps("exit")}>
-						<ExitIcon color={activeTab !== "exit" ? "#ABABAB" : "white"} />
-						Exit
-					</Button>
-				</div>
-				<div className="md:col-span-3">
-					<p className="col-span-2 text-[#ABABAB]">{content[activeTab]}</p>
-				</div>
+		<div className="grid md:grid-cols-5 gap-4 items-baseline">
+			<div className="md:col-span-2 flex md:flex-col gap-4 text-start items-start ">
+				<Button {...buildButtonProps("returns")}>
+					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} /> Returns
+				</Button>
+				<Button {...buildButtonProps("exit")}>
+					<ExitIcon color={activeTab !== "exit" ? "#ABABAB" : "white"} />
+					Exit
+				</Button>
+			</div>
+			<div className="md:col-span-3">
+				<p className="col-span-2 text-lg leading-[160%] text-[#ABABAB]">{content[activeTab]}</p>
 			</div>
 		</div>
 	)
