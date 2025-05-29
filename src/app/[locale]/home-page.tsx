@@ -13,6 +13,7 @@ import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
 import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
 import Testimonials from "@/components/page-builder/blocks/Testimonials"
+import { faq } from "@/data/home-page-data"
 import { investmentSteps } from "@/data/investmentData"
 import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 import { teamMembers } from "@/data/teamData"
@@ -209,9 +210,12 @@ export default async function HomePage() {
 
 async function getHomePageData() {
 	// TODO we should return mock data only in development
-	let homePageData = {
-		faq: []
+	const isDev = process.env.NODE_ENV === "development"
+	const mockData = {
+		faq
 	}
+	let homePageData = isDev ? mockData : {}
+
 	try {
 		const responseBody = await getHomepage()
 		if (responseBody.data) {
@@ -219,7 +223,5 @@ async function getHomePageData() {
 		}
 	} catch (error) {}
 
-	return {
-		faq: homePageData.faq ?? []
-	}
+	return homePageData
 }
