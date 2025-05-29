@@ -115,7 +115,7 @@ function Tab() {
 	function buildButtonProps(tab) {
 		return {
 			className: cn(
-				"text-2xl flex font-medium items-center gap-3",
+				"text-xl md:text-2xl flex font-medium items-center gap-3",
 				// common button behavior styles
 				" hover:cursor-pointer hover:text-white transition-colors duration-200",
 				// class for inactive tab
@@ -130,11 +130,12 @@ function Tab() {
 	return (
 		<div className="grid md:grid-cols-5 gap-4 items-baseline">
 			{/* <PercentIcon /> */}
-			<div className="md:col-span-2 flex md:flex-col gap-10 text-start items-start ">
+			<div className="md:col-span-2 flex md:flex-col  gap-10 text-start items-start ">
 				<button {...buildButtonProps("returns")}>
 					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} />
 					Returns
 				</button>
+				{/* <Separator orientation="vertical" className="bg-gray-500 w-[1px] h-6" /> */}
 				<button {...buildButtonProps("exit")}>
 					<ExitIcon color={activeTab !== "exit" ? "#ABABAB" : "white"} />
 					Exit
