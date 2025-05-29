@@ -1,6 +1,7 @@
 "use client"
 import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Title from "@/components/ui/title"
 import { cn } from "@/utils"
 
@@ -42,8 +43,8 @@ export default function TenantsSection({
 					</p>
 				</div>
 
-				<div className="relative w-full mt-10 md:mt-20  h-[250px] md:h-[400px]">
-					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="md:px-20" />
+				<div className="relative  mt-10 md:mt-20 w-full h-[200px] md:h-[400px]">
+					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="object-contain " />
 				</div>
 				{/* we may need it */}
 				{/* Tenant logos grid */}
