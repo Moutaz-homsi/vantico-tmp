@@ -14,34 +14,9 @@ interface Testimonial {
 	image: string
 }
 
-const testimonials: Testimonial[] = [
-	{
-		id: 1,
-		name: "Muhammad W. Ahmad",
-		title: "CEO of Company Name",
-		quote:
-			"I've been investing in real estate for the past year now. The improvement is constant. I collect my monthly dividends and have invested in different properties. It's easy, accessible, and very transparent. Highly recommended.",
-		image: "/mock/team1.png"
-	},
-	{
-		id: 2,
-		name: "Dakota Woods",
-		title: "Head of Company Name",
-		quote:
-			"The platform exceeded our expectations. We've seen remarkable returns on our investments with minimal effort. The transparency and ease of use make it a standout choice for anyone looking to diversify their portfolio.",
-		image: "/mock/team2.jpg"
-	},
-	{
-		id: 3,
-		name: "William Nelson",
-		title: "CTO of Company Name",
-		quote:
-			"As someone who values technological efficiency, I'm impressed with how seamlessly everything works. The reporting tools and dashboard provide all the insights we need, and the customer service has been exceptional throughout our partnership.",
-		image: "/mock/team3.jpg"
-	}
-]
+ 
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
 	const [activeIndex, setActiveIndex] = useState(0)
 
 	const handlePrev = () => {
@@ -72,11 +47,17 @@ const Testimonials = () => {
 								onClick={() => setActiveIndex(index)}
 							>
 								<div className="h-18 w-18 relative rounded-xs overflow-hidden">
-									<Image isFill src={testimonial.image} alt={testimonial.name} className="h-full w-full object-cover" />
+									<Image
+										isFill
+										strapiImage={testimonial.avatar}
+										src={testimonial.avatar?.url}
+										alt={testimonial.author}
+										className="h-full w-full object-cover"
+									/>
 								</div>
 								<div className="flex flex-col gap-3 py-2">
-									<h3 className="text-lg md:text-2xl">{testimonial.name}</h3>
-									<p className="text-[#ABABAB] text-md md:text-lg">{testimonial.title}</p>
+									<h3 className="text-lg md:text-2xl">{testimonial.author}</h3>
+									<p className="text-[#ABABAB] text-md md:text-lg">{testimonial.author_role}</p>
 								</div>
 							</div>
 						))}
@@ -84,7 +65,7 @@ const Testimonials = () => {
 
 					<div className="col-span-3">
 						<blockquote className="text-2xl md:text-3xl leading-[160%]  pt-4">
-							"{testimonials[activeIndex].quote}"
+							"{testimonials[activeIndex].comment}"
 						</blockquote>
 					</div>
 				</div>

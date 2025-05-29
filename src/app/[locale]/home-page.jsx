@@ -19,6 +19,7 @@ import { fundingProgress, investmentDetails, investorStats } from "@/data/invest
 import { teamMembers } from "@/data/teamData"
 import { tenants } from "@/data/tenantData"
 import fetchData, { getHomepage } from "@/utils/api"
+import { stringify } from "qs"
 
 const strategyItems = [
 	{
@@ -85,7 +86,7 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-	console.log(require("util").inspect(homePageData.team, true, 10, true))
+	console.log(require("util").inspect(homePageData.testimonials, true, 10, true))
 
 	return (
 		<main>
@@ -137,7 +138,7 @@ export default async function HomePage() {
 			<InvestmentApproach steps={investmentSteps} />
 
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
-			<Testimonials />
+			<Testimonials testimonials={homePageData.testimonials} />
 
 			<NewsSection items={homePageData.news} />
 			<FAQ items={homePageData.faq} />
@@ -176,10 +177,12 @@ async function getHomePageData() {
 	const isDev = process.env.NODE_ENV === "development"
 
 	let homePageData = isDev ? mockHomePageData : {}
-
+	const query = stringify({
+		populate: ["testimonials.avatar", "faq"]
+	})
 	try {
 		const responseBody = await fetchData({
-			route: "homepage?[populate]=*",
+			route: "homepage?" + query,
 			debug: true
 		})
 
