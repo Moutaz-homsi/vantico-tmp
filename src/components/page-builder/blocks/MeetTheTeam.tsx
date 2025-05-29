@@ -38,7 +38,13 @@ const MeetTheTeam = ({ members, onReadMoreClick }: MeetTheTeamProps) => {
 							<div className="h-100 md:mb-10 relative overflow-hidden ">
 								{/* Use custom Image component as per your guide */}
 								<div className="relative w-full h-[340px]">
-									<Image src={member.image} alt={member.name} isFill className="object-cover grayscale" />
+									<Image
+										strapiImage={member.image}
+										src={member.image?.url}
+										alt={member.name}
+										isFill
+										className="object-cover grayscale"
+									/>
 								</div>
 								{/* Overlay for bio on hover or mobile tap */}
 								<div
@@ -61,7 +67,7 @@ const MeetTheTeam = ({ members, onReadMoreClick }: MeetTheTeamProps) => {
 								</div>
 							</div>
 							<h3 className="text-3xl mb-2">{member.name}</h3>
-							<p className="text-neutral-400 pr-4">{member.title}</p>
+							<p className="text-neutral-400 pr-4">{member.role}</p>
 						</div>
 					))}
 				</div>

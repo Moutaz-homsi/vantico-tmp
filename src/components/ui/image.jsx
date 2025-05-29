@@ -33,7 +33,8 @@ export default function Image({
 	// placeholder,
 }) {
 	// we need this when testing with local development uploads, we need to add the base url
-	if (src && !src.includes("http") && src.startsWith("/upload")) src = process.env.NEXT_PUBLIC_API_URL + src
+	if (typeof src === "string" && !src.includes("http") && src.startsWith("/upload"))
+		src = process.env.NEXT_PUBLIC_API_URL + src
 
 	// const [loaded, setLoaded] = useState(false)
 
@@ -79,7 +80,7 @@ export default function Image({
 		/>
 	)
 
-	if (!src.length) return null
+	if (!src?.length) return null
 	if (strapiImage)
 		return (
 			<picture>

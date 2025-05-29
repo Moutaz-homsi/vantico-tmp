@@ -85,7 +85,7 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-	console.log(require("util").inspect(homePageData.news, true, 10, true))
+	console.log(require("util").inspect(homePageData.team, true, 10, true))
 
 	return (
 		<main>
@@ -132,7 +132,7 @@ export default async function HomePage() {
 			<ROICalculator />
 
 			<Ready />
-			<MeetTheTeam members={teamMembers} />
+			<MeetTheTeam members={homePageData.team} />
 
 			<InvestmentApproach steps={investmentSteps} />
 
@@ -191,9 +191,9 @@ async function getHomePageData() {
 	const news = await fetchData({
 		route: "news?[populate]=*"
 	})
-	const teams = await fetchData({
-		route: "teams"
+	const team = await fetchData({
+		route: "teams?[populate]=*"
 	})
 
-	return { ...homePageData, news: news.data, teams: teams.data }
+	return { ...homePageData, news: news.data, team: team.data }
 }
