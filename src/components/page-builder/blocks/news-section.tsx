@@ -6,6 +6,7 @@ import { Image } from "@/components/ui"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { ChevronRight } from "lucide-react"
 import Title from "@/components/ui/title"
+import { useRouter } from "next/navigation"
 
 export interface NewsItem {
 	title: string
@@ -30,6 +31,7 @@ export default function NewsSection({
 	seeMoreUrl = "/news",
 	className
 }: NewsSectionProps) {
+	const router = useRouter()
 	return (
 		<section id="news" className={cn("w-full py-30 bg-gray-50", className)}>
 			<div className="max-w-7xl mx-auto px-4">
@@ -48,10 +50,13 @@ export default function NewsSection({
 				{/* See more button */}
 				{seeMoreUrl && (
 					<div className="flex justify-center mt-2">
-						<Button asChild variant="dark">
-							<Link href={seeMoreUrl}>
-								{seeMoreText} <ChevronRight className="ml-2" size={16} />
-							</Link>
+						<Button
+							onClick={async () => {
+								router.push(seeMoreUrl)
+							}}
+							variant="dark"
+						>
+							{seeMoreText} <ChevronRight className="ml-2" size={16} />
 						</Button>
 					</div>
 				)}
