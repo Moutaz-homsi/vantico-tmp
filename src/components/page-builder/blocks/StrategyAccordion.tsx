@@ -72,14 +72,14 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 						>
 							<button
 								onClick={() => toggleItem(index)}
-								className="flex items-center justify-between w-full text-left hover:cursor-pointer "
+								className="flex items-center gap-4 md:gap-8 justify-between w-full text-left hover:cursor-pointer "
 								aria-expanded={isOpen}
 							>
-								<div className="flex items-center gap-8">
+								<div className="flex items-center gap-4 md:gap-8">
 									<div className="p-3 rounded-sm bg-gray-100 ">
 										<Icon className="size-8 md:size-10" strokeWidth={1} />
 									</div>
-									<h4 className="text-2xl md:text-[32px]">{item.title}</h4>
+									<h4 className="text-xl md:text-[32px]">{item.title}</h4>
 								</div>
 								<div>
 									{isOpen ? (
@@ -93,14 +93,14 @@ const StrategyAccordion: React.FC<StrategyAccordionProps> = ({ items, className 
 							<div
 								className={cn(
 									// padding calculated based on icon size and gap between icon and text
-									"mt-4 pl-22 md:pl-24 pr-10  overflow-hidden transition-all duration-300",
+									"mt-4 pl-18 md:pl-24 pr-10  overflow-hidden transition-all duration-300",
 									isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
 								)}
 								style={{
 									transitionProperty: "opacity"
 								}}
 							>
-								<p className="text-[18px] text-[#535353]">{item.content}</p>
+								<p className="text-[16px] md:text-[18px] leading-[160%] text-[#535353]">{item.content}</p>
 							</div>
 						</div>
 					)
