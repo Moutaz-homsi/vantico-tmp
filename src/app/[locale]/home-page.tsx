@@ -1,9 +1,6 @@
-import PageBuilder from "@/components/page-builder"
-import { HeroSection } from "@/components/page-builder/blocks"
 import AboutUs from "@/components/page-builder/blocks/AboutUs"
 import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
 import FAQ from "@/components/page-builder/blocks/FAQ"
-import FaqSection from "@/components/page-builder/blocks/faq-section"
 import Hero from "@/components/page-builder/blocks/Hero"
 import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
 import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
@@ -20,8 +17,7 @@ import { investmentSteps } from "@/data/investmentData"
 import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 import { teamMembers } from "@/data/teamData"
 import { tenants } from "@/data/tenantData"
-import fetchData from "@/utils/api"
-import simplifyStrapiResponse from "@/utils/simplify-strapi-response"
+import { getHomepage } from "@/utils/api"
 
 const data = {
 	hero: {
@@ -98,7 +94,10 @@ export const historyItems = [
 	}
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+	const { faq } = await getHomePageData()
+	// console.log(require("util").inspect(homePageData, true, 10, true))
+
 	return (
 		<main>
 			<Hero />
@@ -176,32 +175,7 @@ export default function HomePage() {
 					}
 				]}
 			/>
-			<div className="bg-black">
-				<FAQ
-					items={[
-						{
-							question: "What services do you offer?",
-							answer:
-								"We offer a comprehensive range of services including web development, mobile app development, UI/UX design, digital marketing, and IT consulting. Our team specializes in creating tailored solutions that meet the unique needs of each client."
-						},
-						{
-							question: "How much do your services cost?",
-							answer:
-								"Our pricing is customized based on project requirements, scope, and timeline. We provide detailed quotes after an initial consultation to understand your specific needs. Contact us for a free estimate tailored to your project."
-						},
-						{
-							question: "How long does it take to complete a project?",
-							answer:
-								"Project timelines vary depending on complexity, scope, and requirements. A simple website might take 2-4 weeks, while complex applications can take several months. We'll provide a detailed timeline during our project planning phase after understanding your specific needs."
-						},
-						{
-							question: "Do you provide ongoing support after project completion?",
-							answer:
-								"Yes, we offer comprehensive maintenance and support packages to ensure your digital products continue to function optimally. Our support includes regular updates, security patches, performance optimization, and technical assistance to address any issues that may arise."
-						}
-					]}
-				/>
-			</div>
+			<FAQ items={faq} />
 			{/* 
       />
      
@@ -233,23 +207,19 @@ export default function HomePage() {
 	)
 }
 
-// using page builder
-// export default async function HomePage() {
-// 	try {
-// 		const response = await fetchData({
-// 			route: "homepage?populate[sections][populate]=*"
-// 		})
+async function getHomePageData() {
+	// TODO we should return mock data only in development
+	let homePageData = {
+		faq: []
+	}
+	try {
+		const responseBody = await getHomepage()
+		if (responseBody.data) {
+			homePageData = responseBody.data
+		}
+	} catch (error) {}
 
-// 		// Simplify the nested Strapi response
-// 		const data = simplifyStrapiResponse(response)
-
-// 		return (
-// 			<main>
-// 				<PageBuilder data={data} />
-// 			</main>
-// 		)
-// 	} catch (error) {
-// 		console.error("Error loading homepage:", error)
-// 		return <div>Error loading page content</div>
-// 	}
-// }
+	return {
+		faq: homePageData.faq ?? []
+	}
+}

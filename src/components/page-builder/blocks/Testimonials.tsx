@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/utils"
 import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
+import Title from "@/components/ui/title"
 
 interface Testimonial {
 	id: number
@@ -52,37 +53,39 @@ const Testimonials = () => {
 	}
 
 	return (
-		<section id="testimonials" className="bg-black text-white pb-20 px-4 md:px-8">
+		<section id="testimonials" className="bg-black text-white pb-20 md:pb-40 px-4 xl:px-0">
 			<div className="max-w-7xl mx-auto">
-				<div className="mb-12">
+				<div className="mb-8 md:mb-20">
 					<SectionLabel label="Testimonials" variant="dark" />
-					<h2 className="text-4xl md:text-6xl uppercase mt-6">TRUSTED BY ELITE PARTNERS</h2>
+					<Title className="mt-4 md:mt-6 text-white">Trusted by elite partners</Title>
 				</div>
 
-				<div className="grid md:grid-cols-5 gap-4">
-					<div className="col-span-2 space-y-6">
+				<div className="grid lg:grid-cols-5 gap-4">
+					<div className="col-span-2 space-y-4 md:space-y-8">
 						{testimonials.map((testimonial, index) => (
 							<div
 								key={testimonial.id}
 								className={cn(
-									"flex items-center gap-4 p-4 transition-all duration-300",
+									"flex items-center gap-4 transition-all duration-300",
 									activeIndex === index ? "opacity-100" : "opacity-40 hover:opacity-70 cursor-pointer"
 								)}
 								onClick={() => setActiveIndex(index)}
 							>
-								<div className="h-16 w-16 relative rounded-sm overflow-hidden">
+								<div className="h-18 w-18 relative rounded-xs overflow-hidden">
 									<Image isFill src={testimonial.image} alt={testimonial.name} className="h-full w-full object-cover" />
 								</div>
-								<div className="flex flex-col gap-3">
-									<h3 className="font-semibold text-xl">{testimonial.name}</h3>
-									<p className="text-gray-400">{testimonial.title}</p>
+								<div className="flex flex-col gap-3 py-2">
+									<h3 className="text-lg md:text-2xl">{testimonial.name}</h3>
+									<p className="text-[#ABABAB] text-md md:text-lg">{testimonial.title}</p>
 								</div>
 							</div>
 						))}
 					</div>
 
 					<div className="col-span-3">
-						<blockquote className="text-3xl leading-relaxed  pt-4">"{testimonials[activeIndex].quote}"</blockquote>
+						<blockquote className="text-2xl md:text-3xl leading-[160%]  pt-4">
+							"{testimonials[activeIndex].quote}"
+						</blockquote>
 					</div>
 				</div>
 			</div>
