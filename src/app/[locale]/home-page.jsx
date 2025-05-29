@@ -142,33 +142,6 @@ export default async function HomePage() {
 
 			<NewsSection items={homePageData.news} />
 			<FAQ items={homePageData.faq} />
-			{/* 
-      />
-     
-  
-
-			{/* To remote later if not needed */}
-			{/* <HeroSection
-				titleStart={data.hero.titleStart}
-				titleBold={data.hero.titleBold}
-				titleEnd={data.hero.titleEnd}
-				subtitle={data.hero.subtitle}
-				backgroundImage={data.hero.backgroundImage}
-				ctaText={data.hero.ctaText}
-				ctaLink={data.hero.ctaLink}
-			/> */}
-
-			{/* <FaqSection
-				title="Need Answers?"
-				subtitle="Check out our most asked questions below"
-				faqs={[
-					{ question: "What is Vantico?", answer: "A next-gen frontend toolkit for building awesome UIs." },
-					{ question: "How do I install it?", answer: "Just run npm install @vantico/cli and follow the prompts." },
-					{ question: "Is there a free tier?", answer: "Yep—get started for free, upgrade anytime." }
-				]}
-				ctaText="Reach Out to Support"
-				ctaLink="/support"
-			/> */}
 		</main>
 	)
 }
