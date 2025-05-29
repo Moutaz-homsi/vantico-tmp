@@ -12,7 +12,7 @@ const backgroundImage = {
 	height: 1080
 }
 const calendlyUrl = "https://calendly.com/hatem-a-abushaala/15min"
-export default function ConsultationSection({}) {
+export default function ConsultationSection({ calendlyUrl }) {
 	useEffect(() => {
 		// Load Calendly widget script
 		const script = document.createElement("script")
@@ -37,7 +37,7 @@ export default function ConsultationSection({}) {
 					<Title className="text-2xl">
 						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
 					</Title>
-					<Calendly />
+					<Calendly calendlyUrl={calendlyUrl} />
 				</div>
 			</div>
 		</div>

@@ -13,24 +13,12 @@ import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
 import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
 import Testimonials from "@/components/page-builder/blocks/Testimonials"
-import { faq } from "@/data/home-page-data"
+import { faq, mockHomePageData } from "@/data/home-page-data"
 import { investmentSteps } from "@/data/investmentData"
 import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 import { teamMembers } from "@/data/teamData"
 import { tenants } from "@/data/tenantData"
 import { getHomepage } from "@/utils/api"
-
-const data = {
-	hero: {
-		titleStart: "Welcome to",
-		titleBold: "Vantico",
-		titleEnd: "Solutions",
-		subtitle: "Innovative solutions for your business needs.",
-		backgroundImage: "/images/hero-bg.jpg",
-		ctaText: "Get Started",
-		ctaLink: "/get-started"
-	}
-}
 
 const strategyItems = [
 	{
@@ -96,12 +84,12 @@ export const historyItems = [
 ]
 
 export default async function HomePage() {
-	const { faq } = await getHomePageData()
-	// console.log(require("util").inspect(homePageData, true, 10, true))
+	const homePageData = await getHomePageData()
+	console.log(require("util").inspect(homePageData, true, 10, true))
 
 	return (
 		<main>
-			<Hero />
+			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
 			<AboutUs />
 
 			<OurHistory items={historyItems} />
@@ -148,7 +136,7 @@ export default async function HomePage() {
 
 			<InvestmentApproach steps={investmentSteps} />
 
-			<ConsultationSection />
+			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
 			<Testimonials />
 
 			<NewsSection
@@ -176,7 +164,7 @@ export default async function HomePage() {
 					}
 				]}
 			/>
-			<FAQ items={faq} />
+			<FAQ items={homePageData.faq} />
 			{/* 
       />
      
@@ -209,12 +197,9 @@ export default async function HomePage() {
 }
 
 async function getHomePageData() {
-	// TODO we should return mock data only in development
 	const isDev = process.env.NODE_ENV === "development"
-	const mockData = {
-		faq
-	}
-	let homePageData = isDev ? mockData : {}
+
+	let homePageData = isDev ? mockHomePageData : {}
 
 	try {
 		const responseBody = await getHomepage()

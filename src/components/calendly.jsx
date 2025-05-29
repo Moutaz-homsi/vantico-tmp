@@ -3,8 +3,7 @@
 import { cn } from "@/utils"
 import { useEffect } from "react"
 
-const calendlyUrl = "https://calendly.com/hatem-a-abushaala/15min"
-export default function Calendly({ className, style }) {
+export default function Calendly({ className, calendlyUrl = "https://calendly.com/hatem-a-abushaala/15min", style }) {
 	useEffect(() => {
 		// Load Calendly widget script
 		const script = document.createElement("script")

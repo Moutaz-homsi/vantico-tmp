@@ -5,23 +5,16 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronRight, Play } from "lucide-react"
 import React, { useState } from "react"
-
-interface HeroProps {
-	title?: string
-	subtitle?: string
-	ctaText?: string
-	onCtaClick?: () => void
-	className?: string
-}
-
-const videoId = "1017406920" // Replace with your actual Vimeo video ID
-
-const Hero: React.FC<HeroProps> = ({
+ 
+ 
+const Hero = ({
 	title = "BUILD WEALTH WITH VANTICO",
 	subtitle = "Prime investments in the Mid-Atlantic in high-end dental and underutilized commercial properties",
 	ctaText = "Get started",
 	onCtaClick,
-	className
+	className,
+	videoId,
+	calendlyUrl
 }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
