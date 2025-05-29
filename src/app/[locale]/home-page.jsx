@@ -18,7 +18,7 @@ import { investmentSteps } from "@/data/investmentData"
 import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 import { teamMembers } from "@/data/teamData"
 import { tenants } from "@/data/tenantData"
-import { getHomepage } from "@/utils/api"
+import fetchData, { getHomepage } from "@/utils/api"
 
 const strategyItems = [
 	{
@@ -85,7 +85,7 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-	console.log(require("util").inspect(homePageData, true, 10, true))
+	console.log(require("util").inspect(homePageData.news, true, 10, true))
 
 	return (
 		<main>
@@ -139,31 +139,7 @@ export default async function HomePage() {
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
 			<Testimonials />
 
-			<NewsSection
-				items={[
-					{
-						title: "New Commercial Property Acquisition in Raleigh",
-						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
-						date: "February 6, 2025",
-						image: "/images/calendly-background.png",
-						url: "#"
-					},
-					{
-						title: "Triangle Family Dentistry Opens New Location",
-						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
-						date: "February 6, 2025",
-						image: "/images/calendly-background.png",
-						url: "#"
-					},
-					{
-						title: "Expansion of Commercial Real Estate Portfolio",
-						excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque augue.",
-						date: "February 6, 2025",
-						image: "/images/calendly-background.png",
-						url: "#"
-					}
-				]}
-			/>
+			<NewsSection items={homePageData.news} />
 			<FAQ items={homePageData.faq} />
 			{/* 
       />
@@ -202,11 +178,22 @@ async function getHomePageData() {
 	let homePageData = isDev ? mockHomePageData : {}
 
 	try {
-		const responseBody = await getHomepage()
+		const responseBody = await fetchData({
+			route: "homepage?[populate]=*",
+			debug: true
+		})
+
 		if (responseBody.data) {
 			homePageData = responseBody.data
 		}
 	} catch (error) {}
 
-	return homePageData
+	const news = await fetchData({
+		route: "news?[populate]=*"
+	})
+	const teams = await fetchData({
+		route: "teams"
+	})
+
+	return { ...homePageData, news: news.data, teams: teams.data }
 }

@@ -40,25 +40,7 @@ export default function NewsSection({
 				{items.length > 0 && (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
 						{items.map((item, index) => (
-							<div key={index} className="flex flex-col">
-								<Link href={item.url} className="group">
-									<AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden">
-										<Image
-											isFill
-											src={item.image || "/placeholder.svg"}
-											alt={item.title}
-											className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-										/>
-									</AspectRatio>
-									<div className="flex flex-col gap-4 pt-8">
-										<div className="text-[#535353] text-lg ">{item.date}</div>
-										{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
-											{item.title}
-										</h3> */}
-										<p className="text-[#151515] leading-[140%] text-2xl line-clamp-3">{item.excerpt}</p>
-									</div>
-								</Link>
-							</div>
+							<NewsItem key={item.id} item={item} />
 						))}
 					</div>
 				)}
@@ -91,12 +73,12 @@ export function NewsItem({ item }) {
 						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 					/>
 				</AspectRatio>
-				<div className="flex flex-col gap-2 pt-3">
-					<div className="text-gray-500">{item.date}</div>
+				<div className="flex flex-col gap-4 pt-8">
+					<div className="text-[#535353] text-lg ">{item.date}</div>
 					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
 											{item.title}
 										</h3> */}
-					<p className="text-gray-600">{item.excerpt}</p>
+					<p className="text-[#151515] leading-[140%] text-2xl line-clamp-3">{item.content}</p>
 				</div>
 			</Link>
 		</div>
