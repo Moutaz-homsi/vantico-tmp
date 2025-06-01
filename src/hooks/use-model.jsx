@@ -33,12 +33,12 @@ const ModalProvider = ({ children }) => {
 					setValue((v) => ({ ...v, isVisible: bool }))
 				}}
 			>
-				<DialogContent className="min-h-[80vh] min-w-[50%]">
+				{/* note: if you changed the height make it works properly in iphone and no scrolling issue with long text, + test all pages that uses the same popup */}
+				<DialogContent className="min-h-[80vh] min-w-[50%] ">
 					<DialogHeader>
 						<DialogTitle>{value.modalProps.title}</DialogTitle>
 					</DialogHeader>
-
-					{value.modalProps.children}
+					<div className="max-h-[70dvh]  overflow-y-auto">{value.modalProps.children}</div>
 				</DialogContent>
 			</Dialog>
 		</ModalContext.Provider>
