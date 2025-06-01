@@ -2,42 +2,42 @@
 import React from "react"
 import { ArrowRight, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
 import Title from "@/components/ui/title"
-
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 interface AboutUsProps {
 	onCtaClick?: () => void
 	className?: string
 }
 
+const stats = [
+	{
+		value: "$265M",
+		label: "Total Assets Value"
+	},
+	{
+		value: "26",
+		label: (
+			<>
+				Properties across <br />
+				Prime Locations
+			</>
+		)
+	},
+	{
+		value: "1M+",
+		label: (
+			<>
+				Square feet of <br />
+				Premium Real Estate
+			</>
+		)
+	}
+]
 const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
-	const stats = [
-		{
-			value: "$265M",
-			label: "Total Assets Value"
-		},
-		{
-			value: "26",
-			label: (
-				<>
-					Properties across <br />
-					Prime Locations
-				</>
-			)
-		},
-		{
-			value: "1M+",
-			label: (
-				<>
-					Square feet of <br />
-					Premium Real Estate
-				</>
-			)
-		}
-	]
-
 	return (
 		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
 			<div className="max-w-7xl mx-auto">
@@ -84,7 +84,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 
 				{/* Partners section */}
 				<div className="w-full h-20 mt-16 ">
-					<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 h-12 gap-8">
+					{/* <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 h-12 gap-8">
 						<div className="flex items-center grayscale opacity-60">
 							<span className="text-2xl font-light text-gray-300">Trusted by</span>
 						</div>
@@ -95,8 +95,48 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 								</div>
 							)
 						})}
-					</div>
+					</div> */}
 				</div>
+
+				<Carousel
+					opts={{
+						align: "start",
+						loop: false // Prevent scrolling from last to first
+					}}
+					plugins={[
+						Autoplay({
+							delay: 2000
+						})
+					]}
+					className="w-full h-15 "
+				>
+					<CarouselContent className="  flex items-center ">
+						{/* Add right padding to show next item */}
+						<CarouselItem className={`basis-1/3 md:basis-1/5`}>
+							<span className="text-[#ABABAB] select-none text-lg">Trusted by</span>
+						</CarouselItem>
+						{/* <span className="text-2xl font-light text-gray-300">Trusted by</span> */}
+						{logos.map((item) => {
+							return (
+								<CarouselItem key={item.id} className={`basis-1/3 md:basis-1/5`}>
+									{/* <p className="text-white">{item.id}</p> */}
+									<div className="relative w-full h-12">
+										<Image
+											isFill
+											src={item.src}
+											alt={item.alt}
+											className="object-contain pointer-events-none select-none grayscale opacity-40"
+										/>
+									</div>
+								</CarouselItem>
+							)
+						})}
+					</CarouselContent>
+					{/* <div className="md:hidden ">
+							<CarouselPrevious className="left-0 bg-black/30" />
+							<CarouselNext className="right-0 " />
+						</div> */}
+				</Carousel>
 			</div>
 		</section>
 	)
