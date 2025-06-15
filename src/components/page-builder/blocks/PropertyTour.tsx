@@ -7,6 +7,8 @@ import SectionLabel from "@/components/section-label"
 import { cn } from "@/utils"
 import { Image } from "@/components/ui"
 import Title from "@/components/ui/title"
+import { Fancybox } from "@fancyapps/ui"
+import "@fancyapps/ui/dist/fancybox.css"
 
 interface PropertyImage {
 	id: number
@@ -18,6 +20,7 @@ interface PropertyTourProps {
 	images: PropertyImage[]
 	onCtaClick: () => void
 }
+Fancybox.defaults.Hash = false
 
 const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 	const [selected, setSelected] = useState(0)
@@ -35,63 +38,35 @@ const PropertyTour = ({ images, onCtaClick }: PropertyTourProps) => {
 				</Title>
 
 				<div className="mt-10 md:mt-20 relative">
-					<div className="hidden md:flex gap-4 w-full" style={{ height: 500 }}>
-						{images.slice(0, 3).map((image, index) => {
+					<div className="flex gap-4 w-full">
+						{images.map((image, index) => {
 							const isSelected = index === selected
-							// 66% for selected, 17% for others (total 100%)
 							const width = isSelected ? "66%" : "17%"
+							// const width = "100%"
+
 							return (
-								<div
-									key={index}
-									onClick={() => setSelected(index)}
-									className={cn(
-										"relative rounded-sm overflow-hidden hover:cursor-pointer hover:opacity-90 transition-all duration-100",
-										isSelected ? "z-10" : "z-0"
-									)}
+								<a
+									key={image.id}
+									data-fancybox="gallery2"
+									href={image.url}
 									style={{
-										width,
-										transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
+										width
 									}}
+									className={cn("h-[350px] md:h-[500px] relative", index > 2 ? "hidden" : "block")}
 								>
-									<div className="relative w-full h-[500px]">
-										<Image isFill src={image.url} alt={image.alt} className="object-cover " />
-									</div>
-								</div>
+									<Image isFill src={image.url} alt={image.alt} className="object-cover " />
+								</a>
 							)
 						})}
 					</div>
-					{/* WE MAY NEED THIS FOR MOBILE */}
-					<Carousel
-						opts={{
-							align: "start",
-							loop: false // Prevent scrolling from last to first
-						}}
-						className="w-full md:hidden"
-					>
-						<CarouselContent className="pr-8">
-							{/* Add right padding to show next item */}
-							{images.map((image, idx) => (
-								<CarouselItem
-									key={image.id}
-									className={`basis-[95%] pl-0 md:pl-4 ${idx !== images.length - 1 ? " mr-3" : ""}`} // Add spacing except last
-								>
-									<div className="aspect-square md:aspect-[4/5] h-full">
-										<img src={image.url} alt={image.alt} className="w-full h-full object-cover rounded-md" />
-									</div>
-								</CarouselItem>
-							))}
-						</CarouselContent>
-						{/* <div className="md:hidden ">
-							<CarouselPrevious className="left-0 bg-black/30" />
-							<CarouselNext className="right-0 " />
-						</div> */}
-					</Carousel>
 				</div>
 
 				<div className="flex justify-center mt-6 md:mt-10">
-					<Button onClick={onCtaClick}>
-						Explore more opportunities <ChevronRight className="ml-2" />
-					</Button>
+					<a data-fancybox-trigger="gallery2">
+						<Button onClick={() => {}}>
+							Explore more opportunities <ChevronRight className="ml-2" />
+						</Button>
+					</a>
 				</div>
 			</div>
 		</section>
