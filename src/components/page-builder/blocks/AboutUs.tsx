@@ -8,9 +8,17 @@ import { Image } from "@/components/ui"
 import Title from "@/components/ui/title"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import { cn } from "@/utils"
+import { useModal } from "@/hooks/use-model"
 interface AboutUsProps {
 	onCtaClick?: () => void
 	className?: string
+	logos?: {
+		id: number
+		title: string
+		description: string
+		image: object
+	}[]
 }
 
 const stats = [
@@ -37,7 +45,8 @@ const stats = [
 		)
 	}
 ]
-const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
+const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) => {
+	const { open, close } = useModal()
 	return (
 		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
 			<div className="max-w-7xl mx-auto">
@@ -98,6 +107,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 					</div> */}
 				</div>
 
+				<p className="md:hidden py-2 text-center text-[#ABABAB] select-none text-lg">Trusted by</p>
+
 				<Carousel
 					opts={{
 						align: "start",
@@ -112,20 +123,36 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 				>
 					<CarouselContent className="  flex items-center ">
 						{/* Add right padding to show next item */}
-						<CarouselItem className={`basis-1/3 md:basis-1/5`}>
+						<CarouselItem className={`hidden md:block md:basis-1/5`}>
 							<span className="text-[#ABABAB] select-none text-lg">Trusted by</span>
 						</CarouselItem>
 						{/* <span className="text-2xl font-light text-gray-300">Trusted by</span> */}
 						{logos.map((item) => {
 							return (
-								<CarouselItem key={item.id} className={`basis-1/3 md:basis-1/5`}>
+								<CarouselItem
+									key={item.id}
+									className={`basis-1/3 md:basis-1/5`}
+									onClick={() => {
+										open({
+											title: "todo show company details",
+											children: <p>{item.description}</p>
+										})
+									}}
+								>
 									{/* <p className="text-white">{item.id}</p> */}
-									<div className="relative w-full h-12">
+									<div
+										className={cn(
+											"relative w-full h-12 ",
+											// effects
+											"grayscale opacity-40 hover:grayscale-0 hover:bg-white hover:opacity-100"
+										)}
+									>
 										<Image
 											isFill
-											src={item.src}
-											alt={item.alt}
-											className="object-contain pointer-events-none select-none grayscale opacity-40"
+											src={item.image?.url}
+											strapiImage={item.image}
+											alt={item.title}
+											className="object-contain pointer-events-none select-none"
 										/>
 									</div>
 								</CarouselItem>
@@ -142,10 +169,4 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 	)
 }
 
-const logos = [
-	{ id: 1, src: "/images/trusted-by/brownrudnick 1.png", alt: "Brown Rudnick" },
-	{ id: 2, src: "/images/trusted-by/cohnreznick 1.png", alt: "cohnreznick" },
-	{ id: 3, src: "/images/trusted-by/lightwave 1.png", alt: "lightwave" },
-	{ id: 4, src: "/images/trusted-by/lindsaygoldberg 1.png", alt: "lindsaygoldberg" }
-]
 export default AboutUs

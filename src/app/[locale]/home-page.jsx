@@ -86,12 +86,12 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-	console.log(require("util").inspect(homePageData.testimonials, true, 10, true))
+	// console.log(require("util").inspect(homePageData, true, 10, true))
 
 	return (
 		<main>
 			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
-			<AboutUs />
+			<AboutUs logos={homePageData.logos} />
 
 			<OurHistory items={historyItems} />
 			<StrategyAccordion
@@ -151,7 +151,7 @@ async function getHomePageData() {
 
 	let homePageData = isDev ? mockHomePageData : {}
 	const query = stringify({
-		populate: ["testimonials.avatar", "faq"]
+		populate: ["testimonials.avatar", "faq", "logos.image"]
 	})
 	try {
 		const responseBody = await fetchData({
