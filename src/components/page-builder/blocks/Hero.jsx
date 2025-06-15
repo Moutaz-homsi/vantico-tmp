@@ -35,7 +35,7 @@ const Hero = ({
 					</Button>
 				</div>
 
-				<AspectRatio className="relative" ratio={16 / 9}>
+				<AspectRatio className="relative" ratio={2.2}>
 					{/* <div className="w-full h-[600px] relative"> */}
 					{/* <Image isFill alt="Video Background" src="/images/video-background.png" /> */}
 					{/* </div> */}
