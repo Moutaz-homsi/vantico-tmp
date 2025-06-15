@@ -4,9 +4,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronRight, Play } from "lucide-react"
-import React, { useState } from "react"
- 
- 
+import React, { useEffect, useRef, useState } from "react"
+
 const Hero = ({
 	title = "BUILD WEALTH WITH VANTICO",
 	subtitle = "Prime investments in the Mid-Atlantic in high-end dental and underutilized commercial properties",
@@ -17,6 +16,36 @@ const Hero = ({
 	calendlyUrl
 }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const videoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`
+
+	const videoRef = useRef(null)
+	// code to handle preloading the video iframe, currently not working because the iframe is not being rendered until the modal opens
+	// useEffect(() => {
+	// 	const frame = document.getElementById("vidFrame")
+	// 	if (!frame) return console.log("Frame not found")
+	// 	if (frame.src && !isModalOpen) {
+	// 		console.log("Setting video source")
+	// 		videoRef.current.src = frame.src
+	// 	}
+	// }, [isModalOpen])
+
+	// useEffect(() => {
+	// 	if (!videoUrl) return
+
+	// 	// Create a new iframe element
+	// 	const preloadedIframe = videoRef.current
+
+	// 	// Add src after 3 seconds
+	// 	const timeout = setTimeout(() => {
+	// 		console.log("Preloading video URL:", videoUrl)
+	// 		preloadedIframe.src = videoUrl
+	// 	}, 1000)
+
+	// 	// Cleanup function to remove the preloaded iframe when component unmounts
+	// 	return () => {
+	// 		clearTimeout(timeout)
+	// 	}
+	// }, [videoUrl])
 
 	return (
 		<section id="hero" className="w-full bg-black flex  justify-center">
@@ -64,10 +93,12 @@ const Hero = ({
 								</DialogHeader> */}
 					<div className="aspect-video w-full">
 						<iframe
+							ref={videoRef}
+							id="vidFrame"
 							src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`}
 							className="w-full h-full"
 							frameBorder="0"
-							allow="autoplay; fullscreen; picture-in-picture"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
 							title="Featured video"
 						></iframe>
