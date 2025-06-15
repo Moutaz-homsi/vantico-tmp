@@ -9,6 +9,7 @@ import { useState } from "react"
 import { useModal } from "@/hooks/use-model"
 import ConsultationSection from "../page-builder/blocks/consultation-section"
 import Calendly from "../calendly"
+import { X } from "lucide-react"
 
 export default function Header({}) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -21,47 +22,25 @@ export default function Header({}) {
 						{/* Logo */}
 						<div>
 							<Link href="/" className="h-full">
-								<Image src="/logo.svg" alt="Logo" height={100} width={200} />
+								<Image className="select-none" src="/logo.svg" alt="Logo" height={100} width={200} />
 							</Link>
 						</div>
 
-						{/* <Menu className="text-white" /> */}
-						<svg
-							onClick={() => {
-								setIsOpen(!isOpen)
-							}}
-							width="57"
-							height="17"
-							viewBox="0 0 57 17"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-							className="cursor-pointer group"
-						>
-							<line
-								x1="-4.37114e-08"
-								y1="0.499996"
-								x2="57"
-								y2="0.499991"
-								stroke="white"
-								className="group-hover:stroke-primary transition-colors"
+						{!isOpen ? (
+							<MenuIcon
+								onClick={() => {
+									setIsOpen(!isOpen)
+								}}
 							/>
-							<line
-								x1="-4.37114e-08"
-								y1="8.5"
-								x2="57"
-								y2="8.5"
-								stroke="white"
-								className="group-hover:stroke-primary transition-colors"
+						) : (
+							<X
+								color="white"
+								onClick={() => {
+									setIsOpen(!isOpen)
+								}}
+								className="cursor-pointer  text-white size-6"
 							/>
-							<line
-								x1="-4.37114e-08"
-								y1="16.5"
-								x2="57"
-								y2="16.5"
-								stroke="white"
-								className="group-hover:stroke-primary transition-colors"
-							/>
-						</svg>
+						)}
 
 						<Button
 							onClick={() => {
@@ -80,5 +59,44 @@ export default function Header({}) {
 			</header>
 			<MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 		</>
+	)
+}
+
+function MenuIcon({ onClick }) {
+	return (
+		<svg
+			onClick={onClick}
+			width="57"
+			height="17"
+			viewBox="0 0 57 17"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			className="cursor-pointer group"
+		>
+			<line
+				x1="-4.37114e-08"
+				y1="0.499996"
+				x2="57"
+				y2="0.499991"
+				stroke="white"
+				className="group-hover:stroke-primary transition-colors"
+			/>
+			<line
+				x1="-4.37114e-08"
+				y1="8.5"
+				x2="57"
+				y2="8.5"
+				stroke="white"
+				className="group-hover:stroke-primary transition-colors"
+			/>
+			<line
+				x1="-4.37114e-08"
+				y1="16.5"
+				x2="57"
+				y2="16.5"
+				stroke="white"
+				className="group-hover:stroke-primary transition-colors"
+			/>
+		</svg>
 	)
 }
