@@ -4,6 +4,8 @@ import { Image } from "@/components/ui"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Title from "@/components/ui/title"
 import { cn } from "@/utils"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export interface Tenant {
 	name: string
@@ -42,28 +44,62 @@ export default function TenantsSection({
 						growth.
 					</p>
 				</div>
-
-				<div className="relative  mt-10 md:mt-20 w-full h-[200px] md:h-[400px]">
-					<Image isFill src="/images/tenants-logos.png" alt="Tenants Logos" className="object-contain " />
+				<div className="max-w-6xl mx-auto">
+					<T images={tenants.first_row_images || []} />
+					<T images={tenants.second_row_images || []} direction="rtl" />
+					<T images={tenants.third_row_images || []} />
 				</div>
-				{/* we may need it */}
-				{/* Tenant logos grid */}
-				{/* <div className="mt-16">
-					{tenants.length > 0 && (
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
-							{tenants.map((tenant, index) => (
-								<div key={index} className="flex items-center justify-center p-4 h-16">
-									<img
-										src={tenant.logo || "/placeholder.svg"}
-										alt={`${tenant.name} logo`}
-										className="max-h-full max-w-full object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-									/>
-								</div>
-							))}
-						</div>
-					)}
-				</div> */}
 			</div>
 		</section>
+	)
+}
+
+function T({ images, direction = "ltr" }) {
+	return (
+		<Carousel
+			opts={{
+				align: "start",
+				direction,
+				loop: true // Prevent scrolling from last to first
+			}}
+			plugins={[
+				Autoplay({
+					delay: 2000,
+					stopOnMouseEnter: true,
+					stopOnInteraction: false
+				})
+			]}
+			className="w-full h-15 "
+		>
+			<CarouselContent dir={direction} className="  flex items-center ">
+				{/* <span className="text-2xl font-light text-gray-300">Trusted by</span> */}
+				{images.map((item) => {
+					return (
+						<CarouselItem key={item.id} className={`basis-1/3 md:basis-1/5`} onClick={() => {}}>
+							{/* <p className="text-white">{item.id}</p> */}
+							<div
+								className={cn(
+									"relative w-full h-12 "
+									// effects
+									// "grayscale opacity-40 hover:grayscale-0 hover:bg-white hover:opacity-100"
+								)}
+							>
+								<Image
+									isFill
+									src={item.url}
+									strapiImage={item}
+									alt={item.alt}
+									className="object-contain pointer-events-none select-none"
+								/>
+							</div>
+						</CarouselItem>
+					)
+				})}
+			</CarouselContent>
+			{/* <div className="md:hidden ">
+							<CarouselPrevious className="left-0 bg-black/30" />
+							<CarouselNext className="right-0 " />
+						</div> */}
+		</Carousel>
 	)
 }

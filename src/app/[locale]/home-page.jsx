@@ -86,8 +86,8 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-	// console.log(require("util").inspect(homePageData, true, 10, true))
 
+	// console.log(require("util").inspect(homePageData.tenants, true, 10, true))
 	return (
 		<main>
 			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
@@ -128,7 +128,7 @@ export default async function HomePage() {
 				]}
 			/>
 
-			<TenantsSection tenants={tenants} />
+			<TenantsSection tenants={homePageData.tenants} />
 
 			<ROICalculator />
 
@@ -151,7 +151,15 @@ async function getHomePageData() {
 
 	let homePageData = isDev ? mockHomePageData : {}
 	const query = stringify({
-		populate: ["testimonials.avatar", "faq", "logos.image"]
+		populate: [
+			"testimonials.avatar",
+			"faq",
+			"logos.image",
+			// TENANTS
+			"tenants.first_row_images",
+			"tenants.second_row_images",
+			"tenants.third_row_images"
+		]
 	})
 	try {
 		const responseBody = await fetchData({
