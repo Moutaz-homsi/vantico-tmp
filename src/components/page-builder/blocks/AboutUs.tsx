@@ -74,7 +74,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ onCtaClick, className }) => {
 									key={idx}
 									className="flex flex-col justify-center gap-2 py-8 bg-neutral-800 border-none   text-center"
 								>
-									<h3 className="text-[48px] tracking-[-4%] font-secondary text-white">{stat.value}</h3>
+									<h3 className="text-[48px] tracking-[-4%] font-medium text-white">{stat.value}</h3>
 									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>
 							))}

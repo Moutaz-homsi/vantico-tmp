@@ -44,7 +44,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 					{stats.map((stat, index) => (
 						<Card key={index} className="rounded-sm bg-neutral-900 border-0 overflow-hidden">
 							<CardContent className="py-10 px-20 text-center flex flex-col justify-center  h-full ">
-								<p className="text-5xl text-white font-secondary font-light mb-3">{stat.value}</p>
+								<p className="text-5xl text-white font-medium mb-3">{stat.value}</p>
 								<p className="text-lg text-[#ABABAB] mb-1">{stat.label}</p>
 								<p className="text-lg text-[#ABABAB] mb-1">{stat.sublabel}</p>
 							</CardContent>
