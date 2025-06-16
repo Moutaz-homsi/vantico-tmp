@@ -44,17 +44,17 @@ export default function TenantsSection({
 						growth.
 					</p>
 				</div>
-				<div className="max-w-6xl mx-auto">
-					<T images={tenants.first_row_images || []} />
-					<T images={tenants.second_row_images || []} direction="rtl" />
-					<T images={tenants.third_row_images || []} />
+				<div className="max-w-7xl mt-20 mx-auto flex flex-col ">
+					<LogosCarousel images={tenants.first_row_images || []} />
+					<LogosCarousel images={tenants.second_row_images || []} direction="rtl" />
+					<LogosCarousel images={tenants.third_row_images || []} />
 				</div>
 			</div>
 		</section>
 	)
 }
 
-function T({ images, direction = "ltr" }) {
+function LogosCarousel({ images, direction = "ltr" }) {
 	return (
 		<Carousel
 			opts={{
@@ -69,17 +69,17 @@ function T({ images, direction = "ltr" }) {
 					stopOnInteraction: false
 				})
 			]}
-			className="w-full h-15 "
+			className="w-full"
 		>
 			<CarouselContent dir={direction} className="  flex items-center ">
 				{/* <span className="text-2xl font-light text-gray-300">Trusted by</span> */}
 				{images.map((item) => {
 					return (
-						<CarouselItem key={item.id} className={`basis-1/3 md:basis-1/5`} onClick={() => {}}>
+						<CarouselItem key={item.id} className={`basis-1/3 md:basis-1/6`} onClick={() => {}}>
 							{/* <p className="text-white">{item.id}</p> */}
 							<div
 								className={cn(
-									"relative w-full h-12 "
+									"relative w-full h-32 "
 									// effects
 									// "grayscale opacity-40 hover:grayscale-0 hover:bg-white hover:opacity-100"
 								)}
