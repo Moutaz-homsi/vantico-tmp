@@ -33,14 +33,14 @@ export default function NewsSection({
 }: NewsSectionProps) {
 	const router = useRouter()
 	return (
-		<section id="news" className={cn("w-full py-30 bg-gray-50", className)}>
+		<section id="news" className={cn("w-full py-10 md:py-30 bg-gray-50", className)}>
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Header */}
 				<Title text={title} />
 
 				{/* News grid */}
 				{items.length > 0 && (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8 md:my-20">
 						{items.map((item, index) => (
 							<NewsItem key={item.id} item={item} />
 						))}
@@ -66,7 +66,6 @@ export default function NewsSection({
 }
 
 export function NewsItem({ item }) {
-
 	const date = new Date(item.date)
 
 	const formattedDate = date.toLocaleDateString("en-US", {
@@ -74,7 +73,6 @@ export function NewsItem({ item }) {
 		month: "long",
 		day: "numeric"
 	})
-
 
 	return (
 		<div className="flex flex-col">
@@ -93,7 +91,7 @@ export function NewsItem({ item }) {
 					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
 											{item.title}
 										</h3> */}
-					<p className="text-[#151515] leading-[140%] text-2xl line-clamp-3">{item.content}</p>
+					<p className="text-[#151515] leading-[140%] text-xl md:text-2xl line-clamp-3">{item.content}</p>
 				</div>
 			</Link>
 		</div>
