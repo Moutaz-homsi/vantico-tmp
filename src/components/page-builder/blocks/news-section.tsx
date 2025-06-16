@@ -66,6 +66,16 @@ export default function NewsSection({
 }
 
 export function NewsItem({ item }) {
+
+	const date = new Date(item.date)
+
+	const formattedDate = date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric"
+	})
+
+
 	return (
 		<div className="flex flex-col">
 			<Link href={`/news/${item.slug}`} className="group">
@@ -79,7 +89,7 @@ export function NewsItem({ item }) {
 					/>
 				</AspectRatio>
 				<div className="flex flex-col gap-4 pt-8">
-					<div className="text-[#535353] text-lg ">{item.date}</div>
+					<div className="text-[#535353] text-lg ">{formattedDate}</div>
 					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
 											{item.title}
 										</h3> */}
