@@ -116,7 +116,9 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 					}}
 					plugins={[
 						Autoplay({
-							delay: 2000
+							delay: 2000,
+							stopOnMouseEnter: true,
+							stopOnInteraction: false
 						})
 					]}
 					className="w-full h-15 "
