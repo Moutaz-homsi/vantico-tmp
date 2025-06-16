@@ -20,7 +20,7 @@ export default function Header({}) {
 				<div className={cn("bg-black ")}>
 					<Container className="flex items-center justify-between py-4 px-4 md:flex-row md:items-center md:justify-between h-[5rem]">
 						{/* Logo */}
-						<div>
+						<div className="w-[240px]">
 							<Link href="/" className="h-full">
 								<Image className="select-none" src="/logo.svg" alt="Logo" height={100} width={200} />
 							</Link>
@@ -41,19 +41,20 @@ export default function Header({}) {
 								className="cursor-pointer  text-white size-6"
 							/>
 						)}
-
-						<Button
-							onClick={() => {
-								open({
-									title: "BOOK A 15-MIN INVESTOR CONSULTATION",
-									children: <Calendly />
-								})
-							}}
-							variant="outline"
-							className="hidden md:block text-white text-lg font-semibold border-neutral-600"
-						>
-							Book consultation
-						</Button>
+						<div className="w-[240px]">
+							<Button
+								onClick={() => {
+									open({
+										title: "BOOK A 15-MIN INVESTOR CONSULTATION",
+										children: <Calendly />
+									})
+								}}
+								variant="outline"
+								className="hidden md:block text-white text-lg font-semibold border-neutral-600"
+							>
+								Book consultation
+							</Button>
+						</div>
 					</Container>
 				</div>
 			</header>
