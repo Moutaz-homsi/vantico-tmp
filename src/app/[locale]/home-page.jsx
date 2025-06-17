@@ -177,7 +177,7 @@ async function getHomePageData() {
 		route: "news?[populate]=*"
 	})
 	const team = await fetchData({
-		route: "teams?[populate]=*" //&sort=rank:asc
+		route: "teams?[populate]=*&sort=rank:asc"
 	})
 
 	return { ...homePageData, news: news.data, team: team.data }
