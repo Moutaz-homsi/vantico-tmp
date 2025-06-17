@@ -29,14 +29,14 @@ const MeetTheTeam = ({ members, onReadMoreClick }: MeetTheTeamProps) => {
 					Lorem ipsum dolor sit amet consectetur adisplicing elit
 				</p>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-8 md:mt-20  md:gap-y-11">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-8 md:mt-20  gap-y-4 md:gap-y-11">
 					{members.map((member) => (
 						<div
 							key={member.id}
 							className="flex flex-col group transition-all duration-300 relative bg-transparent"
 							onClick={() => handleCardClick(member.id)}
 						>
-							<div className="md:mb-10 relative overflow-hidden ">
+							<div className="mb-2 md:mb-4 relative overflow-hidden ">
 								{/* Use custom Image component as per your guide */}
 								<div className="relative w-full h-[440px]">
 									<Image
