@@ -29,7 +29,7 @@ export default function ROICalculator() {
 								type="number"
 								value={amountInvested}
 								onChange={(e) => setAmountInvested(Number(e.target.value))}
-								className="w-full bg-transparent text-white text-2xl  outline-none text-right pr-2"
+								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
 								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
 							/>
 						</div>
@@ -43,7 +43,7 @@ export default function ROICalculator() {
 								type="number"
 								value={amountReturned}
 								onChange={(e) => setAmountReturned(Number(e.target.value))}
-								className="w-full bg-transparent text-white text-2xl  outline-none text-right pr-2"
+								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
 								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
 							/>
 						</div>
@@ -56,7 +56,7 @@ export default function ROICalculator() {
 								type="number"
 								value={investmentPeriod}
 								onChange={(e) => setInvestmentPeriod(Number(e.target.value))}
-								className="w-full bg-transparent text-white text-2xl  outline-none  pr-2"
+								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none  pr-2"
 								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
 							/>
 							<span className="text-[#535353] ml-3  text-xl">Months</span>
