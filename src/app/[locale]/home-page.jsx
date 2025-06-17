@@ -93,7 +93,7 @@ export default async function HomePage() {
 			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
 			<AboutUs logos={homePageData.logos} />
 
-			<OurHistory items={historyItems} />
+			<OurHistory items={homePageData.history} />
 			<StrategyAccordion
 				heading="WHY VANTICO?"
 				subheading="PRECISION-DRIVEN"
@@ -153,6 +153,7 @@ async function getHomePageData() {
 	const query = stringify({
 		populate: [
 			"testimonials.avatar",
+			"history.image",
 			"faq",
 			"logos.image",
 			// TENANTS
@@ -176,7 +177,7 @@ async function getHomePageData() {
 		route: "news?[populate]=*"
 	})
 	const team = await fetchData({
-		route: "teams?[populate]=*"
+		route: "teams?[populate]=*" //&sort=rank:asc
 	})
 
 	return { ...homePageData, news: news.data, team: team.data }

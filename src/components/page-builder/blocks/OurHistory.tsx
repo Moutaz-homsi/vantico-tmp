@@ -1,5 +1,6 @@
 "use client"
 import SectionLabel from "@/components/section-label"
+import { Image } from "@/components/ui"
 import { Separator } from "@/components/ui/separator"
 import Title from "@/components/ui/title"
 import React from "react"
@@ -16,7 +17,7 @@ interface OurHistoryProps {
 	onCtaClick?: () => void
 }
 
-const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
+const OurHistory: React.FC<OurHistoryProps> = ({ items }) => {
 	return (
 		<section id="history" className="w-full py-10 md:py-40 px-4 md:px-8 lg:px-16 bg-black text-white">
 			<div className="max-w-7xl mx-auto">
@@ -32,15 +33,15 @@ const OurHistory: React.FC<OurHistoryProps> = ({ items, onCtaClick }) => {
 						<div key={index} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 							{/* Image */}
 							<div className="lg:col-span-8 lg:col-start-3">
-								<div className="aspect-[16/9] bg-gray-900 overflow-hidden">
-									<img src={item.imageUrl} alt={item.imageAlt} className="w-full h-full object-cover" />
+								<div className="aspect-[16/9] bg-gray-900 overflow-hidden relative">
+									<Image src={item.image?.url} strapiImage={item.image} alt={item.image?.alt} isFill />
 								</div>
 							</div>
 
 							{/* Content */}
 							<div className="lg:col-span-8 lg:col-start-3 flex flex-col sm:flex-row gap-6">
 								<div className="w-full sm:w-24 flex-shrink-0">
-									<span className="text-2xl font-medium text-neutral-400">{item.year}</span>
+									<span className="text-2xl font-medium text-neutral-400">{item.title}</span>
 								</div>
 								<div className="flex-grow">
 									<p className="text-gray-300 text-lg">{item.description}</p>
