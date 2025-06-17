@@ -70,7 +70,8 @@ function LogosCarousel({ images, direction = "ltr" }) {
 				})
 			]}
 			style={{
-				maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
+				maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))",
+				WebkitMaskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
 			}}
 			className="w-full"
 		>
