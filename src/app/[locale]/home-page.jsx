@@ -103,30 +103,7 @@ export default async function HomePage() {
 
 			<InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} />
 
-			<PropertyTour
-				images={[
-					{
-						id: 1,
-						url: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
-						alt: "Triangle Family Dentistry building with courtyard view"
-					},
-					{
-						id: 2,
-						url: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
-						alt: "Modern dental clinic building facade"
-					},
-					{
-						id: 3,
-						url: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
-						alt: "Prime commercial real estate property"
-					},
-					{
-						id: 4,
-						url: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
-						alt: "Modern dental clinic building facade"
-					}
-				]}
-			/>
+			<PropertyTour properties={homePageData.properties} />
 
 			<TenantsSection tenants={homePageData.tenants} />
 
@@ -173,12 +150,11 @@ async function getHomePageData() {
 		}
 	} catch (error) {}
 
-	const news = await fetchData({
-		route: "news?[populate]=*"
-	})
-	const team = await fetchData({
-		route: "teams?[populate]=*&sort=rank:asc"
-	})
+	const [news, team, properties] = await Promise.all([
+		fetchData({ route: "news?[populate]=*" }),
+		fetchData({ route: "teams?[populate]=*&sort=rank:asc" }),
+		fetchData({ route: "properties?[populate]=*&sort=rank:asc" })
+	])
 
-	return { ...homePageData, news: news.data, team: team.data }
+	return { ...homePageData, news: news.data, team: team.data, properties: properties.data }
 }
