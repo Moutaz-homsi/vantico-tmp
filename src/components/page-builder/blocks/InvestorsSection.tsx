@@ -96,7 +96,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 					))}
 				</div>
 				<div className="bg-[#1E1E1E] mt-16 md:mt-36  p-8 md:p-20 rounded-sm">
-					<Tab />
+					<ExitAndReturns />
 				</div>
 			</div>
 		</section>
@@ -109,17 +109,18 @@ const content = {
 	exit: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's`
 }
 
-function Tab() {
+function ExitAndReturns() {
 	const [activeTab, setActiveTab] = useState("returns")
 
 	function buildButtonProps(tab) {
 		return {
 			className: cn(
-				"text-xl md:text-2xl flex font-medium items-center gap-3",
+				"text-xl md:text-2xl flex font-medium items-center gap-3 py-2 px-6",
 				// common button behavior styles
 				" hover:cursor-pointer hover:text-white transition-colors duration-200",
 				// class for inactive tab
-				activeTab != tab && "text-neutral-500 font-normal"
+				activeTab != tab && "text-neutral-500 font-normal",
+				activeTab === tab && "bg-neutral-400/10 md:bg-transparent rounded-lg"
 			),
 			variant: "text",
 			onClick: () => {
@@ -130,7 +131,7 @@ function Tab() {
 	return (
 		<div className="grid md:grid-cols-5 gap-4 items-baseline">
 			{/* <PercentIcon /> */}
-			<div className="md:col-span-2 flex md:flex-col  gap-10 text-start items-start ">
+			<div className="md:col-span-2 flex md:flex-col  gap-12 text-start items-start ">
 				<button {...buildButtonProps("returns")}>
 					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} />
 					Returns
