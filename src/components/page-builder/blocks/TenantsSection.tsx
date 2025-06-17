@@ -69,6 +69,9 @@ function LogosCarousel({ images, direction = "ltr" }) {
 					stopOnInteraction: false
 				})
 			]}
+			style={{
+				maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
+			}}
 			className="w-full"
 		>
 			<CarouselContent dir={direction} className="  flex items-center ">
