@@ -3,6 +3,7 @@ import { Image } from "@/components/ui"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { cn } from "@/utils"
 import { ChevronRight, Play } from "lucide-react"
 import React, { useEffect, useRef, useState } from "react"
 
@@ -19,33 +20,25 @@ const Hero = ({
 	const videoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`
 
 	const videoRef = useRef(null)
-	// code to handle preloading the video iframe, currently not working because the iframe is not being rendered until the modal opens
-	// useEffect(() => {
-	// 	const frame = document.getElementById("vidFrame")
-	// 	if (!frame) return console.log("Frame not found")
-	// 	if (frame.src && !isModalOpen) {
-	// 		console.log("Setting video source")
-	// 		videoRef.current.src = frame.src
-	// 	}
-	// }, [isModalOpen])
 
-	// useEffect(() => {
-	// 	if (!videoUrl) return
+	useEffect(() => {
+		const sendCommand = (command) => {
+			if (!videoRef.current) return
 
-	// 	// Create a new iframe element
-	// 	const preloadedIframe = videoRef.current
+			videoRef.current.contentWindow?.postMessage(
+				{
+					method: command
+				},
+				"https://player.vimeo.com"
+			)
+		}
 
-	// 	// Add src after 3 seconds
-	// 	const timeout = setTimeout(() => {
-	// 		console.log("Preloading video URL:", videoUrl)
-	// 		preloadedIframe.src = videoUrl
-	// 	}, 1000)
-
-	// 	// Cleanup function to remove the preloaded iframe when component unmounts
-	// 	return () => {
-	// 		clearTimeout(timeout)
-	// 	}
-	// }, [videoUrl])
+		if (isModalOpen) {
+			sendCommand("play")
+		} else {
+			sendCommand("pause")
+		}
+	}, [isModalOpen])
 
 	return (
 		<section id="hero" className="w-full bg-black flex  justify-center">
@@ -86,11 +79,9 @@ const Hero = ({
 			</div>
 
 			{/* Video Modal */}
-			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+			{/* <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
 				<DialogContent className="max-w-5xl p-0 overflow-hidden bg-black border-none">
-					{/* <DialogHeader className="px-6 pt-6 pb-2">
-									<DialogTitle className="text-white text-xl">Our Product Video</DialogTitle>
-								</DialogHeader> */}
+			 
 					<div className="aspect-video w-full">
 						<iframe
 							ref={videoRef}
@@ -104,8 +95,44 @@ const Hero = ({
 						></iframe>
 					</div>
 				</DialogContent>
-			</Dialog>
+			</Dialog> */}
+
+			<CustomDialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+				<div className="max-w-5xl p-0 overflow-hidden bg-black border-none">
+					<div className="aspect-video w-full">
+						<iframe
+							src={videoUrl}
+							ref={videoRef}
+							id="vidFrame"
+							className="w-full h-full"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+							title="Featured video"
+						></iframe>
+					</div>
+				</div>
+			</CustomDialog>
 		</section>
+	)
+}
+
+function CustomDialog({ open, onOpenChange, children }) {
+	return (
+		<div data-state={open ? "open" : "closed"} className={cn("absolute", open ? "block z-[100]" : "hidden")}>
+			<div
+				onClick={() => {
+					onOpenChange(false)
+				}}
+				className={cn(
+					"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+					open && "opacity-100"
+				)}
+			></div>
+			<div className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
+				{children}
+			</div>
+		</div>
 	)
 }
 
