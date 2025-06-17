@@ -20,12 +20,11 @@ export default function Header({}) {
 				<div className={cn("bg-black ")}>
 					<Container className="flex items-center justify-between py-4 px-4 md:flex-row md:items-center md:justify-between h-[5rem]">
 						{/* Logo */}
-						<div className="w-[240px]">
+						<div className="md:w-[240px]">
 							<Link href="/" className="h-full">
 								<Image className="select-none" src="/logo.svg" alt="Logo" height={100} width={200} />
 							</Link>
 						</div>
-
 						{!isOpen ? (
 							<MenuIcon
 								onClick={() => {
@@ -41,7 +40,7 @@ export default function Header({}) {
 								className="cursor-pointer  text-white size-6"
 							/>
 						)}
-						<div className="w-[240px]">
+						<div className="hidden md:block w-[240px]">
 							<Button
 								onClick={() => {
 									open({
@@ -50,7 +49,7 @@ export default function Header({}) {
 									})
 								}}
 								variant="outline"
-								className="hidden md:block text-white text-lg font-semibold border-neutral-600"
+								className=" text-white text-lg font-semibold border-neutral-600"
 							>
 								Book consultation
 							</Button>
