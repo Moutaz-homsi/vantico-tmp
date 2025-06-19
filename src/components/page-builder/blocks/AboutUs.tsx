@@ -146,7 +146,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 										className={cn(
 											"relative w-full h-12 ",
 											// effects
-											"grayscale opacity-40 hover:grayscale-0 hover:bg-white hover:opacity-100"
+											"grayscale opacity-40 hover:grayscale-0 hover:bg-white rounded-sm  hover:opacity-100"
 										)}
 									>
 										<Image
