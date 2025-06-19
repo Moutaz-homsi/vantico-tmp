@@ -4,6 +4,7 @@ import { Image } from "@/components/ui"
 import { Button } from "@/components/ui/button"
 import Title from "@/components/ui/title"
 import { cn } from "@/utils"
+import { getImageUrlFromObject } from "@/utils/image-loader"
 import { Fancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox.css"
 import { ChevronRight } from "lucide-react"
@@ -36,8 +37,8 @@ const PropertyTour = ({ properties }) => {
 							return (
 								<a
 									key={property.id}
-									data-fancybox="gallery2"
-									href={property.image?.url}
+									data-fancybox="tour"
+									href={getImageUrlFromObject({ fileObject: property.image })}
 									style={{
 										width
 									}}

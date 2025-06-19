@@ -49,3 +49,17 @@ export function getStrapiMedia(url) {
 	if (url.startsWith("http")) return url
 	return `${process.env.NEXT_PUBLIC_API_URL}${url}`
 }
+
+
+export const getImageUrl = ({ url, fallback = "/images/placeholder.webp" }) => {
+	if (!url) return fallback
+	if (url.includes("http")) return url
+	return process.env.NEXT_PUBLIC_API_URL + url
+}
+export const getImageUrlFromObject = ({ fileObject, fallback = "/images/placeholder.webp" }) => {
+	if (!fileObject) return fallback
+	return getImageUrl({
+		url: fileObject?.data?.attributes?.url || fileObject.url,
+		fallback
+	})
+}
