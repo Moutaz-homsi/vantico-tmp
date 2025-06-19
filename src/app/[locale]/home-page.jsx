@@ -13,12 +13,10 @@ import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
 import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
 import Testimonials from "@/components/page-builder/blocks/Testimonials"
-import { faq, mockHomePageData } from "@/data/home-page-data"
+import { mockHomePageData } from "@/data/home-page-data"
 import { investmentSteps } from "@/data/investmentData"
 import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
-import { teamMembers } from "@/data/teamData"
-import { tenants } from "@/data/tenantData"
-import fetchData, { getHomepage } from "@/utils/api"
+import fetchData from "@/utils/api"
 import { stringify } from "qs"
 
 const strategyItems = [
@@ -86,8 +84,8 @@ export const historyItems = [
 
 export default async function HomePage() {
 	const homePageData = await getHomePageData()
-
 	// console.log(require("util").inspect(homePageData.tenants, true, 10, true))
+
 	return (
 		<main>
 			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />

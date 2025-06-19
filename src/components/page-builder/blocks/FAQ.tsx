@@ -4,6 +4,8 @@ import { ChevronDown, ChevronUp, ChevronRight } from "lucide-react"
 import { cn } from "@/utils"
 import { Button } from "@/components/ui"
 import Title from "@/components/ui/title"
+import { useModal } from "@/hooks/use-model"
+import QuestionForm from "@/components/forms/question-form"
 
 export type FAQItem = {
 	question: string
@@ -17,11 +19,19 @@ interface FAQProps {
 	onCtaClick?: () => void
 }
 
-const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your own question", onCtaClick }) => {
+const FAQ: React.FC<FAQProps> = ({ title = "FAQs", items, ctaText = "Ask your own question" }) => {
 	const [openIndex, setOpenIndex] = useState<number | null>(0)
+	const { open } = useModal()
 
 	const toggleQuestion = (index: number) => {
 		setOpenIndex(openIndex === index ? null : index)
+	}
+
+	const onCtaClick = () => {
+		open({
+			title: "Ask a Question",
+			children: <QuestionForm />
+		})
 	}
 
 	return (

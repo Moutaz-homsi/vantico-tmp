@@ -34,6 +34,7 @@ function Button({
 	variant,
 	asChild = false,
 	onClick,
+	type,
 	...props
 }: React.ComponentProps<"button"> &
 	VariantProps<typeof buttonVariants> & {
@@ -45,7 +46,9 @@ function Button({
 
 	return (
 		<Comp
+			type={type}
 			onClick={(e) => {
+				if (type === "submit") return
 				// currently will only open the consultation modal if no onClick is provided
 				if (!onClick) {
 					open({

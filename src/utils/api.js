@@ -1,12 +1,15 @@
 import { devLog, inDevelopment } from "./dev-utils"
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
-export default async function fetchData({ route, debug = inDevelopment }) {
+export default async function fetchData({ route, method = "GET", body, debug = inDevelopment }) {
 	const full_url = `${BASE_URL}/api/${route}`
 	const response = await fetch(full_url, {
+		method,
+		body: body ? JSON.stringify(body) : null,
 		headers: {
 			// only send the token on the server side
-			Authorization: typeof window === "undefined" ? `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` : null
+			Authorization: typeof window === "undefined" ? `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` : null,
+			"Content-Type": "application/json"
 		}
 	})
 	const data = await response.json()
