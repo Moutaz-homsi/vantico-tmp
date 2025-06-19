@@ -58,7 +58,7 @@ const PropertyTour = ({ properties }) => {
 				</div>
 
 				<div className="flex justify-center mt-6 md:mt-10">
-					<a data-fancybox-trigger="gallery2">
+					<a data-fancybox-trigger="tour">
 						<Button onClick={() => {}}>
 							Explore more opportunities <ChevronRight className="ml-2" />
 						</Button>
