@@ -33,7 +33,7 @@ function renderList(type, results) {
 			)
 		case "new":
 			return (
-				<div className="grid grid-cols-3 gap-4">
+				<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
 					{results.map((item, index) => (
 						<NewsItem key={index} item={item} />
 					))}

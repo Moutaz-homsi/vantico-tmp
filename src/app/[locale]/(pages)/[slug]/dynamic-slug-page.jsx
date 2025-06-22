@@ -8,7 +8,7 @@ export default async function Page({ params }) {
 	// TODO handle not found and server errors
 	if (!response.data) return "not found"
 	return (
-		<Container>
+		<Container className="py-8">
 			<PageBuilder data={response.data} />
 		</Container>
 	)
