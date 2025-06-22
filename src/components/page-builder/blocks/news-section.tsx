@@ -40,7 +40,7 @@ export default function NewsSection({
 
 				{/* News grid */}
 				{items.length > 0 && (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8 md:my-20">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
 						{items.map((item, index) => (
 							<NewsItem key={item.id} item={item} />
 						))}
@@ -86,7 +86,7 @@ export function NewsItem({ item }) {
 						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 					/>
 				</AspectRatio>
-				<div className="flex flex-col gap-4 pt-8">
+				<div className="flex flex-col gap-2 mt-4">
 					<div className="text-[#535353] text-lg ">{formattedDate}</div>
 					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
 											{item.title}
