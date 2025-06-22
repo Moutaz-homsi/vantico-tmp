@@ -70,7 +70,7 @@ export default function ROICalculator() {
 				{/* results */}
 				<div className="flex flex-col gap-8 md:gap-20 text-2xl mt-8 md:mt-16 font-light">
 					<div className="border-b border-neutral-700 py-6 flex items-center gap-2 justify-between">
-						<span className="text-[#ABABAB] text-xl md:text-2xl lg:text-3xl">Total Gain on Investment</span>
+						<span className="text-[#ABABAB] text-lg md:text-2xl lg:text-3xl">Total Gain on Investment</span>
 						<span
 							className="text-white font-medium text-3xl lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
@@ -79,7 +79,7 @@ export default function ROICalculator() {
 						</span>
 					</div>
 					<div className="border-b border-neutral-700 py-6 flex items-center gap-2 justify-between">
-						<span className="text-[#ABABAB] text-xl md:text-2xl lg:text-3xl">Return on Investment (ROI)</span>
+						<span className="text-[#ABABAB] text-lg md:text-2xl lg:text-3xl">Return on Investment (ROI)</span>
 						<span
 							className="text-white font-medium text-3xl lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
@@ -88,7 +88,7 @@ export default function ROICalculator() {
 						</span>
 					</div>
 					<div className="border-b border-neutral-700 py-6 flex items-center gap-2 justify-between">
-						<span className="text-[#ABABAB] text-xl md:text-2xl lg:text-3xl">Simple Annual (ROI)</span>
+						<span className="text-[#ABABAB] text-lg md:text-2xl lg:text-3xl">Simple Annual (ROI)</span>
 						<span
 							className="text-white font-medium text-3xl  lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
