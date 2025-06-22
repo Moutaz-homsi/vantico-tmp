@@ -55,13 +55,13 @@ const InvestmentApproach: React.FC<InvestmentApproachProps> = ({
 					))}
 				</div>
 
-				{ctaText && (
+				{/* {ctaText && (
 					<div className="flex justify-center mt-10">
 						<Button onClick={onCtaClick} variant="dark">
 							{ctaText} <ChevronRight className="ml-1" size={20} />
 						</Button>
 					</div>
-				)}
+				)} */}
 			</div>
 		</section>
 	)

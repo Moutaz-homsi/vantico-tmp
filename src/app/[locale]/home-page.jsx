@@ -110,7 +110,7 @@ export default async function HomePage() {
 			<Ready />
 			{/* <MeetTheTeam members={homePageData.team} /> */}
 
-			<InvestmentApproach steps={investmentSteps} />
+			{/* <InvestmentApproach steps={investmentSteps} /> */}
 
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
 			<Testimonials testimonials={homePageData.testimonials} />
