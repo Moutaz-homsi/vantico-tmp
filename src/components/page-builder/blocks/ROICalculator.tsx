@@ -5,22 +5,25 @@ import { addCommas } from "@/utils/numberUtils"
 import Title from "@/components/ui/title"
 
 export default function ROICalculator() {
-	const [amountInvested, setAmountInvested] = useState(33000)
-	const [amountReturned, setAmountReturned] = useState(80000)
-	const [investmentPeriod, setInvestmentPeriod] = useState(36)
-
+	const roi_percentage = 0.09
+	const [amountInvested, setAmountInvested] = useState(10000)
+	const [investmentPeriod, setInvestmentPeriod] = useState(12)
+	const amountReturned = amountInvested * (1 + roi_percentage * (investmentPeriod / 12))
 	const totalGain = amountReturned - amountInvested
 	const roi = amountInvested > 0 ? (totalGain / amountInvested) * 100 : 0
 	const annualROI = investmentPeriod > 0 ? roi / (investmentPeriod / 12) : 0
 
 	return (
-		<section id="roi" className="bg-black  px-8 md:px-0  py-10 md:py-40">
+		<section id="roi" className="bg-black  px-4 md:px-0  py-10 md:py-40">
 			<div className="bg-[#1E1E1E] lg:max-w-7xl mx-auto text-white rounded-md p-8 md:p-20">
 				{/* title */}
 				<Title className="text-white text-center ">ROI Calculator</Title>
+				<p className="text-white text-center text-sm md:text-xl ">
+					Investing involves risks, including loss of capital
+				</p>
 				{/* inputs */}
 				<div className="grid lg:grid-cols-3 gap-6 mt-10 md:mt-20">
-					{/* first input: invested */}
+					{/*   input: invested */}
 					<div className="space-y-6">
 						<label className="block text-sm font-light text-[#ABABAB]">Amount invested</label>
 						<div className="flex items-center bg-[#161616] rounded-sm px-8 py-6">
@@ -34,21 +37,7 @@ export default function ROICalculator() {
 							/>
 						</div>
 					</div>
-					{/* second input: returned */}
-					<div className="space-y-6">
-						<label className="block text-sm font-light  text-[#ABABAB]">Amount returned</label>
-						<div className="flex items-center bg-[#161616] rounded-sm px-8 py-6">
-							<span className="text-[#535353] text-xl mr-2">$</span>
-							<input
-								type="number"
-								value={amountReturned}
-								onChange={(e) => setAmountReturned(Number(e.target.value))}
-								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
-								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
-							/>
-						</div>
-					</div>
-					{/* third input: months */}
+					{/*   input: months */}
 					<div className="space-y-6">
 						<label className="block text-sm font-light text-[#ABABAB]">Investment period (in months)</label>
 						<div className="flex items-center justify-between bg-[#161616] rounded-sm px-8 py-6">
@@ -60,6 +49,21 @@ export default function ROICalculator() {
 								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
 							/>
 							<span className="text-[#535353] ml-3  text-xl">Months</span>
+						</div>
+					</div>
+					{/*   input: returned */}
+					<div className="space-y-6">
+						<label className="block text-sm font-light  text-[#ABABAB]">Amount returned</label>
+						<div className="flex items-center bg-[#161616] rounded-sm px-8 py-6">
+							<span className="text-[#535353] text-xl mr-2">$</span>
+							<input
+								type="number"
+								value={amountReturned}
+								onChange={(e) => {}}
+								disabled
+								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
+								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
+							/>
 						</div>
 					</div>
 				</div>
