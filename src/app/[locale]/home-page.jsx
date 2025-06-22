@@ -108,7 +108,7 @@ export default async function HomePage() {
 			<ROICalculator />
 
 			<Ready />
-			<MeetTheTeam members={homePageData.team} />
+			{/* <MeetTheTeam members={homePageData.team} /> */}
 
 			<InvestmentApproach steps={investmentSteps} />
 
