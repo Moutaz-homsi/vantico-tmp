@@ -66,13 +66,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 							healthcare sector, giving investors stability and long-term growth.
 						</p>
 
-						<Button
-							onClick={onCtaClick}
-							variant="dark"
-							// className="bg-black hover:bg-gray-800 text-white py-6 px-8 text-lg rounded-none"
-						>
-							Get started <ChevronRight className="ml-2" size={20} />
-						</Button>
+
 					</div>
 
 					{/* Right side stats */}
