@@ -10,6 +10,7 @@ import { useModal } from "@/hooks/use-model"
 import ConsultationSection from "../page-builder/blocks/consultation-section"
 import Calendly from "../calendly"
 import { X } from "lucide-react"
+import AnimatedMenuIcon from "../ui/animated-menu-icon"
 
 export default function Header({}) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -25,21 +26,7 @@ export default function Header({}) {
 								<Image className="select-none" src="/logo.svg" alt="Logo" height={100} width={200} />
 							</Link>
 						</div>
-						{!isOpen ? (
-							<MenuIcon
-								onClick={() => {
-									setIsOpen(!isOpen)
-								}}
-							/>
-						) : (
-							<X
-								color="white"
-								onClick={() => {
-									setIsOpen(!isOpen)
-								}}
-								className="cursor-pointer  text-white size-6"
-							/>
-						)}
+						<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
 						<div className="hidden md:block w-[240px]">
 							<Button
 								onClick={() => {

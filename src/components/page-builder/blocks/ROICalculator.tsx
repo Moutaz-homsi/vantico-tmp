@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { addCommas } from "@/utils/numberUtils"
 import Title from "@/components/ui/title"
+import AnimatedValue from "@/components/ui/animated-value"
 
 export default function ROICalculator() {
 	const roi_percentage = 0.09
@@ -61,9 +62,20 @@ export default function ROICalculator() {
 								value={amountReturned}
 								onChange={(e) => {}}
 								disabled
+								hidden
 								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
 								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
 							/>
+							<div
+								className="w-full hide-spin-btn bg-transparent text-white text-2xl  outline-none text-right pr-2"
+								style={{ fontFamily: "Montserrat, Arial, sans-serif", letterSpacing: 1 }}
+							>
+								<AnimatedValue value={amountReturned} duration={1.5} />
+							</div>
+
+							{/* <AnimatedInput
+								value={amountReturned}
+							/> */}
 						</div>
 					</div>
 				</div>
@@ -75,7 +87,7 @@ export default function ROICalculator() {
 							className="text-white font-medium text-3xl lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
 						>
-							{addCommas(totalGain)}
+							<AnimatedValue value={addCommas(totalGain)} duration={1.5} />
 						</span>
 					</div>
 					<div className="border-b border-neutral-700 py-6 flex items-center gap-2 justify-between">
@@ -84,7 +96,7 @@ export default function ROICalculator() {
 							className="text-white font-medium text-3xl lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
 						>
-							{addCommas(roi.toFixed(2))}%
+							<AnimatedValue value={`${addCommas(roi.toFixed(2))}%`} duration={1.5} />
 						</span>
 					</div>
 					<div className="border-b border-neutral-700 py-6 flex items-center gap-2 justify-between">
@@ -93,7 +105,7 @@ export default function ROICalculator() {
 							className="text-white font-medium text-3xl  lg:text-5xl"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
 						>
-							{addCommas(annualROI.toFixed(1))}%
+							<AnimatedValue value={`${addCommas(annualROI.toFixed(1))}%`} duration={1.5} />
 						</span>
 					</div>
 				</div>

@@ -45,15 +45,18 @@ export const investmentDetails = [
 	},
 	{
 		label: "Minimum Investment",
-		value: "$500k"
+		value: "$500k",
+		animateNumbers: true
 	},
 	{
 		label: "Preferred Rate of Return",
-		value: "8%"
+		value: "8%",
+		animateNumbers: true
 	},
 	{
 		label: "Forecast Annual Net IRR to Investors",
-		value: "20%"
+		value: "20%",
+		animateNumbers: true
 	},
 	{
 		label: "Forecast 5 year Net MOIC to Investors",
@@ -61,15 +64,18 @@ export const investmentDetails = [
 	},
 	{
 		label: "Capital Raise Target",
-		value: "$98 Million"
+		value: "$98 Million",
+		animateNumbers: true
 	},
 	{
 		label: "Raise Period",
-		value: "12 Months"
+		value: "12 Months",
+		animateNumbers: true
 	},
 	{
 		label: "Investment Period",
-		value: "5 Years"
+		value: "5 Years",
+		animateNumbers: true
 	},
 	{
 		label: "Geographical Coverage",

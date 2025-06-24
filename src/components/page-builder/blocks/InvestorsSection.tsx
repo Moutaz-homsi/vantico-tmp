@@ -1,12 +1,13 @@
 "use client"
 import React, { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { MultiProgress, Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/utils"
 import { Button, Image } from "@/components/ui"
 import { Percent, LogIn } from "lucide-react"
 import Title from "@/components/ui/title"
+import AnimatedValue from "@/components/ui/animated-value"
 
 interface InvestorStat {
 	value: string
@@ -17,6 +18,8 @@ interface InvestorStat {
 interface InvestmentDetail {
 	label: string
 	value: string
+	className?: string
+	animateNumbers?: boolean
 }
 
 interface InvestorsSectionProps {
@@ -44,7 +47,9 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 					{stats.map((stat, index) => (
 						<Card key={index} className="rounded-sm bg-neutral-900 border-0 overflow-hidden">
 							<CardContent className="py-10 px-20 text-center flex flex-col justify-center  h-full ">
-								<p className="text-5xl text-white font-medium mb-3">{stat.value}</p>
+								<p className="text-5xl text-white font-medium mb-3">
+									<AnimatedValue value={stat.value} duration={3} />
+								</p>
 								<p className="text-lg text-[#ABABAB] mb-1">{stat.label}</p>
 								<p className="text-lg text-[#ABABAB] mb-1">{stat.sublabel}</p>
 							</CardContent>
@@ -54,12 +59,39 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 
 				{/* Funding progress */}
 				<div className="w-full mt-16 md:mt-36">
+					<MultiProgress
+						duration={2}
+						segments={[
+							{
+								value: 18,
+								label: <AnimatedValue value={"$18M Raised"} duration={3} />,
+								bgColor: "#ffffff",
+								colorClass: "bg-white"
+							},
+							{
+								value: 68,
+								label: <AnimatedValue value={"68M Committed"} duration={3} />,
+								bgColor: "#AB804A",
+								colorClass: "bg-[#AB804A]"
+							},
+							{
+								value: 17,
+								label: <AnimatedValue value={"$17M To Go"} duration={3} />,
+								bgColor: "#a1a1a1",
+								colorClass: "bg-neutral-400"
+							}
+						]}
+						showLabels
+						className="h-6 rounded-xl"
+					/>
+
 					{/* <Progress value={fundingProgress.raisedPercent + fundingProgress.committedPercent} className="h-10 mb-3" /> */}
 					{/* <div className="grid grid-cols-3 w-full h-5 rounded-md overflow-hidden">
 						<div className="bg-white"></div>
 						<div className="bg-amber-100"></div>
 						<div className="bg-neutral-400"></div>
 					</div> */}
+					{/* <br />
 					<div className="grid grid-cols-4 w-full text-end ">
 						<div className="space-y-4">
 							<div className="bg-white h-5 w-full rounded-l-md"></div>
@@ -73,7 +105,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 							<div className="bg-neutral-400 h-5 w-full rounded-r-md"></div>
 							<p className="mt-2">$17M To Go</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 
 				{/* Investment details */}
@@ -88,7 +120,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 										detail.className ?? ""
 									)}
 								>
-									{detail.value}
+									{!detail?.animateNumbers ? detail.value : <AnimatedValue value={detail.value} duration={3} />}
 								</p>
 							</div>
 							<Separator className="bg-neutral-700" />

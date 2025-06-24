@@ -10,6 +10,9 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay"
 import { cn } from "@/utils"
 import { useModal } from "@/hooks/use-model"
+import CountUp from 'react-countup';
+import AnimatedValue from "@/components/ui/animated-value"
+
 interface AboutUsProps {
 	onCtaClick?: () => void
 	className?: string
@@ -65,8 +68,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 							Mid-Atlantic market. We create high-yield investment by merging real estate ownership with the booming
 							healthcare sector, giving investors stability and long-term growth.
 						</p>
-
-
 					</div>
 
 					{/* Right side stats */}
@@ -77,7 +78,9 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 									key={idx}
 									className="flex flex-col justify-center gap-2 py-8 bg-neutral-800 border-none   text-center"
 								>
-									<h3 className="text-[48px] tracking-[-4%] font-medium text-white">{stat.value}</h3>
+									<h3 className="text-[48px] tracking-[-4%] font-medium text-white">
+										<AnimatedValue value={stat.value} duration={1}/>
+									</h3>
 									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>
 							))}

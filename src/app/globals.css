@@ -5,6 +5,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* html,
+body {
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+} */
+
 @theme inline {
 	/* we can use this to prevent using colors other the design colors */
 	/* --color-*: initial; */
@@ -12,7 +19,7 @@
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 
-	--font-secondary: "aviano", sans-serif; 
+	--font-secondary: "aviano", sans-serif;
 	--font-primary: "Montserrat", Arial;
 
 	--font-sans: var(--font-geist-sans);
@@ -114,48 +121,47 @@
 }
 
 @font-face {
-  font-family: 'aviano';
-  src: url('/fonts/aviano_sans_primary.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: "aviano";
+	src: url("/fonts/aviano_sans_primary.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.ttf") format("truetype");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat/Montserrat-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat/Montserrat-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
-
 
 .dark {
 	--background: oklch(0.145 0 0);
@@ -207,17 +213,15 @@
   padding-inline: 2rem;
 } */
 
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
-
 
 /* Hide arrows for input[type="number"] only when inside .hide-spin-btn */
 .hide-spin-btn::-webkit-outer-spin-button,
