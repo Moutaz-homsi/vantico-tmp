@@ -5,12 +5,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* html,
+@keyframes smoothScrollEffect {
+	0% {
+		scroll-timing-function: cubic-bezier(0.7, 0, 0.84, 0.01);
+	}
+	50% {
+		scroll-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	100% {
+		scroll-timing-function: cubic-bezier(0.7, 0, 0.84, 0.01);
+	}
+}
+
+html,
 body {
 	scroll-snap-type: y mandatory;
-	overflow-y: scroll;
 	scroll-behavior: smooth;
-} */
+	scroll-timeline: scroll-smooth-timeline vertical;
+	scroll-padding-top: 0;
+}
+
+html {
+	scroll-timeline-name: vertical;
+	scroll-timeline-axis: block;
+	animation: smoothScrollEffect 5s both;
+}
 
 @theme inline {
 	/* we can use this to prevent using colors other the design colors */

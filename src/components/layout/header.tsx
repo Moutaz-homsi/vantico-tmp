@@ -1,89 +1,55 @@
 "use client"
+import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui"
 import Image from "@/components/ui/image"
-import { cn } from "@/utils/style-utils"
-import Link from "next/link"
 import Container from "./container"
-import MobileMenu from "./mobile-menu"
-import { useState } from "react"
+import AnimatedMenuIcon from "../ui/header/animated-menu-icon"
+import { DesktopMenu, MobileMenuContent, MobileMenuOverlay } from "../ui/header/nav-menu"
 import { useModal } from "@/hooks/use-model"
-import ConsultationSection from "../page-builder/blocks/consultation-section"
 import Calendly from "../calendly"
-import { X } from "lucide-react"
-import AnimatedMenuIcon from "../ui/animated-menu-icon"
 
-export default function Header({}) {
+export default function Header() {
 	const [isOpen, setIsOpen] = useState(false)
-	const { open, close } = useModal()
+	const { open } = useModal()
+
+	const handleConsultation = () => {
+		// @ts-ignore
+		open({ title: "BOOK A 15‑MIN INVESTOR CONSULTATION", children: <Calendly /> })
+		setIsOpen(false)
+	}
+
 	return (
 		<>
-			<header className="sticky top-0 z-50 ">
-				<div className={cn("bg-black ")}>
-					<Container className="flex items-center justify-between py-4 px-4 md:flex-row md:items-center md:justify-between h-[5rem]">
-						{/* Logo */}
-						<div className="md:w-[240px]">
-							<Link href="/" className="h-full">
-								<Image className="select-none" src="/logo.svg" alt="Logo" height={100} width={200} />
-							</Link>
-						</div>
-						<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
-						<div className="hidden md:block w-[240px]">
-							<Button
-								onClick={() => {
-									open({
-										title: "BOOK A 15-MIN INVESTOR CONSULTATION",
-										children: <Calendly />
-									})
-								}}
-								variant="outline"
-								className=" text-white text-lg font-semibold border-neutral-600"
-							>
-								Book consultation
-							</Button>
-						</div>
-					</Container>
-				</div>
-			</header>
-			<MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-		</>
-	)
-}
+			<header className="sticky top-0 z-50 bg-black">
+				<Container noGutters className="flex items-center justify-between h-16 px-4 py-3">
+					<Link href="/" className="block md:w-52">
+						<Image src="/logo.svg" alt="Logo" height={100} width={200} className="select-none" />
+					</Link>
 
-function MenuIcon({ onClick }) {
-	return (
-		<svg
-			onClick={onClick}
-			width="57"
-			height="17"
-			viewBox="0 0 57 17"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="cursor-pointer group"
-		>
-			<line
-				x1="-4.37114e-08"
-				y1="0.499996"
-				x2="57"
-				y2="0.499991"
-				stroke="white"
-				className="group-hover:stroke-primary transition-colors"
-			/>
-			<line
-				x1="-4.37114e-08"
-				y1="8.5"
-				x2="57"
-				y2="8.5"
-				stroke="white"
-				className="group-hover:stroke-primary transition-colors"
-			/>
-			<line
-				x1="-4.37114e-08"
-				y1="16.5"
-				x2="57"
-				y2="16.5"
-				stroke="white"
-				className="group-hover:stroke-primary transition-colors"
-			/>
-		</svg>
+					<DesktopMenu />
+
+					<div className="lg:hidden">
+						<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
+					</div>
+
+					<div className="hidden lg:block">
+						<Button
+							onClick={handleConsultation}
+							variant="outline"
+							className="text-lg font-semibold text-white border-neutral-600 lg:w-[160px] xl:w-[180px] md:text-sm 2xl:w-auto 2xl:text-lg"
+						>
+							Book consultation
+						</Button>
+					</div>
+				</Container>
+			</header>
+
+			<MobileMenuOverlay isOpen={isOpen}>
+				<div data-lenis-stop>
+					<MobileMenuContent isOpen={isOpen} onClose={() => setIsOpen(false)} handleConsultation={handleConsultation} />
+				</div>
+			</MobileMenuOverlay>
+		</>
 	)
 }

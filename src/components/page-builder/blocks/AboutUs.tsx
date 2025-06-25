@@ -11,7 +11,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { cn } from "@/utils"
 import { useModal } from "@/hooks/use-model"
 import CountUp from 'react-countup';
-import AnimatedValue from "@/components/ui/animated-value"
+import AnimatedValue from "@/components/ui/header/animated-value"
 
 interface AboutUsProps {
 	onCtaClick?: () => void

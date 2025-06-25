@@ -4,14 +4,14 @@ import NextImage from "next/image"
 // TODO : Optimize the image component
 
 const generateSrcSet = (format, src, strapiImage) => {
-  const sizes = [300, 400, 600, 800, 1000, 1500, 1920]
+	const sizes = [300, 400, 600, 800, 1000, 1500, 1920]
 
-  return sizes
-    .map((width) => {
-      const imgSrc = strapiImageLoader({ src, width, imageTypeFormat: format }, strapiImage)
-      return `${imgSrc} ${width}w`
-    })
-    .join(", ")
+	return sizes
+		.map((width) => {
+			const imgSrc = strapiImageLoader({ src, width, imageTypeFormat: format }, strapiImage)
+			return `${imgSrc} ${width}w`
+		})
+		.join(", ")
 }
 
 export default function Image({
@@ -19,16 +19,16 @@ export default function Image({
 	alt = "",
 	width,
 	height,
-	styles,
+	styles = "",
 	className = "",
-	quality,
+	quality = "",
 	priority = false,
 	isFill = false,
 	sizes = "",
 	isLoad = true,
 	loading = "eager",
 	sourceCyaSize = "",
-	fetchPriority,
+	fetchPriority = undefined,
 	strapiImage = null
 	// placeholder,
 }) {
@@ -68,13 +68,13 @@ export default function Image({
 			alt={alt}
 			width={width}
 			height={height}
-			style={styles}
+			{...(styles ? { styles } : {})}
 			className={className}
 			priority={priority}
 			fill={isFill}
 			sizes={sizes}
 			loading={loading}
-			quality={quality}
+			{...(quality ? { quality } : {})}
 			src={qSrc}
 			{...additionalAtts}
 		/>

@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { addCommas } from "@/utils/numberUtils"
 import Title from "@/components/ui/title"
-import AnimatedValue from "@/components/ui/animated-value"
+import AnimatedValue from "@/components/ui/header/animated-value"
 
 export default function ROICalculator() {
 	const roi_percentage = 0.09

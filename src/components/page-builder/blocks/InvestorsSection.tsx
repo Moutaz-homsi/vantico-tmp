@@ -7,7 +7,7 @@ import { cn } from "@/utils"
 import { Button, Image } from "@/components/ui"
 import { Percent, LogIn } from "lucide-react"
 import Title from "@/components/ui/title"
-import AnimatedValue from "@/components/ui/animated-value"
+import AnimatedValue from "@/components/ui/header/animated-value"
 
 interface InvestorStat {
 	value: string

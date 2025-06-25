@@ -1,12 +1,12 @@
 "use client"
 import { cn } from "@/utils/style-utils"
 
-interface SpiralMenuIconProps {
+interface AnimatedMenuIconProps {
   isOpen: boolean
   onClick: () => void
 }
 
-export default function SpiralMenuIcon({ isOpen, onClick }: SpiralMenuIconProps) {
+export default function AnimatedMenuIcon({ isOpen, onClick }: AnimatedMenuIconProps) {
   return (
     <button
       onClick={onClick}

@@ -1,7 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, createContext, useContext } from "react"
 import Lenis from "lenis"
+
+const LenisContext = createContext<Lenis | null>(null)
 
 export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
 	const lenisRef = useRef<Lenis | null>(null)
@@ -18,11 +20,12 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 			orientation: "vertical",
 			gestureOrientation: "vertical",
 			smoothWheel: true,
-			syncTouch: true, // Replace smoothTouch
+			syncTouch: true,
 			touchMultiplier: 2,
 			wheelMultiplier: 1,
 			// normalizeWheel: false,
-			autoResize: true
+			autoResize: true,
+			anchors: true
 
 			// smoothTouch: false // disable for touch if desired
 		})
@@ -38,5 +41,9 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 		return () => lenis.destroy()
 	}, [])
 
-	return <>{children}</>
+	return <LenisContext.Provider value={lenisRef.current}>{children}</LenisContext.Provider>
+}
+
+export function useLenis() {
+	return useContext(LenisContext)
 }
