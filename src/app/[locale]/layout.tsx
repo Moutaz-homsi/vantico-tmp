@@ -43,22 +43,22 @@ export default async function RootLayout({
 			<head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</head>
-			<NextIntlClientProvider locale={locale}>
-				<SmoothScrollProvider>
-					<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
-						<div className="">
-							<ModalProvider>
-								<Header />
+			{/* <NextIntlClientProvider locale={locale}> */}
+			<SmoothScrollProvider>
+				<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
+					<div className="">
+						<ModalProvider>
+							<Header />
 
-								{children}
+							{children}
 
-								<Footer />
-							</ModalProvider>
-						</div>
-						<ToastContainer />
-					</body>
-				</SmoothScrollProvider>
-			</NextIntlClientProvider>
+							<Footer />
+						</ModalProvider>
+					</div>
+					<ToastContainer />
+				</body>
+			</SmoothScrollProvider>
+			{/* </NextIntlClientProvider> */}
 		</html>
 	)
 }
