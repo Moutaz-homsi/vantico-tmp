@@ -3,7 +3,7 @@ import PageBuilder from "@/components/page-builder"
 import fetchData from "@/utils/api"
 
 export default async function Page({ params }) {
-	const { slug } = await params
+	const { slug } = params
 	const response = await fetchData({ route: `pages/slug/${slug}` })
 	// TODO handle not found and server errors
 	if (!response.data) return "not found"
