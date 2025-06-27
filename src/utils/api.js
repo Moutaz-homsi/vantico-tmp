@@ -1,7 +1,7 @@
 import { devLog, inDevelopment } from "./dev-utils"
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
-export default async function fetchData({ route, method = "GET", body, debug = inDevelopment }) {
+export default async function fetchData({ route, method = "GET", body = null, debug = inDevelopment }) {
 	const full_url = `${BASE_URL}/api/${route}`
 	const response = await fetch(full_url, {
 		method,
@@ -13,7 +13,7 @@ export default async function fetchData({ route, method = "GET", body, debug = i
 		}
 	})
 	const data = await response.json()
-	log(`${full_url} [${response.status}]`)
+	// log(`${full_url} [${response.status}]`)
 	if (response.status >= 400) {
 		log(`error response`, data)
 	}
