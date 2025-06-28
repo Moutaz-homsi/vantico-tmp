@@ -252,3 +252,36 @@ html {
 .hide-spin-btn {
 	-moz-appearance: textfield;
 }
+
+.card-logos-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+.card-logos-content {
+	display: flex;
+	gap: 2rem;
+	width: max-content;
+	will-change: transform;
+}
+
+.card-logos-item {
+	flex-shrink: 0;
+}
+
+.animate-logos {
+	animation: logos 25s linear infinite;
+}
+
+.animate-logos:hover {
+	animation-play-state: paused;
+}
+
+@keyframes logos {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}

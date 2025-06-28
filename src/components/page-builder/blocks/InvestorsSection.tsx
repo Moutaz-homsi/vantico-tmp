@@ -46,7 +46,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20 gap-4 md:gap-6">
 					{stats.map((stat, index) => (
 						<Card key={index} className="rounded-sm bg-neutral-900 border-0 overflow-hidden">
-							<CardContent className="py-10 px-20 text-center flex flex-col justify-center  h-full ">
+							<CardContent className="py-10 px-20 text-center flex flex-col justify-center h-full font-primary">
 								<p className="text-5xl text-white font-medium mb-3">
 									<AnimatedValue value={stat.value} duration={3} />
 								</p>

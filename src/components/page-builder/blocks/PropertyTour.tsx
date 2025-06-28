@@ -15,7 +15,7 @@ Fancybox.defaults.Hash = false
 const PropertyTour = ({ properties }) => {
 	const [selected, setSelected] = useState(0)
 	return (
-		<section id="tour" className="bg-black text-white pb-20 md:pb-40 px-4">
+		<section id="tour" className="bg-black text-white pt-12 md:pt-0 pb-20 md:pb-40 px-4">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />

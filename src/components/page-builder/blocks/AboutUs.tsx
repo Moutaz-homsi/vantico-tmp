@@ -54,7 +54,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
 			<div className="max-w-7xl mx-auto">
 				{/* Grid container */}
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14 md:mb-22">
 					{/* Left side content */}
 					<div className="lg:col-span-9 p-8 md:p-20  bg-white">
 						<SectionLabel label={"About Us"} />
@@ -86,22 +86,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 							))}
 						</div>
 					</div>
-				</div>
-
-				{/* Partners section */}
-				<div className="w-full h-20 mt-16 ">
-					{/* <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 h-12 gap-8">
-						<div className="flex items-center grayscale opacity-60">
-							<span className="text-2xl font-light text-gray-300">Trusted by</span>
-						</div>
-						{logos.map((item) => {
-							return (
-								<div key={item.id} className="relative">
-									<Image isFill src={item.src} alt={item.alt} className="object-contain grayscale opacity-40" />
-								</div>
-							)
-						})}
-					</div> */}
 				</div>
 
 				<p className="md:hidden py-2 text-center text-[#ABABAB] select-none text-lg">Trusted by</p>

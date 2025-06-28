@@ -45,7 +45,7 @@ export function MobileMenuContent({
 			<div className="flex items-center justify-between p-4">
 				<AnimatedMenuIcon isOpen={isOpen} onClick={onClose} />
 				<Link href="/" onClick={onClose}>
-					<Image src="/logo.svg" alt="Logo" height={60} width={120} />
+					<Image src="/logo-v2.svg" alt="Logo" height={60} width={120} />
 				</Link>
 			</div>
 

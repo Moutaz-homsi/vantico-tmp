@@ -50,7 +50,7 @@ export default function OurHistory({ items }: OurHistoryProps) {
 
 	return (
 		<>
-			<section className="relative min-h-screen bg-black text-white">
+			<section id="history" className="relative min-h-screen bg-black text-white">
 				<div className="text-center pt-20 pb-12 mb-6">
 					<SectionLabel label={"Our History"} />
 					<Title className="text-white mt-6">A SUCCESS STORY</Title>

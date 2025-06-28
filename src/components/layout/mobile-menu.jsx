@@ -32,7 +32,7 @@ export default function MobileMenu({ isOpen = false, setIsOpen }) {
 			{/* Logo */}
 			{/* <div>
 				<Link href="/" className="h-full">
-					<Image src="/logo.svg" alt="Logo" height={100} width={200} />
+					<Image src="/logo-v2.svg" alt="Logo" height={100} width={200} />
 				</Link>
 			</div> */}
 

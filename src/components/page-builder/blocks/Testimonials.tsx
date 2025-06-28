@@ -28,7 +28,7 @@ const Testimonials = ({ testimonials }) => {
 	}
 
 	return (
-		<section id="testimonials" className="bg-black text-white pb-20 md:pb-40 px-4 xl:px-0">
+		<section id="testimonials" className="bg-black text-white pt-12 md:pt-0 pb-20 md:pb-40 px-4 xl:px-0">
 			<div className="max-w-7xl mx-auto">
 				<div className="mb-8 md:mb-20">
 					<SectionLabel label="Testimonials" variant="dark" />

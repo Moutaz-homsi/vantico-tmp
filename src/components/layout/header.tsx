@@ -24,7 +24,7 @@ export default function Header() {
 			<header className="sticky top-0 z-50 bg-black">
 				<Container noGutters className="flex items-center justify-between h-16 px-4 py-3">
 					<Link href="/" className="block md:w-52">
-						<Image src="/logo.svg" alt="Logo" height={100} width={200} className="select-none" />
+						<Image src="/logo-v2.svg" alt="Logo" height={100} width={200} className="select-none" />
 					</Link>
 
 					<DesktopMenu />

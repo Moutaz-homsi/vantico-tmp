@@ -109,7 +109,7 @@ const Footer = () => {
 				{/* logo and button div */}
 				<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-16">
 					<div className="flex items-center">
-						<Image src="/logo.svg" alt="Logo" height={30} width={260} />
+						<Image src="/logo-v2.svg" alt="Logo" height={30} width={260} />
 					</div>
 					<Button className="font-semibold">
 						Schedule free consultation
