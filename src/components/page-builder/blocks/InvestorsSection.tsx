@@ -127,7 +127,7 @@ const InvestorsSection: React.FC<InvestorsSectionProps> = ({ stats, fundingProgr
 						</div>
 					))}
 				</div>
-				<div className="bg-[#1E1E1E] mt-16 md:mt-36  p-8 md:p-20 rounded-sm">
+				<div className="bg-[#1E1E1E] mt-16 md:mt-36 p-4 md:p-20 rounded-sm">
 					<ExitAndReturns />
 				</div>
 			</div>
@@ -147,7 +147,7 @@ function ExitAndReturns() {
 	function buildButtonProps(tab) {
 		return {
 			className: cn(
-				"text-xl md:text-2xl flex font-medium items-center gap-3 py-2 px-6",
+				"text-base md:text-2xl flex font-medium items-center gap-3 py-2 px-6",
 				// common button behavior styles
 				" hover:cursor-pointer hover:text-white transition-colors duration-200",
 				// class for inactive tab
@@ -163,7 +163,7 @@ function ExitAndReturns() {
 	return (
 		<div className="grid md:grid-cols-5 gap-4 items-baseline">
 			{/* <PercentIcon /> */}
-			<div className="md:col-span-2 flex md:flex-col  gap-12 text-start items-start ">
+			<div className="md:col-span-2 flex md:flex-col gap-8 md:gap-12 text-start items-start ">
 				<button {...buildButtonProps("returns")}>
 					<PercentIcon color={activeTab !== "returns" ? "#ABABAB" : "white"} />
 					Returns
@@ -175,7 +175,7 @@ function ExitAndReturns() {
 				</button>
 			</div>
 			<div className="md:col-span-3">
-				<p className="col-span-2 text-lg leading-[160%] text-[#ABABAB]">{content[activeTab]}</p>
+				<p className="col-span-2 text-base md:text-lg leading-[160%] text-[#ABABAB]">{content[activeTab]}</p>
 			</div>
 		</div>
 	)

@@ -1,17 +1,18 @@
 "use client"
 import React from "react"
-import { ArrowRight, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card /* CardContent */ } from "@/components/ui/card"
 import SectionLabel from "@/components/section-label"
-import { Image } from "@/components/ui"
 import Title from "@/components/ui/title"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
-import { cn } from "@/utils"
-import { useModal } from "@/hooks/use-model"
-import CountUp from 'react-countup';
 import AnimatedValue from "@/components/ui/header/animated-value"
+import TenantCarousel from "@/components/ui/tenant-carousel"
+// import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+// import { ArrowRight, ChevronRight } from "lucide-react"
+// import { Button } from "@/components/ui/button"
+// import { Image } from "@/components/ui"
+// import Autoplay from "embla-carousel-autoplay"
+// import { cn } from "@/utils"
+// import { useModal } from "@/hooks/use-model"
+// import CountUp from "react-countup"
 
 interface AboutUsProps {
 	onCtaClick?: () => void
@@ -48,8 +49,8 @@ const stats = [
 		)
 	}
 ]
-const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) => {
-	const { open, close } = useModal()
+const AboutUs: React.FC<AboutUsProps> = ({ logos = [] /* , onCtaClick, className */ }) => {
+	// const { open, close } = useModal()
 	return (
 		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
 			<div className="max-w-7xl mx-auto">
@@ -79,7 +80,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 									className="flex flex-col justify-center gap-2 py-8 bg-neutral-800 border-none   text-center"
 								>
 									<h3 className="text-[48px] tracking-[-4%] font-medium text-white">
-										<AnimatedValue value={stat.value} duration={1}/>
+										<AnimatedValue value={stat.value} duration={1} />
 									</h3>
 									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>
@@ -88,12 +89,20 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 					</div>
 				</div>
 
-				<p className="md:hidden py-2 text-center text-[#ABABAB] select-none text-lg">Trusted by</p>
+				<p className="py-2 text-center text-[#ABABAB] select-none text-2xl md:text-4xl mb-8">Trusted by</p>
 
-				<Carousel
+				<TenantCarousel
+					images={logos.map((logo: any) => ({
+						id: logo.id,
+						url: logo?.image?.url,
+						title: logo.title
+					}))}
+					imgHeight="h-12"
+				/>
+				{/* <Carousel
 					opts={{
 						align: "start",
-						loop: false // Prevent scrolling from last to first
+						loop: false
 					}}
 					plugins={[
 						Autoplay({
@@ -105,11 +114,9 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 					className="w-full h-15 "
 				>
 					<CarouselContent className="  flex items-center ">
-						{/* Add right padding to show next item */}
 						<CarouselItem className={`hidden md:block md:basis-1/5`}>
 							<span className="text-[#ABABAB] select-none text-lg">Trusted by</span>
 						</CarouselItem>
-						{/* <span className="text-2xl font-light text-gray-300">Trusted by</span> */}
 						{logos.map((item) => {
 							return (
 								<CarouselItem
@@ -122,7 +129,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 										})
 									}}
 								>
-									{/* <p className="text-white">{item.id}</p> */}
 									<div
 										className={cn(
 											"relative w-full h-12 ",
@@ -142,11 +148,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [], onCtaClick, className }) 
 							)
 						})}
 					</CarouselContent>
-					{/* <div className="md:hidden ">
-							<CarouselPrevious className="left-0 bg-black/30" />
-							<CarouselNext className="right-0 " />
-						</div> */}
-				</Carousel>
+				</Carousel> */}
 			</div>
 		</section>
 	)

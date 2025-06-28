@@ -1,5 +1,6 @@
 "use client"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { cn } from "@/utils"
 import { createContext, useContext, useState } from "react"
 const defaultValue = {
 	isVisible: false,
@@ -20,8 +21,14 @@ const ModalProvider = ({ children }) => {
 			value={{
 				value,
 				setValue,
-				open: (modelProps) =>
-					setValue((v) => ({ ...v, isVisible: true, modalProps: modelProps ?? defaultValue.modalProps })),
+				open: (modelProps) => {
+					setValue((v) => ({
+						...v,
+						isVisible: true,
+						modalProps: modelProps ?? defaultValue.modalProps,
+						wideContent: modelProps?.wideContent || false
+					}))
+				},
 				close: () => setValue((v) => ({ ...v, isVisible: false, modalProps: defaultValue.modalProps }))
 			}}
 		>
@@ -34,9 +41,14 @@ const ModalProvider = ({ children }) => {
 				}}
 			>
 				{/* note: if you changed the height make it works properly in iphone and no scrolling issue with long text, + test all pages that uses the same popup */}
-				<DialogContent className="min-h-[80vh] min-w-[50%] ">
+				<DialogContent
+					// min-w-[50%]
+					className={cn("min-h-[80vh] max-w-full", value?.wideContent == true ? "!px-0 w-[680px]" : "w-3xl")}
+				>
 					<DialogHeader>
-						<DialogTitle>{value.modalProps.title}</DialogTitle>
+						<DialogTitle className={cn(value?.wideContent == true ? "!px-6" : "")}>
+							{value.modalProps.title}
+						</DialogTitle>
 					</DialogHeader>
 					<div className="max-h-[70dvh]  overflow-y-auto">{value.modalProps.children}</div>
 				</DialogContent>

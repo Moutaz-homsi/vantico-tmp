@@ -12,6 +12,9 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 		if (typeof window === "undefined") {
 			return
 		}
+		if (window.innerWidth <= 640) {
+			return
+		}
 
 		const lenis = new Lenis({
 			lerp: 0.1,

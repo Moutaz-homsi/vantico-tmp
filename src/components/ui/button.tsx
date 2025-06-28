@@ -53,7 +53,8 @@ function Button({
 				if (!onClick) {
 					open({
 						title: "BOOK A 15-MIN INVESTOR CONSULTATION",
-						children: <Calendly />
+						children: <Calendly />,
+						wideContent: true
 					})
 					return
 				}

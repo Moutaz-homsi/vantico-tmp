@@ -15,7 +15,7 @@ export default function Header() {
 
 	const handleConsultation = () => {
 		// @ts-ignore
-		open({ title: "BOOK A 15‑MIN INVESTOR CONSULTATION", children: <Calendly /> })
+		open({ title: "BOOK A 15‑MIN INVESTOR CONSULTATION", children: <Calendly />, wideContent: true })
 		setIsOpen(false)
 	}
 
