@@ -43,7 +43,11 @@ const ModalProvider = ({ children }) => {
 				{/* note: if you changed the height make it works properly in iphone and no scrolling issue with long text, + test all pages that uses the same popup */}
 				<DialogContent
 					// min-w-[50%]
-					className={cn("min-h-[80vh] max-w-full", value?.wideContent == true ? "!px-0 w-[680px]" : "w-3xl")}
+					className={cn(
+						"max-w-full py-8",
+						value?.wideContent == true ? "!px-0 w-[680px]" : "w-3xl",
+						value?.modalProps?.className
+					)}
 				>
 					<DialogHeader>
 						<DialogTitle className={cn(value?.wideContent == true ? "!px-6" : "")}>
