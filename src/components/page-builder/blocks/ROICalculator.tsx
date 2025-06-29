@@ -4,9 +4,11 @@ import React, { useState } from "react"
 import { addCommas } from "@/utils/numberUtils"
 import Title from "@/components/ui/title"
 import AnimatedValue from "@/components/ui/header/animated-value"
+import { useApp } from "@/hooks/use-app"
 
 export default function ROICalculator() {
-	const roi_percentage = 0.09
+	const { options } = useApp()
+	const roi_percentage = options?.roi_percentage || 0.09
 	const [amountInvested, setAmountInvested] = useState(10000)
 	const [investmentPeriod, setInvestmentPeriod] = useState(12)
 	const amountReturned = amountInvested * (1 + roi_percentage * (investmentPeriod / 12))

@@ -6,6 +6,8 @@ import { NextIntlClientProvider } from "next-intl"
 import { ModalProvider } from "@/hooks/use-model"
 import { ToastContainer } from "react-toastify"
 import SmoothScrollProvider from "@/context/smooth-scroll-srovider"
+import fetchData from "@/utils/api"
+import { AppProvider } from "@/hooks/use-app"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -37,6 +39,9 @@ export default async function RootLayout({
 	}
 }>) {
 	const { locale } = await params
+	const options = await fetchData({
+		route: "option"
+	})
 
 	return (
 		<html lang={locale}>
@@ -48,13 +53,15 @@ export default async function RootLayout({
 			<SmoothScrollProvider>
 				<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
 					<div className="">
-						<ModalProvider>
-							<Header />
+						<AppProvider defaultValue={{ options: options?.data }}>
+							<ModalProvider>
+								<Header />
 
-							{children}
+								{children}
 
-							<Footer />
-						</ModalProvider>
+								<Footer />
+							</ModalProvider>
+						</AppProvider>
 					</div>
 					<ToastContainer />
 				</body>
