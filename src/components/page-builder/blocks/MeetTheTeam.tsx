@@ -3,16 +3,14 @@ import { Button, Image } from "@/components/ui"
 import Title from "@/components/ui/title"
 import { useModal } from "@/hooks/use-model"
 import { ChevronRight } from "lucide-react"
-import Link from "next/link"
 import { useState } from "react"
 
 interface MeetTheTeamProps {
 	members: []
-	onReadMoreClick: (memberId: number) => void
 }
 
-const MeetTheTeam = ({ members, onReadMoreClick }: MeetTheTeamProps) => {
-	const [expandedMember, setExpandedMember] = useState<number | null>(-1) // Default to show Dr. Anas Bakour's bio
+const MeetTheTeam = ({ members }: MeetTheTeamProps) => {
+	const [expandedMember, setExpandedMember] = useState<number | null>(-1)
 	const { open } = useModal()
 	const handleCardClick = (id: number) => {
 		// Only trigger on touch devices
