@@ -35,23 +35,38 @@ const PropertyTour = ({ properties }) => {
 							// const width = "100%"
 
 							return (
-								<a
+								<div
 									key={property.id}
-									data-fancybox="tour"
-									href={getImageUrlFromObject({ fileObject: property.image })}
-									style={{
-										width
+									onClick={() => {
+										setSelected(index)
 									}}
-									className={cn("h-[350px] md:h-[500px] relative", index > 2 ? "hidden" : "block")}
+									style={{
+										width,
+										transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
+									}}
+									className={cn(
+										"h-[350px] md:h-[500px] relative",
+										"hover:cursor-pointer hover:opacity-90 transition-all duration-100",
+										index > 2 ? "hidden" : "block"
+									)}
 								>
+									<a
+										key={property.id}
+										data-fancybox="tour"
+										href={getImageUrlFromObject({ fileObject: property.image })}
+										style={{
+											width
+										}}
+										className={cn("hidden")}
+									></a>
 									<Image
 										isFill
 										strapiImage={property.image}
 										src={property.image?.url}
 										alt={property.image?.alt}
-										className="object-cover "
+										className="object-cover select-none"
 									/>
-								</a>
+								</div>
 							)
 						})}
 					</div>
