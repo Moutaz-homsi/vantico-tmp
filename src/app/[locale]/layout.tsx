@@ -50,22 +50,22 @@ export default async function RootLayout({
 			</head>
 			{/* commented out because it leads to DYNAMIC_SERVER_USAGE error with dynamic page such /en/news page */}
 			{/* <NextIntlClientProvider locale={locale}> */}
-			<SmoothScrollProvider>
-				<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
-					<div className="">
-						<AppProvider defaultValue={{ options: options?.data }}>
-							<ModalProvider>
-								<Header />
+			{/* <SmoothScrollProvider> */}
+			<body className={`${geistSans.variable} ${geistMono.variable} ${gantari.variable} antialiased`}>
+				<div className="">
+					<AppProvider defaultValue={{ options: options?.data }}>
+						<ModalProvider>
+							<Header />
 
-								{children}
+							{children}
 
-								<Footer />
-							</ModalProvider>
-						</AppProvider>
-					</div>
-					<ToastContainer />
-				</body>
-			</SmoothScrollProvider>
+							<Footer />
+						</ModalProvider>
+					</AppProvider>
+				</div>
+				<ToastContainer />
+			</body>
+			{/* </SmoothScrollProvider> */}
 			{/* </NextIntlClientProvider> */}
 		</html>
 	)
