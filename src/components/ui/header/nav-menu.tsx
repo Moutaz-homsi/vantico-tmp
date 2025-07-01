@@ -8,6 +8,7 @@ import BookmarkLink from "./bookmark-link"
 const menuItems = [
 	{ label: "What we do", href: "/#about" },
 	{ label: "News & insights", href: "/#news" },
+	{ label: "Our team", href: "/team" },
 	{ label: "Tenants", href: "/#tenants" }
 ]
 
@@ -16,10 +17,10 @@ export function DesktopMenu() {
 		<ul className="hidden lg:flex gap-8 lg:gap-4 xl:gap-6 2xl:gap-8 text-white">
 			{menuItems.map(({ label, href }) => (
 				<li key={href} className="relative group">
-					<BookmarkLink href={href}>
+					<Link href={href}>
 						<span className="relative z-10 text-lg lg:text-sm xl:text-base font-semibold">{label}</span>
 						<span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-					</BookmarkLink>
+					</Link>
 				</li>
 			))}
 		</ul>
