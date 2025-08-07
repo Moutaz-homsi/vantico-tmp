@@ -91,7 +91,6 @@ export default async function HomePage() {
 			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
 			<AboutUs logos={homePageData.logos} />
 
-			<OurHistory items={homePageData.history} />
 			<StrategyAccordion
 				heading="WHY VANTICO?"
 				subheading="PRECISION-DRIVEN"

@@ -1,13 +1,13 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui"
 import Image from "@/components/ui/image"
 import Container from "./container"
 import AnimatedMenuIcon from "../ui/header/animated-menu-icon"
 import { DesktopMenu, MobileMenuContent, MobileMenuOverlay } from "../ui/header/nav-menu"
 import { useModal } from "@/hooks/use-model"
 import Calendly from "../calendly"
+import { cn } from "@/utils"
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false)
@@ -21,8 +21,15 @@ export default function Header() {
 
 	return (
 		<>
-			<header className="sticky top-0 z-50 bg-black">
-				<Container noGutters className="flex items-center justify-between h-16 px-4 py-3">
+			<header className="sticky top-0 left-0 right-0 z-50 w-full bg-black">
+				<div className="w-full bg-black">
+					<Container
+						noGutters
+						className={cn(
+							"relative flex items-center justify-between h-16 px-4 2xl:px-0 py-3 w-full max-w-7xl mx-auto",
+							!isOpen ? "bg-black" : "bg-gray-900"
+						)}
+					>
 					<Link href="/" className="block md:w-52">
 						<Image src="/logo-v2.svg" alt="Logo" height={100} width={200} className="select-none" />
 					</Link>
@@ -33,7 +40,7 @@ export default function Header() {
 						<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
 					</div>
 
-					<div className="hidden lg:block">
+					{/* <div className="hidden lg:block">
 						<Button
 							onClick={handleConsultation}
 							variant="outline"
@@ -41,8 +48,9 @@ export default function Header() {
 						>
 							Book consultation
 						</Button>
-					</div>
-				</Container>
+					</div> */}
+					</Container>
+				</div>
 			</header>
 
 			<MobileMenuOverlay isOpen={isOpen}>

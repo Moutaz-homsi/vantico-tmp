@@ -17,8 +17,8 @@ const generateSrcSet = (format, src, strapiImage) => {
 export default function Image({
 	src = "",
 	alt = "",
-	width = undefined,
-	height = undefined,
+	width = 0,
+	height = 0,
 	styles = "",
 	className = "",
 	quality = "",
@@ -66,8 +66,8 @@ export default function Image({
 	const ImageElement = (
 		<NextImage
 			alt={alt}
-			{...(width ? { width } : {})}
-			{...(height ? { height } : {})}
+			{...(width > 0 ? { width } : {})}
+			{...(height > 0 ? { height } : {})}
 			{...(styles ? { styles } : {})}
 			className={className}
 			priority={priority}
