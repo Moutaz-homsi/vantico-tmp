@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import Image from "@/components/ui/image"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, RefObject } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 type SubmenuItem = {
@@ -106,7 +106,7 @@ const MenuItem = ({
 	onClose?: () => void
 }) => {
 	const [isOpen, setIsOpen] = useState(false)
-	const ref = useRef<HTMLLIElement>(null)
+	const ref = useRef<HTMLLIElement | null>(null)
 	const hasSubmenu = Boolean(item.submenu?.length)
 
 	useEffect(() => {
@@ -168,7 +168,7 @@ const MenuItem = ({
 	}
 
 	return (
-		<li ref={ref} className="relative">
+		<div ref={ref as any} className="relative">
 			<div className="flex items-center">
 				{item.href ? (
 					<Link
@@ -212,7 +212,7 @@ const MenuItem = ({
 					</div>
 				</div>
 			)}
-		</li>
+		</div>
 	)
 }
 

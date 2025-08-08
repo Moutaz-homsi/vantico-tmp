@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="-1.9999999999999973 0.9999999999999998 28.999999999999996 29.999999999999996" width="29" height="31">
+	<title>logo</title>
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: #ab804a } 
+	</style>
+	<g id="Layer 1">
+		<path id="Shape 1" fill-rule="evenodd" class="s0" d="m27.5 1v30h-30v-30z"/>
+		<path class="s1" d="m15.3 25l-2.9 5.7-14.4-28.8h5.7z"/>
+		<path class="s1" d="m26.9 2.3l-2.9 5.8-2.9-5.8z"/>
+	</g>
+</svg>
