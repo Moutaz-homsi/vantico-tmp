@@ -19,7 +19,8 @@ const menuItems: MenuItem[] = [
 	{
 		label: "About VANTICO",
 		submenu: [
-			{ label: "Overview", href: "/overview" },
+			// overview
+			{ label: "Overview", href: "/" },
 			{ label: "Our People", href: "/our-people" },
 			{ label: "Contact", href: "/contact" }
 		]
@@ -66,7 +67,7 @@ const DropdownMenu = ({
 }) => {
 	if (!items) return null
 
-	const baseClasses = "transition-all duration-200 rounded-lg text-sm font-medium px-4 py-3 flex items-center"
+	const baseClasses = "transition-all duration-200 rounded-lg text-sm md:text-base px-4 py-3 flex items-center"
 	const mobileClasses =
 		"text-white/90 hover:bg-white/5 hover:text-white pl-6 border-l-2 border-transparent hover:border-primary"
 	const desktopClasses = "text-gray-300 hover:bg-white/5 hover:text-white"
@@ -141,12 +142,12 @@ const MenuItem = ({
 					{item.href ? (
 						<Link
 							href={item.href}
-							className="block text-lg font-medium text-white hover:text-primary transition-colors"
+							className="block text-lg text-white hover:text-primary transition-colors"
 						>
 							{item.label}
 						</Link>
 					) : (
-						<span className="block text-lg font-medium text-white hover:text-primary transition-colors cursor-pointer">
+						<span className="block text-lg text-white hover:text-primary transition-colors cursor-pointer">
 							{item.label}
 						</span>
 					)}
@@ -177,7 +178,7 @@ const MenuItem = ({
 						onMouseEnter={() => setIsOpen(false)}
 					>
 						<span className="relative">
-							<span className="text-lg lg:text-sm xl:text-base font-medium text-white group-hover:text-primary transition-colors">
+							<span className="text-lg lg:text-sm xl:text-base text-white group-hover:text-primary transition-colors">
 								{item.label}
 							</span>
 							<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -186,7 +187,7 @@ const MenuItem = ({
 				) : (
 					<button
 						onClick={() => setIsOpen(!isOpen)}
-						className="relative z-10 text-lg lg:text-sm xl:text-base font-medium text-white hover:text-primary focus:outline-none transition-colors flex items-center group cursor-pointer"
+						className="relative z-10 text-lg lg:text-sm xl:text-base text-white hover:text-primary focus:outline-none transition-colors flex items-center group cursor-pointer"
 						aria-expanded={isOpen}
 						aria-haspopup="true"
 					>

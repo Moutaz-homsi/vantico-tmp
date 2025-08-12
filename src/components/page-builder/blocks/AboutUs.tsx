@@ -27,11 +27,11 @@ interface AboutUsProps {
 
 const stats = [
 	{
-		value: "$265M",
+		value: "$500M",
 		label: "Total Assets Value"
 	},
 	{
-		value: "26",
+		value: "30",
 		label: (
 			<>
 				Properties across <br />
@@ -40,7 +40,7 @@ const stats = [
 		)
 	},
 	{
-		value: "1M+",
+		value: "2M+",
 		label: (
 			<>
 				Square feet of <br />
@@ -52,44 +52,50 @@ const stats = [
 const AboutUs: React.FC<AboutUsProps> = ({ logos = [] /* , onCtaClick, className */ }) => {
 	// const { open, close } = useModal()
 	return (
-		<section id="about" className="w-full pt-28 pb-20 px-4 md:px-8 lg:px-16 bg-neutral-900">
+		// bg-neutral-900
+		<section id="about" className="w-full pt-28 pb-10 px-4 md:px-8 lg:px-16 bg-white">
 			<div className="max-w-7xl mx-auto">
 				{/* Grid container */}
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14 md:mb-22">
+				{/* mb-14 md:mb-22 */}
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 ">
 					{/* Left side content */}
-					<div className="lg:col-span-9 p-8 md:p-20  bg-white">
-						<SectionLabel label={"About Us"} />
+					{/* p-8 md:p-20 */}
+					<div className="lg:col-span-9">
+						<SectionLabel label={"About Vantico"} />
 
-						<Title className=" my-6">
+						{/* <Title className=" my-6">
 							Step into a proven, <br /> recession-resistant <br /> model
-						</Title>
+						</Title> */}
 
-						<p className="text-md md:text-lg text-[#535353] leading-[160%] mb-10">
-							Vantico specializes in high-end dental and underutilized commercial property investments in the
-							Mid-Atlantic market. We create high-yield investment by merging real estate ownership with the booming
-							healthcare sector, giving investors stability and long-term growth.
+{/* text-sm md:text-base */}
+						<p className="text-md md:text-xl font-light text-black leading-[160%] my-10">
+							VANTICO is a privately held global investment firm distinguished by precision, partnership, and long-term
+							conviction. We co-invest with a curated network of high-net-worth individuals, family offices, and
+							institutions across U.S. real estate, healthcare, and private equity. Our approach is guided by data,
+							discipline, and deep market insight. We do not seek to be the largest. We strive to be the most trusted.
+							Every investment reflects our commitment to sustainable value that endures over time.
 						</p>
 					</div>
 
 					{/* Right side stats */}
-					<div className="lg:col-span-3">
+					{/* <div className="lg:col-span-3">
 						<div className="grid h-full grid-cols-1 gap-6">
 							{stats.map((stat, idx) => (
 								<Card
 									key={idx}
-									className="flex flex-col justify-center gap-2 py-8 bg-neutral-800 border-none   text-center"
+									className="flex flex-col justify-center gap-2 py-8 border-none text-center"
 								>
-									<h3 className="text-[48px] tracking-[-4%] font-medium text-white">
+									<h3 className="text-[48px] tracking-[-4%] font-medium text-neutral-900">
 										<AnimatedValue value={stat.value} duration={1} />
 									</h3>
 									<p className="text-lg text-[#ABABAB]">{stat.label}</p>
 								</Card>
 							))}
 						</div>
-					</div>
+					</div> */}
 				</div>
 
-				<p className="py-2 text-center text-[#ABABAB] select-none text-2xl md:text-4xl mb-8">Trusted by</p>
+				{/* <p className="py-2 text-center text-[#ABABAB] select-none text-2xl md:text-4xl mb-8">Trusted by</p>
 
 				<TenantCarousel
 					images={logos.map((logo: any) => ({
@@ -98,7 +104,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [] /* , onCtaClick, className
 						title: logo.title
 					}))}
 					imgHeight="h-12"
-				/>
+				/> */}
 				{/* <Carousel
 					opts={{
 						align: "start",

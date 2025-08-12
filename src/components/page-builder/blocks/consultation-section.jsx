@@ -35,7 +35,7 @@ export default function ConsultationSection({ calendlyUrl }) {
 			>
 				<div className="bg-white  p-4 md:p-16  ">
 					<Title className="text-2xl">
-						BOOK A 15-MIN <br /> INVESTOR <br /> CONSULTATION
+						BOOK A CALL
 					</Title>
 					<Calendly calendlyUrl={calendlyUrl} />
 				</div>

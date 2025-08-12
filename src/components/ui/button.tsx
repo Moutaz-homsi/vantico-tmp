@@ -52,7 +52,7 @@ function Button({
 				// currently will only open the consultation modal if no onClick is provided
 				if (!onClick) {
 					open({
-						title: "BOOK A 15-MIN INVESTOR CONSULTATION",
+						title: "BOOK A CALL",
 						children: <Calendly />,
 						wideContent: true
 					})

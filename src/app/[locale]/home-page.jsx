@@ -88,7 +88,7 @@ export default async function HomePage() {
 
 	return (
 		<main>
-			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} />
+			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} subtitle="" />
 			<AboutUs logos={homePageData.logos} />
 
 			<StrategyAccordion
@@ -98,7 +98,7 @@ export default async function HomePage() {
 				items={strategyItems}
 			/>
 
-			<InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} />
+			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
 
 			<PropertyTour properties={homePageData.properties} />
 
