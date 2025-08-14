@@ -4,7 +4,8 @@ import React from "react"
 export default function Title({ text = null, children, className = "" }) {
 	return (
 		<h2
-			className={cn("text-4xl md:text-[56px] font-secondary tracking-[-4%] leading-[100%] text-[#151515]", className)}
+		// leading-[100%]
+			className={cn("text-4xl md:text-[56px] font-secondary text-[#151515]", className)}
 		>
 			{text ?? children ?? ""}
 		</h2>

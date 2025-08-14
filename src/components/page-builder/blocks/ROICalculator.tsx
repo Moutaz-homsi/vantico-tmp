@@ -20,7 +20,7 @@ export default function ROICalculator() {
 		<section id="roi" className="bg-black  px-4 md:px-0  py-10 md:py-40">
 			<div className="bg-[#1E1E1E] lg:max-w-7xl mx-auto text-white rounded-md p-8 md:p-20">
 				{/* title */}
-				<Title className="text-white text-center ">ROI Calculator</Title>
+				<Title className="text-white text-center">ROI Calculator</Title>
 				<p className="text-white text-center text-sm md:text-xl ">
 					Investing involves risks, including loss of capital
 				</p>

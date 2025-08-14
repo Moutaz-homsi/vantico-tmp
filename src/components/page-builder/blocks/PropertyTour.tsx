@@ -8,20 +8,33 @@ import { getImageUrlFromObject } from "@/utils/image-loader"
 import { Fancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox.css"
 import { ChevronRight } from "lucide-react"
-import { useState } from "react"
+import { Key, SetStateAction, useState } from "react"
 
 Fancybox.defaults.Hash = false
 
-const PropertyTour = ({ properties }) => {
+interface Property {
+	id: Key | null | undefined
+	image?: {
+		url?: string
+		alt?: string
+	} | null
+}
+
+interface PropertyTourProps {
+	properties: Property[]
+}
+
+const PropertyTour = ({ properties }: PropertyTourProps) => {
 	const [selected, setSelected] = useState(0)
+	console.log("properties: ", properties)
 	return (
-		<section id="tour" className="bg-black text-white pt-12 md:pt-0 pb-20 md:pb-40 px-4">
+		<section id="tour" className="bg-black text-white pt-12 pb-20 px-4">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
 				</div>
 
-				<Title className="text-2xl text-white text-center mt-6 leading-[100%] ">
+				<Title className="text-2xl text-white text-center mt-6">
 					A glimpse into some
 					<br />
 					of our prime assets
@@ -29,46 +42,49 @@ const PropertyTour = ({ properties }) => {
 
 				<div className="mt-10 md:mt-20 relative">
 					<div className="flex gap-4 w-full">
-						{properties.map((property, index) => {
-							const isSelected = index === selected
-							const width = isSelected ? "66%" : "17%"
-							// const width = "100%"
+						{properties?.length > 0
+							? properties?.map((property: Property, index: number) => {
+									const isSelected = index === selected
+									const width = isSelected ? "66%" : "17%"
+									// const width = "100%"
 
-							return (
-								<div
-									key={property.id}
-									onClick={() => {
-										setSelected(index)
-									}}
-									style={{
-										width,
-										transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
-									}}
-									className={cn(
-										"h-[350px] md:h-[500px] relative",
-										"hover:cursor-pointer hover:opacity-90 transition-all duration-100",
-										index > 2 ? "hidden" : "block"
-									)}
-								>
-									<a
-										key={property.id}
-										data-fancybox="tour"
-										href={getImageUrlFromObject({ fileObject: property.image })}
-										style={{
-											width
-										}}
-										className={cn("hidden")}
-									></a>
-									<Image
-										isFill
-										strapiImage={property.image}
-										src={property.image?.url}
-										alt={property.image?.alt}
-										className="object-cover select-none"
-									/>
-								</div>
-							)
-						})}
+									return (
+										<div
+											key={property.id}
+											onClick={() => {
+												setSelected(index)
+											}}
+											style={{
+												width,
+												transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
+											}}
+											className={cn(
+												"h-[350px] md:h-[500px] relative",
+												"hover:cursor-pointer hover:opacity-90 transition-all duration-100",
+												index > 2 ? "hidden" : "block"
+											)}
+										>
+											<a
+												key={property.id}
+												data-fancybox="tour"
+												href={getImageUrlFromObject({ fileObject: property.image })}
+												style={{
+													width
+												}}
+												className={cn("hidden")}
+											></a>
+											{property.image && (
+												<Image
+													isFill
+													src={property.image.url || ""}
+													alt={property.image.alt || "Property image"}
+													className="object-cover select-none"
+												/>
+											)}
+										</div>
+									)
+							  })
+							: null}
 					</div>
 				</div>
 
