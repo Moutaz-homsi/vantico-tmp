@@ -5,6 +5,10 @@ import SectionLabel from "@/components/section-label"
 import Title from "@/components/ui/title"
 import AnimatedValue from "@/components/ui/header/animated-value"
 import TenantCarousel from "@/components/ui/tenant-carousel"
+import { addCommas } from "@/utils/numberUtils"
+import LinkButton from "@/components/ui/buttons/link-button"
+import { ChevronRight } from "lucide-react"
+
 // import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 // import { ArrowRight, ChevronRight } from "lucide-react"
 // import { Button } from "@/components/ui/button"
@@ -60,23 +64,44 @@ const AboutUs: React.FC<AboutUsProps> = ({ logos = [] /* , onCtaClick, className
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 ">
 					{/* Left side content */}
 					{/* p-8 md:p-20 */}
-					<div className="lg:col-span-9">
-						<SectionLabel label={"About Vantico"} />
+					<div className="col-span-12 text-center">
+						<SectionLabel label={"Crafting Excellence in Investment"} />
 
-						{/* <Title className=" my-6">
-							Step into a proven, <br /> recession-resistant <br /> model
-						</Title> */}
+						<Title className="my-6">Trust. Discipline. Enduring Value.</Title>
 
-{/* text-sm md:text-base */}
+						{/* text-sm md:text-base */}
 						<p className="text-md md:text-xl font-light text-black leading-[160%] my-10">
-							VANTICO is a privately held global investment firm distinguished by precision, partnership, and long-term
-							conviction. We co-invest with a curated network of high-net-worth individuals, family offices, and
-							institutions across U.S. real estate, healthcare, and private equity. Our approach is guided by data,
-							discipline, and deep market insight. We do not seek to be the largest. We strive to be the most trusted.
-							Every investment reflects our commitment to sustainable value that endures over time.
+							<span className="font-medium">VANTICO</span> is a privately held global investment firm distinguished by
+							precision, partnership, and long-term conviction. We co-invest with a curated network of high-net-worth
+							individuals, family offices, and institutions across U.S. real estate, healthcare, and private equity. Our
+							approach is guided by data, discipline, and deep market insight. We do not seek to be the largest. We
+							strive to be the most trusted. Every investment reflects our commitment to sustainable value that endures
+							over time.
 						</p>
 					</div>
 
+					<div className="col-span-12 grid grid-cols-12">
+						<div
+							className="col-span-4 font-semibold text-3xl lg:text-7xl [&_*]:font-secondary"
+							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
+						>
+							<AnimatedValue value={`$${addCommas("1.5")}B`} duration={2.5} />{" "}
+							<b className="font-medium text-5xl">AUM</b>
+						</div>
+
+						<div></div>
+					</div>
+
+					<div className="col-span-12 text-xs text-gray-400">
+						*Collective AUM includes assets managed across VANTICO’s affiliated funds, operating platforms, and
+						strategic partnerships.
+					</div>
+
+					<div className="flex justify-end items-center mt-6 md:mt-10 col-span-12">
+						<LinkButton link="/real-estate" className="bg-black text-white">
+							Explore Our Investment Focus <ChevronRight className="ml-2" />
+						</LinkButton>
+					</div>
 					{/* Right side stats */}
 					{/* <div className="lg:col-span-3">
 						<div className="grid h-full grid-cols-1 gap-6">

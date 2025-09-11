@@ -17,7 +17,7 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
 	{
-		label: "About VANTICO",
+		label: "About",
 		submenu: [
 			// overview
 			{ label: "Overview", href: "/" },

@@ -2,6 +2,8 @@ import AboutUs from "@/components/page-builder/blocks/AboutUs"
 import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
 import FAQ from "@/components/page-builder/blocks/FAQ"
 import Hero from "@/components/page-builder/blocks/Hero"
+import HeroVideo from "@/components/page-builder/blocks/Hero-video"
+import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
 import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
 import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
 import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
@@ -88,15 +90,17 @@ export default async function HomePage() {
 
 	return (
 		<main>
-			<Hero videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} subtitle="" />
+			<HeroVideo videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} subtitle="" />
 			<AboutUs logos={homePageData.logos} />
 
-			<StrategyAccordion
+			{/* <StrategyAccordion
 				heading="WHY VANTICO?"
 				subheading="PRECISION-DRIVEN"
 				title="INVESTMENT STRATEGY"
 				items={strategyItems}
-			/>
+			/> */}
+
+			<InvestWithPurpose />
 
 			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
 
@@ -136,6 +140,7 @@ async function getHomePageData() {
 			"tenants.third_row_images"
 		]
 	})
+	
 	try {
 		const responseBody = await fetchData({
 			route: "homepage?" + query,
