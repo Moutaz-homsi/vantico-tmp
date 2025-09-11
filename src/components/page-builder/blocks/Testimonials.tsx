@@ -14,9 +14,7 @@ interface Testimonial {
 	image: string
 }
 
- 
-
-const Testimonials = ({ testimonials }) => {
+const Testimonials = ({ testimonials }: { testimonials: Testimonial[] }) => {
 	const [activeIndex, setActiveIndex] = useState(0)
 
 	const handlePrev = () => {
@@ -28,14 +26,25 @@ const Testimonials = ({ testimonials }) => {
 	}
 
 	return (
-		<section id="testimonials" className="bg-black text-white pt-12 md:pt-0 pb-20 md:pb-40 px-4 xl:px-0">
+		<section id="testimonials" className="bg-white text-black pt-12 md:pt-0 pb-20 md:pb-20 px-4 xl:px-0">
 			<div className="max-w-7xl mx-auto">
-				<div className="mb-8 md:mb-20">
-					<SectionLabel label="Testimonials" variant="dark" />
-					<Title className="mt-4 md:mt-6 text-white">Trusted by elite partners</Title>
+				<div className="mb-8 md:mb-16 pt-6 text-center">
+					{/* <SectionLabel label="Testimonials" variant="dark" /> */}
+					<Title className="mt-4 md:mt-6 text-2xl">A PROVEN ECOSYSTEM OF SUCCESSFUL BRANDS & PARTNERSHIPS</Title>
 				</div>
 
-				<div className="grid lg:grid-cols-5 gap-4">
+				<div className="grid lg:grid-cols-5 gap-8">
+					<div className="col-span-12 text-center">
+						A NETWORK OF ELITE PARTNERS ENSURES CREDIBILITY, SEAMLESS OPERATIONS, AND CONSISTENT INVESTMENT SUCCESS
+					</div>
+
+				<div className="col-span-12 text-xs text-gray-400">
+					Logos displayed represent institutions and counterparties with whom VANTICO or its affiliates have engaged in
+					various business transactions, partnerships, or professional relationships. Inclusion does not imply an
+					endorsement or ongoing commercial relationship unless explicitly stated.
+				</div>
+				</div>
+				{/* <div className="grid lg:grid-cols-5 gap-4">
 					<div className="col-span-2 space-y-4 md:space-y-8">
 						{testimonials.map((testimonial, index) => (
 							<div
@@ -68,7 +77,7 @@ const Testimonials = ({ testimonials }) => {
 							"{testimonials[activeIndex].comment}"
 						</blockquote>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	)

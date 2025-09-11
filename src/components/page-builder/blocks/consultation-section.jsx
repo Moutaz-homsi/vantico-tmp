@@ -26,14 +26,14 @@ export default function ConsultationSection({ calendlyUrl }) {
 	}, [])
 
 	return (
-		<div className="relative bg-black py-10 md:py-30">
+		<div className="relative bg-white py-10 md:py-0">
 			<div
-				className="max-w-7xl min-h-80 mx-auto p-4 md:p-32"
+				className="w-full min-h-80 mx-auto p-4 md:p-32"
 				style={{
 					background: `url(${backgroundImage?.url})`
 				}}
 			>
-				<div className="bg-white  p-4 md:p-16  ">
+				<div className="bg-white p-4 md:p-16 max-w-7xl mx-auto">
 					<Title className="text-2xl">
 						BOOK A CALL
 					</Title>

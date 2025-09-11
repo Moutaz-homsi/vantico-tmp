@@ -26,9 +26,8 @@ interface PropertyTourProps {
 
 const PropertyTour = ({ properties }: PropertyTourProps) => {
 	const [selected, setSelected] = useState(0)
-	console.log("properties: ", properties)
 	return (
-		<section id="tour" className="bg-black text-white pt-12 pb-20 px-4">
+		<section id="tour" className="bg-black text-white py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
@@ -88,13 +87,13 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 					</div>
 				</div>
 
-				<div className="flex justify-center mt-6 md:mt-10">
+				{/* <div className="flex justify-center mt-6 md:mt-10">
 					<a data-fancybox-trigger="tour">
 						<Button onClick={() => {}}>
 							Explore more opportunities <ChevronRight className="ml-2" />
 						</Button>
 					</a>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	)

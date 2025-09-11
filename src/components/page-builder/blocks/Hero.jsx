@@ -48,19 +48,19 @@ const Hero = ({
 				<div className="relative z-10 text-center pt-24 pb-8 ">
 					<div className="flex justify-start">
 						<h1 className="text-4xl md:text-[4.5rem] font-medium font-secondary leading-[100%] text-white mb-2">
-							Invest with Purpose
+							Precision
 						</h1>
 					</div>
 					{/* justify-center */}
 					<div className="flex justify-start">
 						<h1 className="text-4xl md:text-[4.5rem] font-medium font-secondary leading-[100%] text-white mb-2">
-							Grow with Precision
+							Partnership
 						</h1>
 					</div>
 					{/* justify-end */}
 					<div className="flex justify-start">
 						<h1 className="text-4xl md:text-[4.5rem] font-medium font-secondary leading-[100%] text-white mb-2">
-							Partner with Vision
+							Conviction
 						</h1>
 					</div>
 
@@ -84,12 +84,12 @@ const Hero = ({
 								integrity in every decision. Trust is earned daily through transparent partnerships and aligned action.
 								We invest with purpose, guided by data and committed to outcomes that endure. Our goal is not to be
 								everywhere but to build what is essential and lasting. Excellence is not a pursuit of perfection but a
-								duty to those we serve. Through precision and purpose, we create value that extends far beyond capital
+								duty to those we serve. Through precision and purpose, we create value that extends far beyond capital.
 							</p>
 						</div>
 						<div className="flex justify-end items-end flex-col text-left text-white">
 							<p className="text-xs md:text-2xl">Dr. Hesham Baky</p>
-							<p className="text-smxs md:text-lg font-light">Chairman & Founder</p>
+							<p className="text-smxs md:text-lg font-light">Chairman and Founder</p>
 						</div>
 					</div>
 				</div>
