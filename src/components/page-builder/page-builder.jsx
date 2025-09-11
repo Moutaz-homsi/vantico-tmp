@@ -1,5 +1,5 @@
 import React from "react"
-import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
+import { CtaBlock, DynamicQueryBlock, ListBlock, TextContent } from "./blocks"
 
 export default function PageBuilder({ data }) {
 	return (
@@ -14,6 +14,8 @@ export default function PageBuilder({ data }) {
 								return <ListBlock key={index} {...rest} />
 							case "pages.query":
 								return <DynamicQueryBlock key={index} {...rest} />
+							case "pages.text-content":
+								return <TextContent key={index} {...rest} />
 							default:
 								return <p key={index}>Unrecognized component</p>
 						}
