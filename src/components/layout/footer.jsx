@@ -198,6 +198,28 @@ const Footer = () => {
 						</a>
 					</div>
 				</div>
+				{/* TODO : Improve */}
+				<em
+					style={{
+						fontSize: "14px",
+						color: "#ccc",
+						marginTop: "34px",
+						display: "block"
+					}}
+				>
+					Legal Disclaimer The information presented on this website is for informational purposes only and does not
+					constitute an offer to sell, a solicitation to buy, or a recommendation for any security, investment strategy,
+					or financial product. Nothing contained herein should be construed as investment, legal, tax, or accounting
+					advice. Visitors should consult their own professional advisors before making any financial or investment
+					decision. All investments involve risk, including the potential loss of principal. Past performance is not
+					indicative of future results. Forward-looking statements are subject to uncertainty and may not reflect actual
+					outcomes. While VANTICO believes the information provided to be accurate as of the date of publication, no
+					representation or warranty is made as to its completeness or accuracy, and it is subject to change without
+					notice. Any references to assets under management (AUM) reflect the aggregate of affiliated entities across
+					various investment platforms. These entities may be legally independent and separately managed. VANTICO does
+					not guarantee the security or accuracy of third-party websites linked herein and disclaims all liability
+					arising from their use. Use of this site constitutes acceptance of our terms of use and privacy policy.{" "}
+				</em>
 			</div>
 		</footer>
 	)
