@@ -11,6 +11,7 @@ import Testimonials from "@/components/page-builder/blocks/Testimonials"
 import { mockHomePageData } from "@/data/home-page-data"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"
+import OurPhilosophy from "@/components/page-builder/blocks/OurPhilosophy"
 // import Hero from "@/components/page-builder/blocks/Hero"
 // import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
 // import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
@@ -58,6 +59,7 @@ export default async function HomePage() {
 				hero_video_url={homePageData.hero_video_url}
 				subtitle=""
 			/>
+			<OurPhilosophy founder_image={homePageData.founder_image} founder_philosophy={homePageData.founder_philosophy} />
 			<AboutUs logos={homePageData.logos} />
 
 			{/* <StrategyAccordion

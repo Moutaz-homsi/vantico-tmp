@@ -31,7 +31,7 @@ html {
 	animation: smoothScrollEffect 5s both;
 	/* var(--font-montserrat), */
 	font-family: "Guardian Sans", Arial;
-	letter-spacing: .02rem;
+	letter-spacing: 0.02rem;
 }
 
 @theme inline {
