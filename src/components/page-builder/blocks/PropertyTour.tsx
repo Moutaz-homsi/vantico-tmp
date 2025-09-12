@@ -7,8 +7,10 @@ import { cn } from "@/utils"
 import { getImageUrlFromObject } from "@/utils/image-loader"
 import { Fancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox.css"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { ChevronRight } from "lucide-react"
 import { Key, SetStateAction, useState } from "react"
+import Autoplay from "embla-carousel-autoplay"
 
 Fancybox.defaults.Hash = false
 
@@ -25,7 +27,6 @@ interface PropertyTourProps {
 }
 
 const PropertyTour = ({ properties }: PropertyTourProps) => {
-	const [selected, setSelected] = useState(0)
 	return (
 		<section id="tour" className="bg-black text-white py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
@@ -39,6 +40,48 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 					of our assets
 				</Title>
 
+				<Carousel
+					opts={{
+						align: "start",
+						loop: true // Prevent scrolling from last to first
+					}}
+					plugins={[
+						Autoplay({
+							delay: 2000,
+							stopOnMouseEnter: true,
+							stopOnInteraction: false
+						})
+					]}
+					style={{
+						maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))",
+						WebkitMaskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
+					}}
+					className="w-full"
+				>
+					<CarouselContent className=" flex items-center ">
+						{properties.map((property) => {
+							return (
+								<CarouselItem key={property.id} className={`basis-1/3 md:basis-1/6`} onClick={() => { }}>
+									{/* <p className="text-white">{item.id}</p> */}
+									<div
+										className={cn(
+											"relative w-full h-32 "
+										)}
+									>
+										<Image
+											isFill
+											src={property.image?.url}
+											strapiImage={property.image as any}
+											alt={property.image?.alt || "Property image"}
+											className="object-contain pointer-events-none select-none"
+										/>
+									</div>
+								</CarouselItem>
+							)
+						})}
+					</CarouselContent>
+				</Carousel>
+				{/* 
 				<div className="mt-10 md:mt-20 relative">
 					<div className="flex gap-4 w-full">
 						{properties?.length > 0
@@ -85,7 +128,7 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 							  })
 							: null}
 					</div>
-				</div>
+				</div> */}
 
 				{/* <div className="flex justify-center mt-6 md:mt-10">
 					<a data-fancybox-trigger="tour">
