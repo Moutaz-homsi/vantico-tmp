@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react"
 
 const HeroVideo = ({
 	videoId,
+	hero_video_url,
 	subtitle = "Prime investments in the Mid-Atlantic in high-end dental and underutilized commercial properties"
 }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
@@ -38,7 +39,7 @@ const HeroVideo = ({
 		>
 			<video
 				className="absolute top-0 left-0 w-full h-full object-cover"
-				src="/hero-video.mp4"
+				src={hero_video_url || "hero-video-1-min.mp4"} //"/hero-video.mp4"
 				autoPlay
 				loop
 				muted
