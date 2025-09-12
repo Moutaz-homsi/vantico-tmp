@@ -84,7 +84,7 @@ export function Item({ item }: { item: Item }) {
 					<img
 						// isFill
 						// strapiImage={item.image as unknown as null | undefined}
-						src={(item.image as any)?.url || "/placeholder.svg"}
+						src={item.image || "/placeholder.svg"}
 						alt={item.title}
 						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 					/>
