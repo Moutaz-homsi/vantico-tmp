@@ -33,13 +33,13 @@ export default function ConsultationSection({ calendlyUrl }) {
 					backgroundImage: `url(${backgroundImage?.url})`,
 				}}
 			>
-				<div className="absolute inset-0 bg-black/50 z-[1]"></div>
-				<div className="bg-white rounded-xl p-4 md:p-11 max-w-5xl mx-auto z-10 relative">
-					<Title className="text-2xl">
+				{/* <div className="absolute inset-0 bg-black/50 z-[1]"></div> */}
+				{/* <div className="bg-white rounded-xl p-4 md:p-11 max-w-5xl mx-auto z-10 relative"> */}
+					<Title className="text-2xl color-white text-center">
 						Contact Us
 					</Title>
 					<Calendly calendlyUrl={calendlyUrl} />
-				</div>
+				{/* </div> */}
 			</div>
 		</div>
 	)
