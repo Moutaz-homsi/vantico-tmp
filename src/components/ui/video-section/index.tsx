@@ -6,8 +6,17 @@ interface IVideoSection {
 	id?: string
 	className?: string
 	children?: React.ReactNode
+	hideBackgroundOverlay?: boolean
+	childrenContainerClassName?: string
 }
-export default function VideoSection({ id, hero_video_url, className, children }: IVideoSection) {
+export default function VideoSection({
+	id,
+	hero_video_url,
+	className,
+	children,
+	hideBackgroundOverlay = false,
+	childrenContainerClassName
+}: IVideoSection) {
 	return (
 		<section
 			{...(id ? { id: id } : {})}
@@ -24,8 +33,8 @@ export default function VideoSection({ id, hero_video_url, className, children }
 				muted
 				playsInline
 			/>
-			<div className="absolute inset-0 bg-black/60"></div>
-			<div className="z-10">{children}</div>
+			{!hideBackgroundOverlay && <div className="absolute inset-0 bg-black/60"></div>}
+			<div className={cn("z-10", childrenContainerClassName)}>{children}</div>
 		</section>
 	)
 }
