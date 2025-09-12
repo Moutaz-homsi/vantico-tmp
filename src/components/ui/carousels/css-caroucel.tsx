@@ -11,37 +11,10 @@ export default function CssCarousel({ data = [], imgHeight }: { data: any[]; img
 					{/* First set of cards */}
 					{data.map((item, index) => (
 						<SlideItem item={item} imgHeight={imgHeight} key={item?.id || index} />
-						// <div key={index} className="card-logos-item">
-						// 	<div className={cn("text-center min-w-[200px] ", !imgHeight ? "h-32" : imgHeight)}>
-						// 		<div className={cn("relative w-full h-full")}>
-						// 			<Image
-						// 				isFill
-						// 				src={item.url}
-						// 				strapiImage={item}
-						// 				alt={item.alt}
-						// 				className="object-contain pointer-events-none select-none"
-						// 			/>
-						// 		</div>
-						// 	</div>
-						// </div>
 					))}
 					{/* Duplicate set for seamless loop */}
 					{data.map((item, index) => (
 						<SlideItem item={item} imgHeight={imgHeight} key={`duplicate-${item?.id || index}`} />
-
-						// <div key={`duplicate-${index}`} className="card-logos-item">
-						// 	<div className={cn("text-center min-w-[200px] ", !imgHeight ? "h-32" : imgHeight)}>
-						// 		<div className={cn("relative w-full h-full ")}>
-						// 			<Image
-						// 				isFill
-						// 				src={item.url}
-						// 				strapiImage={item}
-						// 				alt={item.alt}
-						// 				className="object-contain pointer-events-none select-none"
-						// 			/>
-						// 		</div>
-						// 	</div>
-						// </div>
 					))}
 				</div>
 			</div>
@@ -53,32 +26,38 @@ function SlideItem({
 	item,
 	imgHeight
 }: {
-	item: { image: { url: string; alt: string }; link?: string }
+	item: { image: { url: string; alt: string }; link?: string; apply_mask: boolean | null }
 	imgHeight?: string
 }) {
 	return (
 		<div className="card-logos-item">
-			<div className={cn("text-center min-w-[200px] ", !imgHeight ? "h-32" : imgHeight)}>
+			<div className={cn("text-center min-w-[200px] relative", !imgHeight ? "h-32" : imgHeight)}>
 				{item.link ? (
 					<Link href={item.link} target="_blank">
-						<div className={cn("relative w-full h-full")}>
+						<div className="relative w-full h-full">
 							<Image
 								isFill
 								src={item.image.url}
 								strapiImage={item.image as any}
 								alt={item.image.alt}
-								className="object-contain pointer-events-none select-none"
+								className={cn(
+									"object-contain pointer-events-none select-none transition-all duration-300",
+									item?.apply_mask && "brightness-50"
+								)}
 							/>
 						</div>
 					</Link>
 				) : (
-					<div className={cn("relative w-full h-full")}>
+					<div className="relative w-full h-full">
 						<Image
 							isFill
 							src={item.image.url}
 							strapiImage={item.image as any}
 							alt={item.image.alt}
-							className="object-contain pointer-events-none select-none"
+							className={cn(
+								"object-contain pointer-events-none select-none transition-all duration-300",
+								item?.apply_mask && "brightness-50"
+							)}
 						/>
 					</div>
 				)}

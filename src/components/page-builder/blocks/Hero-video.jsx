@@ -39,7 +39,7 @@ const HeroVideo = ({
 		>
 			<video
 				className="absolute top-0 left-0 w-full h-full object-cover"
-				src={hero_video_url || "hero-video-1-min.mp4"} //"/hero-video.mp4"
+				src={hero_video_url || "hero-video-1-min.mp4"}
 				autoPlay
 				loop
 				muted
