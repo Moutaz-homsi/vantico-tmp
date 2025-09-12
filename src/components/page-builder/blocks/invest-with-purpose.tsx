@@ -80,17 +80,17 @@ export function Item({ item }: { item: Item }) {
 
 	return (
 		<div className="flex flex-col">
-				<AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden">
+				{/* <AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden"> */}
 					<img
 						// isFill
 						// strapiImage={item.image as unknown as null | undefined}
 						src={item.image || "/placeholder.svg"}
 						alt={item.title}
-						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+						className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
 					/>
-				</AspectRatio>
+				{/* </AspectRatio> */}
 				<div className="flex flex-col gap-2 mt-4">
-					<p className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">{item.title}</p>
+					<p className="text-xl font-medium mb-3 hover:text-gray-700 transition-colors">{item.title}</p>
 					<div className="text-[#535353] text-lg ">{item.content}</div>
 				</div>
 		</div>

@@ -29,14 +29,14 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 	return (
 		<section id="tour" className="bg-black text-white py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
-				<div className="text-center">
+				{/* <div className="text-center">
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
-				</div>
+				</div> */}
 
 				<Title className="text-2xl text-white text-center mt-6">
 					A glimpse into some
 					<br />
-					of our prime assets
+					of our assets
 				</Title>
 
 				<div className="mt-10 md:mt-20 relative">
