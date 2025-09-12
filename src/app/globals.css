@@ -341,27 +341,24 @@ html {
 	gap: 2rem;
 	width: max-content;
 	will-change: transform;
+	animation: slide var(--animation-duration, 60s) linear infinite;
+}
+
+.card-logos-content:hover {
+	animation-play-state: paused;
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-50% - 1rem)); /* Move by half the width of the container */
+	}
 }
 
 .card-logos-item {
 	flex-shrink: 0;
-}
-
-.animate-logos {
-	animation: logos 35s linear infinite;
-}
-
-.animate-logos:hover {
-	animation-play-state: paused;
-}
-
-@keyframes logos {
-	0% {
-		transform: translateX(0%);
-	}
-	100% {
-		transform: translateX(-50%);
-	}
 }
 
 [data-container="booking-container"] {

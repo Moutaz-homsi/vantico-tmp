@@ -39,7 +39,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 
 					<div className="col-span-12 grid grid-cols-12 gap-4">
 						<div
-							className="col-span-12 md:col-span-8 font-semibold text-5xl lg:text-7xl [&_*]:font-secondary"
+							className="col-span-12 md:col-span-8 text-5xl lg:text-7xl [&_*]:font-secondary"
 							style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
 						>
 							<div className="w-full text-center md:text-left relative md:top-7">
