@@ -5,7 +5,7 @@ import Title from "@/components/ui/title"
 import { cn } from "@/utils"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import TenantCarousel from "../../ui/tenant-carousel"
+import TenantCarousel from "../../ui/carousels/tenant-carousel"
 
 export interface Tenant {
 	name: string
@@ -29,11 +29,11 @@ export default function TenantsSection({ tenants, className }: TenantsSectionPro
 			<div className="  px-4">
 				<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
 					<SectionLabel label={"TENANTS"} />
-					<Title className="">
+					<Title className="text-2xl">
 						A portfolio of high-quality,
-						<br /> recession-resistant <br /> 216+ tenants
+						<br /> recession-resistant 216+ tenants
 					</Title>
-					<p className="text-[#535353] text-lg leading-[160%]  max-w-xl">
+					<p className="text-[#535353] text-lg leading-[160%] max-w-xl">
 						Our properties attract top-tier tenants, ensuring stability, high occupancy rates, and long-term revenue
 						growth.
 					</p>

@@ -14,6 +14,9 @@ export interface NewsItem {
 	date: string
 	image: string
 	url: string
+	id: number
+	slug: string
+	content: any
 }
 
 interface NewsSectionProps {
@@ -39,7 +42,7 @@ export default function NewsSection({
 				<Title text={title} />
 
 				{/* News grid */}
-				{items.length > 0 && (
+				{items?.length > 0 && (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
 						{items.map((item, index) => (
 							<NewsItem key={item.id} item={item} />
@@ -65,7 +68,7 @@ export default function NewsSection({
 	)
 }
 
-export function NewsItem({ item }) {
+export function NewsItem({ item }: { item: NewsItem }) {
 	const date = new Date(item.date)
 
 	const formattedDate = date.toLocaleDateString("en-US", {
@@ -80,18 +83,16 @@ export function NewsItem({ item }) {
 				<AspectRatio ratio={15 / 16} className="mb-6 w-full h-full relative overflow-hidden">
 					<Image
 						isFill
-						strapiImage={item.image}
-						src={item.image?.url || "/placeholder.svg"}
+						strapiImage={item.image as unknown as null | undefined}
+						src={(item.image as any)?.url || "/placeholder.svg"}
 						alt={item.title}
 						className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
 					/>
 				</AspectRatio>
 				<div className="flex flex-col gap-2 mt-4">
 					<div className="text-[#535353] text-lg ">{formattedDate}</div>
-					{/* <h3 className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">
-											{item.title}
-										</h3> */}
-					<p className="text-[#151515] leading-[140%] text-xl md:text-2xl line-clamp-3">{item.content}</p>
+					<p className="text-xl font-medium mb-3 group-hover:text-gray-700 transition-colors">{item.title}</p>
+					{/* <p className="text-[#151515] leading-[140%] text-xl md:text-2xl line-clamp-3">{item.content}</p> */}
 				</div>
 			</Link>
 		</div>

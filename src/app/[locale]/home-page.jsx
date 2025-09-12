@@ -1,64 +1,26 @@
 import AboutUs from "@/components/page-builder/blocks/AboutUs"
 import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
+import EcosystemSection from "@/components/page-builder/blocks/ecosystem"
 import FAQ from "@/components/page-builder/blocks/FAQ"
-import Hero from "@/components/page-builder/blocks/Hero"
 import HeroVideo from "@/components/page-builder/blocks/Hero-video"
 import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
-import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
-import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
-import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
 import NewsSection from "@/components/page-builder/blocks/news-section"
-import OurHistory from "@/components/page-builder/blocks/OurHistory"
 import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
-import Ready from "@/components/page-builder/blocks/Ready"
-import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
-import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
 import Testimonials from "@/components/page-builder/blocks/Testimonials"
 import { mockHomePageData } from "@/data/home-page-data"
-import { investmentSteps } from "@/data/investmentData"
-import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"
-
-const strategyItems = [
-	{
-		icon: "target",
-		title: "Target Market and Strategy",
-		content:
-			"Focused on acquiring high-growth, dental-anchored properties across the Mid-Atlantic, our strategy capitalizes on stable, long-term leases that drive consistent returns."
-	},
-	{
-		icon: "trendingUp",
-		title: "Opportunistic Growth",
-		content:
-			"We identify and capitalize on emerging market opportunities, allowing us to achieve above-market returns through strategic timing and disciplined execution."
-	},
-	{
-		icon: "users",
-		title: "Proven Leadership Team",
-		content:
-			"Our executive team brings decades of combined experience in real estate investment, property management, and financial optimization across multiple market cycles."
-	},
-	{
-		icon: "chartBar",
-		title: "Compelling Financial Returns",
-		content:
-			"Our investment approach has consistently delivered strong risk-adjusted returns, with a focus on both current income and long-term capital appreciation."
-	},
-	{
-		icon: "handshake",
-		title: "Strategic Partnerships",
-		content:
-			"We leverage our extensive network of industry relationships to source exclusive deals and create value-added opportunities for our investment portfolio."
-	},
-	{
-		icon: "fileText",
-		title: "Risk Mitigation and Alignment",
-		content:
-			"Our rigorous due diligence process and conservative underwriting standards help protect investor capital while ensuring our interests remain aligned with our partners."
-	}
-]
+// import Hero from "@/components/page-builder/blocks/Hero"
+// import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
+// import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
+// import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
+// import OurHistory from "@/components/page-builder/blocks/OurHistory"
+// import Ready from "@/components/page-builder/blocks/Ready"
+// import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
+// import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
+// import { investmentSteps } from "@/data/investmentData"
+// import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 
 export const historyItems = [
 	{
@@ -90,7 +52,12 @@ export default async function HomePage() {
 
 	return (
 		<main>
-			<HeroVideo videoId={homePageData.video_id} calendlyUrl={homePageData.calendly_url} subtitle="" />
+			<HeroVideo
+				videoId={homePageData.video_id}
+				calendlyUrl={homePageData.calendly_url}
+				hero_video_url={homePageData.hero_video_url}
+				subtitle=""
+			/>
 			<AboutUs logos={homePageData.logos} />
 
 			{/* <StrategyAccordion
@@ -102,24 +69,25 @@ export default async function HomePage() {
 
 			<InvestWithPurpose />
 
+			<EcosystemSection slides={homePageData.ecosystem_sliders} />
 			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
 
 			<PropertyTour properties={homePageData.properties} />
 
 			<TenantsSection tenants={homePageData.tenants} />
 
-			<ROICalculator />
+			{/* <ROICalculator /> */}
 
-			<Ready />
+			{/* <Ready /> */}
 			{/* <MeetTheTeam members={homePageData.team} /> */}
 
 			{/* <InvestmentApproach steps={investmentSteps} /> */}
 
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
-			<Testimonials testimonials={homePageData.testimonials} />
+			{/* <Testimonials testimonials={homePageData.testimonials} /> */}
 
 			<NewsSection items={homePageData.news} />
-			<FAQ items={homePageData.faq} />
+			{/* <FAQ items={homePageData.faq} /> */}
 		</main>
 	)
 }
@@ -137,10 +105,13 @@ async function getHomePageData() {
 			// TENANTS
 			"tenants.first_row_images",
 			"tenants.second_row_images",
-			"tenants.third_row_images"
+			"tenants.third_row_images",
+			"ecosystem_sliders.first_slider.image",
+			"ecosystem_sliders.second_slider.image",
+			"ecosystem_sliders.third_slider.image"
 		]
 	})
-	
+
 	try {
 		const responseBody = await fetchData({
 			route: "homepage?" + query,
@@ -160,3 +131,42 @@ async function getHomePageData() {
 
 	return { ...homePageData, news: news.data, team: team.data, properties: properties.data }
 }
+
+// const strategyItems = [
+// 	{
+// 		icon: "target",
+// 		title: "Target Market and Strategy",
+// 		content:
+// 			"Focused on acquiring high-growth, dental-anchored properties across the Mid-Atlantic, our strategy capitalizes on stable, long-term leases that drive consistent returns."
+// 	},
+// 	{
+// 		icon: "trendingUp",
+// 		title: "Opportunistic Growth",
+// 		content:
+// 			"We identify and capitalize on emerging market opportunities, allowing us to achieve above-market returns through strategic timing and disciplined execution."
+// 	},
+// 	{
+// 		icon: "users",
+// 		title: "Proven Leadership Team",
+// 		content:
+// 			"Our executive team brings decades of combined experience in real estate investment, property management, and financial optimization across multiple market cycles."
+// 	},
+// 	{
+// 		icon: "chartBar",
+// 		title: "Compelling Financial Returns",
+// 		content:
+// 			"Our investment approach has consistently delivered strong risk-adjusted returns, with a focus on both current income and long-term capital appreciation."
+// 	},
+// 	{
+// 		icon: "handshake",
+// 		title: "Strategic Partnerships",
+// 		content:
+// 			"We leverage our extensive network of industry relationships to source exclusive deals and create value-added opportunities for our investment portfolio."
+// 	},
+// 	{
+// 		icon: "fileText",
+// 		title: "Risk Mitigation and Alignment",
+// 		content:
+// 			"Our rigorous due diligence process and conservative underwriting standards help protect investor capital while ensuring our interests remain aligned with our partners."
+// 	}
+// ]

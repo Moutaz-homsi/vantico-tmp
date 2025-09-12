@@ -20,31 +20,23 @@ export default function InvestWithPurpose() {
 				<div className="text-center">
 					<SectionLabel label={"Invest with Purpose"} variant="dark" />
 				</div>
-				<div className="relative z-10 text-center pt-16 pb-8 ">
-					<div className="flex justify-start">
-						<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
+				{/* <h1 className="relative z-10 text-center pt-16 pb-8 ">
+					<p className="flex justify-start">
+						<p className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
 							Precision
-						</h1>
-					</div>
-					{/* justify-center */}
-					<div className="flex justify-start">
-						<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
+						</p>
+					</p>
+					<p className="flex justify-start">
+						<p className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
 							Partnership
-						</h1>
-					</div>
-					{/* justify-end */}
-					<div className="flex justify-start">
-						<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
+						</p>
+					</p>
+					<p className="flex justify-start">
+						<p className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white mb-2">
 							Conviction
-						</h1>
-					</div>
-
-					{/* <p className="text-lg md:text-2xl text-[#ABABAB] mt-6 mb-10  max-w-3xl mx-auto">{subtitle}</p> */}
-
-					{/* <Button onClick={onCtaClick}>
-						{ctaText} <ChevronRight className="ml-2" size={20} />
-					</Button> */}
-				</div>
+						</p>
+					</p>
+				</h1> */}
 
 				<div className="mt-6 md:mt-10">
 					<div className="flex gap-4 w-full text-xl text-center">

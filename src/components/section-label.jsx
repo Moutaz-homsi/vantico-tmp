@@ -7,7 +7,7 @@ const defaultClasses = {
 }
 export default function SectionLabel({ className = "", variant = "light", label }) {
 	return (
-		<span className={cn("rounded-xs font-semibold text-sm px-4 py-2 uppercase", defaultClasses[variant], className)}>
+		<span className={cn("rounded-xs font-semibold text-lg md:text-xl px-4 py-2 uppercase", defaultClasses[variant], className)}>
 			{label}
 		</span>
 	)
