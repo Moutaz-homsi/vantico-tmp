@@ -22,7 +22,7 @@ const OurPhilosophy = ({ founder_image, founder_philosophy }) => {
 								`At VANTICO we lead with character before capital. True investment begins with trust. Before any numbers or structures we focus on people their values their vision and their integrity. We believe long-term success is not only measured in returns but in relationships built with care and conviction. We are here to build what matters patiently and with purpose. That means saying no more often than yes. It means choosing partners who share our principles.`}
 						</p>
 					</div>
-					<div className="flex justify-end items-end flex-col text-left text-white">
+					<div className="w-fit flex justify-end items-start flex-col text-left text-white ms-auto">
 						<p className="text-lg md:text-2xl">Dr. Hesham Baky</p>
 						<p className="text-md md:text-xl font-light">Chairman and Founder</p>
 					</div>

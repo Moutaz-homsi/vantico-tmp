@@ -20,7 +20,7 @@ export default function StrategicPartnerships() {
 							That is the standard we live by every day at VANTICO.
 						</p>
 					</div>
-					<div className="flex justify-end items-end flex-col text-left text-white">
+					<div className="w-fit flex justify-end items-start flex-col text-left text-white ms-auto">
 						<p className="text-lg md:text-2xl">Dr. Anas Albakour</p>
 						<p className="text-md md:text-xl font-light">Co-Founder and Head of Strategic Partnerships</p>
 					</div>
