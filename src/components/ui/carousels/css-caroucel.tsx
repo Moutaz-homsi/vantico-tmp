@@ -1,13 +1,21 @@
-"use client"
 import { cn } from "@/utils"
-import { Image } from "@/components/ui"
 import Link from "next/link"
+import { Image } from "@/components/ui"
+
+const BASE_DURATION = 40 // This will be the duration for a carousel with 5 items
 
 export default function CssCarousel({ data = [], imgHeight }: { data: any[]; imgHeight?: string }) {
+
+	// Calculate duration based on number of items
+	const duration = data.length > 0 ? Math.max(20, Math.min(120, (data.length / 5) * BASE_DURATION)) : 60
+
 	return (
 		<div className="w-full overflow-hidden">
 			<div className="card-logos-container">
-				<div className={"card-logos-content animate-logos"}>
+				<div 
+					className="card-logos-content"
+					style={{ '--animation-duration': `${duration}s` } as React.CSSProperties}
+				>
 					{/* First set of cards */}
 					{data.map((item, index) => (
 						<SlideItem item={item} imgHeight={imgHeight} key={item?.id || index} />
@@ -31,7 +39,7 @@ function SlideItem({
 }) {
 	return (
 		<div className="card-logos-item">
-			<div className={cn("text-center min-w-[200px] relative", !imgHeight ? "h-32" : imgHeight)}>
+			<div className={cn("text-center w-[200px] relative", !imgHeight ? "h-32" : imgHeight)}>
 				{item.link ? (
 					<Link href={item.link} target="_blank">
 						<div className="relative w-full h-full hover:scale-105 transition-transform duration-300">
