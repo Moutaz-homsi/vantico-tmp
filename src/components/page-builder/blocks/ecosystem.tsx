@@ -27,11 +27,11 @@ interface EcosystemSectionProps {
 export default function EcosystemSection({ slides, className }: EcosystemSectionProps) {
 	return (
 		// border-b-2 border-b-amber-50
-		<section id="ecosystem" className={cn("w-full py-10 lg:pt-20 lg:pb-10 bg-black", className)}>
+		<section id="ecosystem" className={cn("w-full py-10 lg:py-18", className)}>
 			<div className="px-4 max-w-6xl mx-auto">
 				<div className="flex flex-col gap-6 items-center text-center">
-					<Title className="text-white text-2xl">A PROVEN ECOSYSTEM OF SUCCESSFUL BRANDS & PARTNERSHIPS</Title>
-					<p className="text-white ">
+					<Title className="text-2xl">A PROVEN ECOSYSTEM OF SUCCESSFUL BRANDS & PARTNERSHIPS</Title>
+					<p className="">
 						A NETWORK OF ELITE PARTNERS ENSURES CREDIBILITY, SEAMLESS OPERATIONS, AND CONSISTENT INVESTMENT SUCCESS
 					</p>
 				</div>

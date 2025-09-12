@@ -2,12 +2,14 @@ import AboutUs from "@/components/page-builder/blocks/AboutUs"
 import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
 import EcosystemSection from "@/components/page-builder/blocks/ecosystem"
 import FAQ from "@/components/page-builder/blocks/FAQ"
+import GlobeSection from "@/components/page-builder/blocks/globe-section"
 import HeroVideo from "@/components/page-builder/blocks/Hero-video"
 import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
 import NewsSection from "@/components/page-builder/blocks/news-section"
 import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
 import Testimonials from "@/components/page-builder/blocks/Testimonials"
+import VideoSection from "@/components/ui/video-section"
 import { mockHomePageData } from "@/data/home-page-data"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"
@@ -71,6 +73,8 @@ export default async function HomePage() {
 
 			<InvestWithPurpose />
 
+			<GlobeSection/>
+
 			<EcosystemSection slides={homePageData.ecosystem_sliders} />
 			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
 
@@ -88,7 +92,7 @@ export default async function HomePage() {
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
 			{/* <Testimonials testimonials={homePageData.testimonials} /> */}
 
-			<NewsSection items={homePageData.news} />
+			{/* <NewsSection items={homePageData.news} /> */}
 			{/* <FAQ items={homePageData.faq} /> */}
 		</main>
 	)
