@@ -8,9 +8,10 @@ interface IVideoSection {
 	id?: string
 	className?: string
 	children?: React.ReactNode
+	showVideoOverlay?: boolean
 }
 
-export default function VideoSection({ id, video_url, className, children }: IVideoSection) {
+export default function VideoSection({ id, video_url, className, children, showVideoOverlay = true }: IVideoSection) {
 	const videoRef = useRef<HTMLVideoElement | null>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
 	const videoPath = video_url || "/hero-video-1-min.mp4"
@@ -110,7 +111,7 @@ export default function VideoSection({ id, video_url, className, children }: IVi
 						/>
 					</div>
 				) : null}
-				<div className="absolute inset-0 bg-black/60"></div>
+				{showVideoOverlay && <div className="absolute inset-0 bg-black/60"></div>}
 			</div>
 			<div className="z-10 w-full">{children}</div>
 		</section>

@@ -7,6 +7,7 @@ export default function GlobeSection() {
 			video_url={"/globe-video-min.mp4"}
 			id="globe-video"
 			className="h-[550px] min-h-[550px] lg:h-[600px] lg:min-h-[600px]"
+			showVideoOverlay={false}
 		>
 			<div className="w-full max-w-7xl h-full flex items-center justify-start ps-4 lg:ps-8">
 				<div className="relative z-10 pt-0 pb-0 flex flex-col gap-y-10 px-4 lg:px-24">
