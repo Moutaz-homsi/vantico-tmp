@@ -8,8 +8,6 @@ import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purp
 import NewsSection from "@/components/page-builder/blocks/news-section"
 import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
 import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
-import Testimonials from "@/components/page-builder/blocks/Testimonials"
-import VideoSection from "@/components/ui/video-section"
 import { mockHomePageData } from "@/data/home-page-data"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"

@@ -5,7 +5,7 @@ import { cn } from "@/utils/style-utils"
 
 export default function Container({
 	children,
-	className,
+	className = "",
 	as: Component = "div",
 	fluid = false,
 	noGutters = false,
