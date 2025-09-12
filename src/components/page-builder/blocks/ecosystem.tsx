@@ -30,9 +30,9 @@ export default function EcosystemSection({ slides, className }: EcosystemSection
 		<section id="ecosystem" className={cn("w-full py-10 lg:py-18", className)}>
 			<div className="px-4 max-w-6xl mx-auto">
 				<div className="flex flex-col gap-6 items-center text-center">
-					<Title className="text-2xl">A PROVEN ECOSYSTEM OF SUCCESSFUL BRANDS & PARTNERSHIPS</Title>
+					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>
 					<p className="">
-						A NETWORK OF ELITE PARTNERS ENSURES CREDIBILITY, SEAMLESS OPERATIONS, AND CONSISTENT INVESTMENT SUCCESS
+						A network of elite partners ensures credibility, seamless operations, and consistent investment success. <br/>we are proud to collaborate with a distinguished network of:
 					</p>
 				</div>
 				<div className="mt-10 flex flex-col ">

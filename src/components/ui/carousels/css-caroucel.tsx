@@ -34,28 +34,28 @@ function SlideItem({
 			<div className={cn("text-center min-w-[200px] relative", !imgHeight ? "h-32" : imgHeight)}>
 				{item.link ? (
 					<Link href={item.link} target="_blank">
-						<div className="relative w-full h-full">
+						<div className="relative w-full h-full hover:scale-105 transition-transform duration-300">
 							<Image
 								isFill
 								src={item.image.url}
 								strapiImage={item.image as any}
 								alt={item.image.alt}
 								className={cn(
-									"object-contain pointer-events-none select-none transition-all duration-300",
+									"object-contain pointer-events-none select-none",
 									item?.apply_mask && "brightness-50"
 								)}
 							/>
 						</div>
 					</Link>
 				) : (
-					<div className="relative w-full h-full">
+					<div className="relative w-full h-full hover:scale-105 transition-transform duration-300">
 						<Image
 							isFill
 							src={item.image.url}
 							strapiImage={item.image as any}
 							alt={item.image.alt}
 							className={cn(
-								"object-contain pointer-events-none select-none transition-all duration-300",
+								"object-contain pointer-events-none select-none",
 								item?.apply_mask && "brightness-50"
 							)}
 						/>

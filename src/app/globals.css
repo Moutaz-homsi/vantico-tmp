@@ -348,7 +348,7 @@ html {
 }
 
 .animate-logos {
-	animation: logos 25s linear infinite;
+	animation: logos 35s linear infinite;
 }
 
 .animate-logos:hover {
