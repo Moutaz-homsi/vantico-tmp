@@ -7,10 +7,11 @@ import { cn } from "@/utils"
 import { getImageUrlFromObject } from "@/utils/image-loader"
 import { Fancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox.css"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import { ChevronRight } from "lucide-react"
 import { Key, SetStateAction, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 Fancybox.defaults.Hash = false
 
@@ -34,7 +35,7 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
 				</div> */}
 
-				<Title className="text-2xl text-white text-center mt-6">
+				<Title className="text-2xl text-white text-center mt-6 mb-12">
 					A glimpse into some
 					<br />
 					of our assets
@@ -42,8 +43,9 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 
 				<Carousel
 					opts={{
-						align: "start",
-						loop: true // Prevent scrolling from last to first
+						align: "center",
+						loop: true, // Prevent scrolling from last to first
+						containScroll: "trimSnaps"
 					}}
 					plugins={[
 						Autoplay({
@@ -52,34 +54,40 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 							stopOnInteraction: false
 						})
 					]}
-					style={{
-						maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))",
-						WebkitMaskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
-					}}
-					className="w-full"
+					style={
+						{
+							// maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))",
+							// WebkitMaskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
+						}
+					}
+					className="w-full overflow-hidden"
 				>
-					<CarouselContent className=" flex items-center ">
+					<CarouselContent
+						className="touch-pan-y touch-pinch-zoom -ml-4
+             [transform:translate3d(0,0,0)] flex items-center "
+					>
 						{properties.map((property) => {
 							return (
-								<CarouselItem key={property.id} className={`basis-1/3 md:basis-1/6`} onClick={() => { }}>
-									{/* <p className="text-white">{item.id}</p> */}
-									<div
-										className={cn(
-											"relative w-full h-32 "
-										)}
-									>
-										<Image
-											isFill
-											src={property.image?.url}
-											strapiImage={property.image as any}
-											alt={property.image?.alt || "Property image"}
-											className="object-contain pointer-events-none select-none"
-										/>
+								<CarouselItem key={property.id} className={`flex-[0_0_70%] min-w-0 pl-4`} onClick={() => {}}>
+									<div className={cn("relative ")}>
+										<AspectRatio ratio={16 / 10}>
+											<Image
+												isFill
+												src={property.image?.url}
+												strapiImage={property.image as any}
+												alt={property.image?.alt || "Property image"}
+												className="object-cover pointer-events-none select-none rounded"
+											/>
+										</AspectRatio>
 									</div>
 								</CarouselItem>
 							)
 						})}
 					</CarouselContent>
+					<div className="">
+						<CarouselPrevious className="left-2 bg-black/30 size-16 p-5 [&_svg:not([class*='size-'])]:size-8" />
+						<CarouselNext className="right-2 bg-black/30 p-5 size-16 [&_svg:not([class*='size-'])]:size-8" />
+					</div>
 				</Carousel>
 				{/* 
 				<div className="mt-10 md:mt-20 relative">
