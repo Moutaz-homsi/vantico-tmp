@@ -65,37 +65,14 @@ const HeroVideo = ({
 			<div className="w-full max-w-7xl h-full flex flex-col lg:justify-center pt-16 lg:pt-0">
 				<div className="relative z-10 pt-0 pb-0 flex flex-col gap-y-10 justify-baseline lg:justify-center items-center lg:items-start px-4 lg:px-24">
 					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white">Precision</h1>
-					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white cd-headline clip">
+					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white">
 						<span className="cd-words-wrapper">Partnership</span>
 					</h1>
-					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white cd-headline clip">
+					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white">
 						<span className="cd-words-wrapper">Conviction</span>
 					</h1>
 					{/* <p className="text-lg md:text-2xl text-[#ABABAB] mt-6 mb-10 max-w-3xl mx-auto">{subtitle}</p> */}
 				</div>
-
-				{/* <div className="flex gap-8 mb-16">
-					<div className="w-2/5">
-						<div className="relative w-[300px] h-[400px] aspect-[3/4] mx-auto">
-							<Image src="/images/dr-hesham-baky.jpg" alt="CEO Image" className="rounded-lg" isFill />
-						</div>
-					</div>
-					<div className="w-3/5 flex flex-col justify-between relative">
-						<div className="flex-1 flex items-center">
-							<p className="text-md md:text-xl text-white mt-16">
-								At VANTICO, character is our foundation. We are driven by clarity of vision, operational discipline, and
-								integrity in every decision. Trust is earned daily through transparent partnerships and aligned action.
-								We invest with purpose, guided by data and committed to outcomes that endure. Our goal is not to be
-								everywhere but to build what is essential and lasting. Excellence is not a pursuit of perfection but a
-								duty to those we serve. Through precision and purpose, we create value that extends far beyond capital.
-							</p>
-						</div>
-						<div className="flex justify-end items-end flex-col text-left text-white">
-							<p className="text-xs md:text-2xl">Dr. Hesham Baky</p>
-							<p className="text-smxs md:text-lg font-light">Chairman and Founder</p>
-						</div>
-					</div>
-				</div> */}
 			</div>
 
 			{videoId && (

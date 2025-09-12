@@ -12,6 +12,7 @@ import { mockHomePageData } from "@/data/home-page-data"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"
 import OurPhilosophy from "@/components/page-builder/blocks/OurPhilosophy"
+import StrategicPartnerships from "@/components/page-builder/blocks/StrategicPartnerships"
 // import Hero from "@/components/page-builder/blocks/Hero"
 // import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
 // import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
@@ -71,7 +72,9 @@ export default async function HomePage() {
 
 			<InvestWithPurpose />
 
-			<GlobeSection/>
+			<GlobeSection />
+
+			<StrategicPartnerships />
 
 			<EcosystemSection slides={homePageData.ecosystem_sliders} />
 			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
