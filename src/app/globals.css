@@ -363,3 +363,7 @@ html {
 		transform: translateX(-50%);
 	}
 }
+
+[data-container="booking-container"] {
+	background-color: #ffffffba !important;
+}
