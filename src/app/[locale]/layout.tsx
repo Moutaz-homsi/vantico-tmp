@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 // import { Geist, Geist_Mono, Gantari, Montserrat, Cairo } from "next/font/google"
 import "../globals.css"
+import "../wysiwyg.css"
 import { Header, Footer } from "@/components/layout"
 // import { NextIntlClientProvider } from "next-intl"
 import { ModalProvider } from "@/hooks/use-model"

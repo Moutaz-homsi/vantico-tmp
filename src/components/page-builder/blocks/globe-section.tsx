@@ -3,11 +3,13 @@ import VideoSection from "@/components/ui/video-section"
 
 export default function GlobeSection() {
 	return (
-		<VideoSection hero_video_url={"/globe-video-min.mp4"} id="globe-video" className="py-28 px-6 md:px-8 lg:px-16">
-			<div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-16 items-center lg:items-stretch">
-				<div className="">
-					<div className="relative w-[300px] h-[400px] aspect-[3/4] mx-auto">
-						<Image src="/images/dr-anas-bakour.png" alt="CEO Image" className="rounded-lg" isFill />
+		<VideoSection video_url={"/globe-video-min.mp4"} id="globe-video">
+			<div className="w-full max-w-7xl flex flex-col gap-6 mx-auto">
+				<div className="flex gap-8 mb-16">
+					<div className="w-2/5">
+						<div className="relative w-[300px] h-[400px] aspect-[3/4] mx-auto">
+							<Image src="/images/dr-anas-bakour.png" alt="CEO Image" className="rounded-lg" isFill />
+						</div>
 					</div>
 				</div>
 				<div className="flex flex-col">
