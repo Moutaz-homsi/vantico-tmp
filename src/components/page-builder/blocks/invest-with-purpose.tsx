@@ -34,7 +34,7 @@ const items=[
 
 export default function InvestWithPurpose() {
 	return (
-		<section id="tour" className="bg-black text-white py-20 px-4 border-b-2 border-b-amber-50">
+		<section id="tour" className="bg-black text-white py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
 
 				<div className="flex justify-center">
