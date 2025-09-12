@@ -31,7 +31,7 @@ export default function Header() {
 						)}
 					>
 					<Link href="/" className="block md:w-52">
-						<Image src="/images/logo-v3-2.png" alt="Logo" height={100} width={200} className="select-none" quality="100" />
+						<Image src="/images/logo-v2.svg" alt="Logo" height={100} width={200} className="select-none" quality="100" />
 					</Link>
 
 					<DesktopMenu />
