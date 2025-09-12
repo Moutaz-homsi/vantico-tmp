@@ -41,7 +41,7 @@ export default function EcosystemSection({ slides, className }: EcosystemSection
 					<CssCarousel data={slides?.third_slider || []} />
 				</div>
 				<div className="mt-4">
-					<div className="col-span-12 text-xs text-gray-400">
+					<div className="col-span-12 text-xs text-gray-400 relative top-8 lg:top-16">
 						Logos displayed represent institutions and counterparties with whom VANTICO or its affiliates have engaged
 						in various business transactions, partnerships, or professional relationships. Inclusion does not imply an
 						endorsement or ongoing commercial relationship unless explicitly stated.
