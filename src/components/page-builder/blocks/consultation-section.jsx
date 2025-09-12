@@ -7,7 +7,7 @@ import Title from "@/components/ui/title"
 import Calendly from "@/components/calendly"
 
 const backgroundImage = {
-	url: "/images/calendly-background.png",
+	url: "https://vantico-backend.webotak.com/uploads/DJI_20250520134827_0065_D_ed6af30e6d.jpg",
 	width: 1920,
 	height: 1080
 }
@@ -35,9 +35,9 @@ export default function ConsultationSection({ calendlyUrl }) {
 			>
 				{/* <div className="absolute inset-0 bg-black/50 z-[1]"></div> */}
 				{/* <div className="bg-white rounded-xl p-4 md:p-11 max-w-5xl mx-auto z-10 relative"> */}
-					<Title className="text-2xl color-white text-center">
+					{/* <Title className="text-2xl color-white text-center">
 						Contact Us
-					</Title>
+					</Title> */}
 					<Calendly calendlyUrl={calendlyUrl} />
 				{/* </div> */}
 			</div>
