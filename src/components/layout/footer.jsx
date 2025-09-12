@@ -33,9 +33,7 @@ const contactDetails = [
 		),
 		content: (
 			<address className="not-italic">
-				1400 Crescent Green Drive,
-				<br />
-				Suite 320, Cary, North Carolina
+				1400 Crescent Green Drive, Suite 320, Cary, North Carolina
 			</address>
 		)
 	},
@@ -106,39 +104,16 @@ const Footer = () => {
 			</div>
 
 			<div className="container mx-auto p-8 md:px-30 md:py-20">
-				{/* logo and button div */}
-				<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-16">
+
+				<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-26">
 					<div className="flex items-center">
 						<Image src="/logo-v2.svg" alt="Logo" height={30} width={260} />
 					</div>
-					<Button className="font-semibold">
-						Schedule free consultation
-						<ChevronRight className="ml-2" size={16} />
-					</Button>
-				</div>
-				<div className="flex flex-col lg:flex-row justify-between md:items-start mb-12">
-					<div className="mb-8 lg:mb-0">
-						{/* Site Map Section */}
-						<div className="mb-10">
-							<h3 className="text-neutral-300 text-center md:text-start uppercase text-sm mb-10">Site Map</h3>
-							<nav className="">
-								<ul className="space-y-8">
-									{siteMapLinks.map((link, index) => (
-										<li className="w-full text-center md:text-start " key={index}>
-											<Link href={link.href} className="hover:text-primary text-neutral-300 transition-colors">
-												{link.label}
-											</Link>
-										</li>
-									))}
-								</ul>
-							</nav>
-						</div>
-					</div>
 
-					{/* Contact Section */}
-					<div className="lg:mx-auto mb-8 lg:mb-0">
-						<h3 className="text-neutral-300 text-center md:text-start uppercase text-sm mb-10">Contact</h3>
-						<div className="space-y-8 w-full  ">
+				</div>
+				<div className="flex flex-col lg:flex-row justify-between md:items-start">
+
+						<div className="space-y-8 w-full flex gap-4">
 							{contactDetails.map((detail, index) => (
 								<div
 									className="flex justify-center md:justify-start items-center md:items-start text-center md:text-start    text-neutral-300"
@@ -149,22 +124,9 @@ const Footer = () => {
 								</div>
 							))}
 						</div>
-					</div>
-
-					{/* Map and CTA */}
-					<div className="w-full lg:w-[40%]">
-						<AspectRatio ratio={7 / 4} className="relative   rounded-sm overflow-hidden mb-6">
-							<Image
-								isFill
-								src="/images/map.png"
-								alt="Map showing the office location"
-								className="w-full h-64 object-cover"
-							/>
-						</AspectRatio>
-					</div>
 				</div>
 
-				<Separator className="bg-neutral-700 my-10" />
+				<Separator className="bg-neutral-700 mb-10" />
 
 				{/* bottom links */}
 				<div className="flex flex-col md:flex-row justify-between items-center">

@@ -44,7 +44,7 @@ export default function InvestWithPurpose() {
 						Invest with Purpose .. Build what Matters
 					</h2>
 					<div className="mt-6 md:mt-10 flex-none">
-						<div className="flex w-full gap-4 text-xl text-gray-300 text-center">
+						<div className="flex w-full gap-4 text-lg md:text-2xl text-gray-300 text-center">
 							At VANTICO, we focus on sectors with long-term growth potential, creating resilient strategies powered by
 							data, market insight, and true alignment with our long-term partners.
 						</div>
@@ -87,7 +87,7 @@ export function Item({ item }: { item: Item }) {
 			{/* </AspectRatio> */}
 			<div className="flex flex-col gap-2 mt-4">
 				<p className="text-xl font-medium mb-3 hover:text-gray-700 transition-colors">{item.title}</p>
-				<div className="text-[#535353] text-lg ">{item.content}</div>
+				<div className="text-gray-300 text-lg ">{item.content}</div>
 			</div>
 		</div>
 	)

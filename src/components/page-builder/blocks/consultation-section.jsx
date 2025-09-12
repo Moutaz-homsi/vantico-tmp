@@ -28,7 +28,7 @@ export default function ConsultationSection({ calendlyUrl }) {
 	return (
 		<div className="relative bg-white py-10 md:py-0">
 			<div
-				className="w-full min-h-80 mx-auto p-4 md:p-32 bg-no-repeat bg-cover bg-center bg-fixed relative"
+				className="w-full min-h-80 mx-auto p-4 md:p-16 bg-no-repeat bg-cover bg-center bg-fixed relative"
 				style={{
 					backgroundImage: `url(${backgroundImage?.url})`,
 				}}
@@ -38,7 +38,9 @@ export default function ConsultationSection({ calendlyUrl }) {
 					{/* <Title className="text-2xl color-white text-center">
 						Contact Us
 					</Title> */}
-					<Calendly calendlyUrl={calendlyUrl} />
+					{/* <div className="max-w-[400px]"> */}
+						<Calendly calendlyUrl={calendlyUrl} />
+					{/* </div> */}
 				{/* </div> */}
 			</div>
 		</div>

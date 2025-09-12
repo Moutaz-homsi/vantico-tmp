@@ -28,12 +28,12 @@ export default function TenantsSection({ tenants, className }: TenantsSectionPro
 		<section id="tenants" className={cn("w-full py-10 lg:py-30 bg-white", className)}>
 			<div className="  px-4">
 				<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
-					<SectionLabel label={"TENANTS"} />
+					{/* <SectionLabel label={"TENANTS"} /> */}
 					<Title className="text-2xl">
-						A portfolio of high-quality,
-						<br /> recession-resistant 216+ tenants
+						A portfolio of high-quality, recession-resistant <span className="text-4xl">220+</span> tenants
+						<br /> 
 					</Title>
-					<p className="text-[#535353] text-lg leading-[160%] max-w-xl">
+					<p className="text-[#535353] text-lg leading-[160%]">
 						Our properties attract top-tier tenants, ensuring stability, high occupancy rates, and long-term revenue
 						growth.
 					</p>

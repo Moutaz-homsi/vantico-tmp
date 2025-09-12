@@ -37,7 +37,6 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 
 				<Title className="text-2xl text-white text-center mt-6 mb-12">
 					A glimpse into some
-					<br />
 					of our assets
 				</Title>
 
