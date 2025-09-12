@@ -90,7 +90,7 @@ export default async function HomePage() {
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
 			{/* <Testimonials testimonials={homePageData.testimonials} /> */}
 
-			<NewsSection items={homePageData.news} />
+			{/* <NewsSection items={homePageData.news} /> */}
 			{/* <FAQ items={homePageData.faq} /> */}
 		</main>
 	)
