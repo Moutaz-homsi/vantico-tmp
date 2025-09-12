@@ -60,7 +60,7 @@ export default function InvestWithPurpose() {
 					))}
 				</div>
 
-				<div className="flex justify-center mt-6 md:mt-10">
+				<div className="flex justify-center md:justify-right mt-6 md:mt-10">
 					<LinkButton link="/real-estate" className="bg-white text-black">
 						Explore Our Investment Focus <ChevronRight className="ml-2" />
 					</LinkButton>
