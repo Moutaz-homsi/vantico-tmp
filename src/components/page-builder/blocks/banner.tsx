@@ -18,7 +18,7 @@ export default function Banner({ image, title, video_url, h2_class }: IBanner) {
 				video_url={video_url}
 				className="min-h-[calc(100vh-164px)] h-[calc(100vh-164px)] relative p-16 flex items-center justify-center "
 			>
-				<Container className="z-10 relative text-center w-full h-full">
+				<Container className="z-10 relative text-center w-full h-full" pattern="hidden">
 					<Title text={title} className={cn("text-white font-semibold leading-[1.5]", h2_class)} />
 				</Container>
 			</VideoSection>
@@ -30,7 +30,7 @@ export default function Banner({ image, title, video_url, h2_class }: IBanner) {
 			{!video_url && image?.url ? <Image src={image?.url} isFill className="object-cover" alt="hero_image" /> : null}
 
 			<div className="bg-black/60 absolute inset-0" />
-			<Container className="z-10 relative text-center w-full h-full">
+			<Container className="z-10 relative text-center w-full h-full" pattern="hidden">
 				<Title text={title} className={cn("text-white font-semibold leading-[1.5]", h2_class)} />
 			</Container>
 		</div>
