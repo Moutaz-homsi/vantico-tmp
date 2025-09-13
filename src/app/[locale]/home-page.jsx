@@ -19,7 +19,10 @@ export default async function HomePage({ params }) {
 	return (
 		<Layout options={homePageData.options}>
 			<HeroVideo
-				videoId={homePageData.video_id}
+				videoSrc={
+					"https://cdn.jsdelivr.net/gh/moutazdev/my-website-videos@main/295073_City_Buildings_Dusk_Aerial_Highway_By_Via_Films_Artlist_HD_2.mp4"
+				}
+				// videoId={homePageData.video_id}
 				calendlyUrl={homePageData.calendly_url}
 				hero_video_url={homePageData.hero_video_url}
 				subtitle=""
