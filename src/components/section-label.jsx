@@ -11,7 +11,7 @@ export default function SectionLabel({ className = "", variant = "light", label 
 	return (
 		<span
 			className={cn(
-				"rounded-xs font-normal capitalize text-lg md:text-xl px-4 py-2",
+				"rounded-xs font-normal capitalize text-lg md:text-2xl px-4 py-2",
 				defaultClasses[variant],
 				className
 			)}

@@ -18,8 +18,8 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 					<div className="col-span-12 text-center">
 						<SectionLabel label={"Crafting Excellence in Investment"} />
-						<Title className="my-6">Trust. Discipline. Enduring Value.</Title>
-						<p className="text-lg md:text-2xl font-light text-black leading-[160%] mt-10">
+						<Title className="my-6 text-left">Trust. Discipline. Enduring Value.</Title>
+						<p className="text-lg md:text-2xl font-light text-black leading-[160%] mt-10 text-left">
 							<span className="font-medium">VANTICO</span> is a privately held global investment firm distinguished by
 							precision, partnership, and long-term conviction. We co-invest with a curated network of high-net-worth
 							individuals, family offices, and institutions across U.S. real estate, healthcare, and private equity. Our
@@ -46,7 +46,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 						</div>
 
 						<div className="col-span-12 md:col-span-4 flex justify-center md:justify-end items-center mt-5 md:mt-10">
-							<LinkButton link="/real-estate" className="bg-black text-white">
+							<LinkButton link="/about" className="bg-black text-white">
 								Learn More About Vantico <ChevronRight className="ml-2" />
 							</LinkButton>
 						</div>
