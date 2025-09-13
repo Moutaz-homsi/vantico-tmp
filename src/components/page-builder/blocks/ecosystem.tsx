@@ -13,11 +13,12 @@ export interface Ecosystem {
 
 interface EcosystemSectionProps {
 	slides?: { first_slider: Ecosystem[]; second_slider: Ecosystem[]; third_slider: Ecosystem[] }
+	hide_pattern?: boolean
 }
 
-export default function EcosystemSection({ slides }: EcosystemSectionProps) {
+export default function EcosystemSection({ slides, hide_pattern }: EcosystemSectionProps) {
 	return (
-		<Container as="section" id="ecosystem">
+		<Container as="section" id="ecosystem" {...(hide_pattern ? { pattern: "hidden" } : {})}>
 			<div className="px-4 max-w-6xl mx-auto">
 				<div className="flex flex-col gap-6 items-center text-center">
 					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>

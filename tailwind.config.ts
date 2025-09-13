@@ -26,6 +26,23 @@ module.exports = {
 			}
 		}
 	},
-	safelist: ["text-lg", "md:text-2xl", "font-light", "text-gray-400", "text-xs", "text-xl", "md:text-3xl", 'font-normal'],
+	safelist: [
+		"text-lg",
+		"md:text-2xl",
+		"font-light",
+		"text-gray-400",
+		"text-xs",
+		"text-xl",
+		"md:text-3xl",
+		"font-normal",
+		"flex",
+		"flex-col",
+		"lg:flex-row",
+		"gap-16",
+		"items-center",
+		"lg:items-stretch",
+		"justify-center",
+		"items-start"
+	],
 	plugins: []
 }

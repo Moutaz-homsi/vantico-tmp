@@ -15,11 +15,12 @@ interface TenantsSectionProps {
 	// description?: string
 	// tenantCount?: string
 	tenants?: { first_row_images: Tenant[]; second_row_images: Tenant[]; third_row_images: Tenant[] }
+	hide_pattern?: boolean
 }
 
-export default function TenantsSection({ tenants }: TenantsSectionProps) {
+export default function TenantsSection({ tenants, hide_pattern }: TenantsSectionProps) {
 	return (
-		<Container as="section" id="tenants">
+		<Container as="section" id="tenants" {...(hide_pattern ? { pattern: "hidden" } : {})}>
 			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
 				<Title className="text-2xl">
 					A portfolio of high-quality, recession-resistant <span className="text-4xl">220+</span> tenants

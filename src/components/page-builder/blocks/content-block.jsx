@@ -8,7 +8,6 @@ import VideoSection from "@/components/ui/video-section"
 export default function ContentBlock({ data, showTitle = true }) {
 	const skin = data?.skin || "light"
 	const style = data?.style || "left"
-	console.log("data: ", data)
 
 	if (data?.bg_video_url) {
 		return (
@@ -42,7 +41,7 @@ export default function ContentBlock({ data, showTitle = true }) {
 
 	return (
 		<div className={cn(skin == "dark" ? "bg-black" : "bg-white")}>
-			<Container patternSkin={data?.pattern || "light"}>
+			<Container patternSkin={data?.pattern || "light"} pattern={data.pattern}>
 				<div
 					className={cn(
 						"relative w-full",
