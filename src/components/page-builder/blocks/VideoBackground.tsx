@@ -11,7 +11,6 @@ export default function VideoBackground({
 	className = "",
 	childrenContainerClassName = ""
 }: VideoBackgroundProps) {
-	console.log("videoSrc: ", videoSrc)
 	return (
 		<div className={`relative w-full overflow-hidden ${className}`}>
 			<video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="metadata">

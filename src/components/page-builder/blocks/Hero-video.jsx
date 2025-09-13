@@ -1,7 +1,6 @@
 import VideoBackground from "./VideoBackground"
 
 const HeroVideo = ({ hero_video_url }) => {
-	console.log("hero_video_url: ", hero_video_url)
 	return (
 		<section
 			id="hero"
