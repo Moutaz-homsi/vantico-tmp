@@ -14,7 +14,7 @@ interface HomeProps {
 	homeData: {
 		video_id: string
 		calendly_url: string
-		hero_video_url: string
+		home_video_url: string
 		founder_image: string
 		founder_philosophy: string
 		ecosystem_sliders: {
@@ -35,7 +35,7 @@ interface HomeProps {
 export default async function Home({ homeData, properties, options }: HomeProps) {
 	return (
 		<Layout options={options}>
-			<HeroVideo videoId={homeData.video_id} videoSrc={homeData.hero_video_url} subtitle="" />
+			<HeroVideo videoId={homeData.video_id} videoSrc={homeData.home_video_url} subtitle="" />
 			<OurPhilosophy founder_image={homeData.founder_image} founder_philosophy={homeData.founder_philosophy} />
 			<AboutUs />
 
