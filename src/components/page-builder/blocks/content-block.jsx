@@ -13,9 +13,8 @@ export default function ContentBlock({ data, showTitle = true }) {
 			<Container>
 				<div
 					className={cn(
-						"relative w-full p-5 md:p-7 !shadow-none",
+						"relative w-full",
 						skin == "dark" ? "text-white" : "text-black",
-						showTitle ? "my-10" : "mb-10",
 						style == "right" ? "text-right" : style == "center" ? "text-center" : "text-left"
 					)}
 				>
@@ -33,7 +32,7 @@ export default function ContentBlock({ data, showTitle = true }) {
 					) : null}
 					<Wysiwyg
 						data={data?.content}
-						className={cn("[&_a]:font-light", skin == "dark" ? "[&_*]:!text-white" : "[&_*]:!text-black")}
+						// className={cn("[&_a]:font-light", skin == "dark" ? "[&_*]:!text-white" : "[&_*]:!text-black")}
 					/>
 				</div>
 			</Container>

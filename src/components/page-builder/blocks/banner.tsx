@@ -27,7 +27,7 @@ export default function Banner({ image, title, video_url, h2_class }: IBanner) {
 
 	return (
 		<div className="relative p-16 min-h-[calc(100vh-164px)] flex items-center justify-center">
-			{!video_url && image?.url ? <Image src={image?.url} isFill className="object-cover" /> : null}
+			{!video_url && image?.url ? <Image src={image?.url} isFill className="object-cover" alt="hero_image" /> : null}
 
 			<div className="bg-black/60 absolute inset-0" />
 			<Container className="z-10 relative text-center w-full h-full">

@@ -2,11 +2,9 @@
 import React from "react"
 import Title from "@/components/ui/title"
 import { ChevronRight } from "lucide-react"
-import { addCommas } from "@/utils/numberUtils"
+import { Container } from "@/components/layout"
 import SectionLabel from "@/components/section-label"
 import LinkButton from "@/components/ui/buttons/link-button"
-import AnimatedValue from "@/components/ui/header/animated-value"
-import SectionBg from "@/components/ui/section-bg"
 
 interface AboutUsProps {
 	onCtaClick?: () => void
@@ -15,7 +13,7 @@ interface AboutUsProps {
 
 const AboutUs: React.FC<AboutUsProps> = () => {
 	return (
-		<SectionBg id="about" className="pb-8 md:pb-18">
+		<Container as="section" id="about" className="pb-8 md:pb-18">
 			<div className="max-w-7xl mx-auto">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 					<div className="col-span-12 text-center">
@@ -41,7 +39,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 								<span className="text-6xl">$</span><b>1.5B</b>
 								<b className="font-medium text-xl ml-3 lg:text-5xl">AUM</b><em className="text-xs text-gray-400 relative top-1 ml-1"> 1</em>
 							</div>
-							<div className="text-xs text-gray-400 mt-6 relative top-16 hidden md:block">
+							<div className="text-xs text-gray-400 mt-6 relative top-20 hidden md:block">
 								*Collective AUM includes assets managed across VANTICO’s affiliated funds, operating platforms, and
 								strategic partnerships.
 							</div>
@@ -59,7 +57,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 					</div>
 				</div>
 			</div>
-		</SectionBg>
+		</Container>
 	)
 }
 

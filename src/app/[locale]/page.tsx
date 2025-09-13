@@ -3,7 +3,7 @@ import fetchData from "@/utils/api"
 import Home from "@/components/pages/home"
 import { notFound } from "next/navigation"
 
-export const revalidate = 3600 // Revalidate every hour (ISR)
+export const revalidate = 60 // Revalidate every hour (ISR)
 
 export async function generateStaticParams() {
 	return [{ locale: "en" }, { locale: "ar" }]
