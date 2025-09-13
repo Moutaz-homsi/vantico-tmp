@@ -1,3 +1,6 @@
+"use client"
+// TODO: We had to mark this component as we have an issue on the image component,
+// as it has loader and the loader should be optimized to run on server functions
 import { cn } from "@/utils"
 import Link from "next/link"
 import { Image } from "@/components/ui"
@@ -5,17 +8,13 @@ import { Image } from "@/components/ui"
 const BASE_DURATION = 40 // This will be the duration for a carousel with 5 items
 
 export default function CssCarousel({ data = [], imgHeight }: { data: any[]; imgHeight?: string }) {
-
 	// Calculate duration based on number of items
 	const duration = data.length > 0 ? Math.max(20, Math.min(120, (data.length / 5) * BASE_DURATION)) : 60
 
 	return (
 		<div className="w-full overflow-hidden">
 			<div className="card-logos-container">
-				<div 
-					className="card-logos-content"
-					style={{ '--animation-duration': `${duration}s` } as React.CSSProperties}
-				>
+				<div className="card-logos-content" style={{ "--animation-duration": `${duration}s` } as React.CSSProperties}>
 					{/* First set of cards */}
 					{data.map((item, index) => (
 						<SlideItem item={item} imgHeight={imgHeight} key={item?.id || index} />
@@ -48,10 +47,7 @@ function SlideItem({
 								src={item.image.url}
 								strapiImage={item.image as any}
 								alt={item.image.alt}
-								className={cn(
-									"object-contain pointer-events-none select-none",
-									item?.apply_mask && "brightness-50"
-								)}
+								className={cn("object-contain pointer-events-none select-none", item?.apply_mask && "brightness-50")}
 							/>
 						</div>
 					</Link>
@@ -62,10 +58,7 @@ function SlideItem({
 							src={item.image.url}
 							strapiImage={item.image as any}
 							alt={item.image.alt}
-							className={cn(
-								"object-contain pointer-events-none select-none",
-								item?.apply_mask && "brightness-50"
-							)}
+							className={cn("object-contain pointer-events-none select-none", item?.apply_mask && "brightness-50")}
 						/>
 					</div>
 				)}

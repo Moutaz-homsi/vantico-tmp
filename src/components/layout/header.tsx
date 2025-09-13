@@ -26,7 +26,7 @@ export default function Header() {
 					<Container
 						noGutters
 						className={cn(
-							"relative flex items-center justify-between h-16 px-4 2xl:px-0 py-3 w-full max-w-7xl mx-auto",
+							"relative flex items-center justify-between h-16 px-4 2xl:px-0 py-3 md:py-3 lg:py-3 w-full max-w-7xl mx-auto",
 							!isOpen ? "bg-black" : "bg-gray-900"
 						)}
 					>

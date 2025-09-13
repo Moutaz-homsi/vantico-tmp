@@ -1,11 +1,5 @@
-"use client"
-import SectionLabel from "@/components/section-label"
-import { Image } from "@/components/ui"
 import Title from "@/components/ui/title"
-import { cn } from "@/utils"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
-import TenantCarousel from "../../ui/carousels/tenant-carousel"
+import { Container } from "@/components/layout"
 import CssCarousel from "@/components/ui/carousels/css-caroucel"
 
 export interface Ecosystem {
@@ -16,23 +10,19 @@ export interface Ecosystem {
 }
 
 interface EcosystemSectionProps {
-	title?: string
-	subtitle?: string
-	description?: string
-	tenantCount?: string
 	slides?: { first_slider: Ecosystem[]; second_slider: Ecosystem[]; third_slider: Ecosystem[] }
-	className?: string
 }
 
-export default function EcosystemSection({ slides, className }: EcosystemSectionProps) {
+export default function EcosystemSection({ slides }: EcosystemSectionProps) {
 	return (
-		// border-b-2 border-b-amber-50
-		<section id="ecosystem" className={cn("w-full pt-10 lg:pt-18", className)}>
+		<Container as="section" id="ecosystem">
 			<div className="px-4 max-w-6xl mx-auto">
 				<div className="flex flex-col gap-6 items-center text-center">
 					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>
 					<p className="">
-						A network of elite partners ensures credibility, seamless operations, and consistent investment success. <br/>we are proud to collaborate with a distinguished network of:
+						A network of elite partners ensures credibility, seamless operations, and consistent investment success.{" "}
+						<br />
+						we are proud to collaborate with a distinguished network of:
 					</p>
 				</div>
 				<div className="mt-10 flex flex-col">
@@ -48,6 +38,6 @@ export default function EcosystemSection({ slides, className }: EcosystemSection
 					</div>
 				</div>
 			</div>
-		</section>
+		</Container>
 	)
 }

@@ -4,6 +4,7 @@ import IconBlox from "@/components/ui/boxes/icon-box"
 import LinkButton from "@/components/ui/buttons/link-button"
 import { ChevronRight } from "lucide-react"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Container } from "@/components/layout"
 // import { Image } from "@/components/ui"
 // import { Button } from "@/components/ui/button"
 // import Title from "@/components/ui/title"
@@ -13,6 +14,46 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 // import "@fancyapps/ui/dist/fancybox.css"
 
 // Fancybox.defaults.Hash = false
+
+export default function InvestWithPurpose() {
+	return (
+		<section id="tour" className="bg-black text-white">
+			<Container>
+				<div className="container mx-auto max-w-6xl">
+					<div>
+						<h2 className="flex-none text-5xl md:text-6xl text-center font-secondary">
+							Invest with Purpose .. Build what Matters
+						</h2>
+						<div className="mt-6 md:mt-10 flex-none">
+							<div className="flex w-full gap-4 text-lg md:text-2xl text-gray-300 text-center">
+								At VANTICO, we focus on sectors with long-term growth potential, creating resilient strategies powered
+								by data, market insight, and true alignment with our long-term partners.
+							</div>
+						</div>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
+						{items.map((item, index) => (
+							<Item key={index} item={item} />
+						))}
+					</div>
+
+					<div className="flex justify-center md:justify-right mt-6 md:mt-10">
+						<LinkButton link="/real-estate" className="bg-white text-black">
+							Explore Our Investment Focus <ChevronRight className="ml-2" />
+						</LinkButton>
+					</div>
+				</div>
+			</Container>
+		</section>
+	)
+}
+
+export interface Item {
+	title: string
+	content: string
+	image: string
+}
 
 const items = [
 	{
@@ -34,44 +75,6 @@ const items = [
 		image: "https://vantico-backend.webotak.com/uploads/DJI_20250521095954_0158_D_5b3ca604b0.jpg"
 	}
 ]
-
-export default function InvestWithPurpose() {
-	return (
-		<section id="tour" className="bg-black text-white py-20 px-4">
-			<div className="container mx-auto max-w-6xl">
-				<div>
-					<h2 className="flex-none text-5xl md:text-6xl text-center font-secondary">
-						Invest with Purpose .. Build what Matters
-					</h2>
-					<div className="mt-6 md:mt-10 flex-none">
-						<div className="flex w-full gap-4 text-lg md:text-2xl text-gray-300 text-center">
-							At VANTICO, we focus on sectors with long-term growth potential, creating resilient strategies powered by
-							data, market insight, and true alignment with our long-term partners.
-						</div>
-					</div>
-				</div>
-
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
-					{items.map((item, index) => (
-						<Item key={index} item={item} />
-					))}
-				</div>
-
-				<div className="flex justify-center md:justify-right mt-6 md:mt-10">
-					<LinkButton link="/real-estate" className="bg-white text-black">
-						Explore Our Investment Focus <ChevronRight className="ml-2" />
-					</LinkButton>
-				</div>
-			</div>
-		</section>
-	)
-}
-
-export interface Item {
-	title: string
-	content: string
-	image: string
-}
 
 export function Item({ item }: { item: Item }) {
 	return (
