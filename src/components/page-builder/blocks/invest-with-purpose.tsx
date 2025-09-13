@@ -2,19 +2,6 @@ import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { Container } from "@/components/layout"
 import LinkButton from "@/components/ui/buttons/link-button"
-// import { IconHealthcare, IconPrivate, IconRealEstate } from "@/components/icons"
-// import SectionLabel from "@/components/section-label"
-// import IconBlox from "@/components/ui/boxes/icon-box"
-// import { AspectRatio } from "@/components/ui/aspect-ratio"
-// import { Image } from "@/components/ui"
-// import { Button } from "@/components/ui/button"
-// import Title from "@/components/ui/title"
-// import { cn } from "@/utils"
-// import { getImageUrlFromObject } from "@/utils/image-loader"
-// import { Fancybox } from "@fancyapps/ui"
-// import "@fancyapps/ui/dist/fancybox.css"
-
-// Fancybox.defaults.Hash = false
 
 export default function InvestWithPurpose() {
 	return (
@@ -33,7 +20,7 @@ export default function InvestWithPurpose() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 my-8 md:my-20">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 my-8 md:my-20">
 						{items.map((item, index) => (
 							<Item key={index} item={item} />
 						))}

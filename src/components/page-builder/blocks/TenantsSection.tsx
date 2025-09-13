@@ -1,6 +1,7 @@
 import Title from "@/components/ui/title"
 import { Container } from "@/components/layout"
 import TenantCarousel from "@/components/ui/carousels/tenant-carousel"
+import { cn } from "@/utils"
 
 export interface Tenant {
 	name: string
@@ -16,17 +17,18 @@ interface TenantsSectionProps {
 	// tenantCount?: string
 	tenants?: { first_row_images: Tenant[]; second_row_images: Tenant[]; third_row_images: Tenant[] }
 	hide_pattern?: boolean
+	className?: string
 }
 
-export default function TenantsSection({ tenants, hide_pattern }: TenantsSectionProps) {
+export default function TenantsSection({ tenants, hide_pattern, className }: TenantsSectionProps) {
 	return (
-		<Container as="section" id="tenants" className="!px-0" {...(hide_pattern ? { pattern: "hidden" } : {})}>
-			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start px-6 md:px-8 lg:px-12">
+		<Container as="section" id="tenants" {...(hide_pattern ? { pattern: "hidden" } : {})} className={cn("px-0" ,className)}>
+			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start px-6 md:px-0">
 				<Title className="text-2xl">
 					A portfolio of high-quality, recession-resistant <span className="text-4xl">220+</span> tenants
 					<br />
 				</Title>
-				<p className="text-[#535353] text-lg leading-[160%]">
+				<p className="text-[#535353] text-lg leading-[160%] sub-title">
 					Our properties attract top-tier tenants, ensuring stability, high occupancy rates, and long-term revenue
 					growth.
 				</p>

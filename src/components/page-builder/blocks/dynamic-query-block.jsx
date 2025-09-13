@@ -26,17 +26,13 @@ function renderList(type, results) {
 		case "project":
 			return (
 				<div className="grid grid-cols-3 gap-4">
-					{results.map((project, index) => (
-						<ProjectItem key={index} {...project} />
-					))}
+					{results?.length > 0 ? results.map((project, index) => <ProjectItem key={index} {...project} />) : null}
 				</div>
 			)
 		case "new":
 			return (
 				<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-					{results.map((item, index) => (
-						<NewsItem key={index} item={item} />
-					))}
+					{results?.length > 0 ? results.map((item, index) => <NewsItem key={index} item={item} />) : null}
 				</div>
 			)
 		default:

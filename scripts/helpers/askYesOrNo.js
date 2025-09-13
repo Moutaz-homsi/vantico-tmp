@@ -14,7 +14,7 @@ function askYesNoQuestion(question) {
       } else if (normalizedAnswer === "n" || normalizedAnswer === "no") {
         resolve(false);
       } else {
-        console.log('Please answer with "y" or "n".');
+        console.info('Please answer with "y" or "n".');
         resolve(askYesNoQuestion(question)); // Ask again
       }
       rl.close();

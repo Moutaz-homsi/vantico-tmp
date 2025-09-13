@@ -3,6 +3,7 @@ import { Container } from "@/components/layout"
 import CssCarousel from "@/components/ui/carousels/css-caroucel"
 import LinkButton from "@/components/ui/buttons/link-button"
 import { ChevronRight } from "lucide-react"
+import { cn } from "@/utils"
 
 export interface Ecosystem {
 	name: string
@@ -14,15 +15,17 @@ export interface Ecosystem {
 interface EcosystemSectionProps {
 	slides?: { first_slider: Ecosystem[]; second_slider: Ecosystem[]; third_slider: Ecosystem[] }
 	hide_pattern?: boolean
+	hide_btn?: boolean
+	className?: string
 }
 
-export default function EcosystemSection({ slides, hide_pattern }: EcosystemSectionProps) {
+export default function EcosystemSection({ slides, hide_pattern, hide_btn = false, className }: EcosystemSectionProps) {
 	return (
-		<Container as="section" id="ecosystem" className="!px-0" {...(hide_pattern ? { pattern: "hidden" } : {})}>
-			<div className="max-w-6xl mx-auto">
-				<div className="flex flex-col gap-6 items-center text-center px-6 md:px-8 lg:px-12">
+		<Container as="section" id="ecosystem" {...(hide_pattern ? { pattern: "hidden" } : {})} className={cn("px-0" ,className)}>
+			{/* <div className="max-w-6xl mx-auto"> */}
+				<div className="flex flex-col gap-6 items-center text-center px-6 md:px-0 lg:px-12">
 					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>
-					<p className="">
+					<p className="sub-title">
 						A network of elite partners ensures credibility, seamless operations, and consistent investment success.{" "}
 						<br />
 						we are proud to collaborate with a distinguished network of:
@@ -34,12 +37,13 @@ export default function EcosystemSection({ slides, hide_pattern }: EcosystemSect
 					<CssCarousel data={slides?.third_slider || []} />
 				</div>
 
-				<div className="flex justify-center md:justify-right mt-6 md:mt-10 px-6 md:px-8 lg:px-12">
-					<LinkButton link="/partner-network" className="bg-black text-white">
-						Explore Our Partner Network <ChevronRight className="ml-2" />
-					</LinkButton>
-				</div>
-
+				{!hide_btn ? (
+					<div className="flex justify-center md:justify-right mt-6 md:mt-10 px-6 md:px-8 lg:px-12">
+						<LinkButton link="/partner-network" className="bg-black text-white">
+							Explore Our Partner Network <ChevronRight className="ml-2" />
+						</LinkButton>
+					</div>
+				) : null}
 				<div className="mt-4 mb-4 px-6 md:px-8 lg:px-12">
 					<div className="col-span-12 text-xs text-gray-400">
 						Logos displayed represent institutions and counterparties with whom VANTICO or its affiliates have engaged
@@ -47,7 +51,7 @@ export default function EcosystemSection({ slides, hide_pattern }: EcosystemSect
 						endorsement or ongoing commercial relationship unless explicitly stated.
 					</div>
 				</div>
-			</div>
+			{/* </div> */}
 		</Container>
 	)
 }
