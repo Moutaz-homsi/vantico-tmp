@@ -4,6 +4,7 @@ import { Container } from "../layout"
 import ContentBlock from "./blocks/content-block"
 import CarouselBlock from "./blocks/carousel-block"
 import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
+import MeetTheTeam from "./blocks/MeetTheTeam"
 import fetchData from "@/utils/api"
 import { stringify } from "qs"
 import EcosystemSection from "./blocks/ecosystem"
@@ -43,6 +44,8 @@ export default function PageBuilder({ data }) {
 								return <Cards key={index} data={rest} />
 							case "pages.banner":
 								return <Banner key={index} {...rest} />
+							case "pages.team-block":
+								return <MeetTheTeam key={index} members={rest.teams} />
 							case "pages.css-carousel":
 								async function rendererFunction(ready_components) {
 									if (ready_components) {
