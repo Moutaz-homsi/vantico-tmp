@@ -16,7 +16,10 @@ interface HomeProps {
 		video_id: string
 		calendly_url: string
 		home_video_url: string
-		founder_image: string
+		founder_ima<<<<<<< temp-1
+4
+ 
+ge: string
 		founder_philosophy: string
 		ecosystem_sliders: {
 			first_slider: Ecosystem[]
