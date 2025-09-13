@@ -33,7 +33,7 @@ export default function InvestWithPurpose() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 my-8 md:my-20">
 						{items.map((item, index) => (
 							<Item key={index} item={item} />
 						))}

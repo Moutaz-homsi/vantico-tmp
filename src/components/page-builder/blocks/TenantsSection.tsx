@@ -20,8 +20,8 @@ interface TenantsSectionProps {
 
 export default function TenantsSection({ tenants, hide_pattern }: TenantsSectionProps) {
 	return (
-		<Container as="section" id="tenants" {...(hide_pattern ? { pattern: "hidden" } : {})}>
-			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start">
+		<Container as="section" id="tenants" className="!px-0" {...(hide_pattern ? { pattern: "hidden" } : {})}>
+			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start px-6 md:px-8 lg:px-12">
 				<Title className="text-2xl">
 					A portfolio of high-quality, recession-resistant <span className="text-4xl">220+</span> tenants
 					<br />
