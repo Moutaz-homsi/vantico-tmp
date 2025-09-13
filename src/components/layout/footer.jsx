@@ -2,6 +2,7 @@ import { Image } from "@/components/ui"
 import { Separator } from "@/components/ui/separator"
 import { Instagram, Linkedin, Youtube, X } from "lucide-react"
 import VideoSection from "../ui/video-section"
+import VideoBackground from "../page-builder/blocks/VideoBackground"
 
 export default function Footer({ options }) {
 	const { footerVideoUrl } = options || {}
@@ -10,8 +11,9 @@ export default function Footer({ options }) {
 		<footer className="bg-[#1E1E1E] text-white overflow-hidden ">
 			{/* background image */}
 			{footerVideoUrl ? (
-				<VideoSection
-					video_url={footerVideoUrl}
+				<VideoBackground
+					videoSrc={footerVideoUrl}
+					opacityPercentage={50}
 					className="min-h-[300px] h-full bg-[#1E1E1E] text-white overflow-hidden"
 				>
 					<div className="relative inset-0 -top-[5px] pointer-events-none select-none">
@@ -35,14 +37,14 @@ export default function Footer({ options }) {
 							</div>
 						</div>
 						<div className="flex flex-col lg:flex-row justify-between md:items-start">
-							<div className="space-y-8 w-full flex gap-4">
+							<div className="w-full flex flex-wrap gap-4 mb-10">
 								{contactDetails.map((detail, index) => (
 									<div
-										className="flex justify-center md:justify-start items-center md:items-start text-center md:text-start    text-neutral-300"
+										className="flex justify-center md:justify-start items-start md:items-start text-center md:text-start text-neutral-300"
 										key={index}
 									>
 										<div className="min-w-8 mt-1">{detail.icon}</div>
-										<div>{detail.content}</div>
+										<div className="text-start">{detail.content}</div>
 									</div>
 								))}
 							</div>
@@ -51,8 +53,8 @@ export default function Footer({ options }) {
 						<Separator className="bg-neutral-700 mb-10" />
 
 						{/* bottom links */}
-						<div className="flex flex-col md:flex-row justify-between items-center">
-							<div className="flex items-center mb-6 md:mb-0">
+						<div className="flex flex-wrap gap-y-5 justify-between items-center">
+							<div className="flex items-center md:mb-0">
 								<p className="text-sm text-neutral-300">© Vantico 2025</p>
 								<div className="flex space-x-4 ml-8">
 									<a href="#" aria-label="Instagram" className="text-neutral-300 hover:text-white transition-colors">
@@ -70,7 +72,7 @@ export default function Footer({ options }) {
 								</div>
 							</div>
 
-							<div className="flex space-x-8">
+							<div className="flex gap-x-8 flex-wrap gap-y-5">
 								<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
 									Privacy Policy
 								</a>
@@ -91,22 +93,22 @@ export default function Footer({ options }) {
 								display: "block"
 							}}
 						>
-							The information presented on this website is for informational purposes only and does not
-							constitute an offer to sell, a solicitation to buy, or a recommendation for any security, investment
-							strategy, or financial product. Nothing contained herein should be construed as investment, legal, tax, or
-							accounting advice. Visitors should consult their own professional advisors before making any financial or
-							investment decision. All investments involve risk, including the potential loss of principal. Past
-							performance is not indicative of future results. Forward-looking statements are subject to uncertainty and
-							may not reflect actual outcomes. While VANTICO believes the information provided to be accurate as of the
-							date of publication, no representation or warranty is made as to its completeness or accuracy, and it is
-							subject to change without notice. Any references to assets under management (AUM) reflect the aggregate of
+							The information presented on this website is for informational purposes only and does not constitute an
+							offer to sell, a solicitation to buy, or a recommendation for any security, investment strategy, or
+							financial product. Nothing contained herein should be construed as investment, legal, tax, or accounting
+							advice. Visitors should consult their own professional advisors before making any financial or investment
+							decision. All investments involve risk, including the potential loss of principal. Past performance is not
+							indicative of future results. Forward-looking statements are subject to uncertainty and may not reflect
+							actual outcomes. While VANTICO believes the information provided to be accurate as of the date of
+							publication, no representation or warranty is made as to its completeness or accuracy, and it is subject
+							to change without notice. Any references to assets under management (AUM) reflect the aggregate of
 							affiliated entities across various investment platforms. These entities may be legally independent and
 							separately managed. VANTICO does not guarantee the security or accuracy of third-party websites linked
 							herein and disclaims all liability arising from their use. Use of this site constitutes acceptance of our
 							terms of use and privacy policy.{" "}
 						</em>
 					</div>
-				</VideoSection>
+				</VideoBackground>
 			) : (
 				<>
 					<div className="relative inset-0 -top-[5px] pointer-events-none select-none">
@@ -133,7 +135,7 @@ export default function Footer({ options }) {
 							<div className="space-y-8 w-full flex gap-4">
 								{contactDetails.map((detail, index) => (
 									<div
-										className="flex justify-center md:justify-start items-center md:items-start text-center md:text-start    text-neutral-300"
+										className="flex flex-wrap justify-center md:justify-start items-center md:items-start text-center md:text-start text-neutral-300"
 										key={index}
 									>
 										<div className="min-w-8 mt-1">{detail.icon}</div>
@@ -186,15 +188,15 @@ export default function Footer({ options }) {
 								display: "block"
 							}}
 						>
-							The information presented on this website is for informational purposes only and does not
-							constitute an offer to sell, a solicitation to buy, or a recommendation for any security, investment
-							strategy, or financial product. Nothing contained herein should be construed as investment, legal, tax, or
-							accounting advice. Visitors should consult their own professional advisors before making any financial or
-							investment decision. All investments involve risk, including the potential loss of principal. Past
-							performance is not indicative of future results. Forward-looking statements are subject to uncertainty and
-							may not reflect actual outcomes. While VANTICO believes the information provided to be accurate as of the
-							date of publication, no representation or warranty is made as to its completeness or accuracy, and it is
-							subject to change without notice. Any references to assets under management (AUM) reflect the aggregate of
+							The information presented on this website is for informational purposes only and does not constitute an
+							offer to sell, a solicitation to buy, or a recommendation for any security, investment strategy, or
+							financial product. Nothing contained herein should be construed as investment, legal, tax, or accounting
+							advice. Visitors should consult their own professional advisors before making any financial or investment
+							decision. All investments involve risk, including the potential loss of principal. Past performance is not
+							indicative of future results. Forward-looking statements are subject to uncertainty and may not reflect
+							actual outcomes. While VANTICO believes the information provided to be accurate as of the date of
+							publication, no representation or warranty is made as to its completeness or accuracy, and it is subject
+							to change without notice. Any references to assets under management (AUM) reflect the aggregate of
 							affiliated entities across various investment platforms. These entities may be legally independent and
 							separately managed. VANTICO does not guarantee the security or accuracy of third-party websites linked
 							herein and disclaims all liability arising from their use. Use of this site constitutes acceptance of our
