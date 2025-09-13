@@ -4,6 +4,7 @@ import React from "react"
 
 const HeroVideo = ({
 	videoSrc,
+	videoId,
 	subtitle = "Prime investments in the Mid-Atlantic in high-end dental and underutilized commercial properties"
 }) => {
 	return (
