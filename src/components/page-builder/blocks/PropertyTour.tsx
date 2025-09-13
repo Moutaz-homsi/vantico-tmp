@@ -8,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 import { Key } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Container } from "@/components/layout"
 
 Fancybox.defaults.Hash = false
 
@@ -25,36 +26,24 @@ interface PropertyTourProps {
 
 const PropertyTour = ({ properties }: PropertyTourProps) => {
 	return (
-		<section id="tour" className="bg-black text-white py-20 px-4">
-			<div className="container mx-auto max-w-6xl">
-				{/* <div className="text-center">
-					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
-				</div> */}
-
-				<Title className="text-2xl text-white text-center mt-6 mb-12">
-					A Glimpse Into Some of Our Assets
-				</Title>
+		<section id="tour" className="bg-black text-white">
+			<Container>
+				<Title className="text-2xl text-white text-center mt-6 mb-12">A Glimpse Into Some of Our Assets</Title>
 
 				<Carousel
 					opts={{
 						align: "center",
 						loop: true, // Prevent scrolling from last to first
 						containScroll: "trimSnaps",
-						duration: 50,
+						duration: 50
 					}}
 					plugins={[
 						Autoplay({
 							delay: 4000,
 							stopOnMouseEnter: true,
-							stopOnInteraction: true,
+							stopOnInteraction: true
 						})
 					]}
-					style={
-						{
-							// maskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))",
-							// WebkitMaskImage: "linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,1) 20%,rgba(0,0,0,0))"
-						}
-					}
 					className="w-full overflow-hidden"
 				>
 					<CarouselContent
@@ -84,63 +73,7 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 						<CarouselNext className="right-2 bg-black/30 p-5 size-16 [&_svg:not([class*='size-'])]:size-8" />
 					</div>
 				</Carousel>
-				{/* 
-				<div className="mt-10 md:mt-20 relative">
-					<div className="flex gap-4 w-full">
-						{properties?.length > 0
-							? properties?.map((property: Property, index: number) => {
-									const isSelected = index === selected
-									const width = isSelected ? "66%" : "17%"
-									// const width = "100%"
-
-									return (
-										<div
-											key={property.id}
-											onClick={() => {
-												setSelected(index)
-											}}
-											style={{
-												width,
-												transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
-											}}
-											className={cn(
-												"h-[350px] md:h-[500px] relative",
-												"hover:cursor-pointer hover:opacity-90 transition-all duration-100",
-												index > 2 ? "hidden" : "block"
-											)}
-										>
-											<a
-												key={property.id}
-												data-fancybox="tour"
-												href={getImageUrlFromObject({ fileObject: property.image })}
-												style={{
-													width
-												}}
-												className={cn("hidden")}
-											></a>
-											{property.image && (
-												<Image
-													isFill
-													src={property.image.url || ""}
-													alt={property.image.alt || "Property image"}
-													className="object-cover select-none"
-												/>
-											)}
-										</div>
-									)
-							  })
-							: null}
-					</div>
-				</div> */}
-
-				{/* <div className="flex justify-center mt-6 md:mt-10">
-					<a data-fancybox-trigger="tour">
-						<Button onClick={() => {}}>
-							Explore more opportunities <ChevronRight className="ml-2" />
-						</Button>
-					</a>
-				</div> */}
-			</div>
+			</Container>
 		</section>
 	)
 }

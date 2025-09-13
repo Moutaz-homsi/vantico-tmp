@@ -1,10 +1,11 @@
-import { IconHealthcare, IconPrivate, IconRealEstate } from "@/components/icons"
-import SectionLabel from "@/components/section-label"
-import IconBlox from "@/components/ui/boxes/icon-box"
-import LinkButton from "@/components/ui/buttons/link-button"
-import { ChevronRight } from "lucide-react"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Link from "next/link"
+import { ChevronRight } from "lucide-react"
+import { Container } from "@/components/layout"
+import LinkButton from "@/components/ui/buttons/link-button"
+// import { IconHealthcare, IconPrivate, IconRealEstate } from "@/components/icons"
+// import SectionLabel from "@/components/section-label"
+// import IconBlox from "@/components/ui/boxes/icon-box"
+// import { AspectRatio } from "@/components/ui/aspect-ratio"
 // import { Image } from "@/components/ui"
 // import { Button } from "@/components/ui/button"
 // import Title from "@/components/ui/title"
@@ -14,6 +15,47 @@ import Link from "next/link"
 // import "@fancyapps/ui/dist/fancybox.css"
 
 // Fancybox.defaults.Hash = false
+
+export default function InvestWithPurpose() {
+	return (
+		<section id="tour" className="bg-black text-white">
+			<Container>
+				<div className="container mx-auto max-w-6xl">
+					<div>
+						<h2 className="flex-none text-5xl md:text-6xl text-center font-secondary">
+							Invest with Purpose. Build what Matters.
+						</h2>
+						<div className="mt-6 md:mt-10 flex-none">
+							<div className="flex w-full gap-4 text-lg md:text-2xl text-gray-300 text-center">
+								At VANTICO, we focus on sectors with long-term growth potential, creating resilient strategies powered
+								by data, market insight, and true alignment with our long-term partners.
+							</div>
+						</div>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
+						{items.map((item, index) => (
+							<Item key={index} item={item} />
+						))}
+					</div>
+
+					<div className="flex justify-center md:justify-right mt-6 md:mt-10">
+						<LinkButton link="/investment-focus" className="bg-white text-black">
+							Explore Our Investment Focus <ChevronRight className="ml-2" />
+						</LinkButton>
+					</div>
+				</div>
+			</Container>
+		</section>
+	)
+}
+
+export interface Item {
+	title: string
+	content: string
+	image: string
+	link: string
+}
 
 const items = [
 	{
@@ -39,45 +81,6 @@ const items = [
 	}
 ]
 
-export default function InvestWithPurpose() {
-	return (
-		<section id="tour" className="bg-black text-white py-20 px-4">
-			<div className="container mx-auto max-w-6xl">
-				<div>
-					<h2 className="flex-none text-5xl md:text-6xl text-center font-secondary">
-						Invest with Purpose. Build what Matters.
-					</h2>
-					<div className="mt-6 md:mt-10 flex-none">
-						<div className="flex w-full gap-4 text-lg md:text-2xl text-gray-300 text-center">
-							At VANTICO, we focus on sectors with long-term growth potential, creating resilient strategies powered by
-							data, market insight, and true alignment with our long-term partners.
-						</div>
-					</div>
-				</div>
-
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-8 md:my-20">
-					{items.map((item, index) => (
-						<Item key={index} item={item} />
-					))}
-				</div>
-
-				<div className="flex justify-center md:justify-right mt-6 md:mt-10">
-					<LinkButton link="/investment-focus" className="bg-white text-black">
-						Explore Our Investment Focus <ChevronRight className="ml-2" />
-					</LinkButton>
-				</div>
-			</div>
-		</section>
-	)
-}
-
-export interface Item {
-	title: string
-	content: string
-	image: string
-	link: string
-}
-
 export function Item({ item }: { item: Item }) {
 	return (
 		<div className="flex flex-col">
@@ -91,13 +94,13 @@ export function Item({ item }: { item: Item }) {
 					className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105 rounded cursor-pointer"
 				/>
 			</Link>
-				{/* </AspectRatio> */}
-				<div className="flex flex-col gap-2 mt-4">
-					<Link href={item.link || "#"}>
-						<p className="text-xl font-medium mb-3 hover:text-gray-700 transition-colors">{item.title}</p>
-					</Link>
-					<div className="text-gray-300 text-lg ">{item.content}</div>
-				</div>
+			{/* </AspectRatio> */}
+			<div className="flex flex-col gap-2 mt-4">
+				<Link href={item.link || "#"}>
+					<p className="text-xl font-medium mb-3 hover:text-gray-700 transition-colors">{item.title}</p>
+				</Link>
+				<div className="text-gray-300 text-lg ">{item.content}</div>
+			</div>
 		</div>
 	)
 }
