@@ -2,9 +2,11 @@ import Cards from "./blocks/cards"
 import Banner from "./blocks/banner"
 import { Container } from "../layout"
 import ContentBlock from "./blocks/content-block"
+import CarouselBlock from "./blocks/carousel-block"
 import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
 
 export default function PageBuilder({ data }) {
+	console.log("data: ", data)
 	return (
 		<div>
 			<div style={{}} className="flex flex-col">
@@ -37,6 +39,9 @@ export default function PageBuilder({ data }) {
 								return <Cards key={index} data={rest} />
 							case "pages.banner":
 								return <Banner key={index} {...rest} />
+							case "pages.css-carousel":
+								return <CarouselBlock key={index} {...rest} />
+
 							default:
 								return null
 						}
