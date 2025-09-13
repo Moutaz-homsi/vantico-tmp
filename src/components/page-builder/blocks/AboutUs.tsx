@@ -11,12 +11,6 @@ import SectionBg from "@/components/ui/section-bg"
 interface AboutUsProps {
 	onCtaClick?: () => void
 	className?: string
-	logos?: {
-		id: number
-		title: string
-		description: string
-		image: object
-	}[]
 }
 
 const AboutUs: React.FC<AboutUsProps> = () => {

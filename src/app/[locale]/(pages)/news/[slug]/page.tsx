@@ -2,6 +2,7 @@
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import fetchData from "@/utils/api"
+import Layout from "@/components/layout"
 
 interface NewsItem {
 	id: number
@@ -40,81 +41,85 @@ export default async function NewsDetailPage({ params }: Props) {
 		route: `news?filters[slug][$ne]=${slug}&pagination[limit]=3&sort[0]=date:desc&populate=image`
 	})
 
+	const [options] = await Promise.all([fetchData({ route: "option" })])
+
 	const relatedNews: NewsItem[] = relatedRes?.data || []
 
 	return (
-		<div className="min-h-screen bg-white text-black">
-			<div className="max-w-3xl mx-auto px-4 pt-20 pb-12">
-				{news.image?.url && (
-					<div className="mb-8 aspect-video relative rounded-xl overflow-hidden">
-						<Image
-							src={`${process.env.NEXT_PUBLIC_API_URL}${news.image.url}`}
-							alt={news.image.alternativeText || news.title}
-							fill
-							className="object-cover"
-							sizes="(max-width: 768px) 100vw, 768px"
-							priority
-						/>
+		<Layout options={options?.data}>
+			<div className="min-h-screen bg-white text-black">
+				<div className="max-w-3xl mx-auto px-4 pt-20 pb-12">
+					{news.image?.url && (
+						<div className="mb-8 aspect-video relative rounded-xl overflow-hidden">
+							<Image
+								src={`${process.env.NEXT_PUBLIC_API_URL}${news.image.url}`}
+								alt={news.image.alternativeText || news.title}
+								fill
+								className="object-cover"
+								sizes="(max-width: 768px) 100vw, 768px"
+								priority
+							/>
+						</div>
+					)}
+
+					<h1 className="text-4xl md:text-5xl font-bold mb-4">{news.title}</h1>
+
+					<p className="text-sm text-gray-500 mb-8">
+						{new Date(news.date).toLocaleDateString(locale, {
+							year: "numeric",
+							month: "long",
+							day: "numeric"
+						})}
+					</p>
+
+					<div className="prose prose-lg prose-neutral max-w-none">
+						{news.content.split("\n").map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
 					</div>
-				)}
-
-				<h1 className="text-4xl md:text-5xl font-bold mb-4">{news.title}</h1>
-
-				<p className="text-sm text-gray-500 mb-8">
-					{new Date(news.date).toLocaleDateString(locale, {
-						year: "numeric",
-						month: "long",
-						day: "numeric"
-					})}
-				</p>
-
-				<div className="prose prose-lg prose-neutral max-w-none">
-					{news.content.split("\n").map((p, i) => (
-						<p key={i}>{p}</p>
-					))}
 				</div>
-			</div>
 
-			{/* Related News */}
-			{relatedNews.length > 0 && (
-				<div className="bg-gray-100 py-12 px-4">
-					<div className="max-w-5xl mx-auto">
-						<h2 className="text-2xl font-bold mb-6">Related News</h2>
-						<div className="grid md:grid-cols-3 gap-6">
-							{relatedNews.map((item) => (
-								<a
-									key={item.id}
-									href={`/news/${item.slug}`}
-									className="block bg-white shadow-sm hover:shadow-md transition rounded-xl overflow-hidden"
-								>
-									{item.image?.url && (
-										<div className="relative aspect-[4/3]">
-											<Image
-												src={`${process.env.NEXT_PUBLIC_API_URL}${item.image.url}`}
-												alt={item.image.alternativeText || item.title}
-												fill
-												className="object-cover"
-												sizes="(max-width: 768px) 100vw, 33vw"
-											/>
+				{/* Related News */}
+				{relatedNews.length > 0 && (
+					<div className="bg-gray-100 py-12 px-4">
+						<div className="max-w-5xl mx-auto">
+							<h2 className="text-2xl font-bold mb-6">Related News</h2>
+							<div className="grid md:grid-cols-3 gap-6">
+								{relatedNews.map((item) => (
+									<a
+										key={item.id}
+										href={`/news/${item.slug}`}
+										className="block bg-white shadow-sm hover:shadow-md transition rounded-xl overflow-hidden"
+									>
+										{item.image?.url && (
+											<div className="relative aspect-[4/3]">
+												<Image
+													src={`${process.env.NEXT_PUBLIC_API_URL}${item.image.url}`}
+													alt={item.image.alternativeText || item.title}
+													fill
+													className="object-cover"
+													sizes="(max-width: 768px) 100vw, 33vw"
+												/>
+											</div>
+										)}
+										<div className="p-4">
+											<h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+											<p className="text-sm text-gray-500">
+												{new Date(item.date).toLocaleDateString(locale, {
+													year: "numeric",
+													month: "short",
+													day: "numeric"
+												})}
+											</p>
 										</div>
-									)}
-									<div className="p-4">
-										<h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-										<p className="text-sm text-gray-500">
-											{new Date(item.date).toLocaleDateString(locale, {
-												year: "numeric",
-												month: "short",
-												day: "numeric"
-											})}
-										</p>
-									</div>
-								</a>
-							))}
+									</a>
+								))}
+							</div>
 						</div>
 					</div>
-				</div>
-			)}
-		</div>
+				)}
+			</div>
+		</Layout>
 	)
 }
 
