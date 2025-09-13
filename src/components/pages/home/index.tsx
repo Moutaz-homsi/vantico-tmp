@@ -35,7 +35,7 @@ interface HomeProps {
 export default async function Home({ homeData, properties, options }: HomeProps) {
 	return (
 		<Layout options={options}>
-			<HeroVideo videoId={homeData.video_id} hero_video_url={homeData.hero_video_url} subtitle="" />
+			<HeroVideo videoId={homeData.video_id} videoSrc={homeData.hero_video_url} subtitle="" />
 			<OurPhilosophy founder_image={homeData.founder_image} founder_philosophy={homeData.founder_philosophy} />
 			<AboutUs />
 
