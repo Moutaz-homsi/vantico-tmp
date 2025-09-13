@@ -56,7 +56,19 @@ export default function VideoSection({ id, video_url, className, children, showV
 		window.addEventListener("resize", updateIframeSize)
 		return () => window.removeEventListener("resize", updateIframeSize)
 	}, [isYouTube, isVimeo])
-
+	if (!video_url) {
+		return (
+			<section
+				{...(id ? { id } : {})}
+				className={cn(
+					"relative w-full h-screen min-h-[820px] flex justify-center items-center overflow-hidden bg-black",
+					className
+				)}
+			>
+				{children}
+			</section>
+		)
+	}
 	return (
 		<section
 			{...(id ? { id } : {})}

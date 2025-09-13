@@ -1,21 +1,17 @@
 "use client"
-import SectionLabel from "@/components/section-label"
 import { Image } from "@/components/ui"
-import { Button } from "@/components/ui/button"
 import Title from "@/components/ui/title"
 import { cn } from "@/utils"
-import { getImageUrlFromObject } from "@/utils/image-loader"
 import { Fancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox.css"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
-import { ChevronRight } from "lucide-react"
-import { Key, SetStateAction, useState } from "react"
+import { Key } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 Fancybox.defaults.Hash = false
 
-interface Property {
+export interface Property {
 	id: Key | null | undefined
 	image?: {
 		url?: string
@@ -35,10 +31,7 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 					<SectionLabel label={"QUICK PROPERTY TOUR"} variant="dark" />
 				</div> */}
 
-				<Title className="text-2xl text-white text-center mt-6 mb-12">
-					A glimpse into some
-					of our assets
-				</Title>
+				<Title className="text-2xl text-white text-center mt-6 mb-12">A glimpse into some of our assets</Title>
 
 				<Carousel
 					opts={{
