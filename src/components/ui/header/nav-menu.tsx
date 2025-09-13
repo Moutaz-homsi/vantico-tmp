@@ -28,9 +28,9 @@ const menuItems: MenuItem[] = [
 	{
 		label: "Investment Focus",
 		submenu: [
-			{ label: "Real Estate", href: "/real-estate" },
-			{ label: "Healthcare", href: "/healthcare" },
-			{ label: "Private Equity", href: "/private-equity" }
+			{ label: "Real Estate", href: "/investment-focus#real-estate" },
+			{ label: "Healthcare", href: "/investment-focus#healthcare" },
+			{ label: "Private Equity", href: "/investment-focus#private-equity" }
 		]
 	},
 	{
@@ -43,13 +43,17 @@ const menuItems: MenuItem[] = [
 	},
 	{
 		label: "Vantico Lab",
-		submenu: [
-			{ label: "Insights and news", href: "/insights-and-news" },
-			{ label: "Press Release", href: "/press-release" },
-			{ label: "Data", href: "/data" },
-			{ label: "Growth states", href: "/growth-states" }
-		]
+		href: "/vantico-lab"
 	},
+	// {
+	// 	label: "Vantico Lab",
+	// 	submenu: [
+	// 		{ label: "Insights and news", href: "/insights-and-news" },
+	// 		{ label: "Press Release", href: "/press-release" },
+	// 		{ label: "Data", href: "/data" },
+	// 		{ label: "Growth states", href: "/growth-states" }
+	// 	]
+	// },
 	{
 		label: "LP Access",
 		href: "/lp-access"
