@@ -4,7 +4,7 @@ import { AppProvider } from "@/hooks/use-app"
 import { ToastContainer } from "react-toastify"
 import { ModalProvider } from "@/hooks/use-model"
 import "../globals.css"
-import "../wysiwyg.css"
+// import "../wysiwyg.css"
 
 export const metadata: Metadata = {
 	title: "Vantico",
