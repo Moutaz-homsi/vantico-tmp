@@ -1,59 +1,23 @@
-import AboutUs from "@/components/page-builder/blocks/AboutUs"
-import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
-import EcosystemSection from "@/components/page-builder/blocks/ecosystem"
-import FAQ from "@/components/page-builder/blocks/FAQ"
-import GlobeSection from "@/components/page-builder/blocks/globe-section"
-import HeroVideo from "@/components/page-builder/blocks/Hero-video"
-import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
-import NewsSection from "@/components/page-builder/blocks/news-section"
-import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
-import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
-import { mockHomePageData } from "@/data/home-page-data"
-import fetchData from "@/utils/api"
 import { stringify } from "qs"
+import fetchData from "@/utils/api"
+import Layout from "@/components/layout"
+import { mockHomePageData } from "@/data/home-page-data"
+import AboutUs from "@/components/page-builder/blocks/AboutUs"
+import HeroVideo from "@/components/page-builder/blocks/Hero-video"
+import PropertyTour from "@/components/page-builder/blocks/PropertyTour"
+import EcosystemSection from "@/components/page-builder/blocks/ecosystem"
+import GlobeSection from "@/components/page-builder/blocks/globe-section"
 import OurPhilosophy from "@/components/page-builder/blocks/OurPhilosophy"
+import TenantsSection from "@/components/page-builder/blocks/TenantsSection"
+import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
+import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
 import StrategicPartnerships from "@/components/page-builder/blocks/StrategicPartnerships"
-// import Hero from "@/components/page-builder/blocks/Hero"
-// import InvestmentApproach from "@/components/page-builder/blocks/InvestmentApproach"
-// import InvestorsSection from "@/components/page-builder/blocks/InvestorsSection"
-// import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
-// import OurHistory from "@/components/page-builder/blocks/OurHistory"
-// import Ready from "@/components/page-builder/blocks/Ready"
-// import ROICalculator from "@/components/page-builder/blocks/ROICalculator"
-// import StrategyAccordion from "@/components/page-builder/blocks/StrategyAccordion"
-// import { investmentSteps } from "@/data/investmentData"
-// import { fundingProgress, investmentDetails, investorStats } from "@/data/investorData"
 
-export const historyItems = [
-	{
-		year: "2000",
-		description:
-			"Launched Triangle Family Dentistry and Carolina Orthodontics & Children's Dentistry in North Carolina with a vision to redefine patient care.",
-		imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
-		imageAlt: "Exterior of Triangle Family Dentistry building"
-	},
-	{
-		year: "2010",
-		description:
-			"Expanded to 20 thriving locations, fueled by relentless dedication, data-driven strategy and operational excellence.",
-		imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
-		imageAlt: "Interior reception area of dental clinic"
-	},
-	{
-		year: "2020",
-		description:
-			"Established as the premier dental healthcare provider in the Mid-Atlantic region with innovative treatment protocols and patient-first approach.",
-		imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
-		imageAlt: "Modern Triangle Family Dentistry facility"
-	}
-]
-
-export default async function HomePage() {
+export default async function HomePage({ params }) {
 	const homePageData = await getHomePageData()
-	// console.log(require("util").inspect(homePageData.tenants, true, 10, true))
 
 	return (
-		<main>
+		<Layout options={homePageData.options}>
 			<HeroVideo
 				videoSrc={
 					"https://cdn.jsdelivr.net/gh/moutazdev/my-website-videos@main/295073_City_Buildings_Dusk_Aerial_Highway_By_Via_Films_Artlist_HD_2.mp4"
@@ -66,13 +30,6 @@ export default async function HomePage() {
 			<OurPhilosophy founder_image={homePageData.founder_image} founder_philosophy={homePageData.founder_philosophy} />
 			<AboutUs logos={homePageData.logos} />
 
-			{/* <StrategyAccordion
-				heading="WHY VANTICO?"
-				subheading="PRECISION-DRIVEN"
-				title="INVESTMENT STRATEGY"
-				items={strategyItems}
-			/> */}
-
 			<InvestWithPurpose />
 
 			<GlobeSection />
@@ -80,25 +37,13 @@ export default async function HomePage() {
 			<StrategicPartnerships />
 
 			<EcosystemSection slides={homePageData.ecosystem_sliders} />
-			{/* <InvestorsSection stats={investorStats} fundingProgress={fundingProgress} investmentDetails={investmentDetails} /> */}
 
 			<PropertyTour properties={homePageData.properties} />
 
 			<TenantsSection tenants={homePageData.tenants} />
 
-			{/* <ROICalculator /> */}
-
-			{/* <Ready /> */}
-			{/* <MeetTheTeam members={homePageData.team} /> */}
-
-			{/* <InvestmentApproach steps={investmentSteps} /> */}
-
 			<ConsultationSection calendlyUrl={homePageData.calendly_url} />
-			{/* <Testimonials testimonials={homePageData.testimonials} /> */}
-
-			{/* <NewsSection items={homePageData.news} /> */}
-			{/* <FAQ items={homePageData.faq} /> */}
-		</main>
+		</Layout>
 	)
 }
 
@@ -133,14 +78,39 @@ async function getHomePageData() {
 		}
 	} catch (error) {}
 
-	const [news, team, properties] = await Promise.all([
+	const [news, team, properties, option] = await Promise.all([
 		fetchData({ route: "news?[populate]=*" }),
 		fetchData({ route: "teams?[populate]=*&sort=rank:asc" }),
-		fetchData({ route: "properties?[populate]=*&sort=rank:asc" })
+		fetchData({ route: "properties?[populate]=*&sort=rank:asc" }),
+		fetchData({ route: "option" })
 	])
 
-	return { ...homePageData, news: news.data, team: team.data, properties: properties.data }
+	return { ...homePageData, news: news.data, team: team.data, properties: properties.data, options: option.data }
 }
+
+export const historyItems = [
+	{
+		year: "2000",
+		description:
+			"Launched Triangle Family Dentistry and Carolina Orthodontics & Children's Dentistry in North Carolina with a vision to redefine patient care.",
+		imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
+		imageAlt: "Exterior of Triangle Family Dentistry building"
+	},
+	{
+		year: "2010",
+		description:
+			"Expanded to 20 thriving locations, fueled by relentless dedication, data-driven strategy and operational excellence.",
+		imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
+		imageAlt: "Interior reception area of dental clinic"
+	},
+	{
+		year: "2020",
+		description:
+			"Established as the premier dental healthcare provider in the Mid-Atlantic region with innovative treatment protocols and patient-first approach.",
+		imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
+		imageAlt: "Modern Triangle Family Dentistry facility"
+	}
+]
 
 // const strategyItems = [
 // 	{
