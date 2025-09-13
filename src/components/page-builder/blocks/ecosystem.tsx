@@ -7,6 +7,8 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay"
 import TenantCarousel from "../../ui/carousels/tenant-carousel"
 import CssCarousel from "@/components/ui/carousels/css-caroucel"
+import LinkButton from "@/components/ui/buttons/link-button"
+import { ChevronRight } from "lucide-react"
 
 export interface Ecosystem {
 	name: string
@@ -32,7 +34,9 @@ export default function EcosystemSection({ slides, className }: EcosystemSection
 				<div className="flex flex-col gap-6 items-center text-center">
 					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>
 					<p className="">
-						A network of elite partners ensures credibility, seamless operations, and consistent investment success. <br/>we are proud to collaborate with a distinguished network of:
+						A network of elite partners ensures credibility, seamless operations, and consistent investment success.{" "}
+						<br />
+						we are proud to collaborate with a distinguished network of:
 					</p>
 				</div>
 				<div className="mt-10 flex flex-col">
@@ -40,6 +44,13 @@ export default function EcosystemSection({ slides, className }: EcosystemSection
 					<CssCarousel data={slides?.second_slider || []} />
 					<CssCarousel data={slides?.third_slider || []} />
 				</div>
+
+				<div className="flex justify-center md:justify-right mt-6 md:mt-10">
+					<LinkButton link="/partner-network" className="bg-black text-white">
+						Explore Our Partner Network <ChevronRight className="ml-2" />
+					</LinkButton>
+				</div>
+
 				<div className="mt-4 mb-4">
 					<div className="col-span-12 text-xs text-gray-400">
 						Logos displayed represent institutions and counterparties with whom VANTICO or its affiliates have engaged

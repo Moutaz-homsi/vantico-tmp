@@ -36,21 +36,21 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 				</div> */}
 
 				<Title className="text-2xl text-white text-center mt-6 mb-12">
-					A glimpse into some
-					of our assets
+					A Glimpse Into Some of Our Assets
 				</Title>
 
 				<Carousel
 					opts={{
 						align: "center",
 						loop: true, // Prevent scrolling from last to first
-						containScroll: "trimSnaps"
+						containScroll: "trimSnaps",
+						duration: 50,
 					}}
 					plugins={[
 						Autoplay({
-							delay: 2000,
+							delay: 4000,
 							stopOnMouseEnter: true,
-							stopOnInteraction: false
+							stopOnInteraction: true,
 						})
 					]}
 					style={
