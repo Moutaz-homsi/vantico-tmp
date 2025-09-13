@@ -11,7 +11,6 @@ import EcosystemSection from "./blocks/ecosystem"
 import TenantsSection from "./blocks/TenantsSection"
 
 export default function PageBuilder({ data }) {
-	console.log("data: ", data)
 	return (
 		<div>
 			<div style={{}} className="flex flex-col">
