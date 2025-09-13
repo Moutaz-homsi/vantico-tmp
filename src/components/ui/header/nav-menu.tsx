@@ -20,7 +20,7 @@ const menuItems: MenuItem[] = [
 		label: "About",
 		submenu: [
 			// overview
-			{ label: "Overview", href: "/" },
+			{ label: "Overview", href: "/about" },
 			{ label: "Our People", href: "/our-people" },
 			{ label: "Contact", href: "/contact" }
 		]

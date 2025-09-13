@@ -17,7 +17,7 @@ export default function Banner({ image, title, video_url }: IBanner) {
 				className="min-h-[calc(100vh-164px)] h-[calc(100vh-164px)] relative p-16 flex items-center justify-center "
 			>
 				<Container className="z-10 relative text-center w-full h-full">
-					<Title text={title} className="text-white font-semibold" />
+					<Title text={title} className="text-white font-semibold leading-[1.5]" />
 				</Container>
 			</VideoSection>
 		)
@@ -29,7 +29,7 @@ export default function Banner({ image, title, video_url }: IBanner) {
 
 			<div className="bg-black/60 absolute inset-0" />
 			<Container className="z-10 relative text-center w-full h-full">
-				<Title text={title} className="text-white font-semibold" />
+				<Title text={title} className="text-white font-semibold leading-[1.5]" />
 			</Container>
 		</div>
 	)
