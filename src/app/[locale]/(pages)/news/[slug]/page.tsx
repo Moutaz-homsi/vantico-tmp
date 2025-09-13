@@ -164,7 +164,6 @@ export default async function NewsDetailPage({ params }: Props) {
 // 	})
 
 // 	const newsData: NewsData | undefined = detailRes?.data?.[0]
-// 	console.log("newsData: ", newsData)
 // 	const news = newsData
 
 // 	if (!news) return notFound()

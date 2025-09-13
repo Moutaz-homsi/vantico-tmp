@@ -27,10 +27,10 @@ async function getHomePageData(locale: string) {
 	})
 
 	try {
-		const [homeResponse, news, team, properties, option] = await Promise.all([
+		const [homeResponse, news, /* team, */ properties, option] = await Promise.all([
 			fetchData({ route: `homepage?${query}` }),
 			fetchData({ route: `news?populate=*&locale=${locale}` }),
-			fetchData({ route: `teams?populate=*&sort=rank:asc&locale=${locale}` }),
+			// fetchData({ route: `teams?populate=*&sort=rank:asc&locale=${locale}` }),
 			fetchData({ route: `properties?populate=*&sort=rank:asc&locale=${locale}` }),
 			fetchData({ route: `option?locale=${locale}` })
 		])
@@ -38,7 +38,7 @@ async function getHomePageData(locale: string) {
 		return {
 			homeData: homeResponse.data,
 			news: news.data,
-			team: team.data,
+			// team: team.data,
 			properties: properties.data,
 			options: option.data
 		}

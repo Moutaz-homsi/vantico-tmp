@@ -29,7 +29,7 @@ async function loadActions() {
 	program.arguments("[arguments]").action(async (options) => {
 		if (!options) {
 			// Code to execute when no arguments are provided
-			console.log("No arguments provided!")
+			console.info("No arguments provided!")
 
 			const { command } = await inquirer.prompt([
 				{
@@ -40,11 +40,11 @@ async function loadActions() {
 				}
 			])
 
-			console.log(name, command)
+			console.info(name, command)
 			program.parse([...process.argv, command])
 		} else {
 			// Code to execute when arguments are provided
-			console.log("Arguments provided:", options)
+			console.info("Arguments provided:", options)
 		}
 	})
 }

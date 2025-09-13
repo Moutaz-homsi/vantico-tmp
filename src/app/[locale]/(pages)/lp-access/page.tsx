@@ -9,6 +9,7 @@ import Layout from "@/components/layout"
 export default function LpAccess() {
 	const [values, setValues] = useState({ identifier: "", password: "", remreberMe: false })
 	const [options, setOptions] = useState()
+
 	async function handleSubmit(e: any) {
 		e.preventDefault()
 		const res = await LogIn({ body: values })

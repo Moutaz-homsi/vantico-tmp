@@ -27,8 +27,8 @@ interface PropertyTourProps {
 const PropertyTour = ({ properties }: PropertyTourProps) => {
 	return (
 		<section id="tour" className="bg-black text-white">
-			<Container patternSkin="dark">
-				<Title className="text-2xl text-white text-center mt-6 mb-12">A Glimpse Into Some of Our Assets</Title>
+			<Container patternSkin="dark" className="px-0">
+				<Title className="text-2xl px-6 md:px-0 text-white text-center mt-6 mb-12">A Glimpse Into Some of Our Assets</Title>
 
 				<Carousel
 					opts={{
