@@ -1,6 +1,6 @@
 import VideoBackground from "./VideoBackground"
 
-const HeroVideo = ({ hero_video_url, videoId, subtitle }) => {
+const HeroVideo = ({ hero_video_url }) => {
 	return (
 		<section
 			id="hero"

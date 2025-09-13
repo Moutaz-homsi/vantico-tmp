@@ -24,23 +24,24 @@ export default function Header() {
 			<header className="sticky top-0 left-0 right-0 z-50 w-full bg-black">
 				<div className="w-full bg-black">
 					<Container
+						pattern="hidden"
 						noGutters
 						className={cn(
 							"relative flex items-center justify-between h-16 px-4 2xl:px-0 py-3 md:py-3 lg:py-3 w-full max-w-7xl mx-auto",
 							!isOpen ? "bg-black" : "bg-gray-900"
 						)}
 					>
-					<Link href="/" className="block md:w-52">
-						<Image src="/logo-v2.svg" alt="Logo" height={100} width={200} className="select-none" quality="100" />
-					</Link>
+						<Link href="/" className="block md:w-52">
+							<Image src="/logo-v2.svg" alt="Logo" height={100} width={200} className="select-none" quality="100" />
+						</Link>
 
-					<DesktopMenu />
+						<DesktopMenu />
 
-					<div className="lg:hidden">
-						<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
-					</div>
+						<div className="lg:hidden">
+							<AnimatedMenuIcon isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
+						</div>
 
-					{/* <div className="hidden lg:block">
+						{/* <div className="hidden lg:block">
 						<Button
 							onClick={handleConsultation}
 							variant="outline"
