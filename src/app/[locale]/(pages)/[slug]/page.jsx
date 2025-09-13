@@ -15,7 +15,7 @@ export default async function Page({ params }) {
 
 	return (
 		<Layout options={optionsResponse?.data}>
-			<Container fluid noGutters>
+			<Container fluid noGutters className="py-0 md:py-0 lg:py-0">
 				<PageBuilder data={pageResponse.data} />
 			</Container>
 		</Layout>

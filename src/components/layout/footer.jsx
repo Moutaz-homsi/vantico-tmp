@@ -91,7 +91,7 @@ export default function Footer({ options }) {
 								display: "block"
 							}}
 						>
-							Legal Disclaimer The information presented on this website is for informational purposes only and does not
+							The information presented on this website is for informational purposes only and does not
 							constitute an offer to sell, a solicitation to buy, or a recommendation for any security, investment
 							strategy, or financial product. Nothing contained herein should be construed as investment, legal, tax, or
 							accounting advice. Visitors should consult their own professional advisors before making any financial or
@@ -186,7 +186,7 @@ export default function Footer({ options }) {
 								display: "block"
 							}}
 						>
-							Legal Disclaimer The information presented on this website is for informational purposes only and does not
+							The information presented on this website is for informational purposes only and does not
 							constitute an offer to sell, a solicitation to buy, or a recommendation for any security, investment
 							strategy, or financial product. Nothing contained herein should be construed as investment, legal, tax, or
 							accounting advice. Visitors should consult their own professional advisors before making any financial or

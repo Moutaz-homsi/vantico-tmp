@@ -26,5 +26,6 @@ module.exports = {
 			}
 		}
 	},
+	safelist: ["text-lg", "md:text-2xl", "font-light"],
 	plugins: []
 }
