@@ -10,7 +10,7 @@ export default function Container({
 	as: Component = "div",
 	fluid = false,
 	noGutters = false,
-	pattern = "left" || "right" || "hidden",
+	pattern = "top-left" || "bottom-right" || "hidden",
 	patternSkin = "light" || "dark",
 	...props
 }) {
@@ -20,8 +20,8 @@ export default function Container({
 				<div
 					className={cn(
 						"absolute z-[0] w-[500px] h-[500px] max-h-full",
-						pattern === "right" ? "right-0 -bottom-[0.2rem]" : "left-0 -top-[0.2rem]",
-						patternSkin === "dark" ? "opacity-30" : "opacity-80"
+						pattern === "bottom-right" ? "right-0 -bottom-[0.2rem]" : "left-0 -top-[0.2rem]",
+						// patternSkin === "dark" ? "opacity-30" : "opacity-20"
 					)}
 				>
 					<Image
@@ -30,7 +30,7 @@ export default function Container({
 						isFill
 						quality={80}
 						fetchPriority="auto"
-						className={cn("object-contain h-full w-full", patternSkin === "dark" ? "opacity-30" : "opacity-80")}
+						className={cn("object-contain h-full w-full", patternSkin === "dark" ? "opacity-15" : "opacity-20 brightness-[0.10]")}
 					/>
 				</div>
 			) : null}

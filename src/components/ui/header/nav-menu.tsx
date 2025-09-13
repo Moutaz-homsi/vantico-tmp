@@ -35,7 +35,7 @@ const menuItems: MenuItem[] = [
 	},
 	{
 		label: "Partner Network",
-		href: "/team"
+		href: "/partner-network"
 	},
 	{
 		label: "Our Edge",
