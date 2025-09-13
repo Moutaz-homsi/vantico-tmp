@@ -3,6 +3,7 @@ import Banner from "./blocks/banner"
 import { Container } from "../layout"
 import ContentBlock from "./blocks/content-block"
 import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
+import MeetTheTeam from "./blocks/MeetTheTeam"
 
 export default function PageBuilder({ data }) {
 	return (
@@ -37,6 +38,8 @@ export default function PageBuilder({ data }) {
 								return <Cards key={index} data={rest} />
 							case "pages.banner":
 								return <Banner key={index} {...rest} />
+							case "pages.team-block":
+								return <MeetTheTeam key={index} members={rest.teams} />
 							default:
 								return null
 						}
