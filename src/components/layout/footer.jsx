@@ -227,7 +227,7 @@ const contactDetails = [
 				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 			</svg>
 		),
-		content: <address className="not-italic">1400 Crescent Green Drive, Suite 320, Cary, North Carolina</address>
+		content: <address className="not-italic">51 Kilmayne Dr, Cary, NC 27511</address>
 	},
 	{
 		icon: (
@@ -247,8 +247,8 @@ const contactDetails = [
 			</svg>
 		),
 		content: (
-			<a href="tel:+19296764692" className="hover:text-primary transition-colors">
-				+1 (929) 676-4692
+			<a href="tel:+19192990709" className="hover:text-primary transition-colors">
+				+1 (919) 299 0709
 			</a>
 		)
 	},
