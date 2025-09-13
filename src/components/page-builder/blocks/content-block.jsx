@@ -32,7 +32,7 @@ export default function ContentBlock({ data, showTitle = true }) {
 					) : null}
 					<Wysiwyg
 						data={data?.content}
-						className={cn("[&_a]:font-light", skin == "dark" ? "[&_*]:!text-white" : "[&_*]:!text-black")}
+						// className={cn("[&_a]:font-light", skin == "dark" ? "[&_*]:!text-white" : "[&_*]:!text-black")}
 					/>
 				</div>
 			</Container>
