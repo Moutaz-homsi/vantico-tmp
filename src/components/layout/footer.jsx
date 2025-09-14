@@ -16,7 +16,7 @@ export default function Footer({ options }) {
 					opacityPercentage={50}
 					className="min-h-[300px] h-full bg-[#1E1E1E] text-white overflow-hidden"
 				>
-					<div className="relative inset-0 -top-[5px] pointer-events-none select-none">
+					<div className="relative inset-0 -top-[5px] pointer-events-none select-none hidden lg:block">
 						<div className="size-96 opacity-20 absolute left-0 top-0 z-[1]">
 							<Image
 								src="/bg-logo.png"
@@ -111,7 +111,7 @@ export default function Footer({ options }) {
 				</VideoBackground>
 			) : (
 				<>
-					<div className="relative inset-0 -top-[5px] pointer-events-none select-none">
+					<div className="relative inset-0 -top-[5px] pointer-events-none select-none hidden lg:block">
 						<div className="size-96 opacity-20 absolute left-0 top-0 z-[1]">
 							<Image
 								src="/bg-logo.png"

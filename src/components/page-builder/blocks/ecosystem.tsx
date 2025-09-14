@@ -47,7 +47,7 @@ export default function EcosystemSection({ slides, hide_pattern, hide_btn = fals
 					</div>
 				) : null}
 				<div className="mt-4 mb-4 px-6 md:px-8 lg:px-12">
-					<div className="col-span-12 text-xs text-gray-400">
+					<div className="col-span-12 text-xs text-gray-400 relative top-16 lg:top-30">
 						Logos displayed represent institutions and counterparties with whom VANTICO or its affiliates have engaged
 						in various business transactions, partnerships, or professional relationships. Inclusion does not imply an
 						endorsement or ongoing commercial relationship unless explicitly stated.

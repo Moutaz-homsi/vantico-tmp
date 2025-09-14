@@ -25,10 +25,11 @@ export default function ConsultationSection({ calendlyUrl }) {
 	return (
 		<div className="relative bg-white">
 			<div
-				className="w-full min-h-80 mx-auto py-16 md:py-20 lg:py-[7.5rem] bg-no-repeat bg-cover bg-center bg-fixed relative"
-				style={{
-					backgroundImage: `url(${backgroundImage?.url})`
-				}}
+				className="
+					w-full min-h-80 mx-auto md:py-20 lg:py-[7.5rem]
+					bg-none md:bg-[url('https://vantico-backend.webotak.com/uploads/DJI_20250520134827_0065_D_ed6af30e6d.jpg')]
+					bg-no-repeat bg-cover bg-center bg-fixed relative
+				"
 			>
 				<Calendly calendlyUrl={calendlyUrl} />
 			</div>

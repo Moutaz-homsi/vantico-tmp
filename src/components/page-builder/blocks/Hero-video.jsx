@@ -12,7 +12,7 @@ const HeroVideo = ({ hero_video_url, videoId, subtitle }) => {
 				childrenContainerClassName="h-full flex flex-col lg:justify-center pt-16 lg:pt-0 w-full max-w-7xl mx-auto px-4 lg:px-24"
 			>
 				<div className="relative z-10 pt-0 pb-0 flex flex-col gap-y-10 justify-baseline lg:justify-center items-center lg:items-start">
-					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[100%] text-white [text-shadow:1px_2px_5px_rgba(0,0,0,0.5)]">
+					<h1 className="text-4xl md:text-[4rem] font-medium font-secondary leading-[1.3] text-white [text-shadow:1px_2px_5px_rgba(0,0,0,0.5)]">
 						Precision <br />
 						<span className="cd-words-wrapper">Partnership</span> <br />
 						<span className="cd-words-wrapper">Conviction</span>
