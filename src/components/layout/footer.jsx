@@ -31,7 +31,7 @@ export default function Footer({ options }) {
 					</div>
 
 					<div className="container mx-auto p-8 md:px-30 md:py-20">
-						<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-26">
+						<div className="flex flex-col md:flex-row gap-10 items-center md:justify-between mb-26 mt-10 md:mt-0">
 							<div className="flex items-center">
 								<Image src="/logo-v2.svg" alt="Logo" height={30} width={260} />
 							</div>
