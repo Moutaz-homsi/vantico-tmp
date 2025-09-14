@@ -19,7 +19,7 @@ export default function Container({
 			{pattern !== "hidden" ? (
 				<div
 					className={cn(
-						"absolute z-[0] w-[500px] h-[500px] max-h-full",
+						"absolute z-[0] w-[500px] h-[500px] max-h-full hidden lg:block",
 						pattern === "bottom-right" ? "right-0 -bottom-[0.2rem]" : "left-0 -top-[0.2rem]",
 						// patternSkin === "dark" ? "opacity-30" : "opacity-20"
 					)}

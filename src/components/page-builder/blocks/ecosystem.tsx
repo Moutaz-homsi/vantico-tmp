@@ -21,7 +21,9 @@ interface EcosystemSectionProps {
 
 export default function EcosystemSection({ slides, hide_pattern, hide_btn = false, className }: EcosystemSectionProps) {
 	return (
-		<Container as="section" id="ecosystem" {...(hide_pattern ? { pattern: "hidden" } : {})} className={cn("px-0" ,className)}>
+		<Container as="section" id="ecosystem" 
+		{...(hide_pattern ? { pattern: "hidden" } : {})}
+		className={cn("px-0" ,className)}>
 			{/* <div className="max-w-6xl mx-auto"> */}
 				<div className="flex flex-col gap-6 items-center text-center px-6 md:px-0 lg:px-12">
 					<Title className="text-2xl">A Proven Ecosystem of Excellence</Title>

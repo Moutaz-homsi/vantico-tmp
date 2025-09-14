@@ -5,7 +5,7 @@ import { Image } from "@/components/ui"
 const OurPhilosophy = ({ founder_image, founder_philosophy }) => {
 	return (
 		<section className="w-full bg-black">
-			<Container patternSkin="dark" pattern="bottom-right">
+			<Container patternSkin="dark" pattern="hidden">
 				<div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-16 items-center lg:items-stretch">
 					<div className="">
 						<div className="relative w-[300px] h-[400px] aspect-[3/4] mx-auto">

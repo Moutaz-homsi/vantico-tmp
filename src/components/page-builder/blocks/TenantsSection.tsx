@@ -22,7 +22,9 @@ interface TenantsSectionProps {
 
 export default function TenantsSection({ tenants, hide_pattern, className }: TenantsSectionProps) {
 	return (
-		<Container as="section" id="tenants" {...(hide_pattern ? { pattern: "hidden" } : {})} className={cn("px-0" ,className)}>
+		<Container as="section" id="tenants" 
+		{...(hide_pattern ? { pattern: "hidden" } : {})}
+		className={cn("px-0" ,className)}>
 			<div className="max-w-6xl mx-auto flex flex-col gap-6 items-start px-6 md:px-0">
 				<Title className="text-2xl">
 					A portfolio of high-quality, recession-resistant <span className="text-4xl">220+</span> tenants

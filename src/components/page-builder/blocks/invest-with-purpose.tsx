@@ -6,7 +6,7 @@ import LinkButton from "@/components/ui/buttons/link-button"
 export default function InvestWithPurpose() {
 	return (
 		<section id="tour" className="bg-black text-white">
-			<Container patternSkin="dark" pattern="bottom-right">
+			<Container patternSkin="dark" pattern="hidden">
 				<div className="container mx-auto max-w-6xl">
 					<div>
 						<h2 className="flex-none text-5xl md:text-6xl text-center font-secondary">
