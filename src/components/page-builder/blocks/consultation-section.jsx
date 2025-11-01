@@ -31,7 +31,7 @@ export default function ConsultationSection({ calendlyUrl }) {
 					bg-no-repeat bg-cover bg-center bg-fixed relative
 				"
 			>
-				<Calendly calendlyUrl={calendlyUrl} />
+				{/* <Calendly calendlyUrl={calendlyUrl} /> */}
 			</div>
 		</div>
 	)

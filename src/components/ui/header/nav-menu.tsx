@@ -21,7 +21,7 @@ const menuItems: MenuItem[] = [
 		submenu: [
 			// overview
 			{ label: "Overview", href: "/about" },
-			{ label: "Our People", href: "/our-people" },
+			{ label: "Leadership Team", href: "/leadership-team" },
 			// { label: "Contact", href: "/contact" }
 		]
 	},
@@ -42,7 +42,7 @@ const menuItems: MenuItem[] = [
 		href: "/our-edge"
 	},
 	{
-		label: "Vantico Lab",
+		label: "News & Insights",
 		href: "/vantico-lab"
 	},
 	// {

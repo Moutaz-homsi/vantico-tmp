@@ -80,11 +80,11 @@ const Hero = ({
 					<div className="w-3/5 flex flex-col justify-between">
 						<div className="flex-1 flex items-center">
 							<p className="text-md md:text-xl text-white mt-16">
-								At VANTICO, character is our foundation. We are driven by clarity of vision, operational discipline, and
-								integrity in every decision. Trust is earned daily through transparent partnerships and aligned action.
-								We invest with purpose, guided by data and committed to outcomes that endure. Our goal is not to be
-								everywhere but to build what is essential and lasting. Excellence is not a pursuit of perfection but a
-								duty to those we serve. Through precision and purpose, we create value that extends far beyond capital.
+								At VANTICO, we lead with character before capital. True investment begins with trust. Before numbers or
+								structures, we focus on people their values, their vision, and their integrity. We believe long-term
+								success is measured not only by returns, but by relationships built with care and conviction. We are
+								here to build what matters patiently, purposefully, and with discipline. That means saying no more often
+								than yes, and choosing partners who share our principles.
 							</p>
 						</div>
 						<div className="flex justify-end items-end flex-col text-left text-white">

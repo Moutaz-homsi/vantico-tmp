@@ -9,6 +9,7 @@ import TenantsSection, { Tenant } from "@/components/page-builder/blocks/Tenants
 import InvestWithPurpose from "@/components/page-builder/blocks/invest-with-purpose"
 import ConsultationSection from "@/components/page-builder/blocks/consultation-section"
 import StrategicPartnerships from "@/components/page-builder/blocks/StrategicPartnerships"
+import GerhardSection from "@/components/page-builder/blocks/gerhard-section"
 
 interface HomeProps {
 	homeData: {
@@ -40,6 +41,8 @@ export default async function Home({ homeData, properties, options }: HomeProps)
 			<OurPhilosophy founder_image={homeData.founder_image} founder_philosophy={homeData.founder_philosophy} />
 
 			<AboutUs />
+
+			<GerhardSection />
 
 			<InvestWithPurpose />
 
