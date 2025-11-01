@@ -36,12 +36,14 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 						>
 							<div className="w-full text-center md:text-left relative md:top-7">
 								{/* <AnimatedValue value={`$${addCommas("1.5")}B`} duration={2.5} /> */}
-								<span className="text-6xl">$</span><b>1.5B</b>
-								<b className="font-medium text-xl ml-3 lg:text-5xl">AUM</b><em className="text-xs text-gray-400 relative top-1 ml-1"> 1</em>
+								<span className="text-6xl">$</span>
+								<b>1.2B</b>
+								<b className="font-medium text-xl ml-3 lg:text-5xl">+</b>
 							</div>
 							<div className="text-xs text-gray-400 mt-6 relative top-20 hidden md:block">
-								*Collective AUM includes assets managed across VANTICO’s affiliated funds, operating platforms, and
-								strategic partnerships.
+								*Combined Transaction and Affiliated Platform Value Reflects cumulative enterprise value across select
+								real estate, healthcare, and private equity transactions involving VANTICO’s co-investment or strategic
+								participation..
 							</div>
 						</div>
 
