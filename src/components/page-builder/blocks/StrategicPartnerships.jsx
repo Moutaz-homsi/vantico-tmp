@@ -14,12 +14,10 @@ export default function StrategicPartnerships() {
 					<div className="flex flex-col">
 						<div className="flex-1 flex items-center mb-10">
 							<p className="text-lg md:text-2xl text-white font-normal leading-relaxed tracking-wider">
-								Strategic partnerships are not formed in boardrooms. They are built through trust, shared conviction,
-								and long-term alignment. At VANTICO, we invest deeply in relationships because we believe real
-								partnership goes beyond capital. Our mission is to connect intelligent capital with transformative
-								opportunities. This takes clarity of purpose, consistency in values, and the discipline to stay focused
-								when others are distracted. When the right people unite around a shared vision, exceptional outcomes
-								follow naturally. That is the standard we live by every day at VANTICO.
+								Strategic partnerships are not built in boardrooms but on trust, shared conviction, and long-term
+								alignment. At VANTICO, we invest in relationships because real partnership goes beyond capital. With
+								clarity of purpose, consistency of values, and discipline, we aim to create sustainable value. When the
+								right people unite around a shared vision, exceptional outcomes follow.
 							</p>
 						</div>
 						<div className="w-fit flex justify-end items-start flex-col text-left text-white ms-auto">

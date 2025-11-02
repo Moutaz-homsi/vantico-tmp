@@ -20,12 +20,11 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 						<SectionLabel label={"Crafting Excellence in Investment"} />
 						<Title className="my-6 text-left">Trust. Discipline. Enduring Value.</Title>
 						<p className="text-lg md:text-2xl font-light text-black leading-[160%] mt-10 text-left">
-							<span className="font-medium">VANTICO</span> is a privately held global investment firm distinguished by
-							precision, partnership, and long-term conviction. We co-invest with a curated network of high-net-worth
-							individuals, family offices, and institutions across U.S. real estate, healthcare, and private equity. Our
-							approach is guided by data, discipline, and deep market insight. We do not seek to be the largest. We
-							strive to be the most trusted. Every investment reflects our commitment to sustainable value that endures
-							over time.
+							<span className="font-medium">VANTICO</span> is a privately held global investment firm defined by
+							precision, partnership, and long-term alignment. We work with a select network of families, institutions,
+							and entrepreneurs across U.S. real estate, healthcare, and private equity. Our disciplined approach is
+							guided by data, grounded in trust, and committed to lasting value. We do not aim to be the largest. We aim
+							to be the most trusted.
 						</p>
 					</div>
 
