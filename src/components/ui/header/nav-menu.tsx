@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
 	// },
 	{
 		label: "LP Access",
-		href: "/lp-access"
+		href: "https://signin.vantico.com/account/login"
 	}
 ]
 
