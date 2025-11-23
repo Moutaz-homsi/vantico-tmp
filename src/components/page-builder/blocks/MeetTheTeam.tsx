@@ -6,6 +6,7 @@ import { getResponsiveGridClasses } from "@/utils/grid-utils"
 interface TeamMember {
 	id: number
 	name: string
+	link: string
 	role: string
 	bio?: string
 	rank?: number
@@ -34,16 +35,18 @@ const MeetTheTeam = ({ members }: MeetTheTeamProps) => {
 								members.length
 							)}`}
 						>
-							<div className="relative w-full h-[440px] mb-4 rounded-2xl overflow-hidden">
-								<Image
-									src={member.image?.url || "/images/avatar-placeholder.jpg"}
-									alt={member.name}
-									isFill
-									className="object-cover object-top"
-								/>
-							</div>
-							<h3 className="text-2xl md:text-3xl mb-2 font-medium">{member.name}</h3>
-							<p className=" text-lg">{member.role}</p>
+							<a href={member.link || "#"} target="_blank" className="w-full" rel="noopener noreferrer">
+								<div className="relative w-full h-[440px] mb-4 rounded-2xl overflow-hidden">
+									<Image
+										src={member.image?.url || "/images/avatar-placeholder.jpg"}
+										alt={member.name}
+										isFill
+										className="object-cover object-top hover:opacity-90 transition-opacity duration-200"
+									/>
+								</div>
+								<h3 className="text-2xl md:text-3xl mb-2 font-medium hover:text-primary">{member.name}</h3>
+								<p className=" text-lg">{member.role}</p>
+							</a>
 						</div>
 					))}
 				</div>
