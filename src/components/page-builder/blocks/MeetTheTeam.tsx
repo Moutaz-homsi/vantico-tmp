@@ -2,6 +2,7 @@
 import { Container } from "@/components/layout"
 import { Image } from "@/components/ui"
 import { getResponsiveGridClasses } from "@/utils/grid-utils"
+import { Linkedin } from "lucide-react"
 
 interface TeamMember {
 	id: number
@@ -44,7 +45,12 @@ const MeetTheTeam = ({ members }: MeetTheTeamProps) => {
 										className="object-cover object-top hover:opacity-90 transition-opacity duration-200"
 									/>
 								</div>
-								<h3 className="text-2xl md:text-3xl mb-2 font-medium hover:text-primary">{member.name}</h3>
+								<div className="flex justify-center gap-4  items-center">
+									<h3 className="text-2xl md:text-3xl mb-2 font-medium hover:text-primary">{member.name}</h3>
+									<a href={member.link} aria-label="LinkedIn" className="">
+										<Linkedin size={24} />
+									</a>
+								</div>
 								<p className=" text-lg">{member.role}</p>
 							</a>
 						</div>
