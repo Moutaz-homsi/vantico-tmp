@@ -47,7 +47,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 							src={member.image?.url || "/images/avatar-placeholder.jpg"}
 							alt={member.name}
 							isFill
-							className="object-cover object-top"
+							className="object-cover object-center"
 						/>
 					</div>
 				</div>
