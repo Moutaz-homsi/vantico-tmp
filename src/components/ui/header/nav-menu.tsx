@@ -22,6 +22,7 @@ const menuItems: MenuItem[] = [
 			// overview
 			{ label: "Overview", href: "/about" },
 			{ label: "Leadership Team", href: "/leadership-team" },
+			{ label: "Our Team", href: "/our-team" }
 			// { label: "Contact", href: "/contact" }
 		]
 	},
