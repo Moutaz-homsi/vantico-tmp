@@ -8,6 +8,12 @@ import Title from "@/components/ui/title"
 import SectionLabel from "@/components/section-label"
 import { cn } from "@/utils"
 
+interface Image {
+	url: string
+	width?: number
+	height?: number
+	alternativeText?: string
+}
 interface TeamMember {
 	id: number
 	name: string
@@ -15,12 +21,9 @@ interface TeamMember {
 	role: string
 	bio?: string
 	rank?: number
-	image?: {
-		url: string
-		width?: number
-		height?: number
-		alternativeText?: string
-	}
+	position?: string
+	image?: Image
+	mobile_image?: Image
 }
 
 interface MeetTheTeamProps {
@@ -32,6 +35,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 	const [expanded, setExpanded] = useState(false)
 	const [isClamped, setIsClamped] = useState(false)
 	const bioRef = useRef<HTMLParagraphElement>(null)
+	if (member.name.startsWith("Yah")) console.log("member,", member)
 
 	useEffect(() => {
 		const el = bioRef.current
@@ -47,7 +51,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 							src={member.image?.url || "/images/avatar-placeholder.jpg"}
 							alt={member.name}
 							isFill
-							className="object-cover object-center"
+							className={cn("object-cover", getImagePositionClass(member.position))}
 						/>
 					</div>
 				</div>
@@ -220,6 +224,14 @@ export const MeetTheTeam2 = ({ members }: MeetTheTeamProps) => {
 			</div>
 		</Container>
 	)
+}
+
+function getImagePositionClass(position: string | undefined) {
+	if (position === "top") return "object-top"
+	if (position === "center") return "object-center"
+	if (position === "bottom") return "object-bottom"
+
+	return "object-center"
 }
 
 export default MeetTheTeam
