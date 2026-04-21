@@ -41,7 +41,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 	return (
 		<div className={cn("pt-8", index !== 0 && "border-t border-[#E0DDD9] ")}>
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-				<div className="md:col-span-3">
+				<div className="md:col-span-4">
 					<div className="relative w-full h-[320px] rounded-xl overflow-hidden">
 						<Image
 							src={member.image?.url || "/images/avatar-placeholder.jpg"}
@@ -52,7 +52,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 					</div>
 				</div>
 
-				<div className="md:col-span-9 flex flex-col justify-between gap-4">
+				<div className="md:col-span-8 flex flex-col justify-between gap-4">
 					<div>
 						<div className="flex items-center gap-3 mb-1">
 							<h3 className="font-secondary text-2xl md:text-3xl text-[#151515]">{member.name}</h3>
