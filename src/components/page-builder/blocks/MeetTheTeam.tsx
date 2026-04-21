@@ -46,7 +46,7 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 		<div className={cn("pt-8", index !== 0 && "border-t border-[#E0DDD9] ")}>
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
 				<div className="md:col-span-4">
-					<div className="relative w-full h-[320px] rounded-xl overflow-hidden">
+					<div className="relative w-full aspect-square rounded-xl overflow-hidden">
 						{member.mobile_image && (
 							<Image
 								src={member.mobile_image.url}
