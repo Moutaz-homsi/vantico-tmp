@@ -47,11 +47,23 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
 				<div className="md:col-span-4">
 					<div className="relative w-full h-[320px] rounded-xl overflow-hidden">
+						{member.mobile_image && (
+							<Image
+								src={member.mobile_image.url}
+								alt={member.name}
+								isFill
+								className={cn("object-cover md:hidden", getImagePositionClass(member.position))}
+							/>
+						)}
 						<Image
 							src={member.image?.url || "/images/avatar-placeholder.jpg"}
 							alt={member.name}
 							isFill
-							className={cn("object-cover", getImagePositionClass(member.position))}
+							className={cn(
+								"object-cover",
+								getImagePositionClass(member.position),
+								member.mobile_image && "hidden md:block"
+							)}
 						/>
 					</div>
 				</div>
