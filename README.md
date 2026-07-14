@@ -5,7 +5,7 @@ Nodejs version: 20
 ```bash 
 cp .env.example .env
 ```
-
+.
 ## scripts
 First, run the development server:
 ```bash
