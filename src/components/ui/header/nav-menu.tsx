@@ -21,7 +21,7 @@ const menuItems: MenuItem[] = [
 		submenu: [
 			// overview
 			{ label: "Overview", href: "/about" },
-			{ label: "Leadership Team", href: "/leadership-team" },
+			// { label: "Leadership Team", href: "/leadership-team" },
 			{ label: "Our Team", href: "/our-team" }
 			// { label: "Contact", href: "/contact" }
 		]
