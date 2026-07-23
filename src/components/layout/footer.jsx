@@ -63,7 +63,7 @@ export default function Footer({ options }) {
 									<a href="#" aria-label="Twitter" className="text-neutral-300 hover:text-white transition-colors">
 										<X size={20} />
 									</a>
-									<a href="#" aria-label="LinkedIn" className="text-neutral-300 hover:text-white transition-colors">
+									<a href="https://www.linkedin.com/company/vantico-investments" aria-label="LinkedIn" className="text-neutral-300 hover:text-white transition-colors">
 										<Linkedin size={20} />
 									</a>
 									<a href="#" aria-label="YouTube" className="text-neutral-300 hover:text-white transition-colors">
@@ -73,13 +73,13 @@ export default function Footer({ options }) {
 							</div>
 
 							<div className="flex gap-x-8 flex-wrap gap-y-5">
-								<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
+								<a href="/privacy-policy-t-c" className="text-sm text-neutral-300 hover:text-white transition-colors">
 									Privacy Policy
 								</a>
-								<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
+								<a href="/privacy-policy-t-c" className="text-sm text-neutral-300 hover:text-white transition-colors">
 									Terms and Conditions
 								</a>
-								<a href="#" className="text-sm text-neutral-300 hover:text-white transition-colors">
+								<a href="/privacy-policy-t-c" className="text-sm text-neutral-300 hover:text-white transition-colors">
 									Security
 								</a>
 							</div>
