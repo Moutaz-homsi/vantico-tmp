@@ -46,6 +46,10 @@ const menuItems: MenuItem[] = [
 		label: "News & Insights",
 		href: "/vantico-lab"
 	},
+	{
+		label: "Contact",
+		href: "/contact"
+	},
 	// {
 	// 	label: "Vantico Lab",
 	// 	submenu: [
