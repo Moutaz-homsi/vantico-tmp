@@ -49,21 +49,21 @@ const items = [
 		title: "Real Estate Excellence",
 		content:
 			"High-demand, income-generating commercial assets dental-anchored centers, healthcare plazas, and mixed-use developments in high-growth markets.",
-		image: "https://vantico-backend.webotak.com/uploads/DJI_20250520115848_0037_D_54cfa578d8.jpg",
+		image: "/images/home/DJI_20250520115848_0037_D_54cfa578d8.jpg",
 		link: "/investment-focus#real-estate"
 	},
 	{
 		title: "Healthcare Innovation",
 		content:
 			"Scaling founder-led healthcare businesses with capital, strategy, and operational expertise to deliver better care and long-term value.",
-		image: "https://vantico-backend.webotak.com/uploads/IMG_5240_41b6eaf9b3.jpg",
+		image: "/images/home/IMG_5240_41b6eaf9b3.jpg",
 		link: "/investment-focus#healthcare"
 	},
 	{
 		title: "Private Equity Impact",
 		content:
 			"Transformative growth with disciplined risk. Selective co-investments with visionary operators for sustainable growth.",
-		image: "https://vantico-backend.webotak.com/uploads/DJI_20250521095954_0158_D_5b3ca604b0.jpg",
+		image: "/images/home/DJI_20250521095954_0158_D_5b3ca604b0.jpg",
 		link: "/investment-focus#private-equity"
 	}
 ]

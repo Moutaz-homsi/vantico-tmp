@@ -5,7 +5,7 @@ import { Container } from "@/components/layout"
 import Calendly from "@/components/calendly"
 
 const backgroundImage = {
-	url: "https://vantico-backend.webotak.com/uploads/DJI_20250520134827_0065_D_ed6af30e6d.jpg",
+	url: "/images/home/DJI_20250520134827_0065_D_ed6af30e6d.jpg",
 	width: 1920,
 	height: 1080
 }
@@ -27,7 +27,7 @@ export default function ConsultationSection({ calendlyUrl }) {
 			<div
 				className="
 					w-full min-h-80 mx-auto md:py-20 lg:py-[7.5rem]
-					bg-none md:bg-[url('https://vantico-backend.webotak.com/uploads/DJI_20250520134827_0065_D_ed6af30e6d.jpg')]
+					bg-none md:bg-[url('/images/home/DJI_20250520134827_0065_D_ed6af30e6d.jpg')]
 					bg-no-repeat bg-cover bg-center bg-fixed relative
 				"
 			>

@@ -7,7 +7,9 @@ import { devLog, inDevelopment } from "@/utils/dev-utils"
  * the server URL can be overridden separately.
  */
 export function getCmsUrl(): string {
-	const serverUrl = process.env.CMS_URL || process.env.NEXT_PUBLIC_CMS_URL || "http://vantico.local"
+	// The fallback is the local wp-up.sh install; it only applies when neither
+	// variable is set, which on a deployed site means someone forgot one.
+	const serverUrl = process.env.CMS_URL || process.env.NEXT_PUBLIC_CMS_URL || "http://localhost:8080"
 	const clientUrl = process.env.NEXT_PUBLIC_CMS_URL || serverUrl
 
 	return (typeof window === "undefined" ? serverUrl : clientUrl).replace(/\/$/, "")
