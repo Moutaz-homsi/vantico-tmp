@@ -1,16 +1,14 @@
-import fetchData from "@/utils/api"
+import { getOptions, getPageBySlug } from "@/lib/cms"
 import Layout, { Container } from "@/components/layout"
 import PageBuilder from "@/components/page-builder"
 
 export default async function Project() {
-	const [response, options] = await Promise.all([
-		fetchData({ route: `pages/slug/projects` }),
-		fetchData({ route: "option" })
-	])
+	const [page, options] = await Promise.all([getPageBySlug("projects"), getOptions()])
+
 	return (
-		<Layout options={options?.data}>
+		<Layout options={options}>
 			<Container fluid noGutters>
-				<PageBuilder data={response?.data} />
+				<PageBuilder data={page} />
 			</Container>
 		</Layout>
 	)

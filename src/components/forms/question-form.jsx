@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import { Button, Input } from "../ui"
-import fetchData from "@/utils/api"
+import { submitQuestion } from "@/lib/cms"
 import useForm from "@/hooks/use-form"
 import { toast } from "react-toastify"
 import { useModal } from "@/hooks/use-model"
@@ -18,13 +18,9 @@ export default function QuestionForm() {
 		initialValues,
 		onSubmit: async () => {
 			try {
-				await fetchData({
-					route: "questions",
-					method: "POST",
-					body: {
-						data: { ...formData }
-					}
-				})
+				const created = await submitQuestion({ ...formData })
+				if (!created?.id) throw new Error("submission rejected")
+
 				toast.success("Your question has been submitted successfully!")
 				close()
 			} catch (err) {

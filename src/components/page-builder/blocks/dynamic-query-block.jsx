@@ -1,18 +1,22 @@
-import { Typography } from "@/components/ui"
-import React from "react"
-import { NewsItem } from "./news-section"
+import Title from "@/components/ui/title"
+import { NewsCard } from "@/components/ui/news/card"
+import MeetTheTeam from "./MeetTheTeam"
+import PropertyTour from "./PropertyTour"
 
-export default function DynamicQueryBlock({ __component, type, title, description, results = [] }) {
+/**
+ * "Automatic list" block: renders content the CMS selected for it rather than
+ * items an editor picked by hand. WordPress resolves `results` server-side from
+ * the block's `type` and `limit`, so this component only has to render them.
+ */
+export default function DynamicQueryBlock({ type, title, description, results = [] }) {
+	if (results.length === 0) return null
+
 	return (
-		<section>
-			<Typography variant="h2">{title}</Typography>
-			<Typography>{description}</Typography>
-			{renderList(type, results)}
-			{/* <ul>
-				{items.map((item, index) => (
-					<li key={index}>{item}</li>
-				))}
-			</ul> */}
+		<section className="w-full py-10 md:py-20">
+			{title ? <Title text={title} /> : null}
+			{description ? <p className="sub-title mt-4">{description}</p> : null}
+
+			<div className="mt-8 md:mt-12">{renderList(type, results)}</div>
 		</section>
 	)
 }
@@ -20,22 +24,19 @@ export default function DynamicQueryBlock({ __component, type, title, descriptio
 function renderList(type, results) {
 	switch (type) {
 		case "team":
-			return <TeamSection teamMembers={results} />
-		case "review":
-			return <TestimonialSection testimonials={results} />
-		case "project":
-			return (
-				<div className="grid grid-cols-3 gap-4">
-					{results?.length > 0 ? results.map((project, index) => <ProjectItem key={index} {...project} />) : null}
-				</div>
-			)
+			return <MeetTheTeam members={results} />
+
+		case "property":
+			return <PropertyTour properties={results} />
+
 		case "new":
+		default:
 			return (
-				<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-					{results?.length > 0 ? results.map((item, index) => <NewsItem key={index} item={item} />) : null}
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+					{results.map((item) => (
+						<NewsCard key={item.id} item={item} />
+					))}
 				</div>
 			)
-		default:
-			return <Typography>count {results.length}</Typography>
 	}
 }

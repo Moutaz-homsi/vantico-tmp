@@ -75,7 +75,7 @@ export function Item({ item }: { item: Item }) {
 			<Link href={item.link || "#"}>
 				<img
 					// isFill
-					// strapiImage={item.image as unknown as null | undefined}
+					// media={item.image as unknown as null | undefined}
 					src={item.image || "/placeholder.svg"}
 					alt={item.title}
 					className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105 rounded cursor-pointer"

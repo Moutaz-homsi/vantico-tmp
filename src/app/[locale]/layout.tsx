@@ -1,4 +1,4 @@
-import fetchData from "@/utils/api"
+import { getOptions } from "@/lib/cms"
 import type { Metadata } from "next"
 import { AppProvider } from "@/hooks/use-app"
 import { ToastContainer } from "react-toastify"
@@ -21,9 +21,7 @@ export default async function RootLayout({
 	}
 }>) {
 	const { locale } = await params
-	const options = await fetchData({
-		route: "option"
-	})
+	const options = await getOptions()
 
 	return (
 		<html lang={locale}>
@@ -31,7 +29,7 @@ export default async function RootLayout({
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</head>
 			<body>
-				<AppProvider defaultValue={{ options: options?.data }}>
+				<AppProvider defaultValue={{ options }}>
 					<ModalProvider>{children}</ModalProvider>
 				</AppProvider>
 				<ToastContainer />

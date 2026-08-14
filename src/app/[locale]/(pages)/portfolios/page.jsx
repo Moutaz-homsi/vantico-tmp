@@ -1,10 +1,10 @@
-import fetchData from "@/utils/api"
+import { getOptions } from "@/lib/cms"
 import Layout from "@/components/layout"
 
 export default async function PortfoliosPage() {
-	const [options] = await Promise.all([fetchData({ route: "option" })])
+	const options = await getOptions()
 	return (
-		<Layout options={options?.data}>
+		<Layout options={options}>
 			<div>PortfoliosPage</div>
 		</Layout>
 	)

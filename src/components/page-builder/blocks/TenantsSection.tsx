@@ -3,11 +3,18 @@ import { Container } from "@/components/layout"
 import TenantCarousel from "@/components/ui/carousels/tenant-carousel"
 import { cn } from "@/utils"
 
+/**
+ * A tenant row holds media objects directly — TenantCarousel reads `item.url`,
+ * not `item.logo`. The previous `{ name, logo }` shape never matched the CMS
+ * payload; the fetch layer returned `any`, so it never failed to compile.
+ */
 export interface Tenant {
-	name: string
-	logo: string
-	url?: string
+	id?: number
+	url: string
 	alt?: string
+	alternativeText?: string
+	width?: number | null
+	height?: number | null
 }
 
 interface TenantsSectionProps {

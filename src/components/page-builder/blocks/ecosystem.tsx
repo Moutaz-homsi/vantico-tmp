@@ -5,11 +5,16 @@ import LinkButton from "@/components/ui/buttons/link-button"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/utils"
 
+/**
+ * One slide, as CssCarousel actually reads it: `item.image.url`, `item.link`,
+ * `item.apply_mask`. The previous `{ name, logo }` shape never matched the CMS
+ * payload — it went unnoticed because the fetch layer returned `any`.
+ */
 export interface Ecosystem {
-	name: string
-	logo: string
-	url?: string
-	alt?: string
+	id?: number
+	image?: { url: string; alt?: string; alternativeText?: string } | null
+	link?: string | null
+	apply_mask?: boolean | null
 }
 
 interface EcosystemSectionProps {

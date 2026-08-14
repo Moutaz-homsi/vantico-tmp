@@ -1,22 +1,19 @@
-import fetchData from "@/utils/api"
+import { getOptions, getPageBySlug, getPageSlugs } from "@/lib/cms"
 import Layout, { Container } from "@/components/layout"
 import PageBuilder from "@/components/page-builder"
 
 export default async function Page({ params }) {
 	const { slug } = await params
 
-	const [pageResponse, optionsResponse] = await Promise.all([
-		fetchData({ route: `pages/slug/${slug}` }),
-		fetchData({ route: "option" })
-	])
+	const [page, options] = await Promise.all([getPageBySlug(slug), getOptions()])
 
 	// TODO handle not found and server errors
-	if (!pageResponse.data) return "not found"
+	if (!page) return "not found"
 
 	return (
-		<Layout options={optionsResponse?.data}>
+		<Layout options={options}>
 			<Container fluid noGutters className="py-0 md:py-0 lg:py-0">
-				<PageBuilder data={pageResponse.data} />
+				<PageBuilder data={page} />
 			</Container>
 		</Layout>
 	)
@@ -25,9 +22,9 @@ export default async function Page({ params }) {
 // reference: https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 // SSG
 export async function generateStaticParams() {
-	const response = await fetchData({ route: `pages/slugs` })
+	const pages = await getPageSlugs()
 
-	return response.results.map((slug) => ({ slug }))
+	return pages.map(({ slug }) => ({ slug }))
 }
 
 export const revalidate = 60

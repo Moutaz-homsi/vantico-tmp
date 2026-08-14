@@ -1,7 +1,6 @@
-import { stringify } from "qs"
-import fetchData from "@/utils/api"
 import Home from "@/components/pages/home"
 import { notFound } from "next/navigation"
+import { getHomepage, getOptions, getProperties } from "@/lib/cms"
 
 export const revalidate = 60 // Revalidate every hour (ISR)
 
@@ -9,52 +8,27 @@ export async function generateStaticParams() {
 	return [{ locale: "en" }, { locale: "ar" }]
 }
 
-async function getHomePageData(locale: string) {
-	const query = stringify({
-		populate: [
-			"testimonials.avatar",
-			"history.image",
-			"faq",
-			"logos.image",
-			"tenants.first_row_images",
-			"tenants.second_row_images",
-			"tenants.third_row_images",
-			"ecosystem_sliders.first_slider.image",
-			"ecosystem_sliders.second_slider.image",
-			"ecosystem_sliders.third_slider.image"
-		],
-		locale
-	})
+// The Home component renders the philosophy, ecosystem, property tour and
+// tenant sections; it has no news section, so news is not fetched here.
+async function getHomePageData() {
+	const [homeData, properties, options] = await Promise.all([getHomepage(), getProperties(), getOptions()])
 
-	try {
-		const [homeResponse, news, /* team, */ properties, option] = await Promise.all([
-			fetchData({ route: `homepage?${query}` }),
-			fetchData({ route: `news?populate=*&locale=${locale}` }),
-			// fetchData({ route: `teams?populate=*&sort=rank:asc&locale=${locale}` }),
-			fetchData({ route: `properties?populate=*&sort=rank:asc&locale=${locale}` }),
-			fetchData({ route: `option?locale=${locale}` })
-		])
-
-		return {
-			homeData: homeResponse.data,
-			news: news.data,
-			// team: team.data,
-			properties: properties.data,
-			options: option.data
-		}
-	} catch (error) {
-		console.error("Error fetching data:", error)
-		throw error
-	}
+	return { homeData, properties, options }
 }
 
-export default async function HomePage({ params }: { params: { locale: string } }) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
 	const { locale } = await params
 	if (!["en", "ar"].includes(locale)) {
 		notFound()
 	}
 
-	const pageData = await getHomePageData(locale)
+	const { homeData, properties, options } = await getHomePageData()
 
-	return <Home {...pageData} />
+	// The homepage singleton is required; without it the hero and every section
+	// below it would render empty.
+	if (!homeData) {
+		notFound()
+	}
+
+	return <Home homeData={homeData} properties={properties} options={options} />
 }

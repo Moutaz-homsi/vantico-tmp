@@ -1,23 +1,17 @@
-import fetchData from "@/utils/api"
+import { getOptions, getTeams } from "@/lib/cms"
 import MeetTheTeam from "@/components/page-builder/blocks/MeetTheTeam"
 import Layout from "@/components/layout"
 
-export default async function TeamPage({ options }) {
-	const pageData = await getPageData()
+export default async function TeamPage() {
+	const [team, options] = await Promise.all([getTeams(), getOptions()])
+
 	return (
 		<Layout options={options}>
 			<div>
-				<MeetTheTeam members={pageData.team} />
+				<MeetTheTeam members={team} />
 			</div>
 		</Layout>
 	)
 }
 
-const getPageData = async () => {
-	const res = await fetchData({ route: "teams?[populate]=*&sort=rank:asc" })
-	const options = await fetchData({ route: "option" })
-	return {
-		team: res.data || [],
-		options: options.data
-	}
-}
+export const revalidate = 60

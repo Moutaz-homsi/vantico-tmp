@@ -15,7 +15,7 @@ export default function TenantCarousel({ images = [], imgHeight }: { images: any
 									<Image
 										isFill
 										src={item.url}
-										strapiImage={item}
+										media={item}
 										alt={item.alt}
 										className="object-contain pointer-events-none select-none"
 									/>
@@ -31,7 +31,7 @@ export default function TenantCarousel({ images = [], imgHeight }: { images: any
 									<Image
 										isFill
 										src={item.url}
-										strapiImage={item}
+										media={item}
 										alt={item.alt}
 										className="object-contain pointer-events-none select-none"
 									/>

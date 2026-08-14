@@ -45,7 +45,7 @@ function SlideItem({
 							<Image
 								isFill
 								src={item.image.url}
-								strapiImage={item.image as any}
+								media={item.image as any}
 								alt={item.image.alt}
 								className={cn("object-contain pointer-events-none select-none", item?.apply_mask && "brightness-50")}
 							/>
@@ -56,7 +56,7 @@ function SlideItem({
 						<Image
 							isFill
 							src={item.image.url}
-							strapiImage={item.image as any}
+							media={item.image as any}
 							alt={item.image.alt}
 							className={cn("object-contain pointer-events-none select-none", item?.apply_mask && "brightness-50")}
 						/>

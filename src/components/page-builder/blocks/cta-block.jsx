@@ -9,7 +9,7 @@ export default function CtaBlock({ ...props }) {
 
   const ImageComp = (
     <div className="absolute inset-0">
-      <Image src={image?.url || getNotfoundImaUrl()} strapiImage={image} isFill sizes="100vw" className="object-cover h-full" alt={title} />
+      <Image src={image?.url || getNotfoundImaUrl()} media={image} isFill sizes="100vw" className="object-cover h-full" alt={title} />
       <div className="absolute inset-0 bg-gradient-to-r from-black from-[5.74%] via-[#293338]/35 via-100% z-10"></div>
     </div>
   )

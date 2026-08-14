@@ -58,7 +58,7 @@ const Testimonials = ({ testimonials }: { testimonials: Testimonial[] }) => {
 								<div className="h-18 w-18 relative rounded-xs overflow-hidden">
 									<Image
 										isFill
-										strapiImage={testimonial.avatar}
+										media={testimonial.avatar}
 										src={testimonial.avatar?.url}
 										alt={testimonial.author}
 										className="h-full w-full object-cover"

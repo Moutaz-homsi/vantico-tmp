@@ -58,7 +58,7 @@ const PropertyTour = ({ properties }: PropertyTourProps) => {
 											<Image
 												isFill
 												src={property.image?.url}
-												strapiImage={property.image as any}
+												media={property.image as any}
 												alt={property.image?.alt || "Property image"}
 												className="object-cover pointer-events-none select-none rounded"
 											/>

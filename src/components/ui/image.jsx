@@ -1,14 +1,14 @@
-import getStrapiImageLoader, { strapiImageLoader } from "@/utils/image-loader"
+import getMediaLoader, { mediaLoader } from "@/utils/media-loader"
 import NextImage from "next/image"
 
 // TODO : Optimize the image component
 
-const generateSrcSet = (format, src, strapiImage) => {
+const generateSrcSet = (format, src, media) => {
 	const sizes = [300, 400, 600, 800, 1000, 1500, 1920]
 
 	return sizes
 		.map((width) => {
-			const imgSrc = strapiImageLoader({ src, width, imageTypeFormat: format }, strapiImage)
+			const imgSrc = mediaLoader({ src, width, imageTypeFormat: format }, media)
 			return `${imgSrc} ${width}w`
 		})
 		.join(", ")
@@ -29,13 +29,9 @@ export default function Image({
 	loading = "eager",
 	sourceCyaSize = "",
 	fetchPriority = undefined,
-	strapiImage = null
+	media = null
 	// placeholder,
 }) {
-	// we need this when testing with local development uploads, we need to add the base url
-	if (typeof src === "string" && !src.includes("http") && src.startsWith("/upload"))
-		src = process.env.NEXT_PUBLIC_API_URL + src
-
 	// const [loaded, setLoaded] = useState(false)
 
 	// function handleImageLoad() {
@@ -56,8 +52,8 @@ export default function Image({
 		additionalAtts["fetchPriority"] = fetchPriority
 	}
 
-	if (strapiImage) {
-		additionalAtts["loader"] = getStrapiImageLoader(strapiImage)
+	if (media) {
+		additionalAtts["loader"] = getMediaLoader(media)
 	}
 	// if ( placeholder ) {
 	//   additionalAtts['placeholder'] = placeholder
@@ -81,11 +77,11 @@ export default function Image({
 	)
 
 	if (!src?.length) return null
-	if (strapiImage)
+	if (media)
 		return (
 			<picture>
-				<source type="image/avif" srcSet={generateSrcSet("avif", src, strapiImage)} sizes={sizes} />
-				<source type="image/webp" srcSet={generateSrcSet("webp", src, strapiImage)} sizes={sizes} />
+				<source type="image/avif" srcSet={generateSrcSet("avif", src, media)} sizes={sizes} />
+				<source type="image/webp" srcSet={generateSrcSet("webp", src, media)} sizes={sizes} />
 				{ImageElement}
 			</picture>
 		)

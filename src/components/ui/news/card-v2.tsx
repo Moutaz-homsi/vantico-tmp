@@ -9,7 +9,7 @@ export function NewsCard_v2({ item }: { item: INewsItem }) {
 			<Link href={item.external_url ? item.external_url : `/news/${item.slug}`} className="relative w-full h-64">
 				<Image
 					isFill
-					strapiImage={item.image?.url as unknown as null | undefined}
+					media={item.image?.url as unknown as null | undefined}
 					src={item.image?.url || "/placeholder.svg"}
 					alt={item.title}
 					className="object-cover transition-transform duration-500 hover:scale-105 rounded cursor-pointer"

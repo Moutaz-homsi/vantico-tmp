@@ -5,8 +5,7 @@ import ContentBlock from "./blocks/content-block"
 import CarouselBlock from "./blocks/carousel-block"
 import { CtaBlock, DynamicQueryBlock, ListBlock } from "./blocks"
 import MeetTheTeam, { MeetTheTeam2 } from "./blocks/MeetTheTeam"
-import fetchData from "@/utils/api"
-import { stringify } from "qs"
+import { getHomepage } from "@/lib/cms"
 import EcosystemSection from "./blocks/ecosystem"
 import TenantsSection from "./blocks/TenantsSection"
 import NewsBlock from "./blocks/news-block"
@@ -49,19 +48,9 @@ export default function PageBuilder({ data }) {
 						case "pages.css-carousel":
 							async function rendererFunction(ready_components) {
 								if (ready_components) {
-									const query = stringify({
-										populate: [
-											"tenants.first_row_images",
-											"tenants.second_row_images",
-											"tenants.third_row_images",
-											"ecosystem_sliders.first_slider.image",
-											"ecosystem_sliders.second_slider.image",
-											"ecosystem_sliders.third_slider.image"
-										],
-										locale: "en"
-									})
-
-									const homeData = await fetchData({ route: `homepage?${query}` })
+									// The "partners" / "bayers" variants reuse the homepage
+									// carousels rather than carrying their own slides.
+									const homeData = await getHomepage()
 
 									switch (ready_components) {
 										case "partners":
@@ -71,7 +60,7 @@ export default function PageBuilder({ data }) {
 													hide_btn
 													hide_pattern
 													key={rest?.id ? `partners-${rest?.id}` : `partners-${index}`}
-													slides={homeData.data.ecosystem_sliders}
+													slides={homeData?.ecosystem_sliders}
 												/>
 											)
 										case "bayers":
@@ -80,7 +69,7 @@ export default function PageBuilder({ data }) {
 													className="[&_.sub-title]:text-lg [&_.sub-title]:md:text-2xl [&_.sub-title]:font-light"
 													hide_pattern
 													key={rest?.id ? `bayers-${rest?.id}` : `bayers-${index}`}
-													tenants={homeData.data.tenants}
+													tenants={homeData?.tenants}
 												/>
 											)
 
