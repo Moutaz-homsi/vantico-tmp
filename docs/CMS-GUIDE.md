@@ -13,9 +13,10 @@ Developers: see [CMS.md](./CMS.md) for architecture and the REST contract.
 3. [Editing a page](#3-editing-a-page)
 4. [The blocks, with examples](#4-the-blocks-with-examples)
 5. [Every other content type](#5-every-other-content-type)
-6. [Recipes](#6-recipes)
-7. [Rules that apply everywhere](#7-rules-that-apply-everywhere)
-8. [What you cannot change here](#8-what-you-cannot-change-here)
+6. [Showing your changes straight away](#6-showing-your-changes-straight-away)
+7. [Recipes](#7-recipes)
+8. [Rules that apply everywhere](#8-rules-that-apply-everywhere)
+9. [What you cannot change here](#9-what-you-cannot-change-here)
 
 ---
 
@@ -28,6 +29,10 @@ instead.
 **Changes take up to a minute to appear.** The site caches each page for 60
 seconds. If an edit hasn't shown up, wait a moment and refresh. A hard refresh
 (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>) helps.
+
+**Don't want to wait?** *Vantico CMS → Site Options* has a **Refresh the website
+now** button that clears that copy immediately. See
+[Showing your changes straight away](#6-showing-your-changes-straight-away).
 
 **Nothing is saved until you press Update** (or *Publish* on a new item).
 
@@ -100,6 +105,13 @@ Any **Select image** button opens the media library: choose an existing image or
 upload a new one. **Remove** clears it. Upload images at the size you want them
 displayed — the site does not enlarge small images, and very large files slow the
 page down.
+
+Some sections have their image **inside the text** rather than in a Background
+image field — you will see it in the Content editor itself. Click it there to
+select it, then use **Add Media** to swap it, or press Delete to remove it.
+
+The Page screen has no main content box and no Featured image: everything a page
+shows comes from its blocks.
 
 ---
 
@@ -327,11 +339,39 @@ The rest of the homepage — the ecosystem carousels, tenants, property tour, FA
 
 ### Site Options
 
-ROI percentage and the footer video URL. Used across the site.
+ROI percentage and the footer video URL. Used across the site. This screen also
+holds the **Refresh the website now** button, below.
 
 ---
 
-## 6. Recipes
+## 6. Showing your changes straight away
+
+*Vantico CMS → Site Options → **Show my changes on the website now***
+
+The website keeps a copy of each page for up to a minute so it loads quickly.
+That copy is why a change you just saved can take a moment to appear.
+
+**Refresh the website now** throws that copy away, so the very next visitor —
+including you — gets the newest version.
+
+- You never *have* to press it. Changes go live on their own within a minute.
+- Press it when you want to check something immediately, or when a page still
+  looks out of date after a minute has passed.
+- It affects the whole site, not just the page you were editing.
+- Pressing it twice in a row is refused for a few seconds; that is normal and
+  nothing has gone wrong.
+
+**"Could not reach the website"** means the site is down or the address is
+wrong. **"The website rejected the request"** means the key on the two sides no
+longer matches. Both need a developer — nothing you can fix from here, and
+neither affects your saved content.
+
+If the button is missing and you see a yellow "not set up yet" note instead, a
+developer still needs to connect it.
+
+---
+
+## 7. Recipes
 
 **Publish a news article**
 1. News → Add New. 2. Title and body. 3. Set the Featured image. 4. Set the
@@ -367,7 +407,7 @@ press **Add**. 3. Fill it in. 4. Drag it into position. 5. Update.
 
 ---
 
-## 7. Rules that apply everywhere
+## 8. Rules that apply everywhere
 
 - **Order** (under *Page Attributes*) drives every list. Lower numbers first.
   Ties fall back to newest first, so give every item a distinct number.
@@ -381,7 +421,7 @@ press **Add**. 3. Fill it in. 4. Drag it into position. 5. Update.
 
 ---
 
-## 8. What you cannot change here
+## 9. What you cannot change here
 
 These live in the site's code — ask a developer:
 

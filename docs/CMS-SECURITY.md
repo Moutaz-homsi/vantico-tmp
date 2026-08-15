@@ -15,6 +15,7 @@ on vantico.com, so the read endpoints are open on purpose:
 | `GET /wp-json/vantico/v1/*` | Public | Serves the same content the website renders. Putting it behind a token would add key management for no confidentiality gain. |
 | `POST /wp-json/vantico/v1/questions` | Public | The contact form posts from browsers. Protected by honeypot, rate limits and optional Turnstile — see below. |
 | `POST /wp-json/vantico/v1/import/*` | `manage_options` | Migration tooling only. |
+| `POST /api/revalidate` (Next.js) | Shared secret | Clears the site's page cache. Guarded by `x-vantico-secret`, compared in constant time; refuses everything when `REVALIDATE_SECRET` is unset. In wp-admin it additionally needs `edit_posts`, a nonce, and is throttled to one call per 30s. |
 | `/wp-json/wp/v2/*` | Restricted | See below. |
 
 The exposure that matters here is **abuse and scraping, not disclosure** — handle
@@ -119,6 +120,20 @@ Not automatable — someone has to do these:
 6. **Revoke the old Strapi API token** in the Strapi admin — it is still valid
    until you do, regardless of being removed from this repo.
 7. **Point the frontend** at the live CMS via `NEXT_PUBLIC_CMS_URL`.
+8. **Connect the "Refresh the website" button.** Generate a secret, put it in
+   both places, and check the button on *Site Options* reports success:
+   ```bash
+   openssl rand -base64 32
+   # WordPress wp-config.php
+   define( 'VANTICO_FRONTEND_URL', 'https://www.vantico.com' );
+   define( 'VANTICO_REVALIDATE_SECRET', '<the secret>' );
+   # Next.js (Vercel env, all environments)
+   REVALIDATE_SECRET=<the same secret>
+   ```
+   Use a **different secret per environment** — a staging secret that also works
+   on production lets anyone with staging access purge the live cache. Until
+   both sides are set the button shows a "not set up yet" notice and
+   `/api/revalidate` refuses every request.
 8. **Reinstall the plugins live had**, from the inventory above, and re-enter
    their credentials. Reinstalling restores a plugin's code, never its stored
    settings.

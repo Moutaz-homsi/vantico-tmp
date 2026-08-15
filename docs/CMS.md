@@ -72,6 +72,20 @@ Blocks are `vt_block` posts holding `page` and `block_type` meta; nested rows ar
 admin menu and edited inline on the page screen
 (`vantico-cms/includes/page-editor.php`).
 
+`page` has `editor` and `thumbnail` support removed (`includes/admin.php`):
+`GET /pages/slug/{slug}` returns only `id`, `title`, `slug` and `blocks`, so a
+page's `post_content` and featured image are never read. Left enabled they put an
+empty full-height editor and an unused Featured image box above the blocks,
+which read as the place to write the page.
+
+**Images inside rich text.** Strapi emitted `<image src="…">`, which is not a
+real element — browsers alias it to `<img>` while parsing, so the site rendered
+it, but `wp_kses` saw an unknown tag and stripped it: opening such a block and
+pressing Update deleted the image, and the editor showed nothing to click.
+`normalize-content-images.php` rewrote all 7 to `<img>`, and
+`adopt-embedded-images.php` moved the files they pointed at from the old server
+into the media library. Both are idempotent.
+
 **Pages and News need the classic editor screen**, and
 `use_block_editor_for_post_type` in `includes/admin.php` forces it — no Classic
 Editor plugin required. The blocks metabox and ACF's `hide_on_screen`
@@ -126,6 +140,30 @@ WordPress  →  /wp-json/vantico/v1/*  →  src/lib/cms/  →  components
 | `GET /pages/slugs` | `[{ id, slug, title }]` |
 | `GET /pages/slug/{slug}` | `{ id, title, slug, blocks[] }` |
 | `POST /questions` | creates a submission |
+
+### On-demand revalidation
+
+`POST /api/revalidate` — a Next.js route, not a WordPress one. It calls
+`revalidatePath("/", "layout")`, which clears every route under the root layout,
+and is what the **Refresh the website now** button on the Site Options screen
+calls (`vantico-cms/includes/revalidate.php`).
+
+Authenticated with a shared secret in the `x-vantico-secret` header, compared
+with `timingSafeEqual`; the caller is WordPress and has no session here. With
+`REVALIDATE_SECRET` unset the route returns **501 and revalidates nothing**,
+rather than running unguarded. Both sides must agree:
+
+| Side | Where | Name |
+|---|---|---|
+| Next.js | env | `REVALIDATE_SECRET` |
+| WordPress | `wp-config.php` | `VANTICO_REVALIDATE_SECRET` |
+| WordPress | `wp-config.php` | `VANTICO_FRONTEND_URL` (no trailing slash) |
+
+The secret lives in `wp-config.php` rather than an option, so it never travels
+in a `.wpress` export or appears on an admin screen. WordPress throttles to one
+call per 30 seconds and stores the last run in the `vantico_revalidate_last`
+option. Without the constants the button is replaced by a "not set up yet"
+notice, so a missing config is visible rather than silent.
 
 Responses are bare objects and arrays — no Strapi-style `data` envelope.
 
