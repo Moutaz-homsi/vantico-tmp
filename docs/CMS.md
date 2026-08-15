@@ -156,14 +156,23 @@ rather than running unguarded. Both sides must agree:
 | Side | Where | Name |
 |---|---|---|
 | Next.js | env | `REVALIDATE_SECRET` |
-| WordPress | `wp-config.php` | `VANTICO_REVALIDATE_SECRET` |
-| WordPress | `wp-config.php` | `VANTICO_FRONTEND_URL` (no trailing slash) |
+| WordPress | `wp-config.php` **or** Site Options | `VANTICO_REVALIDATE_SECRET` / `vantico_revalidate_secret` |
+| WordPress | `wp-config.php` **or** Site Options | `VANTICO_FRONTEND_URL` / `vantico_frontend_url` (no trailing slash) |
 
-The secret lives in `wp-config.php` rather than an option, so it never travels
-in a `.wpress` export or appears on an admin screen. WordPress throttles to one
-call per 30 seconds and stores the last run in the `vantico_revalidate_last`
-option. Without the constants the button is replaced by a "not set up yet"
-notice, so a missing config is visible rather than silent.
+**Constants win where both are set**, and the settings then render read-only.
+The admin screen exists because editing `wp-config.php` needs SFTP or a hosting
+panel that whoever runs the site may not have; it is restricted to
+`manage_options`, and its *Generate a key* button uses `crypto.getRandomValues`
+so the value is only ever a browser-side 32-byte CSPRNG draw until saved.
+
+A stored secret lives in the database, so it **travels inside `.wpress`
+exports** — which is why `prepare-for-production.sh` deletes it before an export
+rather than shipping one environment's key to another. Prefer the constants
+where server access exists.
+
+WordPress throttles to one call per 30 seconds and stores the last run in
+`vantico_revalidate_last`. Unconfigured, the button is replaced by a "not set up
+yet" notice, so a missing config is visible rather than silent.
 
 Responses are bare objects and arrays — no Strapi-style `data` envelope.
 

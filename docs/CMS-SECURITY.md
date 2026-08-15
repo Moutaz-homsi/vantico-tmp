@@ -101,10 +101,19 @@ It turns off `WP_DEBUG`, `WP_DEBUG_LOG` and `WP_DEBUG_DISPLAY`, sets
 `DISALLOW_FILE_EDIT` and `WP_ENVIRONMENT_TYPE=production`, deletes any
 `debug.log`, revokes application passwords, and regenerates the security salts.
 
-This matters because **All-in-One WP Migration copies wp-config settings and
-user accounts to the destination** — debug logging left on would write a
-publicly fetchable log on production, and the local admin password would become
-the live one.
+**What actually crosses in the archive**, verified by reading a `.wpress` back:
+`database.sql`, `uploads`, `plugins`, `themes`, `index.php`, `package.json`.
+**`wp-config.php` is not in it.** So:
+
+- **User accounts do transfer** — they live in the database. The local admin
+  password becomes the live one.
+- **Application passwords do transfer** — also database rows, which is why the
+  script revokes them.
+- **wp-config constants do not.** `WP_DEBUG`, `DISALLOW_FILE_EDIT`,
+  `WP_ENVIRONMENT_TYPE`, the security salts and the revalidation constants are
+  whatever the live server already has. Running `prepare-for-production.sh` puts
+  the *local* site in a production-safe state; it does not harden the live one.
+  Set those on live directly.
 
 ## After the import lands
 
@@ -120,18 +129,30 @@ Not automatable — someone has to do these:
 6. **Revoke the old Strapi API token** in the Strapi admin — it is still valid
    until you do, regardless of being removed from this repo.
 7. **Point the frontend** at the live CMS via `NEXT_PUBLIC_CMS_URL`.
-8. **Connect the "Refresh the website" button.** Generate a secret, put it in
-   both places, and check the button on *Site Options* reports success:
+8. **Connect the "Refresh the website" button.** Two ways, depending on whether
+   anyone can reach the server's files.
+
+   *With server access* — preferred, because the key stays out of the database
+   and therefore out of every backup and export:
    ```bash
    openssl rand -base64 32
    # WordPress wp-config.php
    define( 'VANTICO_FRONTEND_URL', 'https://www.vantico.com' );
    define( 'VANTICO_REVALIDATE_SECRET', '<the secret>' );
-   # Next.js (Vercel env, all environments)
-   REVALIDATE_SECRET=<the same secret>
    ```
-   Use a **different secret per environment** — a staging secret that also works
-   on production lets anyone with staging access purge the live cache. Until
+
+   *Without it* — *Vantico CMS → Site Options → Settings*, press **Generate a
+   key**, paste the website address, press Update. Administrators only. The key
+   is then stored in the database, so it is included in backups and exports;
+   `prepare-for-production.sh` deletes it before an export for that reason, and
+   the destination needs its own.
+
+   Either way, set the same value on the frontend as `REVALIDATE_SECRET` (Vercel
+   env, all environments) and **redeploy** — env changes do not reach an
+   existing deployment.
+
+   Use a **different secret per environment**: one that works on both staging
+   and production lets anyone with staging access purge the live cache. Until
    both sides are set the button shows a "not set up yet" notice and
    `/api/revalidate` refuses every request.
 8. **Reinstall the plugins live had**, from the inventory above, and re-enter

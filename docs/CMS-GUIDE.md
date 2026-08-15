@@ -366,8 +366,12 @@ wrong. **"The website rejected the request"** means the key on the two sides no
 longer matches. Both need a developer — nothing you can fix from here, and
 neither affects your saved content.
 
-If the button is missing and you see a yellow "not set up yet" note instead, a
-developer still needs to connect it.
+If the button is missing and you see a yellow "not set up yet" note instead, it
+still needs connecting. An administrator can do that on the same screen, under
+**Settings**: press **Generate a key**, fill in the website address, press
+**Update** — then give that key to whoever manages the website, because the
+identical value has to be saved there too. Nothing happens until both sides
+match.
 
 ---
 
